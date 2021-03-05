@@ -11,6 +11,7 @@ export const REGISTER = '@account/register';
 
 
 export function login() {
+  authService.login();
   return async dispatch => {
     dispatch({ type: LOGIN_REQUEST });
   };

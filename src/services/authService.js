@@ -3,6 +3,8 @@ import axios from '../utils/axios';
 
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import {cfaSignIn, cfaSignOut} from 'capacitor-firebase-auth';
+
 
 class AuthService {
   // Configure Firebase.
@@ -12,16 +14,6 @@ class AuthService {
     // ...
   };
 
-  // Configure FirebaseUI.
-  uiConfig = {
-    // Popup signin flow rather than redirect flow.
-    signInFlow: 'popup',
-    signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
-    callbacks: {
-      // Avoid redirects after sign-in.
-      signInSuccessWithAuthResult: () => false
-    }
-  };
 
   firebase = firebase;
 
@@ -62,36 +54,15 @@ class AuthService {
   }
 
   login = () => {
-    this.keycloak
-      .init()
-      .then(authenticated => {
-        if (!authenticated) {
-          this.keycloak.login();
-        }
-      })
-      .catch(function(e) {
-        console.log(e);
-      });
+    cfaSignIn('google.com').subscribe(
+       (user) => {
+        console.log(user);
+       }
+    )
   };
 
-  loginInWithToken = () =>
-    new Promise((resolve, reject) => {
-      axios
-        .get('/api/account/me')
-        .then(response => {
-          if (response.data.user) {
-            resolve(response.data.user);
-          } else {
-            reject(response.data.error);
-          }
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-
   logout = () => {
-    this.firebase.auth().signOut();
+    cfaSignOut().subscribe();
     this.setSession(null);
   };
 
@@ -118,7 +89,6 @@ class AuthService {
     return decoded.exp > currentTime;
   };
 
-  isAuthenticated = () => !!this.keycloak.authenticated;
 }
 
 const authService = new AuthService();
