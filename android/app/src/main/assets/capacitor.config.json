@@ -1,0 +1,24 @@
+{
+  "appId": "app.educult.mobile",
+  "appName": "educult",
+  "bundledWebRuntime": false,
+  "npmClient": "yarn",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    },
+    "CapacitorFirebaseAuth": {
+      "providers": ["google.com"],
+      "languageCode": "en",
+      "nativeAuth": true,
+      "properties": {
+        "google": { }
+      },   
+      "permissions": {
+           "google": ["profile"]
+       }
+    }
+  },
+  "cordova": {}
+}
