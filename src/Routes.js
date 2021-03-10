@@ -3,9 +3,9 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
-import HomePage from "./pages/HomePage";
-import PersonalPage from "./pages/PersonalPage";
-import WishlistPage from "./pages/WishlistPage";
+import HomePage from "./pages/HomeView";
+import CoursePage from "./pages/CoursePageViewWithVideo";
+import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage";
 
 const renderRoutes = () => (
@@ -30,7 +30,7 @@ const renderRoutes = () => (
       render={(props) => (
         <>
           <MainLayout>
-            <PersonalPage/>
+            <CoursePage/>
           </MainLayout>
         </>
       )}
