@@ -13,10 +13,10 @@ import {
   CircularProgress,
   makeStyles
 } from '@material-ui/core';
-import { dismissLogin, login, logout, setUserData } from '../../../actions/accountActions';
-import { cfaSignIn } from 'capacitor-firebase-auth';
-import authService from '../../../services/authService';
-import { useSnackbar } from 'notistack';
+import { dismissLogin, login, logout } from '../../../actions/accountActions';
+// import { cfaSignIn } from 'capacitor-firebase-auth';
+// import authService from '../../../services/authService';
+// import { useSnackbar } from 'notistack';
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -29,7 +29,7 @@ function Account() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const dispatch = useDispatch();
   const classes = useStyles();
-  const { enqueueSnackbar } = useSnackbar();
+  // const { enqueueSnackbar } = useSnackbar();
 
   const handleLogout = () => {
     handleCloseMenu();
