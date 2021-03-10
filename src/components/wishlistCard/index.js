@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, Container, IconButton, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import ButtonComponent from '../Button/ButtonComponent';
+import {DeleteOutline} from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,7 +16,6 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     color: '#fff',
-    backgroundColor: '#000',
     padding: '4px',
     fontSize: '14px'
   },
@@ -46,6 +46,7 @@ const WishlistCard = () => {
         subheader="90hrs of learning with Anuj Garg"
         action={
           <IconButton className={classes.icon}>
+            <DeleteOutline />
             {/* <IonIcon src={trashOutline} /> */}
           </IconButton>
         }
@@ -63,7 +64,7 @@ const WishlistCard = () => {
           Classes Starting <span style={{ color: '#a60000' }}>16th March Onwards</span>
         </Typography>
         <Typography variant="h3" color="secondary" style={{margin: '4px 0px 6px'}}>
-          ₹ 8094
+          ₹ 94
         </Typography>
         <ButtonComponent
           title="Checkout Now"

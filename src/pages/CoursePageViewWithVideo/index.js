@@ -30,7 +30,7 @@ export default function CoursePageViewWithVideo() {
 
   return (
     <div>
-      <Player src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4">
+      <Player src="https://firebasestorage.googleapis.com/v0/b/codeforcauseorg.appspot.com/o/course%2Fzoom_0.mp4?alt=media&token=01f3ed1e-8d39-4fde-b945-f3bfe677b6df">
         <ControlBar autoHide={true} className="my-class" />
       </Player>
       <Box mt={2} ml={2}>
