@@ -1,5 +1,6 @@
 import { Card, CardHeader, Container, IconButton, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
+import {PlayCircleFilledOutlined} from '@material-ui/icons'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -15,7 +16,6 @@ const useStyles = makeStyles(theme => ({
   },
   icon: {
     color: '#fff',
-    backgroundColor: '#000',
     padding: '4px',
   },
   title: {
@@ -38,6 +38,7 @@ const CourseCard = () => {
         title={<Typography variant="h3">Fullstack Web Development Course <br /> by code for cause</Typography>}
         action={
           <IconButton className={classes.icon}>
+            <PlayCircleFilledOutlined />
             {/* <IonIcon src={playCircleOutline} /> */}
           </IconButton>
         }
