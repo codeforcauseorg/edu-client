@@ -106,7 +106,11 @@ const ScheduleDetails = ({
               </Typography>
             </Grid>
             <Grid item xs={6} sm={4}>
-              <Typography className={classes.duration} align="right">
+              <Typography
+                className={classes.duration}
+                align="right"
+                component={"div"}
+              >
                 <Box fontStyle="italic">
                   Duration <b>{duration}</b>
                 </Box>
