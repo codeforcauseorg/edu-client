@@ -7,7 +7,7 @@ import { useHistory, useLocation } from 'react-router';
 
 const useStyles = makeStyles({
   root: {
-    position: "absolute",
+    position: "fixed",
     left: 0,
     right: 0,
     bottom: 0
