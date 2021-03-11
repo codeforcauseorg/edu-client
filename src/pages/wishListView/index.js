@@ -1,18 +1,20 @@
-import { List, ListItem, makeStyles } from '@material-ui/core'
 import React from 'react'
 import WishlistCard from '../../components/wishlistCard'
+import { List, ListItem, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-  root: {},
+  ul: {
+    padding: "0 0 3rem 0"
+  },
   li: {
-    padding: '14px 0px'
+    padding: '1rem 0px'
   }
 }))
 
 const WishListView = () => {
   const classes = useStyles();
 
-  return <List>
+  return <List className={classes.ul}>
     {[1, 2, 3].map((item, index) => {
       return <ListItem key={index} className={classes.li} >
         <WishlistCard />
@@ -22,4 +24,4 @@ const WishListView = () => {
   </List >
 }
 
-export default WishListView 
+export default WishListView;
