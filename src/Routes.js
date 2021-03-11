@@ -1,6 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import SwipeableRoutes from "react-swipeable-routes";
 
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomeView";
@@ -9,55 +10,51 @@ import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage";
 
 const renderRoutes = () => (
-  <Switch>
-    <Route path="/" exact>
-      <Redirect to="/home" />
-    </Route>
-    <Route
-      path="/home"
-      exact
-      render={(props) => (
-        <>
-          <MainLayout>
-            <HomePage />
-          </MainLayout>
-        </>
-      )}
-    />
-    <Route
-      path="/personal"
-      exact
-      render={(props) => (
-        <>
-          <MainLayout>
-            <CoursePage/>
-          </MainLayout>
-        </>
-      )}
-    />
-    <Route
-      path="/wishlist"
-      exact
-      render={(props) => (
-        <>
-          <MainLayout>
-            <WishlistPage/>
-          </MainLayout>
-        </>
-      )}
-    />
-    <Route
-      path="/profile"
-      exact
-      render={(props) => (
-        <>
-          <MainLayout>
-            <ProfilePage />
-          </MainLayout>
-        </>
-      )}
-    />
-  </Switch>
+  <React.Fragment>
+    <Switch>
+      <Route path="/" exact>
+          <Redirect to="/home" />
+        </Route>
+      <SwipeableRoutes replace containerStyle={{"height": "100%"}}>
+        <Route
+          path="/home"
+          exact
+          render={(props) => (
+            <>
+                <HomePage />
+            </>
+          )}
+        />
+        <Route
+          path="/personal"
+          exact
+          render={(props) => (
+            <>
+                <CoursePage/>
+            </>
+          )}
+        />
+        <Route
+          path="/wishlist"
+          exact
+          render={(props) => (
+            <>
+                <WishlistPage/>
+            </>
+          )}
+        />
+        <Route
+          path="/profile"
+          exact
+          render={(props) => (
+            <>
+                <ProfilePage />
+            </>
+          )}
+        />
+      </SwipeableRoutes>
+    </Switch>
+  </React.Fragment>
 );
 
 function Routes() {
