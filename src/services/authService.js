@@ -57,6 +57,7 @@ class AuthService {
     cfaSignIn('google.com').subscribe(
        (user) => {
         console.log(user);
+        localStorage.setItem('loggedin','loggedintoken'); //For test loggedin is stored 
        }
     )
   };
