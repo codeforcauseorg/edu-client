@@ -70,7 +70,7 @@ git push -u origin <your_branch_name>
 
 **14.** Click on `Create Pull Request`.
 
-# How To Run the Project
+**Run with yarn
 
 ***1.*** Open Project Folder</br>
 
@@ -78,12 +78,16 @@ git push -u origin <your_branch_name>
 ```
 yarn install
 ```
-***3.*** To run development server.This will run the development server in the http://localhost:3000
+
+***3.*** If you face any ```ERR regarding ESOCKETTIMEOUT```
+run: ```yarn install --network-timeout 500000```
+
+***4.*** To run development server.This will run the development server in the http://localhost:3000
 ```
 yarn start
 ```
 
-## npm package manager?
+**Run with npm
 
 <details><summary>Click me</summary>
 <p>
