@@ -89,7 +89,7 @@ yarn start
 
 **Run with npm
 
-<details><summary>Click me</summary>
+<details><summary>Click Here</summary>
 <p>
 
 #### open project folder and
