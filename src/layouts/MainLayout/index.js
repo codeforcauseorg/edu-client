@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core';
 // import TopBar from './TopBar';
-import BottomNav from './BoottomNav';
+import BottomNav from './BottomNav';
 
 const useStyles = makeStyles(theme => ({
   root: {
