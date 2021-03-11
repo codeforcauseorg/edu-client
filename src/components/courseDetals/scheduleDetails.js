@@ -4,7 +4,6 @@ import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
-// import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { Divider, Grid, Box } from "@material-ui/core";
 import ArrowDropDownCircleOutlinedIcon from "@material-ui/icons/ArrowDropDownCircleOutlined";
 
@@ -29,7 +28,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Accordion = withStyles({
   root: {
-    // border: "1px solid rgba(0, 0, 0, .125)",
     boxShadow: "none",
     "&:not(:last-child)": {
       borderBottom: 0,
