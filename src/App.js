@@ -22,7 +22,6 @@ const useStyles = makeStyles(() =>
       body: {
         height: '100%',
         width: '100%',
-        overflow: 'hidden',
         color: '#000'
       },
       '#root': {
