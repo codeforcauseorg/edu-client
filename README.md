@@ -12,16 +12,16 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ## 📌 Prerequisites
 
-### 🚩 1. System requirement :
+### 💻 1. System requirement :
 1. Any system with basic configuration.
 2. Operating System : Any (Windows / Linux / Mac).
 
-### 🚩 2. Software requirement :
+### 💿 2. Software requirement :
 1. Updated browser
 2. Node js installed (If not download it [here](https://nodejs.org/en/download/)).
 3. Any text editor of your choice.
 
-### 🚩 3. Skill set :
+### ⚡ 3. Skill set :
 1. Knowledge of git & github.
 
 ## 📌 Setting up Locale Environment
