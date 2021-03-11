@@ -36,4 +36,5 @@ Example how to mark a checkbox:-
 - [ ] My change requires a change to the documentation.
 - [ ] I have updated the documentation accordingly.
 - [ ] All new and existing tests passed.
-- [ ] The title of my pull request is a short description of the requested changes.
+- [ ] The title of my pull request is a short description of the requested change    s.
+  
