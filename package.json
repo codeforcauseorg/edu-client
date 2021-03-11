@@ -2,6 +2,7 @@
   "name": "educult",
   "version": "0.1.0",
   "private": true,
+  "licence": "MIT",
   "dependencies": {
     "@capacitor/android": "^2.4.7",
     "@capacitor/cli": "^2.4.7",
