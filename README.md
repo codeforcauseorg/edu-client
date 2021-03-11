@@ -96,7 +96,7 @@ npm install
 ```
 ***2.*** To run development server.This will run the development server in the http://localhost:3000
 ```
-yarn start
+npm start
 ```
 
 </p>
