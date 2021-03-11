@@ -2,29 +2,84 @@
 
 Product focuses on 100% education as well as upskilling developing countries and rural areas. 
 
-## Available Scripts
+# How To Run the Project
 
-In the project directory, you can run:
+***1.*** Open Project Folder</br>
 
-### `yarn start`
+***2.*** To install all dependencies run
+```
+yarn install
+```
+***3.*** To run development server.This will run the development server in the http://localhost:3000
+```
+yarn start
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# To start contributing, follow the below guidelines: 
 
-### `yarn test`
+**1.**  Fork [this](https://github.com/codeforcauseorg/edu-client.git) repository.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**2.**  Clone your forked copy of the project.
 
-### `yarn build`
+```
+git clone -b <branch_name> https://github.com/<your_user_name>/edu-client.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**3.** Navigate to the project directory :file_folder: .
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+cd edu-client
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**4.** Add a reference(remote) to the original repository.
+
+```
+git remote add upstream https://github.com/codeforcauseorg/edu-client.git 
+```
+
+**5.** Check the remotes for this repository.
+
+```
+git remote -v
+```
+
+**6.** Always take a pull from the upstream repository to your master branch to keep it at par with the main project(updated repository).
+
+```
+git pull upstream master
+```
+
+**7.** Create a new branch.
+
+```
+git checkout -b <your_branch_name>
+```
+
+**8.** Perform your desired changes to the code base.
+
+**9.** Track your changes:heavy_check_mark: .
+
+```
+git add . 
+```
+
+**10.** Commit your changes .
+
+```
+git commit -m "Relevant message"
+```
+
+**11.** Push the committed changes in your feature branch to your remote repo.
+
+```
+git push -u origin <your_branch_name>
+```
+
+**12.** To create a pull request, click on `compare and pull requests`. Please ensure you compare your feature branch to the desired branch of the repo you are supposed to make a PR to.
+
+
+**13.** Add appropriate title and description to your pull request explaining your changes and efforts done.
+
+
+**14.** Click on `Create Pull Request`.
