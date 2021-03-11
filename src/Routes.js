@@ -7,6 +7,7 @@ import HomePage from "./pages/HomeView";
 import CoursePage from "./pages/CoursePageViewWithVideo";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage";
+import CourseDetail from "./pages/CourseDetail";
 
 const renderRoutes = () => (
   <Switch>
@@ -53,6 +54,17 @@ const renderRoutes = () => (
         <>
           <MainLayout>
             <ProfilePage />
+          </MainLayout>
+        </>
+      )}
+    />
+    <Route
+      path="/course/:id"
+      exact
+      render={(props) => (
+        <>
+          <MainLayout>
+            <CourseDetail />
           </MainLayout>
         </>
       )}
