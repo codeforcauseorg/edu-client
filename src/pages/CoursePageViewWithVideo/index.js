@@ -5,7 +5,7 @@ import React from 'react';
 // import { IonIcon } from '@ionic/react';
 // import { heartOutline, playCircleOutline } from 'ionicons/icons'
 
-const { Player, ControlBar } = require('video-react')
+import { Player, ControlBar } from 'video-react';
 
 const useStyles = makeStyles(theme => ({
   tabroot: {
