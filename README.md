@@ -6,11 +6,11 @@
     Product focuses on 100% education as well as upskilling developing countries and rural areas. 
 </p>
 
-## Note to new contributors
+## ❤️ Note to new contributors 
 
 Thank you for considering and taking the time to contribute! Before contributing kindly read and follow [Code of conduct](CODE_OF_CONDUCT.md). To help new developers/contributors there are set of instructions added in Contributing.md. Go ahead and read it [here](CONTRIBUTING.md). Which describes the intial stages for working on this project. Also refer the [MIT License](LICENSE.txt).
 
-## Prerequisites
+## 📌 Prerequisites
 
 ### 1. System requirement :
 1. Any system with basic configuration.
@@ -24,7 +24,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 ### 3. Skill set :
 1. Knowledge of git & github.
 
-## Setting up Locale Environment
+## 📌 Setting up Locale Environment
 
 ### Forking repository :
 
@@ -72,7 +72,7 @@ Whenever you want to contribute to any project. It is best practice that you sho
 4. But still if you start editing the edits will go to the main branch. To change the path of the edits type in `git checkout <your-branch-name>`
 5. Now you are ready to do the desired changes.
 
-## Setting up project using `npm` :
+## 📌 Setting up project using `npm` :
 
 1. Open this clonned folder in text editor of your choice
 2. If you want to use the project using `npm` then that comes along side when you download and install node js
@@ -101,7 +101,7 @@ Your app is ready to be deployed!
 Skip the yarn part and proceed to the Pushing the changes section
 ```
 
-## Setting up project using `yarn`
+## 📌 Setting up project using `yarn`
 
 1. Open this clonned folder in text editor of your choice
 2. If you want to use the project using `yarn` then you can do either of the following
@@ -131,7 +131,7 @@ Skip the yarn part and proceed to the Pushing the changes section
 Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Pushing your changes
+## 📌 Pushing your changes
 
 Now you have made the changes , tested them, and built them. so now its time to push them.
 1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
@@ -139,7 +139,7 @@ Now you have made the changes , tested them, and built them. so now its time to 
 3. Commit the changes by `git commit -m "<message-describing-your-change>"` and hit enter.
 4. Now push your branch to your fork by `git push origin <your-branch-name>` and hit enter.
 
-## Making a pull request
+## 📌 Making a pull request
 
 By this time you can see a message on your github fork as `your fork is ahead of codeforcause:master by <number> of commits` and also you can see a button called `Compare and pull request`.
 1. Click on `Compare and pull request` button.
