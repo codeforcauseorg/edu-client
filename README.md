@@ -2,20 +2,6 @@
 
 Product focuses on 100% education as well as upskilling developing countries and rural areas. 
 
-# How To Run the Project
-
-***1.*** Open Project Folder</br>
-
-***2.*** To install all dependencies run
-```
-yarn install
-```
-***3.*** To run development server.This will run the development server in the http://localhost:3000
-```
-yarn start
-```
-
-
 # To start contributing, follow the below guidelines: 
 
 **1.**  Fork [this](https://github.com/codeforcauseorg/edu-client.git) repository.
@@ -23,7 +9,7 @@ yarn start
 **2.**  Clone your forked copy of the project.
 
 ```
-git clone -b <branch_name> https://github.com/<your_user_name>/edu-client.git
+git clone https://github.com/<your_user_name>/edu-client.git
 ```
 
 **3.** Navigate to the project directory :file_folder: .
@@ -83,3 +69,38 @@ git push -u origin <your_branch_name>
 
 
 **14.** Click on `Create Pull Request`.
+
+# How To Run the Project
+
+***1.*** Open Project Folder</br>
+
+***2.*** To install all dependencies run
+```
+yarn install
+```
+***3.*** To run development server.This will run the development server in the http://localhost:3000
+```
+yarn start
+```
+
+## npm package manager?
+
+<details><summary>Click me</summary>
+<p>
+
+#### open project folder and
+
+***1.*** To install all dependencies run
+```
+npm install
+```
+***2.*** To run development server.This will run the development server in the http://localhost:3000
+```
+yarn start
+```
+
+</p>
+</details>
+
+
+
