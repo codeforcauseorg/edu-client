@@ -12,26 +12,26 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ## 📌 Prerequisites
 
-### 1. System requirement :
+### 🚩 1. System requirement :
 1. Any system with basic configuration.
 2. Operating System : Any (Windows / Linux / Mac).
 
-### 2. Software requirement :
+### 🚩 2. Software requirement :
 1. Updated browser
 2. Node js installed (If not download it [here](https://nodejs.org/en/download/)).
 3. Any text editor of your choice.
 
-### 3. Skill set :
+### 🚩 3. Skill set :
 1. Knowledge of git & github.
 
 ## 📌 Setting up Locale Environment
 
-### Forking repository :
+### 🚩 Forking repository :
 
 1. Fistly you have to make your own copy of project. For that you have to fork the repository. You can find the fork button on the top-right side of the browser window. 
 2. Kindly wait till it gets forked.
 3. After that copy will look like `<your-user-name>/edu-client` forked from `codeforcause/edu-client`.
-### Clonning repository :
+### 🚩 Clonning repository :
 
 1. Now you have your own copy of project. Here you have to start your work.
 2. Go to desired location on your computer where you want to set-up the project.
@@ -39,7 +39,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 4. Type the command `git clone <your-fork-url>.git` and hit enter.
 5. Wait for few seconds till the project gets copied
 
-### Setting up remote :
+### 🚩 Setting up remote :
 
 1. Now you have to set up remote repositories
 2. Type the command `git remote -v` this will list the remote connection to your repo.
@@ -62,7 +62,7 @@ upstream        https://github.com/<your-user-name>/edu-client.git (push)
 
 ```
 
-### Creating a branch :
+### 🚩 Creating a branch :
 
 Whenever you want to contribute to any project. It is best practice that you should create a branch and push the branch as PR rather than directly pushing main/master branch
 
@@ -77,19 +77,19 @@ Whenever you want to contribute to any project. It is best practice that you sho
 1. Open this clonned folder in text editor of your choice
 2. If you want to use the project using `npm` then that comes along side when you download and install node js
 
-### Running in Deployment mode :
+### 🚩 Running in Deployment mode :
 
 1. Open the terminal and type in `npm start`
 2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 3. The page will reload if you make edits.
 4. You will also see any lint errors in the console.
 
-### Testing changes :
+### 🚩 Testing changes :
 
 1. After changes type `npm test`. This launches the test runner in the interactive watch mode.
 2. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information. 
 
-### Building project :
+### 🚩 Building project :
 1. Run the command `npm run build`
 2. Builds the app for production to the `build` folder.\
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -111,19 +111,19 @@ Skip the yarn part and proceed to the Pushing the changes section
     4. If you already have `scoop` installed you can simply type in `scoop install yarn` 
 3. To check if the yarn has installed correctly type in `yarn --version` this should show you the current version of yarn.
 
-### Running in Deployment mode :
+### 🚩 Running in Deployment mode :
 
 1. Open the terminal and type in `yarn start`
 2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 3. The page will reload if you make edits.
 4. You will also see any lint errors in the console.
 
-### Testing changes :
+### 🚩 Testing changes :
 
 1. After changes type `yarn test`. This launches the test runner in the interactive watch mode.
 2. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information. 
 
-### Building project :
+### 🚩 Building project :
 1. Run the command `yarn build`
 2. Builds the app for production to the `build` folder.\
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
