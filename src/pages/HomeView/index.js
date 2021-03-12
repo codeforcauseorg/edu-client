@@ -1,6 +1,6 @@
-import React from 'react'
-import Hero from './Hero'
-import NonHero from './NonHero'
+import React from "react";
+import Hero from "./Hero";
+import NonHero from "./NonHero";
 
 export default function HomeView() {
   return (
@@ -8,5 +8,5 @@ export default function HomeView() {
       <Hero />
       <NonHero />
     </div>
-  )
+  );
 }

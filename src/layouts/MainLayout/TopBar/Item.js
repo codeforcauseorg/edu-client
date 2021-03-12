@@ -1,5 +1,5 @@
-import React from 'react';
-import HeaderItem from './HeaderItems';
+import React from "react";
+import HeaderItem from "./HeaderItems";
 
 // eslint-disable-next-line react/prop-types
 const Item = ({ title, link, active, ...props }) => {

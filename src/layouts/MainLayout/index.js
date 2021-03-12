@@ -1,33 +1,33 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core';
+import React from "react";
+import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core";
 // import TopBar from './TopBar';
-import BottomNav from './BottomNav';
+import BottomNav from "./BottomNav";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
-    display: 'flex',
-    height: '100%',
-    overflow: 'hidden',
-    width: '100%'
+    display: "flex",
+    height: "100%",
+    overflow: "hidden",
+    width: "100%",
   },
   wrapper: {
-    display: 'flex',
-    flex: '1 1 auto',
-    overflow: 'hidden',
-    paddingTop: 64
+    display: "flex",
+    flex: "1 1 auto",
+    overflow: "hidden",
+    paddingTop: 64,
   },
   contentContainer: {
-    display: 'flex',
-    flex: '1 1 auto',
-    overflow: 'hidden'
+    display: "flex",
+    flex: "1 1 auto",
+    overflow: "hidden",
   },
   content: {
-    flex: '1 1 auto',
-    height: '100%',
-    overflow: 'auto'
-  }
+    flex: "1 1 auto",
+    height: "100%",
+    overflow: "auto",
+  },
 }));
 
 function MainLayout({ children }) {
@@ -41,13 +41,13 @@ function MainLayout({ children }) {
           <div className={classes.content}>{children}</div>
         </div>
       </div>
-      <BottomNav/>
+      <BottomNav />
     </div>
   );
 }
 
 MainLayout.propTypes = {
-  children: PropTypes.any
+  children: PropTypes.any,
 };
 
 export default MainLayout;
