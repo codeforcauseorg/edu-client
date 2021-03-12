@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ButtonComponent({ className, title, icon = null, ...rest }) {
+function ButtonComponent({ className, title, icon = "", ...rest }) {
   const classes = useStyles();
   return (
     <Button className={clsx(classes.btn, className)} {...rest}>
-      {icon ? icon : ""}
+      {icon}
       <Typography variant="h3">{title}</Typography>
     </Button>
   );
@@ -31,6 +31,8 @@ function ButtonComponent({ className, title, icon = null, ...rest }) {
 
 ButtonComponent.propTypes = {
   title: PropTypes.string,
+  className: PropTypes.any,
+  icon: PropTypes.any,
 };
 
 export default ButtonComponent;

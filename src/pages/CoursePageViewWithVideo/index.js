@@ -11,6 +11,7 @@ import {
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import React from "react";
+import PropTypes from "prop-types";
 // import { IonIcon } from '@ionic/react';
 // import { heartOutline, playCircleOutline } from 'ionicons/icons'
 
@@ -96,6 +97,12 @@ export default function CoursePageViewWithVideo() {
     </div>
   );
 }
+
+TabPanel.propTypes = {
+  children: PropTypes.any,
+  value: PropTypes.any,
+  index: PropTypes.any,
+};
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

@@ -1,4 +1,5 @@
 import Routes from "./Routes";
+import React from "react";
 import { Router, useHistory } from "react-router-dom";
 import Auth from "./components/auth/Auth";
 import { SnackbarProvider } from "notistack";
