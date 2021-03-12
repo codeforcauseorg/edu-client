@@ -5,9 +5,9 @@ name: BuildApp ci
 
 on:
   push:
-    branches: [ development, master ]
+    branches: [ development, main ]
   pull_request:
-    branches: [ development, master ]
+    branches: [ development, main ]
 
 jobs:
   build:
