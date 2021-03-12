@@ -102,7 +102,7 @@ Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 
-Skip the yarn part and proceed to the Pushing the changes section [here](##Pushing-your-changes)
+Skip the yarn part and proceed to the Pushing the changes section [here](##📌Pushing-your-changes)
 
 ## 📌 Setting up project using `yarn`
 
@@ -134,7 +134,7 @@ Skip the yarn part and proceed to the Pushing the changes section [here](##Pushi
 Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## 📌 Pushing your changes
+## 📌 Pushing changes
 
 Now you have made the changes , tested them, and built them. so now its time to push them.
 1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
