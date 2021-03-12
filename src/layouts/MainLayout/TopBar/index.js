@@ -167,7 +167,7 @@ function TopBar({ className, onMobileNavOpen, ...rest }) {
           <Drawer
             width={"100%"}
             anchor="right"
-            open={state["right"]}
+            open={state.right}
             onClose={toggleDrawer("right", false)}
           >
             {headerMoblie()}

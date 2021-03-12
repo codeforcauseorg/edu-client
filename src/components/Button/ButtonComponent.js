@@ -24,7 +24,11 @@ const ButtonComponent = (props) => {
   const classes = useStyles();
   return (
     <Button className={clsx(classes.btn, className)} {...rest}>
+<<<<<<< HEAD
       {icon && icon}
+=======
+      {icon || ""}
+>>>>>>> aeef059ecd3a87e50c2ecbfe4b7730488c5827c9
       <Typography variant="h3">{title}</Typography>
     </Button>
   );
