@@ -46,8 +46,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ./",
-    "lint-fix": "eslint ./ --fix",
+    "lint": "eslint ./src/",
+    "lint-fix": "eslint ./src/ --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "eslintConfig": {
