@@ -27,10 +27,6 @@ const useStyles = makeStyles(theme => ({
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-    // minHeight: '100vh'
   }
 }));
 
@@ -41,9 +37,7 @@ function Login(){
   const classes = useStyles();
   const handleLoginOpen =() => {
     try{
-
       dispatch(login());
-
     }
     catch(err){
       console.log(err)
