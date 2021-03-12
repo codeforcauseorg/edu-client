@@ -87,10 +87,11 @@ Whenever you want to contribute to any project. It is best practice that you sho
 
 ### 🚩 Running in Deployment mode :
 
-1. Open the terminal and type in `npm start`
-2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-3. The page will reload if you make edits.
-4. You will also see any lint errors in the console.
+1. Open the terminal and type in `npm install`, this will go on install all the dependicies you need
+2. Then type in `npm start`
+3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. The page will reload if you make edits.
+5. You will also see any lint errors in the console.
 
 ### 🚩 Testing changes :
 
