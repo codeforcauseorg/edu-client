@@ -160,4 +160,4 @@ By this time you can see a message on your github fork as `your fork is ahead of
 [Abhishek Kumar](https://github.com/Abhishek-kumar09)\
 [Kunal Kushwaha](https://github.com/kunal-kushwaha)\
 [Siddhant Khare](https://github.com/Siddhant-K-code)\
-[Anuj Garg](https://github.com/KeenWarrior)\
+[Anuj Garg](https://github.com/KeenWarrior)
