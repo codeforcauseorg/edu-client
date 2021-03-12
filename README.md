@@ -49,7 +49,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 ### 🚩 Setting up remote :
 
 1. Now you have to set up remote repositories
-2. Type the command `git remote -v` this will list the remote connection to your repo.
+2. Type the command `git remote -v` after getting inside the repo directory, this will list the remote connection to your repo.
 3. It will show something like this:
 ```console
 
