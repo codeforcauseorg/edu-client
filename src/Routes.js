@@ -7,8 +7,9 @@ import HomePage from "./pages/HomeView";
 import CoursePage from "./pages/CoursePageViewWithVideo";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage";
+import Login from './pages/Login/Login';
 
-const renderRoutes = () => (
+let renderRoutes = () => (
   <Switch>
     <Route path="/" exact>
       <Redirect to="/home" />
@@ -61,6 +62,14 @@ const renderRoutes = () => (
 );
 
 function Routes() {
+  if(localStorage.getItem('loggedin') == null){ //In place of logged in token will be stored
+    renderRoutes = ()=>(
+      <Switch>
+        <Route path='/login' component={Login}/>
+        <Redirect to='/login'/>
+      </Switch>
+    )
+  }
   return renderRoutes({});
 }
 
