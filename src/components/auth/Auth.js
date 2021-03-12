@@ -1,11 +1,13 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { logout, setUserData } from "../../actions/accountActions";
 import authService from "../../services/authService";
+import Login from "./Login";
 
 function Auth({ children }) {
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.account.user);
 
   useEffect(() => {
     const initAuth = async () => {
@@ -27,7 +29,7 @@ function Auth({ children }) {
     initAuth();
   }, [dispatch]);
 
-  return children;
+  return user ? children : <Login />;
 }
 
 Auth.propTypes = {
