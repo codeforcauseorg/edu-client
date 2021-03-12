@@ -41,7 +41,7 @@ const themeConfig = {
   palette: {
     type: "light",
     action: {
-      active: colors.blueGrey[600], //small icons
+      active: colors.blueGrey[600], // small icons
     },
     background: {
       default: colors.common.white,

@@ -13,10 +13,10 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
   },
   wrapper: {
-    display: 'flex',
-    flex: '1 1 auto',
-    overflow: 'hidden',
-    paddingBottom: 64
+    display: "flex",
+    flex: "1 1 auto",
+    overflow: "hidden",
+    paddingBottom: 64,
   },
   contentContainer: {
     display: "flex",

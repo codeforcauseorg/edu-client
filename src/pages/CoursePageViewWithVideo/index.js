@@ -98,7 +98,7 @@ export default function CoursePageViewWithVideo() {
 }
 
 function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+  const { children, value, index, ...other } = this;
 
   return (
     <div
