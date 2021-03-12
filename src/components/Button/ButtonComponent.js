@@ -23,7 +23,7 @@ function ButtonComponent({ className, title, icon = null, ...rest }) {
   const classes = useStyles();
   return (
     <Button className={clsx(classes.btn, className)} {...rest}>
-      {icon ? icon : ""}
+      {icon || ""}
       <Typography variant="h3">{title}</Typography>
     </Button>
   );
