@@ -66,14 +66,7 @@ const AccordionDetails = withStyles((theme) => ({
   },
 }))(MuiAccordionDetails);
 
-const ScheduleDetails = ({
-  chapter,
-  duration,
-  heading,
-  details,
-  premier,
-  panel,
-}) => {
+const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState("");
   const handleChange = (panel) => (event, newExpanded) => {
@@ -82,33 +75,20 @@ const ScheduleDetails = ({
 
   return (
     <div className={classes.root}>
-      <Accordion
-        square
-        expanded={expanded === panel}
-        onChange={handleChange(panel)}
-      >
+      <Accordion square expanded={expanded === panel} onChange={handleChange(panel)}>
         <AccordionSummary
           expandIcon={<ArrowDropDownCircleOutlinedIcon fontSize="large" />}
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
-          <Grid
-            container
-            className={classes.heading}
-            justify="center"
-            alignItems="center"
-          >
+          <Grid container className={classes.heading} justify="center" alignItems="center">
             <Grid item xs={6} sm={8}>
               <Typography align="left" variant="h6">
                 Chapter {chapter}
               </Typography>
             </Grid>
             <Grid item xs={6} sm={4}>
-              <Typography
-                className={classes.duration}
-                align="right"
-                component={"div"}
-              >
+              <Typography className={classes.duration} align="right" component={"div"}>
                 <Box fontStyle="italic">
                   Duration <b>{duration}</b>
                 </Box>
@@ -117,9 +97,7 @@ const ScheduleDetails = ({
             <Grid item xs={12}>
               <Typography className={classes.secondaryHeading} align="left">
                 {heading} &nbsp;
-                <span style={{ fontStyle: "italic", color: "purple" }}>
-                  {premier}
-                </span>
+                <span style={{ fontStyle: "italic", color: "purple" }}>{premier}</span>
               </Typography>
             </Grid>
           </Grid>

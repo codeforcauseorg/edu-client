@@ -23,7 +23,6 @@ function Auth({ children }) {
           });
         }
       });
-
     };
     initAuth();
   }, [dispatch]);

@@ -1,16 +1,16 @@
-import _ from 'lodash';
-import { colors, createMuiTheme, responsiveFontSizes } from '@material-ui/core';
-import typography from './typography';
-import { softShadows } from './shadows';
+import _ from "lodash";
+import { colors, createMuiTheme, responsiveFontSizes } from "@material-ui/core";
+import typography from "./typography";
+import { softShadows } from "./shadows";
 
 const baseConfig = {
-  direction: 'ltr',
+  direction: "ltr",
   typography,
   overrides: {
     MuiLinearProgress: {
       root: {
         borderRadius: 3,
-        overflow: 'hidden',
+        overflow: "hidden",
       },
     },
     MuiListItemIcon: {
@@ -20,18 +20,18 @@ const baseConfig = {
     },
     MuiChip: {
       root: {
-        backgroundColor: 'rgba(0,0,0,0.075)',
+        backgroundColor: "rgba(0,0,0,0.075)",
       },
     },
   },
 };
 
 const themeConfig = {
-  name: 'LIGHT',
+  name: "LIGHT",
   overrides: {
     MuiInputBase: {
       input: {
-        '&::placeholder': {
+        "&::placeholder": {
           opacity: 1,
           color: colors.blueGrey[600],
         },
@@ -39,20 +39,20 @@ const themeConfig = {
     },
   },
   palette: {
-    type: 'light',
+    type: "light",
     action: {
       active: colors.blueGrey[600], //small icons
     },
     background: {
       default: colors.common.white,
-      dark: '#f4f6f8',
+      dark: "#f4f6f8",
       paper: colors.common.white, // background
     },
     primary: {
       main: colors.indigo[600], // for header and loader
     },
     secondary: {
-      main: '#A60000', // for button and selected
+      main: "#A60000", // for button and selected
     },
     text: {
       // for text classes
@@ -64,7 +64,7 @@ const themeConfig = {
 };
 
 const createTheme = () => {
-  let theme = createMuiTheme(_.merge({}, baseConfig, themeConfig, { direction: 'ltr' }));
+  let theme = createMuiTheme(_.merge({}, baseConfig, themeConfig, { direction: "ltr" }));
 
   theme = responsiveFontSizes(theme);
 
