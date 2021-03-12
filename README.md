@@ -172,6 +172,6 @@ By this time you can see a message on your github fork as `your fork is ahead of
 
 ## Contributors
 
-This project exists thanks to all the people who contribute.
+This project exists due to all the people who contribute.
 
 <a href="https://github.com/codeforcauseorg/edu-client/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=codeforcauseorg/edu-client" /></a>
