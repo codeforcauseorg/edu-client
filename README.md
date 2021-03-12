@@ -42,8 +42,9 @@ Thank you for considering and taking the time to contribute! Before contributing
 1. Now you have your own copy of project. Here you have to start your work.
 2. Go to desired location on your computer where you want to set-up the project.
 3. Right click there and click on `git bash`. A terminal window will pop up
-4. Type the command `git clone <your-fork-url>.git` and hit enter.
+4. Type the command `git clone <your-fork-url>.git` and hit enter.(Refer the image to copy url)
 5. Wait for few seconds till the project gets copied
+<img src="./doc_imgaes/copy.png" alt="Demo copy image" align="center"/>
 
 ### 🚩 Setting up remote :
 
