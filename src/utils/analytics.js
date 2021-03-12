@@ -1,5 +1,5 @@
 function track(...args) {
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV !== "production") {
     return;
   }
 
@@ -11,14 +11,14 @@ function track(...args) {
 }
 
 function pageview(props) {
-  track('config', process.env.REACT_APP_GA_MEASUREMENT_ID, props);
+  track("config", process.env.REACT_APP_GA_MEASUREMENT_ID, props);
 }
 
 function event(type, props) {
-  track('event', type, props);
+  track("event", type, props);
 }
 
 export default {
   pageview,
-  event
+  event,
 };
