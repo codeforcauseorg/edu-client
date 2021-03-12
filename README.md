@@ -35,6 +35,8 @@ Thank you for considering and taking the time to contribute! Before contributing
 1. Fistly you have to make your own copy of project. For that you have to fork the repository. You can find the fork button on the top-right side of the browser window. (Refer image below ) 
 2. Kindly wait till it gets forked.
 3. After that copy will look like `<your-user-name>/edu-client` forked from `codeforcause/edu-client`.
+<img src="./doc_imgaes/fork.png" alt="Demo fork image" align="center"/>
+
 ### 🚩 Clone repository :
 
 1. Now you have your own copy of project. Here you have to start your work.
