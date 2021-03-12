@@ -156,8 +156,8 @@ By this time you can see a message on your github fork as `your fork is ahead of
 <img src="./doc/images/compareAndpull.png" alt="Demo copy image" align="center"/>
 <img src="./doc/images/pull.png" alt="Demo copy image" align="center"/>
 
-## 📌 Guiders / Maintainers :
+## 📌 Potential Maintainers :
 
-[Abhishek Kumar](https://github.com/Abhishek-kumar09)\
+[Anuj Garg](https://github.com/KeenWarrior)\
 [Kunal Kushwaha](https://github.com/kunal-kushwaha)\
-[Anuj Garg](https://github.com/KeenWarrior)
+[Abhishek Kumar](https://github.com/Abhishek-kumar09)
