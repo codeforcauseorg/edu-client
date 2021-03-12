@@ -35,7 +35,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 1. Fistly you have to make your own copy of project. For that you have to fork the repository. You can find the fork button on the top-right side of the browser window. (Refer image below ) 
 2. Kindly wait till it gets forked.
 3. After that copy will look like `<your-user-name>/edu-client` forked from `codeforcause/edu-client`.
-<img src="./doc_imgaes/fork.png" alt="Demo fork image" align="center"/>
+<img src="./doc/images/fork.png" alt="Demo fork image" align="center"/>
 
 ### 🚩 Clone repository :
 
@@ -44,7 +44,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 3. Right click there and click on `git bash`. A terminal window will pop up
 4. Type the command `git clone <your-fork-url>.git` and hit enter.(Refer the image to copy url)
 5. Wait for few seconds till the project gets copied
-<img src="./doc_imgaes/copy.png" alt="Demo copy image" align="center"/>
+<img src="./doc/images/copy.png" alt="Demo copy image" align="center"/>
 
 ### 🚩 Setting up remote :
 
@@ -153,8 +153,8 @@ By this time you can see a message on your github fork as `your fork is ahead of
 2. You will see a template.(Refer image no 2)
 3. Fill out the template completely by describing your change, cause of change, issue getting fixed etc.
 4. After filling the template completely click on `Pull request`
-<img src="./doc_imgaes/compareAndpull.png" alt="Demo copy image" align="center"/>
-<img src="./doc_imgaes/pull.png" alt="Demo copy image" align="center"/>
+<img src="./doc/images/compareAndpull.png" alt="Demo copy image" align="center"/>
+<img src="./doc/images/pull.png" alt="Demo copy image" align="center"/>
 
 ## 📌 Guiders / Maintainers :
 
