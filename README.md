@@ -147,8 +147,17 @@ Now you have made the changes , tested them, and built them. so now its time to 
 
 ## 📌 Creating a pull request
 
-By this time you can see a message on your github fork as `your fork is ahead of codeforcause:master by <number> of commits` and also you can see a button called `Compare and pull request`.
-1. Click on `Compare and pull request` button.
-2. You will see a template.
+By this time you can see a message on your github fork as `your fork is ahead of codeforcause:master by <number> of commits` and also you can see a button called `Compare and pull request`. 
+1. Click on `Compare and pull request` button.(Refer image no 1)
+2. You will see a template.(Refer image no 2)
 3. Fill out the template completely by describing your change, cause of change, issue getting fixed etc.
 4. After filling the template completely click on `Pull request`
+<img src="./doc_imgaes/compareAndpull.png" alt="Demo copy image" align="center"/>
+<img src="./doc_imgaes/pull.png" alt="Demo copy image" align="center"/>
+
+## 📌 Guiders / Maintainers :
+
+[Abhishek Kumar](https://github.com/Abhishek-kumar09)
+[Kunal Kushwaha](https://github.com/kunal-kushwaha)
+[Siddhant Khare](https://github.com/Siddhant-K-code)
+[Anuj Garg](https://github.com/KeenWarrior)
