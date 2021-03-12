@@ -51,7 +51,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 1. Now you have to set up remote repositories
 2. Type the command `git remote -v` this will list the remote connection to your repo.
 3. It will show something like this:
-```git
+```console
 
 origin  https://github.com/<your-user-name>/edu-client.git (fetch)
 origin  https://github.com/<your-user-name>/edu-client.git (push)
@@ -60,7 +60,8 @@ origin  https://github.com/<your-user-name>/edu-client.git (push)
 4. Now type the command `git remote add upstream https://github.com/codeforcauseorg/edu-client.git` this will set upstream as main directory
 5. Again type in command `git remote -v` to check if remote has been set up correctly
 6. It should show something like this :
-```git
+
+```console
 
 origin  https://github.com/<your-user-name>/edu-client.git (fetch)
 origin  https://github.com/<your-user-name>/edu-client.git (push)
