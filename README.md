@@ -1,6 +1,6 @@
 <h1 align="center">
     ✨ Edu Client ✨
-<h1>
+</h1>
 
 <blockquote align="center">
     <b>
