@@ -77,7 +77,7 @@ Whenever you want to contribute to any project. It is best practice that you sho
 ## 📌 Setting up project using `npm` :
 
 1. Open this clonned folder in text editor of your choice
-2. If you want to use the project using `npm` then that comes along side when you download and install node js
+2. If you want to use the project using `npm` then that comes along side when you download and install Node.js
 
 ### 🚩 Running in Deployment mode :
 
@@ -93,9 +93,9 @@ Whenever you want to contribute to any project. It is best practice that you sho
 
 ### 🚩 Building project :
 1. Run the command `npm run build`
-2. Builds the app for production to the `build` folder.\
+2. Builds the app for production to the `build` folder.
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
-4. The build is minified and the filenames include the hashes.\
+4. The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
@@ -126,9 +126,9 @@ Skip the yarn part and proceed to the Pushing the changes section [here](#-pushi
 
 ### 🚩 Building project :
 1. Run the command `yarn build`
-2. Builds the app for production to the `build` folder.\
+2. Builds the app for production to the `build` folder.
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
-4. The build is minified and the filenames include the hashes.\
+4. The build is minified and the filenames include the hashes.
 Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
@@ -143,8 +143,8 @@ Now you have made the changes , tested them, and built them. so now its time to 
 ## 📌 Creating a pull request
 
 By this time you can see a message on your github fork as `your fork is ahead of codeforcause:master by <number> of commits` and also you can see a button called `Compare and pull request`. 
-1. Click on `Compare and pull request` button.(Refer image no 1)
-2. You will see a template.(Refer image no 2)
+1. Click on `Compare and pull request` button. (Refer to the first image below)
+2. You will see a template. (Refer to the second image below)
 3. Fill out the template completely by describing your change, cause of change, issue getting fixed etc.
 4. After filling the template completely click on `Pull request`
 <img src="./doc/images/compareAndpull.png" alt="Demo copy image" align="center"/>
