@@ -1,3 +1,4 @@
+import React from "react";
 import Routes from "./Routes";
 import { Router, useHistory } from "react-router-dom";
 import Auth from "./components/auth/Auth";
