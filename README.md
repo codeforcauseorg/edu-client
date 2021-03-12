@@ -23,6 +23,10 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ### ⚡ 3. Skill set :
 1. Knowledge of git & github.
+2. JavaScript
+3. ReactJS
+4. Mobile development Experience in Any Tech (optionally)
+5. Ionic / Capacitor (optionally)
 
 ## 📌 Setting up Locale Environment
 
@@ -31,7 +35,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 1. Fistly you have to make your own copy of project. For that you have to fork the repository. You can find the fork button on the top-right side of the browser window. 
 2. Kindly wait till it gets forked.
 3. After that copy will look like `<your-user-name>/edu-client` forked from `codeforcause/edu-client`.
-### 🚩 Clonning repository :
+### 🚩 Clone repository :
 
 1. Now you have your own copy of project. Here you have to start your work.
 2. Go to desired location on your computer where you want to set-up the project.
@@ -98,7 +102,7 @@ Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ```text
-Skip the yarn part and proceed to the Pushing the changes section
+Skip the yarn part and proceed to the Pushing the changes section [here](#pushing-your-changes)
 ```
 
 ## 📌 Setting up project using `yarn`
@@ -107,7 +111,7 @@ Skip the yarn part and proceed to the Pushing the changes section
 2. If you want to use the project using `yarn` then you can do either of the following
     1. Download Yarn Package manager [here](https://classic.yarnpkg.com/en/docs/install)
     2. If you already have `npm` installed you can simply type in `npm install --global yarn`.
-    3. If you already have `coco` installed you can simply type in `choco install yarn` 
+    3. If you already have `choco` installed you can simply type in `choco install yarn` 
     4. If you already have `scoop` installed you can simply type in `scoop install yarn` 
 3. To check if the yarn has installed correctly type in `yarn --version` this should show you the current version of yarn.
 
@@ -139,7 +143,7 @@ Now you have made the changes , tested them, and built them. so now its time to 
 3. Commit the changes by `git commit -m "<message-describing-your-change>"` and hit enter.
 4. Now push your branch to your fork by `git push origin <your-branch-name>` and hit enter.
 
-## 📌 Making a pull request
+## 📌 Creating a pull request
 
 By this time you can see a message on your github fork as `your fork is ahead of codeforcause:master by <number> of commits` and also you can see a button called `Compare and pull request`.
 1. Click on `Compare and pull request` button.
