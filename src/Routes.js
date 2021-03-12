@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import {  Route, Redirect } from "react-router-dom";
 import SwipeableRoutes from "react-swipeable-routes";
 
 import MainLayout from "./layouts/MainLayout";
@@ -11,49 +11,35 @@ import ProfilePage from "./pages/ProfilePage";
 
 const renderRoutes = () => (
   <React.Fragment>
-    <Switch>
+    <MainLayout>
       <Route path="/" exact>
-          <Redirect to="/home" />
-        </Route>
-      <SwipeableRoutes replace containerStyle={{"height": "100%"}}>
-        <Route
-          path="/home"
-          exact
-          render={(props) => (
-            <>
-                <HomePage />
-            </>
-          )}
-        />
-        <Route
-          path="/personal"
-          exact
-          render={(props) => (
-            <>
-                <CoursePage/>
-            </>
-          )}
-        />
-        <Route
-          path="/wishlist"
-          exact
-          render={(props) => (
-            <>
-                <WishlistPage/>
-            </>
-          )}
-        />
-        <Route
-          path="/profile"
-          exact
-          render={(props) => (
-            <>
-                <ProfilePage />
-            </>
-          )}
-        />
+        <Redirect to="/home" />
+      </Route>
+      <SwipeableRoutes replace>
+          <Route
+            path="/home"
+            exact
+            component={HomePage}
+          />
+          <Route
+            path="/personal"
+            exact
+            component={CoursePage}
+          />
+          <Route
+            path="/wishlist"
+            exact
+            component={WishlistPage}
+          />
+          <Route
+            path="/profile"
+            exact
+            component={ProfilePage}
+          />
+        
       </SwipeableRoutes>
-    </Switch>
+    </MainLayout>
+    
   </React.Fragment>
 );
 

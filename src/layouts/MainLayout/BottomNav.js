@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
@@ -21,13 +21,27 @@ export default function BottomNav() {
   const location = useLocation();
   const [value, setValue] = React.useState(location.pathname);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    history.push(newValue);
+  }
+
+  useEffect(() => {
+    if (location.pathname === '/home' && value !== "/home") {
+      setValue("/home");
+    }else if (location.pathname === '/personal' && value !== "/personal") {
+      setValue("/personal");
+    }else if (location.pathname === '/wishlist' && value !== "/wishlist") {
+      setValue("/wishlist");
+    }else if (location.pathname === '/profile' && value !== "/profile") {
+      setValue("/profile");
+    }
+  },[value,location]);
+
   return (
     <BottomNavigation
       value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-        history.push(newValue);
-      }}
+      onChange={handleChange}
       showLabels
       className={classes.root}
     >
