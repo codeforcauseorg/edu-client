@@ -170,7 +170,7 @@ By this time you can see a message on your github fork as `your fork is ahead of
 [Kunal Kushwaha](https://github.com/kunal-kushwaha)\
 [Abhishek Kumar](https://github.com/Abhishek-kumar09)
 
-## Credits
+## Contributors
 
 This project exists thanks to all the people who contribute.
 
