@@ -8,7 +8,7 @@
 
 ## ❤️ Note to new contributors 
 
-Thank you for considering and taking the time to contribute! Before contributing kindly read and follow [Code of conduct](CODE_OF_CONDUCT.md). To help new developers/contributors there are set of instructions added in Contributing.md. Go ahead and read it [here](CONTRIBUTING.md). Which describes the intial stages for working on this project. Also refer the [MIT License](LICENSE.txt).
+Thank you for considering and taking the time to contribute! Before contributing kindly read and follow [Code of Conduct](CODE_OF_CONDUCT.md). To help new developers/contributors there are set of instructions added in [CONTRIBUTING.md](CONTRIBUTING.md). Which describes the intial stages for working on this project. Also refer the [MIT License](LICENSE).
 
 ## 📌 Prerequisites
 
