@@ -6,8 +6,8 @@
     <b>
         <i>
             Product focuses on 100% education as well as upskilling developing countries and rural areas.
-        <i>
-    <b> 
+        </i>
+    </b> 
 </blockquoute>
 
 ## ❤️ Note to new contributors 
