@@ -18,15 +18,15 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ### 💿 2. Software requirement :
 1. Updated browser
-2. Node js installed (If not download it [here](https://nodejs.org/en/download/)).
+2. Node.js installed (If not download it [here](https://nodejs.org/en/download/)).
 3. Any text editor of your choice.
 
 ### ⚡ 3. Skill set :
 1. Knowledge of git & github.
 2. JavaScript
-3. ReactJS
+3. [ReactJS](https://reactjs.org/)
 4. Mobile development Experience in Any Tech (optionally)
-5. Ionic / Capacitor (optionally)
+5. [Ionic](https://ionicframework.com/) / [Capacitor](https://capacitorjs.com/) (optionally)
 
 ## 📌 Setting up Locale Environment
 
