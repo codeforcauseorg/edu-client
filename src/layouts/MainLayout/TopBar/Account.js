@@ -1,7 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import PersonIcon from '@material-ui/icons/Person';
+import React from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import PersonIcon from "@material-ui/icons/Person";
 import {
   Typography,
   Button,
@@ -11,21 +11,21 @@ import {
   MenuItem,
   Hidden,
   CircularProgress,
-  makeStyles
-} from '@material-ui/core';
-import { dismissLogin, login, logout } from '../../../actions/accountActions';
+  makeStyles,
+} from "@material-ui/core";
+import { dismissLogin, login, logout } from "../../../actions/accountActions";
 // import { cfaSignIn } from 'capacitor-firebase-auth';
 // import authService from '../../../services/authService';
 // import { useSnackbar } from 'notistack';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
-    minWidth: '120px'
-  }
+    minWidth: "120px",
+  },
 }));
 
 function Account() {
-  const user = useSelector(state => state.account.user);
+  const user = useSelector((state) => state.account.user);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -41,7 +41,7 @@ function Account() {
     dispatch(login());
   };
 
-  const handleOpenMenu = event => {
+  const handleOpenMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -49,10 +49,10 @@ function Account() {
     setAnchorEl(null);
   };
 
-  const truncate = input => {
-    const first = input.split(' ')[0];
+  const truncate = (input) => {
+    const first = input.split(" ")[0];
     if (first.length > 13) {
-      return first.substring(0, 10) + '...';
+      return first.substring(0, 10) + "...";
     }
     return first;
   };
@@ -60,17 +60,17 @@ function Account() {
   return (
     <div
       style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: 64
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: 64,
       }}
     >
       <div
         style={{
-          padding: '10% 10px',
-          whiteSpace: 'nowrap',
-          color: '#000000'
+          padding: "10% 10px",
+          whiteSpace: "nowrap",
+          color: "#000000",
         }}
       >
         {user ? (
@@ -80,14 +80,14 @@ function Account() {
             alignItems="center"
             onClick={handleOpenMenu}
             style={{
-              cursor: 'pointer'
+              cursor: "pointer",
             }}
           >
             <Avatar
               style={{
-                height: '35px',
-                width: 'auto',
-                marginRight: '16px'
+                height: "35px",
+                width: "auto",
+                marginRight: "16px",
               }}
             >
               {user.photoURL ? (
@@ -95,15 +95,15 @@ function Account() {
                   src={user.photoURL}
                   alt="avatar"
                   style={{
-                    height: '35px'
+                    height: "35px",
                   }}
                 />
               ) : (
                 <PersonIcon
                   style={{
-                    height: '35px',
-                    width: '35px',
-                    padding: '5px'
+                    height: "35px",
+                    width: "35px",
+                    padding: "5px",
                   }}
                 />
               )}
@@ -112,7 +112,7 @@ function Account() {
               <Typography variant="h6">
                 <Box
                   style={{
-                    color: '#A60000'
+                    color: "#A60000",
                   }}
                 >
                   {`Hello ${truncate(user.displayName)}`}
@@ -127,7 +127,7 @@ function Account() {
             className={classes.button}
             onClick={handleLoginOpen}
             style={{
-              textTransform: 'capitalize'
+              textTransform: "capitalize",
             }}
           >
             {user === undefined ? (

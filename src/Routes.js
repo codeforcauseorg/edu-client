@@ -31,7 +31,7 @@ let renderRoutes = () => (
       render={(props) => (
         <>
           <MainLayout>
-            <CoursePage/>
+            <CoursePage />
           </MainLayout>
         </>
       )}
@@ -42,7 +42,7 @@ let renderRoutes = () => (
       render={(props) => (
         <>
           <MainLayout>
-            <WishlistPage/>
+            <WishlistPage />
           </MainLayout>
         </>
       )}
