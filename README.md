@@ -2,13 +2,9 @@
     ✨ Edu Client ✨
 </h1>
 
-<blockquote>
-    <b>
-        <i>
-            Product focuses on 100% education as well as upskilling developing countries and rural areas.
-        </i>
-    </b> 
-</blockquoute>
+<p align="center"> <b>
+    " Product focuses on 100% education as well as upskilling developing countries and rural areas. " </b>
+</p>
 
 ## ❤️ Note to new contributors 
 
