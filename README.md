@@ -65,8 +65,8 @@ origin  https://github.com/<your-user-name>/edu-client.git (push)
 
 origin  https://github.com/<your-user-name>/edu-client.git (fetch)
 origin  https://github.com/<your-user-name>/edu-client.git (push)
-upstream        https://github.com/codeforcause/edu-client.git (fetch)
-upstream        https://github.com/codeforcause/edu-client.git (push)
+upstream        https://github.com/codeforcauseorg/edu-client.git (fetch)
+upstream        https://github.com/codeforcauseorg/edu-client.git (push)
 
 ```
 
