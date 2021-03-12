@@ -101,9 +101,8 @@ Whenever you want to contribute to any project. It is best practice that you sho
 Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-```text
+
 Skip the yarn part and proceed to the Pushing the changes section [here](#pushing-your-changes)
-```
 
 ## 📌 Setting up project using `yarn`
 
