@@ -85,7 +85,7 @@ Whenever you want to contribute to any project. It is best practice that you sho
 1. Open this clonned folder in text editor of your choice
 2. If you want to use the project using `npm` then that comes along side when you download and install node js
 
-### 🚩 Running in Deployment mode :
+### 🚩 Running in Development mode :
 
 1. Open the terminal and type in `npm install`, this will go on install all the dependicies you need
 2. Then type in `npm start`
