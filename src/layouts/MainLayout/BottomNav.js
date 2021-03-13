@@ -2,7 +2,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import {  HomeOutlined,  PlayCircleOutline,  AccountCircleOutlined,  AddCircleOutlineOutlined,} from "@material-ui/icons";
+import {
+  HomeOutlined,
+  PlayCircleOutline,
+  AccountCircleOutlined,
+  AddCircleOutlineOutlined,
+} from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import AppBar from "@material-ui/core/AppBar";
