@@ -7,6 +7,7 @@ const useStyles = makeStyles((theme) => ({
     "& > a": {
       color: theme.palette.secondary.main,
     },
+    fontSize: "1rem",
   },
 }));
 

@@ -19,20 +19,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ButtonComponent = (props) => {
-  const { className, title, icon = null, ...rest } = this;
+function ButtonComponent({ className, title, icon = null, ...rest }) {
   const classes = useStyles();
   return (
     <Button className={clsx(classes.btn, className)} {...rest}>
-<<<<<<< HEAD
-      {icon && icon}
-=======
       {icon || ""}
->>>>>>> aeef059ecd3a87e50c2ecbfe4b7730488c5827c9
       <Typography variant="h3">{title}</Typography>
     </Button>
   );
-};
+}
 
 ButtonComponent.propTypes = {
   title: PropTypes.string,

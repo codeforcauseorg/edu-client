@@ -2,7 +2,9 @@ import React from "react";
 import { Typography, makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
-  root: {},
+  root: {
+    fontSize: "1rem",
+  },
 }));
 
 function Paragraph(props) {

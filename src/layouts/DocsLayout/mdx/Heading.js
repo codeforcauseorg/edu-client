@@ -6,14 +6,17 @@ const useStyles = makeStyles((theme) => ({
   h1: {
     marginTop: theme.spacing(6),
     marginBottom: theme.spacing(2),
+    fontSize: "1.75rem",
   },
   h2: {
     marginTop: theme.spacing(6),
     marginBottom: theme.spacing(2),
+    fontSize: "1.5rem",
   },
   h3: {
     marginTop: theme.spacing(6),
     marginBottom: theme.spacing(2),
+    fontSize: "1.25rem",
   },
 }));
 

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     height: "100%",
     overflow: "hidden",
-    paddingTop: 64,
+    paddingButtom: 64,
     paddingLeft: 20,
     [theme.breakpoints.down("md")]: {
       paddingLeft: 5,
