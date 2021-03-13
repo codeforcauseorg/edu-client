@@ -1,13 +1,13 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { HomeOutlined, PlayCircleOutline, AccountCircleOutlined, AddCircleOutlineOutlined } from '@material-ui/icons';
-import { useHistory, useLocation } from 'react-router';
-import useScrollTrigger from '@material-ui/core/useScrollTrigger';
-import AppBar from '@material-ui/core/AppBar';
-import Fade from '@material-ui/core/Fade';
-import './BottomNav.css';
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import BottomNavigation from "@material-ui/core/BottomNavigation";
+import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import { HomeOutlined, PlayCircleOutline, AccountCircleOutlined, AddCircleOutlineOutlined } from "@material-ui/icons";
+import { useHistory, useLocation } from "react-router";
+import useScrollTrigger from "@material-ui/core/useScrollTrigger";
+import AppBar from "@material-ui/core/AppBar";
+import Fade from "@material-ui/core/Fade";
+import "./BottomNav.css";
 
 function HideOnScroll(props) {
   const { children, window } = props;
@@ -18,8 +18,8 @@ function HideOnScroll(props) {
 
   return (
     <Fade appear={true} direction="down" in={!trigger}>
-    {children}
-  </Fade>
+      {children}
+    </Fade>
   );
 }
 
@@ -29,7 +29,6 @@ const useStyles = makeStyles({
     left: 0,
     right: 0,
     bottom: 0,
-    width: '100%',
   },
 });
 
@@ -39,6 +38,11 @@ export default function BottomNav(props) {
   const history = useHistory();
   const location = useLocation();
   const [value, setValue] = React.useState(location.pathname);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    history.push(newValue);
+  };
 
   return (
     <HideOnScroll {...props}>
@@ -52,10 +56,26 @@ export default function BottomNav(props) {
           showLabels
           className={classes.root}
         >
-          <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
-          <BottomNavigationAction label="My Classes" value="/personal" icon={<PlayCircleOutline />} />
-          <BottomNavigationAction label="Wishlist" value="/wishlist" icon={<AddCircleOutlineOutlined />} />
-          <BottomNavigationAction label="Profile" value="/profile" icon={<AccountCircleOutlined />} />
+          <BottomNavigationAction
+            label="Home"
+            value="/home"
+            icon={<HomeOutlined />}
+          />
+          <BottomNavigationAction
+            label="My Classes"
+            value="/personal"
+            icon={<PlayCircleOutline />}
+          />
+          <BottomNavigationAction
+            label="Wishlist"
+            value="/wishlist"
+            icon={<AddCircleOutlineOutlined />}
+          />
+          <BottomNavigationAction
+            label="Profile"
+            value="/profile"
+            icon={<AccountCircleOutlined />}
+          />
         </BottomNavigation>
       </AppBar>
     </HideOnScroll>

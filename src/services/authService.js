@@ -1,19 +1,17 @@
-import jwtDecode from 'jwt-decode';
-import axios from '../utils/axios';
+import jwtDecode from "jwt-decode";
+import axios from "../utils/axios";
 
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import {cfaSignIn, cfaSignOut} from 'capacitor-firebase-auth';
-
+import firebase from "firebase/app";
+import "firebase/auth";
+import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
 
 class AuthService {
   // Configure Firebase.
   config = {
-    apiKey: 'AIzaSyAbqqXtHNIuNrsamkCxRk9sOuMO-ZWDiEk',
-    authDomain: 'codeforcauseorg.firebaseapp.com'
+    apiKey: "AIzaSyAbqqXtHNIuNrsamkCxRk9sOuMO-ZWDiEk",
+    authDomain: "codeforcauseorg.firebaseapp.com",
     // ...
   };
-
 
   firebase = firebase;
 
@@ -21,8 +19,8 @@ class AuthService {
 
   setAxiosInterceptors = ({ onLogout }) => {
     axios.interceptors.response.use(
-      response => response,
-      error => {
+      (response) => response,
+      (error) => {
         if (error.response && error.response.status === 401) {
           this.setSession(null);
 
@@ -41,24 +39,22 @@ class AuthService {
   }
 
   loadUserProfile() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.keycloak
         .loadUserProfile()
-        .then(profile => {
+        .then((profile) => {
           resolve(profile);
         })
-        .catch(function() {
-          alert('Failed to load user profile');
+        .catch(function () {
+          alert("Failed to load user profile");
         });
     });
   }
 
   login = () => {
-    cfaSignIn('google.com').subscribe(
-       (user) => {
-        console.log(user);
-       }
-    )
+    cfaSignIn("google.com").subscribe((user) => {
+      console.log(user);
+    });
   };
 
   logout = () => {
@@ -66,19 +62,19 @@ class AuthService {
     this.setSession(null);
   };
 
-  setSession = accessToken => {
+  setSession = (accessToken) => {
     if (accessToken) {
-      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem("accessToken", accessToken);
       axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
     } else {
-      localStorage.removeItem('accessToken');
+      localStorage.removeItem("accessToken");
       delete axios.defaults.headers.common.Authorization;
     }
   };
 
-  getAccessToken = () => localStorage.getItem('accessToken');
+  getAccessToken = () => localStorage.getItem("accessToken");
 
-  isValidToken = accessToken => {
+  isValidToken = (accessToken) => {
     if (!accessToken) {
       return false;
     }
@@ -88,7 +84,6 @@ class AuthService {
 
     return decoded.exp > currentTime;
   };
-
 }
 
 const authService = new AuthService();
