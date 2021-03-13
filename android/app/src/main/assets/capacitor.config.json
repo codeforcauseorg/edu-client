@@ -13,11 +13,11 @@
       "languageCode": "en",
       "nativeAuth": true,
       "properties": {
-        "google": { }
-      },   
+        "google": {}
+      },
       "permissions": {
-           "google": ["profile"]
-       }
+        "google": ["profile"]
+      }
     }
   },
   "cordova": {}

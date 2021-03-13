@@ -30,7 +30,7 @@ const renderRoutes = () => (
       render={(props) => (
         <>
           <MainLayout>
-            <CoursePage/>
+            <CoursePage />
           </MainLayout>
         </>
       )}
@@ -41,7 +41,7 @@ const renderRoutes = () => (
       render={(props) => (
         <>
           <MainLayout>
-            <WishlistPage/>
+            <WishlistPage />
           </MainLayout>
         </>
       )}
