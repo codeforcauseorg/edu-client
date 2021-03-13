@@ -10,6 +10,7 @@ import {
 import React from "react";
 import ButtonComponent from "../Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const WishlistCard = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <Container className={classes.root}>
@@ -80,7 +82,7 @@ const WishlistCard = () => {
           <Typography variant="h3" color="secondary" style={{ margin: "4px 0px 6px" }}>
             ₹ 94
           </Typography>
-          <ButtonComponent title="Checkout Now" />
+          <ButtonComponent title="Checkout Now" onClick={() => history.push("/course")} />
         </CardContent>
       </Card>
     </Container>
