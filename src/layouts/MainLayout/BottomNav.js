@@ -39,10 +39,10 @@ export default function BottomNav(props) {
   const location = useLocation();
   const [value, setValue] = React.useState(location.pathname);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-    history.push(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  //   history.push(newValue);
+  // };
 
   return (
     <HideOnScroll {...props}>
