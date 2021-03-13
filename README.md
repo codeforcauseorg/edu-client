@@ -52,7 +52,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 ### 🚩 Setting up remote :
 
 1. Now you have to set up remote repositories
-2. Type the command `git remote -v` this will list the remote connection to your repo.
+2. Type `git remote -v` in terminal to list remote connections to your repo.
 3. It will show something like this:
 
 ```console
@@ -90,12 +90,12 @@ Whenever you want to contribute to any project. It is best practice that you sho
 1. Open this clonned folder in text editor of your choice
 2. If you want to use the project using `npm` then that comes along side when you download and install node js
 
-### 🚩 Running in Deployment mode :
+### 🚩 Running in Development mode :
 
-1. Open the terminal and type in `npm start`
-2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-3. The page will reload if you make edits.
-4. You will also see any lint errors in the console.
+1. Open the terminal and type in `npm install`, to install all the dependencies.
+2. Run: `npm start`
+3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. The page will reload if you make edits.
 
 ### 🚩 Testing changes :
 
