@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
-import {  Route, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import SwipeableRoutes from "react-swipeable-routes";
 
 import MainLayout from "./layouts/MainLayout";
@@ -16,30 +16,12 @@ const renderRoutes = () => (
         <Redirect to="/home" />
       </Route>
       <SwipeableRoutes replace>
-          <Route
-            path="/home"
-            exact
-            component={HomePage}
-          />
-          <Route
-            path="/personal"
-            exact
-            component={CoursePage}
-          />
-          <Route
-            path="/wishlist"
-            exact
-            component={WishlistPage}
-          />
-          <Route
-            path="/profile"
-            exact
-            component={ProfilePage}
-          />
-        
+        <Route path="/home" exact component={HomePage} />
+        <Route path="/personal" exact component={CoursePage} />
+        <Route path="/wishlist" exact component={WishlistPage} />
+        <Route path="/profile" exact component={ProfilePage} />
       </SwipeableRoutes>
     </MainLayout>
-    
   </React.Fragment>
 );
 

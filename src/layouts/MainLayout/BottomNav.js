@@ -29,27 +29,10 @@ export default function BottomNav() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
     history.push(newValue);
-  }
-
-  useEffect(() => {
-    if (location.pathname === '/home' && value !== "/home") {
-      setValue("/home");
-    }else if (location.pathname === '/personal' && value !== "/personal") {
-      setValue("/personal");
-    }else if (location.pathname === '/wishlist' && value !== "/wishlist") {
-      setValue("/wishlist");
-    }else if (location.pathname === '/profile' && value !== "/profile") {
-      setValue("/profile");
-    }
-  },[value,location]);
+  };
 
   return (
-    <BottomNavigation
-      value={value}
-      onChange={handleChange}
-      showLabels
-      className={classes.root}
-    >
+    <BottomNavigation value={value} onChange={handleChange} showLabels className={classes.root}>
       <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
       <BottomNavigationAction label="My Classes" value="/personal" icon={<PlayCircleOutline />} />
       <BottomNavigationAction
