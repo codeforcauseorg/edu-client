@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-import React,{useEffect} from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import {HomeOutlined, PlayCircleOutline, AccountCircleOutlined, AddCircleOutlineOutlined} from '@material-ui/icons';
-import { useHistory, useLocation } from 'react-router';
-=======
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
@@ -17,7 +9,6 @@ import {
   AddCircleOutlineOutlined,
 } from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router";
->>>>>>> 73e315749cd4c01d6402edc9d6ace824c9ca9c87
 
 const useStyles = makeStyles({
   root: {

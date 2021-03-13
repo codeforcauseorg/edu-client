@@ -32,12 +32,8 @@
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^2.4.0",
-<<<<<<< HEAD
-    "react-scripts": "4.0.3",
-    "react-swipeable-routes": "^0.8.0",
-=======
     "react-scripts": "^4.0.3",
->>>>>>> 73e315749cd4c01d6402edc9d6ace824c9ca9c87
+    "react-swipeable-routes": "^0.8.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "^8.3.2",
