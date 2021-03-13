@@ -2,7 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import { HomeOutlined, PlayCircleOutline, AccountCircleOutlined, AddCircleOutlineOutlined } from "@material-ui/icons";
+import {  HomeOutlined,  PlayCircleOutline,  AccountCircleOutlined,  AddCircleOutlineOutlined,} from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import AppBar from "@material-ui/core/AppBar";
@@ -56,11 +56,7 @@ export default function BottomNav(props) {
           showLabels
           className={classes.root}
         >
-          <BottomNavigationAction
-            label="Home"
-            value="/home"
-            icon={<HomeOutlined />}
-          />
+          <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
           <BottomNavigationAction
             label="My Classes"
             value="/personal"
