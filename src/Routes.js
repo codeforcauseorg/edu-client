@@ -8,6 +8,7 @@ import HomePage from "./pages/HomeView";
 import CoursePage from "./pages/CoursePageViewWithVideo";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage";
+import CourseDetail from "./pages/CourseDetail";
 
 const renderRoutes = () => (
   <React.Fragment>
@@ -20,6 +21,7 @@ const renderRoutes = () => (
         <Route path="/personal" exact component={CoursePage} />
         <Route path="/wishlist" exact component={WishlistPage} />
         <Route path="/profile" exact component={ProfilePage} />
+        <Route path="/course/:id" exact component={CourseDetail} />
       </SwipeableRoutes>
     </MainLayout>
   </React.Fragment>
