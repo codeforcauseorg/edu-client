@@ -33,6 +33,7 @@
     "react-router-dom": "^5.1.2",
     "react-router-hash-link": "^2.4.0",
     "react-scripts": "^4.0.3",
+    "react-swipeable-routes": "^0.8.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "^8.3.2",
@@ -47,7 +48,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/",
-    "lint-fix": "eslint ./src/ --fix",
+    "lint:fix": "eslint ./src/ --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "eslintConfig": {

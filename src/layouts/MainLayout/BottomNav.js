@@ -26,16 +26,13 @@ export default function BottomNav() {
   const location = useLocation();
   const [value, setValue] = React.useState(location.pathname);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+    history.push(newValue);
+  };
+
   return (
-    <BottomNavigation
-      value={value}
-      onChange={(event, newValue) => {
-        setValue(newValue);
-        history.push(newValue);
-      }}
-      showLabels
-      className={classes.root}
-    >
+    <BottomNavigation value={value} onChange={handleChange} showLabels className={classes.root}>
       <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
       <BottomNavigationAction label="My Classes" value="/personal" icon={<PlayCircleOutline />} />
       <BottomNavigationAction
