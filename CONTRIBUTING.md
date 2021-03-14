@@ -92,7 +92,7 @@ Whenever you want to contribute to any project. It is best practice that you sho
 ### 🚩 Building project :
 
 1. Run the command `npm run build`
-2. Builds the app for production to the `build` folder.\
+2. Builds the app for production to the `build` folder.
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
 4. The build is minified and the filenames include the hashes.\
    Your app is ready to be deployed!
@@ -125,7 +125,7 @@ Skip the yarn part and proceed to the Pushing the changes section [here](#-pushi
 ### 🚩 Building project :
 
 1. Run the command `yarn build`
-2. Builds the app for production to the `build` folder.\
+2. Builds the app for production to the `build` folder.
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
 4. The build is minified and the filenames include the hashes.\
    Your app is ready to be deployed!
