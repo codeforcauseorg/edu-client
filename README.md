@@ -144,8 +144,8 @@ Skip the yarn part and proceed to the Pushing the changes section [here](#-pushi
    Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-
 ### 🚩 Running storybook :
+
 1. Run the command `npm run storybook`
 2. wait on `localhost:6000`
 3. write stories for component in `stories` folder under `src` folder.
