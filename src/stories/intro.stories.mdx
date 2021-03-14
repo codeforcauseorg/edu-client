@@ -1,0 +1,101 @@
+<Meta title ="Intoduction"/>
+
+
+<style>{`
+  .subheading {
+    --mediumdark: '#999999';
+    font-weight: 900;
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 6px;
+    line-height: 24px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  .link-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 10px;
+  }
+
+  @media (min-width: 620px) {
+    .link-list {
+      row-gap: 20px;
+      column-gap: 20px;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media all and (-ms-high-contrast:none) {
+  .link-list {
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      -ms-grid-rows: 1fr 1fr;
+    }
+  }
+
+  .link-item {
+    display: block;
+    padding: 20px 30px 20px 15px;
+    border: 1px solid #00000010;
+    border-radius: 5px;
+    transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .link-item:hover {
+    border-color: #1EA7FD50;
+    transform: translate3d(0, -3px, 0);
+    box-shadow: rgba(0, 0, 0, 0.08) 0 3px 10px 0;
+  }
+
+  .link-item:active {
+    border-color: #1EA7FD;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .link-item strong {
+    font-weight: 700;
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  
+  .link-item span {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+`}</style>
+
+# Intro Story for project Edu-client
+
+This is a intro story for future contributors. All contributors are requested to add stories in `stories` under `src` folder as if things are not worked out
+futute then it is easy for mentors to unstage it later. storybook run in isolation so it wouldn't affect our main react application.
+
+<div className="subheading">📌Prerequisites</div>
+
+💻 1. System requirement :
+
+1. Any system with basic configuration.
+2. Operating System : Any (Windows / Linux / Mac).
+
+💿 2. Software requirement :
+
+1. Updated browser
+2. Node js installed (If not download it [here](https://nodejs.org/en/download/)).
+3. Any text editor of your choice.
+
+
+<div className="subheading">📌Setting up storybook</div>
+
+To run storybook on your local browser simply run command `npm run storybook`
+
+<div className="subheading">📌LEARN storybook</div>
+
+Follow Official [Documentation](https://storybook.js.org/docs/react/writing-stories/introduction)
