@@ -1,6 +1,6 @@
 import React from "react";
 
-function Recommended (){
+function Recommended() {
   return (
     <>
       <h1>Recommended</h1>
