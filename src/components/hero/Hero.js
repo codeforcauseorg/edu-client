@@ -6,7 +6,7 @@ import { Grid, Typography, makeStyles } from "@material-ui/core";
 import LanguageIcon from "@material-ui/icons/Language";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-// import ReactPlayer from "react-player/lazy";
+import ReactPlayer from "react-player/lazy";
 
 const useStyles = makeStyles((theme) => ({
   hero: {
@@ -117,7 +117,7 @@ function Hero({ title, description, startDate, duration, languages, thumbnail, v
         </Grid>
         <Grid item xs={12} md={6}>
           <div className={classes.playerWrapper}>
-            {/* <ReactPlayer
+            <ReactPlayer
               className={classes.reactPlayer}
               controls={true}
               light={thumbnail}
@@ -125,7 +125,7 @@ function Hero({ title, description, startDate, duration, languages, thumbnail, v
               volume={1}
               width="100%"
               height="100%"
-            /> */}
+            />
           </div>
           <Typography className={classes.price} variant="subtitle1" component="p" color="secondary">
             ₹ {price} /-
