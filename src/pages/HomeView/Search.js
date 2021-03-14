@@ -35,8 +35,6 @@ const useStyles = makeStyles(() => ({
     borderRadius: ".75rem",
     fontSize: ".7rem",
     color: "red",
-    
-    
   },
 }));
 
