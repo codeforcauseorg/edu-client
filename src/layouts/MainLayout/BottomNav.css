@@ -1,0 +1,7 @@
+.MuiBottomNavigationAction-root.Mui-selected{
+  border-bottom: 2px solid #3949ab;
+}
+
+/* .MuiPaper-root .MuiAppBar-root .MuiAppBar-positionFixed .MuiAppBar-colorPrimary .mui-fixed{
+  transition: cubic-bezier(0, 0, 0.2, 1)  ;
+} */
