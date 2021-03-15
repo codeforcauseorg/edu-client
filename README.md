@@ -178,6 +178,8 @@ By this time you can see a message on your github fork as `your fork is ahead of
 
 ## 📌 Credits :
 
+This project exists thanks to all the people who contribute.
+
 <a href="https://github.com/codeforcauseorg/edu-client/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=codeforcauseorg/edu-client" />
 </a>
