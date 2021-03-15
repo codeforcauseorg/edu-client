@@ -88,7 +88,8 @@ Whenever you want to contribute to any project. It is best practice that you sho
 
 ## 📌 Setting up .env file :
 1. Create a new file `.env` in root directory. 
-2. Copy all the content from `.env.example` file to `.env` file.
+2. Copy all the default content from `.env.example` file to `.env` file.
+3. You can edit this `.env` file to provide your own project credentials if needed in future for specific tweaks and tests.
 
 ## 📌 Setting up project using `npm` :
 
