@@ -170,6 +170,10 @@ By this time you can see a message on your github fork as `your fork is ahead of
    <img src="./doc/images/compareAndpull.png" alt="Demo copy image" align="center"/>
    <img src="./doc/images/pull.png" alt="Demo copy image" align="center"/>
 
+## Contributors 
+This project exists due to all the people who contribute. 
+<a href="https://github.com/codeforcauseorg/edu-client/graphs/contributors"><img src="https://contributors-img.web.app/image?repo=codeforcauseorg/edu-client" /></a>
+
 ## 📌 Potential Maintainers :
 
 [Anuj Garg](https://github.com/KeenWarrior)\
