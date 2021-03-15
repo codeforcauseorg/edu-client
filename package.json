@@ -17,6 +17,7 @@
     "axios": "^0.21.1",
     "capacitor-firebase-auth": "^2.3.5",
     "clsx": "^1.1.1",
+    "dotenv": "^8.2.0",
     "firebase": "^7.21.1",
     "history": "^5.0.0",
     "immer": "^8.0.1",
