@@ -7,6 +7,10 @@ const useStyles = makeStyles((theme) => ({
       margin: 0,
       // marginTop: '8px',
       borderRadius: "8px",
+      '&:hover': {
+        cursor: 'pointer',
+        transform: 'translateY(-2px)',
+      },
     },
     cardHeader: {
       backgroundColor: "#A60000",
