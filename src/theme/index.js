@@ -1,8 +1,7 @@
 import _ from "lodash";
 import { colors, createMuiTheme, responsiveFontSizes } from "@material-ui/core";
 import typography from "./typography";
-//! Adds a error Material-UI: This elevation `4` is not implemented.
-// import { softShadows } from "./shadows";
+import { softShadows } from "./shadows";
 
 const baseConfig = {
   direction: "ltr",
@@ -61,7 +60,7 @@ const themeConfig = {
       secondary: colors.blueGrey[600],
     },
   },
-  // shadows: softShadows,
+  shadows: softShadows,
 };
 
 const createTheme = () => {
