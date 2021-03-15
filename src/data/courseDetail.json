@@ -1,0 +1,82 @@
+[
+  {
+    "heroSection": {
+      "title": "Full Stack Development Course By Code For Cause",
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, nesciunt necessitatibus? Laboriosam, eum aut explicabo dolores startDate='16th March Onwards",
+      "duration": "36",
+      "languages": "English, Hindi",
+      "thumbnail": "https://images.unsplash.com/photo-1423530990185-af7dde1155fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80",
+      "videoUrl": "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4",
+      "price": "94.00"
+    },
+    "descriptionSection": {
+      "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, nesciunt necessitatibus? Laboriosam, eum aut explicabo dolores reprehenderit corporis porro provident deleniti nesciunt nostrum? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, nesciunt necessitatibus? Laboriosam, eum aut explicabo dolores reprehenderit corporis porro provident deleniti nesciunt nostrum?",
+      "mentors": [
+        {
+          "id": 1,
+          "name": "Anuj Garg",
+          "title": "Anuj Garg",
+          "image": "https://images.unsplash.com/photo-1423530990185-af7dde1155fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+        },
+        {
+          "id": 2,
+          "name": "Ganga Chaturvedi",
+          "title": "Ganga Chaturvedi",
+          "image": "https://images.unsplash.com/photo-1423530990185-af7dde1155fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
+        }
+      ]
+    },
+    "perksSection": {
+      "perks": [
+        "35 Classes, duration of 30+ hours",
+        "Learning Material and resources throughout the course",
+        "Learning Material and resources throughout the course",
+        "35 Classes, duration of 30+ hours",
+        "Learning Material and resources throughout the course",
+        "Learning Material and resources throughout the course",
+        "Learning Material and resources throughout the course"
+      ],
+      "afterCourse": [
+        "You are Full Stack developer with knowledge of developing web components, with help of HTML, CSS, Javascript, Python.",
+        "Strengthen Your Skills to become more powerful developer with CFC’s Study Material verified and developed by our expert mentors.",
+        "You are Full Stack developer with knowledge of developing web components, with help of HTML, CSS, Javascript, Python.",
+        "Strengthen Your Skills to become more powerful developer with CFC’s Study Material verified and developed by our expert mentors."
+      ],
+      "prerequisites": "You should know the basic concepts of C/C++ and some other languages like HTML CSS."
+    },
+    "scheduleSection": [
+      {
+        "chapter": 1,
+        "duration": "1 hr 10 min",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "premier": "Priemere TBD",
+        "panel": "panel1"
+      },
+      {
+        "chapter": 2,
+        "duration": "1 hr 10 min",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "premier": "Priemere TBD",
+        "panel": "panel1"
+      },
+      {
+        "chapter": 3,
+        "duration": "1 hr 10 min",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "premier": "Priemere TBD",
+        "panel": "panel1"
+      },
+      {
+        "chapter": 4,
+        "duration": "1 hr 10 min",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "premier": "Priemere TBD",
+        "panel": "panel1"
+      }
+    ]
+  }
+]
