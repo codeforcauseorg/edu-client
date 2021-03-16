@@ -85,6 +85,12 @@ Whenever you want to contribute to any project. It is best practice that you sho
 4. But still if you start editing the edits will go to the main branch. To change the path of the edits type in `git checkout <your-branch-name>`
 5. Now you are ready to do the desired changes.
 
+
+## 📌 Setting up .env file :
+1. Create a new file `.env` in root directory. 
+2. Copy all the default content from `.env.example` file to `.env` file.
+3. You can edit this `.env` file to provide your own project credentials if needed in future for specific tweaks and tests.
+
 ## 📌 Setting up project using `npm` :
 
 1. Open this clonned folder in text editor of your choice
