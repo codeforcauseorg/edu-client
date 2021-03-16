@@ -27,32 +27,32 @@ export default function BottomNav(props) {
   const location = useLocation();
 
   return (
-      <AppBar className="cubic">
-        <BottomNavigation
-          value={location.pathname}
-          onChange={(event, location) => {
-            history.push(location);
-          }}
-          showLabels
-          className={classes.root}
-        >
-          <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
-          <BottomNavigationAction
-            label="My Classes"
-            value="/personal"
-            icon={<PlayCircleOutline />}
-          />
-          <BottomNavigationAction
-            label="Wishlist"
-            value="/wishlist"
-            icon={<AddCircleOutlineOutlined />}
-          />
-          <BottomNavigationAction
-            label="Profile"
-            value="/profile"
-            icon={<AccountCircleOutlined />}
-          />
-        </BottomNavigation>
-      </AppBar>
+    <AppBar className="cubic">
+      <BottomNavigation
+        value={location.pathname}
+        onChange={(event, location) => {
+          history.push(location);
+        }}
+        showLabels
+        className={classes.root}
+      >
+        <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
+        <BottomNavigationAction
+          label="My Classes"
+          value="/personal"
+          icon={<PlayCircleOutline />}
+        />
+        <BottomNavigationAction
+          label="Wishlist"
+          value="/wishlist"
+          icon={<AddCircleOutlineOutlined />}
+        />
+        <BottomNavigationAction
+          label="Profile"
+          value="/profile"
+          icon={<AccountCircleOutlined />}
+        />
+      </BottomNavigation>
+    </AppBar>
   );
 }
