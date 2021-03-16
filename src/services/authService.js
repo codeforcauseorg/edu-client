@@ -8,8 +8,8 @@ import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
 class AuthService {
   // Configure Firebase.
   config = {
-    apiKey: "AIzaSyAbqqXtHNIuNrsamkCxRk9sOuMO-ZWDiEk",
-    authDomain: "codeforcauseorg.firebaseapp.com",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
     // ...
   };
 
