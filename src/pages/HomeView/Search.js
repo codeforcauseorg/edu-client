@@ -26,7 +26,11 @@ const useStyles = makeStyles(() => ({
     outline: "none",
   },
   tags: {
+    paddingTop: "1rem",
     display: "flex",
+    flexWrap: "nowrap",
+    overflowX: "auto",
+    scrollbarWidth: "none",
   },
   tag: {
     marginRight: ".5rem",
@@ -52,7 +56,7 @@ function Search() {
         ></input>
       </div>
       <div className={classes.tags}>
-        {["Web", "Programming", "Android"].map((item, i) => (
+        {["Web", "Programming", "Android", "Kotlin", "C/C++", "Python"].map((item, i) => (
           <p className={classes.tag} key={i}>
             {item}
           </p>
