@@ -1,14 +1,12 @@
 import React from "react";
 
 import ButtonComponent from "../Button/ButtonComponent";
-import useStyles from './style';
-import { Grid, Typography,} from "@material-ui/core";
+import useStyles from "./style";
+import { Grid, Typography } from "@material-ui/core";
 import LanguageIcon from "@material-ui/icons/Language";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ReactPlayer from "react-player/lazy";
-
-
 
 function Hero({ title, description, startDate, duration, languages, thumbnail, videoUrl, price }) {
   const classes = useStyles();

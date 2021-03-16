@@ -7,12 +7,10 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
-import useStyles from './style';
+import useStyles from "./style";
 import ButtonComponent from "../Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
 import { useHistory } from "react-router";
-
-
 
 const WishlistCard = () => {
   const classes = useStyles();
@@ -27,14 +25,14 @@ const WishlistCard = () => {
             backgroundSize: "cover",
           }}
           title={
-            <Typography variant="h2" style={{ marginBottom:'2px' }}>
+            <Typography variant="h2" style={{ marginBottom: "2px" }}>
               Fullstack Web Development Course <br /> by code for cause
             </Typography>
           }
           subheader={
-            <Typography style={{ fontSize: "14px", marginTop:'5px' }}>
-            90hrs of learning with Anuj Garg
-          </Typography>
+            <Typography style={{ fontSize: "14px", marginTop: "5px" }}>
+              90hrs of learning with Anuj Garg
+            </Typography>
           }
           action={
             <IconButton className={classes.icon}>
@@ -56,7 +54,11 @@ const WishlistCard = () => {
           <Typography variant="caption" style={{ fontStyle: "italic", fontSize: "14px" }}>
             Classes Starting <span style={{ color: "#a60000" }}>16th March Onwards</span>
           </Typography>
-          <Typography variant="h3" color="secondary" style={{ margin: "4px 0px 6px", fontSize: "13.1px" }}>
+          <Typography
+            variant="h3"
+            color="secondary"
+            style={{ margin: "4px 0px 6px", fontSize: "13.1px" }}
+          >
             ₹ 94
           </Typography>
           <ButtonComponent title="Checkout Now" onClick={() => history.push("/course")} />

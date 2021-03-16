@@ -1,9 +1,7 @@
 import { Card, CardHeader, Container, IconButton, Typography } from "@material-ui/core";
 import React from "react";
-import useStyles from './style';
+import useStyles from "./style";
 import { PlayCircleFilledOutlined } from "@material-ui/icons";
-
-
 
 const CourseCard = () => {
   const classes = useStyles();
@@ -36,9 +34,7 @@ const CourseCard = () => {
         <div style={{ backgroundColor: "#000", color: "#fff", padding: "2px 8px" }}>
           <Typography variant="h5">Chapter 1 : How to start with WD?</Typography>
         </div>
-        <Typography className={classes.bottomfont}>
-          1hr 45 min learned out of 3 days
-        </Typography>
+        <Typography className={classes.bottomfont}>1hr 45 min learned out of 3 days</Typography>
       </Card>
     </Container>
   );
