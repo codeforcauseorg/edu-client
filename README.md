@@ -52,7 +52,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 ### 🚩 Setting up remote :
 
 1. Now you have to set up remote repositories
-2. Type the command `git remote -v` this will list the remote connection to your repo.
+2. Type `git remote -v` in terminal to list remote connections to your repo.
 3. It will show something like this:
 
 ```console
@@ -85,17 +85,23 @@ Whenever you want to contribute to any project. It is best practice that you sho
 4. But still if you start editing the edits will go to the main branch. To change the path of the edits type in `git checkout <your-branch-name>`
 5. Now you are ready to do the desired changes.
 
+
+## 📌 Setting up .env file :
+1. Create a new file `.env` in root directory. 
+2. Copy all the default content from `.env.example` file to `.env` file.
+3. You can edit this `.env` file to provide your own project credentials if needed in future for specific tweaks and tests.
+
 ## 📌 Setting up project using `npm` :
 
 1. Open this clonned folder in text editor of your choice
 2. If you want to use the project using `npm` then that comes along side when you download and install node js
 
-### 🚩 Running in Deployment mode :
+### 🚩 Running in Development mode :
 
-1. Open the terminal and type in `npm start`
-2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-3. The page will reload if you make edits.
-4. You will also see any lint errors in the console.
+1. Open the terminal and type in `npm install`, to install all the dependencies.
+2. Run: `npm start`
+3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+4. The page will reload if you make edits.
 
 ### 🚩 Testing changes :
 
@@ -143,6 +149,12 @@ Skip the yarn part and proceed to the Pushing the changes section [here](#-pushi
 4. The build is minified and the filenames include the hashes.\
    Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### 🚩 Running storybook :
+
+1. Run the command `npm run storybook`
+2. wait on `localhost:6000`
+3. write stories for component in `stories` folder under `src` folder.
 
 ## 📌 Pushing your changes
 
