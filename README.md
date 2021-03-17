@@ -6,6 +6,18 @@
     Product focuses on 100% education as well as upskilling developing countries and rural areas.</i></b>
 </blockquote>
 
+<br/>
+
+<div align="center">
+
+![Issues tag](https://img.shields.io/github/issues/codeforcauseorg/edu-client)
+![Forks tag](https://img.shields.io/github/forks/codeforcauseorg/edu-client)
+![Stars](https://img.shields.io/github/stars/codeforcauseorg/edu-client?style=social)
+![Licence](https://img.shields.io/github/license/codeforcauseorg/edu-client)
+![twitter](https://img.shields.io/twitter/follow/codeforcauseIn?style=social)
+[![Discord](https://img.shields.io/discord/717102560909197493.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jBHPxUz)
+
+</div>
 ## ❤️ Note to new contributors
 
 Thank you for considering and taking the time to contribute! Before contributing kindly read and follow [Code of Conduct](CODE_OF_CONDUCT.md). To help new developers/contributors there are set of instructions added in [CONTRIBUTING.md](CONTRIBUTING.md). Which describes the intial stages for working on this project. Also refer the [MIT License](LICENSE).
