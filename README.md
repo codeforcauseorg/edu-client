@@ -15,6 +15,7 @@
 ![Stars](https://img.shields.io/github/stars/codeforcauseorg/edu-client?style=social)
 ![Licence](https://img.shields.io/github/license/codeforcauseorg/edu-client)
 ![twitter](https://img.shields.io/twitter/follow/codeforcauseIn?style=social)
+[![Discord](https://img.shields.io/discord/717102560909197493.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/jBHPxUz)
 
 </div>
 ## ❤️ Note to new contributors
