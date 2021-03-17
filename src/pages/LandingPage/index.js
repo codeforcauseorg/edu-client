@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     width: "10rem",
     height: "10rem",
     borderRadius: "50%",
-    boxShadow:"-5px -5px 10px rgba(255,255,255,1),5px 5px 10px rgba(0,0,0,0.2)",
+    boxShadow: "-5px -5px 10px rgba(255,255,255,1),5px 5px 10px rgba(0,0,0,0.2)",
   },
   logo: {
     width: "100%",
