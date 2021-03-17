@@ -8,13 +8,15 @@
 
 <br/>
 
+<div align="center">
+
 ![Issues tag](https://img.shields.io/github/issues/codeforcauseorg/edu-client)
 ![Forks tag](https://img.shields.io/github/forks/codeforcauseorg/edu-client)
 ![Stars](https://img.shields.io/github/stars/codeforcauseorg/edu-client?style=social)
 ![Licence](https://img.shields.io/github/license/codeforcauseorg/edu-client)
 ![twitter](https://img.shields.io/twitter/follow/codeforcauseIn?style=social)
-![Languages](https://img.shields.io/github/languages/count/codeforcauseorg/edu-client)
 
+</div>
 ## ❤️ Note to new contributors
 
 Thank you for considering and taking the time to contribute! Before contributing kindly read and follow [Code of Conduct](CODE_OF_CONDUCT.md). To help new developers/contributors there are set of instructions added in [CONTRIBUTING.md](CONTRIBUTING.md). Which describes the intial stages for working on this project. Also refer the [MIT License](LICENSE).
