@@ -181,3 +181,11 @@ By this time you can see a message on your github fork as `your fork is ahead of
 [Anuj Garg](https://github.com/KeenWarrior)\
 [Kunal Kushwaha](https://github.com/kunal-kushwaha)\
 [Abhishek Kumar](https://github.com/Abhishek-kumar09)
+
+## 📌 Credits :
+
+This project exists thanks to all the people who contribute.
+
+<a href="https://github.com/codeforcauseorg/edu-client/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=codeforcauseorg/edu-client" />
+</a>
