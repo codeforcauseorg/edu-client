@@ -9,10 +9,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "16px",
     borderRadius: "8px",
     padding: 0,
+    "&:hover": {
+      cursor: "pointer",
+      transform: "translateY(-2px)",
+    },
   },
   cardHeader: {
     backgroundColor: "#A60000",
     color: "#fff",
+  },
+  bottomfont: {
+    paddingLeft: "8px",
+    fontStyle: "italic",
+    fontSize: "12px",
   },
   icon: {
     color: "#fff",
@@ -37,7 +46,7 @@ const CourseCard = () => {
             paddingLeft: "8px",
           }}
           title={
-            <Typography variant="h3">
+            <Typography variant="h2">
               Fullstack Web Development Course <br /> by code for cause
             </Typography>
           }
@@ -53,11 +62,9 @@ const CourseCard = () => {
           }}
         />
         <div style={{ backgroundColor: "#000", color: "#fff", padding: "2px 8px" }}>
-          <Typography variant="h6">Chapter 1 : How to start with WD?</Typography>
+          <Typography variant="h5">Chapter 1 : How to start with WD?</Typography>
         </div>
-        <Typography variant="caption" style={{ paddingLeft: "8px", fontStyle: "italic" }}>
-          1hr 45 min learned out of 3 days
-        </Typography>
+        <Typography className={classes.bottomfont}>1hr 45 min learned out of 3 days</Typography>
       </Card>
     </Container>
   );
