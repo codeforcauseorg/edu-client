@@ -1,4 +1,5 @@
 import React from "react";
+import SmallCard from "../../../components/SmallCard/SmallCard";
 import styles from "./Recommended.module.css";
 
 const props = {
@@ -47,42 +48,21 @@ function Recommended() {
       <h1 className={styles.mainHeading}>Recommended Courses</h1>
       <div className={styles.container}>
         {props.newGames.map((item) => (
-          <div key={item.id} className={styles.card}>
-            <img className={styles.image} src={item.image} />
-            <div className={styles.text}>
-              <h1 className={styles.heading}>{item.title}</h1>
-              <p className={styles.info}>{item.dev}</p>
-              <p className={styles.info}>{item.rank}</p>
-            </div>
-          </div>
+          <SmallCard key={item.id} data={item} />
         ))}
       </div>
 
       <h1 className={styles.mainHeading}>Top Courses</h1>
       <div className={styles.container}>
         {props.newGames.map((item) => (
-          <div key={item.id} className={styles.card}>
-            <img className={styles.image} src={item.image} />
-            <div className={styles.text}>
-              <h1 className={styles.heading}>{item.title}</h1>
-              <p className={styles.info}>{item.dev}</p>
-              <p className={styles.info}>{item.rank}</p>
-            </div>
-          </div>
+          <SmallCard key={item.id} data={item} />
         ))}
       </div>
 
       <h1 className={styles.mainHeading}>Upcoming Courses</h1>
       <div className={styles.container}>
         {props.newGames.map((item) => (
-          <div key={item.id} className={styles.card}>
-            <img className={styles.image} src={item.image} />
-            <div className={styles.text}>
-              <h1 className={styles.heading}>{item.title}</h1>
-              <p className={styles.info}>{item.dev}</p>
-              <p className={styles.info}>{item.rank}</p>
-            </div>
-          </div>
+          <SmallCard key={item.id} data={item} />
         ))}
       </div>
     </>

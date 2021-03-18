@@ -1,0 +1,25 @@
+.card{
+    margin: 0 0 0 2rem;
+    width: 10rem;
+    background: #e7e7e7;
+    border-radius: 4px;
+
+}
+
+.image{
+    width: 10rem;
+    border-radius: 4px;
+}
+
+.text{
+    margin: .5rem 0 .5rem 1em;
+}
+
+.heading{
+    font-size: 1rem;
+}
+
+.info{
+    margin: .25rem 0;
+    font-size: 0.8rem;
+}
