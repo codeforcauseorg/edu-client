@@ -1,5 +1,4 @@
 import React from "react";
-
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core";
 
@@ -10,7 +9,6 @@ const useStyles = makeStyles(() => ({
     flexDirection: "column",
   },
   inputBox: {
-    marginBottom: "1rem",
     padding: ".25rem .55rem",
     display: "flex",
     border: "2px solid #ddd",
