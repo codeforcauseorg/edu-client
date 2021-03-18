@@ -27,9 +27,26 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     padding: "4px",
   },
-  title: {
+  topic: {
+    fontSize: "18px",
     fontWeight: 700,
-    fontSize: "12px",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "14px",
+    },
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "12px",
+    },
+  },
+  chapterstyle: {
+    backgroundColor: "#000",
+    color: "#fff",
+    padding: "2px 8px",
+  },
+  chaptertextstyle: {
+    fontSize: "15px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "12px",
+    },
   },
 }));
 
@@ -46,7 +63,7 @@ const CourseCard = () => {
             paddingLeft: "8px",
           }}
           title={
-            <Typography variant="h2">
+            <Typography className={classes.topic}>
               Fullstack Web Development Course <br /> by code for cause
             </Typography>
           }
@@ -61,8 +78,10 @@ const CourseCard = () => {
             title: classes.title,
           }}
         />
-        <div style={{ backgroundColor: "#000", color: "#fff", padding: "2px 8px" }}>
-          <Typography variant="h5">Chapter 1 : How to start with WD?</Typography>
+        <div className={classes.chapterstyle}>
+          <Typography className={classes.chaptertextstyle}>
+            Chapter 1 : How to start with WD?
+          </Typography>
         </div>
         <Typography className={classes.bottomfont}>1hr 45 min learned out of 3 days</Typography>
       </Card>

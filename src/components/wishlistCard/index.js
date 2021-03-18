@@ -45,10 +45,21 @@ const useStyles = makeStyles((theme) => ({
   },
   titlestyle: {
     marginBottom: "2px",
+    fontSize: "14px",
   },
   subheaderstyle: {
-    fontSize: "14px",
+    fontSize: "12px",
     marginTop: "5px",
+  },
+  stylecontent: {
+    fontSize: "14px",
+    [theme.breakpoints.down("xs")]: {
+      fontSize: "11px",
+    },
+  },
+  captionset: {
+    fontStyle: "italic",
+    fontSize: "12px",
   },
 }));
 
@@ -65,7 +76,7 @@ const WishlistCard = () => {
             backgroundSize: "cover",
           }}
           title={
-            <Typography variant="h2" className={classes.titlestyle}>
+            <Typography className={classes.titlestyle}>
               Fullstack Web Development Course <br /> by code for cause
             </Typography>
           }
@@ -87,11 +98,11 @@ const WishlistCard = () => {
           }}
         />
         <CardContent>
-          <Typography style={{ fontSize: "14px" }}>
+          <Typography className={classes.stylecontent}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
           </Typography>
-          <Typography variant="caption" style={{ fontStyle: "italic", fontSize: "14px" }}>
+          <Typography variant="caption" className={classes.captionset}>
             Classes Starting <span style={{ color: "#a60000" }}>16th March Onwards</span>
           </Typography>
           <Typography
