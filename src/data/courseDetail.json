@@ -77,6 +77,43 @@
         "premier": "Priemere TBD",
         "panel": "panel1"
       }
+    ],
+    "coursesSection": [
+      {
+        "image": "https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg",
+        "title": "Full Stack Development Course by Code For Cause",
+        "subTitle": "Beginner Level",
+        "detail": "35 hrs of learning content",
+        "price": "₹ 8,096 /-"
+      },
+      {
+        "image": "https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg",
+        "title": "Full Stack Development Course by Code For Cause",
+        "subTitle": "Beginner Level",
+        "detail": "35 hrs of learning content",
+        "price": "₹ 8,096 /-"
+      },
+      {
+        "image": "https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg",
+        "title": "Full Stack Development Course by Code For Cause",
+        "subTitle": "Beginner Level",
+        "detail": "35 hrs of learning content",
+        "price": "₹ 8,096 /-"
+      },
+      {
+        "image": "https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg",
+        "title": "Full Stack Development Course by Code For Cause",
+        "subTitle": "Beginner Level",
+        "detail": "35 hrs of learning content",
+        "price": "₹ 8,096 /-"
+      },
+      {
+        "image": "https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg",
+        "title": "Full Stack Development Course by Code For Cause",
+        "subTitle": "Beginner Level",
+        "detail": "35 hrs of learning content",
+        "price": "₹ 8,096 /-"
+      }
     ]
   }
 ]

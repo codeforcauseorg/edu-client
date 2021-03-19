@@ -1,6 +1,6 @@
 import React from "react";
 import Description from "../components/courseDetails/description";
-import Hero from "../components/hero/Hero";
+import Hero from "../components/courseDetails/Hero";
 import CardContainer from "../components/cardContainer/cardContainer";
 import SimpleCard from "../components/simpleCard/simpleCard";
 import { makeStyles } from "@material-ui/core/styles";
@@ -38,6 +38,8 @@ const useStyles = makeStyles((theme) => ({
 const heroData = courseDetail[0].heroSection;
 const descriptionData = courseDetail[0].descriptionSection;
 const perksData = courseDetail[0].perksSection;
+const coursesData = courseDetail[0].coursesSection;
+
 function CourseDetail() {
   const classes = useStyles();
   return (
@@ -71,56 +73,35 @@ function CourseDetail() {
           Learn something New
         </Typography>
         <CardContainer>
-          <SimpleCard
-            width="240px"
-            image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-            title="Full Stack Development Course by Code For Cause"
-            subTitle="Beginner Level"
-            detail="35 hrs of learning content"
-            price="₹ 8,096 /-"
-            showIcon={true}
-          />
-          <SimpleCard
-            width="240px"
-            image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-            title="Full Stack Development Course by Code For Cause"
-            subTitle="Beginner Level"
-            detail="35 hrs of learning content"
-            price="₹ 8,096 /-"
-            showIcon={true}
-          />
-          <SimpleCard
-            width="240px"
-            image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-            title="Full Stack Development Course by Code For Cause"
-            subTitle="Beginner Level"
-            detail="35 hrs of learning content"
-            price="₹ 8,096 /-"
-            showIcon={true}
-          />
+          {coursesData.map((course, index) => (
+            <SimpleCard
+              key={index}
+              width="240px"
+              image={course.image}
+              title={course.title}
+              subTitle={course.subTitle}
+              detail={course.detail}
+              price={course.price}
+              showIcon={true}
+            />
+          ))}
         </CardContainer>
         <Typography className={classes.subTitle} variant="h2" component="h2">
           Top Picks
         </Typography>
         <CardContainer>
-          <SimpleCard
-            width="300px"
-            image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-            title="Full Stack Development Course by Code For Cause"
-            subTitle="Beginner Level"
-            detail="35 hrs of learning content"
-            price="₹ 8,096 /-"
-            showIcon={false}
-          />
-          <SimpleCard
-            width="300px"
-            image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-            title="Full Stack Development Course by Code For Cause"
-            subTitle="Beginner Level"
-            detail="35 hrs of learning content"
-            price="₹ 8,096 /-"
-            showIcon={false}
-          />
+          {coursesData.map((course, index) => (
+            <SimpleCard
+              key={index}
+              width="300px"
+              image={course.image}
+              title={course.title}
+              subTitle={course.subTitle}
+              detail={course.detail}
+              price={course.price}
+              showIcon={false}
+            />
+          ))}
         </CardContainer>
       </div>
     </>
