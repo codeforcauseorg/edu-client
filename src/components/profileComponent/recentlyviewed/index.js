@@ -1,7 +1,8 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Card, Grid } from "@material-ui/core";
+import { IconButton, Card, Grid, CardActions } from "@material-ui/core";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -81,11 +82,15 @@ const CoreCard = ({ courseinfo }) => {
   return (
     <Grid item xs={12} sm={4} md={4} lg={3}>
       <Card className={classes.msgCard} raised={true}>
+        <IconButton>
         <PlayCircleOutlineIcon />
+        </IconButton>
+        <div className={classes.content}> {courseinfo.info} </div>
+        <CardActions>
         <div className={classes.content}>
-          Name: <span className={classes.coreName}>{courseinfo.name}</span>
+          By <span className={classes.coreName}>{courseinfo.name}</span>
         </div>
-        <div className={classes.content}>Info: {courseinfo.info} </div>
+      </CardActions>
       </Card>
     </Grid>
   );

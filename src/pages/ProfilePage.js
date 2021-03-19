@@ -6,12 +6,12 @@ import { logout } from "../actions/accountActions";
 
 function ProfilePage() {
   const [recent, setRecent] = useState([
-    { name: "help", info: "info" },
-    { name: "help", info: "info" },
-    { name: "help", info: "info" },
-    { name: "help", info: "info" },
-    { name: "help", info: "info" },
-    { name: "help", info: "info" },
+    { name: "help", info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam" },
+    { name: "help", info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam" },
+    { name: "help", info: "iLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam" },
+    { name: "help", info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam" },
+    { name: "help", info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam" },
+    { name: "help", info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam" },
   ]);
   const dispatch = useDispatch();
   return (
