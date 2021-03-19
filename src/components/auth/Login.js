@@ -39,7 +39,7 @@ function Login() {
         textTransform: "capitalize",
       }}
     >
-      {user === undefined ? (
+      {user ? (
         <CircularProgress size="24px" color="inherit" />
       ) : (
         <Typography component="h1" variant="subtitle1">
