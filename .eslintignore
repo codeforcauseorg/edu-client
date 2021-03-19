@@ -11,3 +11,5 @@
 /tools/internal-rules/node_modules/**
 test.js
 !.eslintrc.json
+/src/App.test.js
+/src/services/authService.js 

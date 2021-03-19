@@ -16,12 +16,12 @@ const renderRoutes = () => (
       <Route path="/" exact>
         <Redirect to="/home" />
       </Route>
+      <Route path="/course/:id" exact component={CourseDetail} />
       <SwipeableRoutes replace>
         <Route path="/home" exact component={HomePage} />
         <Route path="/personal" exact component={CoursePage} />
         <Route path="/wishlist" exact component={WishlistPage} />
         <Route path="/profile" exact component={ProfilePage} />
-        <Route path="/course/:id" exact component={CourseDetail} />
       </SwipeableRoutes>
     </MainLayout>
   </React.Fragment>
