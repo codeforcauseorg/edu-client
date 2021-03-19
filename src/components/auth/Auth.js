@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { logout, setUserData } from "../../actions/accountActions";
 import authService from "../../services/authService";
-import Login from "./Login";
+//  import Login from "./Login";
+import LandingPage from "../../pages/LandingPage";
 
 function Auth({ children }) {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function Auth({ children }) {
     initAuth();
   }, [dispatch]);
 
-  return user ? children : <Login />;
+  return user ? children : <LandingPage />;
 }
 
 Auth.propTypes = {
