@@ -6,14 +6,16 @@ import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 const useStyles = makeStyles((theme) =>
   createStyles({
     "@global": {
-      "*::-webkit-scrollbar": {
-        width: "10px",
-        backgroundColor: "#FFFDE8",
+      "@media(min-width: 508px)": {
+        "*::-webkit-scrollbar": {
+          width: "4px",
+          backgroundColor: "#FFFDE8",
+        },
       },
       "*::-webkit-scrollbar-thumb": {
         backgroundColor: "#EF4646",
-        borderRight: "3px solid #FFFDE8",
-        borderLeft: "3px solid #FFFDE8",
+        borderRight: "0px solid #FFFDE8",
+        borderLeft: "0px solid #FFFDE8",
       },
     },
     root: {

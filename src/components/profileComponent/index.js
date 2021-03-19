@@ -3,6 +3,8 @@ import Avatar from "@material-ui/core/Avatar";
 import { makeStyles } from "@material-ui/core/styles";
 import CoreCard from "./recentlyviewed/index";
 import { Box, Button, Grid } from "@material-ui/core";
+import { logout } from "./../.././actions/accountActions";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles({
   avatar: {
@@ -25,6 +27,7 @@ const useStyles = makeStyles({
     backgroundImage: "linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)",
     padding: "1rem",
     paddingLeft: "1.5rem",
+    width: "100%",
   },
   bigTitle: {
     fontSize: "1.5rem",
@@ -53,16 +56,35 @@ const useStyles = makeStyles({
     backgroundColor: "rebeccapurple",
     color: "white",
   },
+  logout: {
+    "@media(max-width: 508px)": {
+      marginBottom: "8px",
+    },
+  },
   centersmall: {
-    "@media(max-width: 486px)": {
+    "@media(max-width: 508px)": {
       display: "flex",
       justifyContent: "center",
+      marginBottom: "8px",
+    },
+  },
+  emphasis: {
+    display: "flex",
+    justifyContent: "space-between",
+    "@media(max-width: 508px)": {
+      display: "flex",
+      justifyContent: "center",
+      padding: "10px",
+      width: "100%",
+      textAlign: "center",
+      flexDirection: "column-reverse",
     },
   },
 });
 
 const ProfileComponent = ({ recent }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   return (
     <Fragment>
@@ -88,10 +110,20 @@ const ProfileComponent = ({ recent }) => {
             <div>
               <center className={classes.smallTitle}>Name Here</center>
             </div>
-            <div className={classes.centersmall}>
-              <Button className={classes.center}>
-                <b>Recently Played</b>
-              </Button>
+            <div className={classes.emphasis}>
+              <div className={classes.centersmall}>
+                <Button className={classes.center}>
+                  <b>Recently Played</b>
+                </Button>
+              </div>
+              <div className={classes.logout} style={{ display: "flex", justifyContent: "center" }}>
+                <Button
+                  style={{ backgroundColor: "#8B0000", display: "flex", justifyContent: "center" }}
+                  onClick={() => dispatch(logout)}
+                >
+                  <b style={{ color: "white" }}>Logout</b>
+                </Button>
+              </div>
             </div>
             <Grid container spacing={3} style={{ paddingBottom: "2rem" }}>
               {recent.slice(0, 5).map((courseinfo, index) => (
