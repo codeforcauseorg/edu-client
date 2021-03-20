@@ -9,6 +9,9 @@ import CoursePage from "./pages/CoursePageViewWithVideo";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage";
 import CourseDetail from "./pages/CourseDetail";
+import DocsLayout from "./layouts/DocsLayout";
+import Privacy from "./pages/Info/Privacy";
+import Terms from "./pages/Info/Terms";
 
 const renderRoutes = () => (
   <React.Fragment>
@@ -24,6 +27,10 @@ const renderRoutes = () => (
         <Route path="/profile" exact component={ProfilePage} />
       </SwipeableRoutes>
     </MainLayout>
+    <DocsLayout>
+      <Route path="/privacy" exact component={Privacy} />
+      <Route path="/terms-and-conditions" exact component={Terms} />
+    </DocsLayout>
   </React.Fragment>
 );
 
