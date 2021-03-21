@@ -13,6 +13,7 @@ const useStyles = makeStyles(() => ({
   img: {
     borderRadius: "6px",
     marginTop: "18px",
+    width: "100%",
   },
 }));
 
