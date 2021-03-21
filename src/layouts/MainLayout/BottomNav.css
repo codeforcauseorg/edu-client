@@ -2,9 +2,34 @@
   border-bottom: 2px solid #3949ab;
 }
 
-.MuiBottomNavigationAction-label.Mui-selected{
-  font-size: 0.8rem !important;
+.Mui-selected{
+  font-size: 0.8rem !important ;
+
 }
+
+@media screen and (max-width: 361px) and (min-width: 360px) {
+  .Mui-selected{
+    font-size: 0.77rem !important ;
+  }
+}
+
+@media screen and (max-width: 321px) and (min-width: 320px) {
+ .Mui-selected{
+    font-size: 0.67rem !important ;
+  }
+  .MuiBottomNavigationAction-label{
+    font-size: 0.66rem !important ;
+  }
+}
+
+@media screen and (max-width: 281px) and (min-width: 280px) {
+  .Mui-selected{
+     font-size: 0.6rem !important ;
+   }
+   .MuiBottomNavigationAction-label{
+     font-size: 0.6rem !important ;
+   }
+ }
 
 /* .MuiPaper-root .MuiAppBar-root .MuiAppBar-positionFixed .MuiAppBar-colorPrimary .mui-fixed{
   transition: cubic-bezier(0, 0, 0.2, 1)  ;
