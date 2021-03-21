@@ -12,7 +12,7 @@ Be sure to include as much information including screenshots, text output, and b
 
 ## How to Request Enhancements
 
-Firstly please refer to the applicable GitHub repository[github-repo] and search the repository's GitHub issues[issues-list] to make sure that your idea has not been (or is not still) considered.
+Firstly please refer to the applicable GitHub repository [github-repo] and search the repository's GitHub issues [issues-list] to make sure that your idea has not been (or is not still) considered.
 
 If it is not yet considered or something more can be added then please create a new issue in the GitHub repository[new-issue] describing your enhancement.
 
