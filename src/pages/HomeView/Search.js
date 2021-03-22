@@ -9,13 +9,14 @@ const useStyles = makeStyles(() => ({
     flexDirection: "column",
   },
   inputBox: {
+    marginTop: "1rem",
     padding: ".25rem .55rem",
     display: "flex",
     border: "2px solid #ddd",
     borderRadius: "1rem",
   },
   icon: {
-    color: "#f00",
+    color: "#AD0517",
   },
   input: {
     paddingLeft: ".5rem",
@@ -24,6 +25,7 @@ const useStyles = makeStyles(() => ({
     outline: "none",
   },
   tags: {
+    marginBottom: "1rem",
     paddingTop: "1rem",
     display: "flex",
     flexWrap: "nowrap",
@@ -33,10 +35,10 @@ const useStyles = makeStyles(() => ({
   tag: {
     marginRight: ".5rem",
     padding: ".5rem .75rem",
-    background: "#ddd",
+    background: "#e7e7e7",
     borderRadius: ".75rem",
     fontSize: ".7rem",
-    color: "red",
+    color: "#AD0517",
   },
 }));
 

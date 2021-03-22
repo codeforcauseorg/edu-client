@@ -1,5 +1,6 @@
 import React from "react";
-import SmallCard from "../../../components/SmallCard/SmallCard";
+import MediaCard from "../../../components/MaterialCard";
+import Typography from "@material-ui/core/Typography";
 import styles from "./Recommended.module.css";
 
 const props = {
@@ -8,36 +9,41 @@ const props = {
       id: 1,
       image: "https://img.mobiscroll.com/demos/worms3.png",
       title: "Worms 3",
-      dev: "Team 17 Digital Limited",
-      rank: 4.2,
+      level: "Beginner",
+      length: "35",
+      price: 94,
     },
     {
       id: 2,
       image: "https://img.mobiscroll.com/demos/candycrush.png",
       title: "Candy Crush Saga",
-      dev: "King",
-      rank: 4.3,
+      level: "Beginner",
+      length: "35",
+      price: 94,
     },
     {
       id: 3,
       image: "https://img.mobiscroll.com/demos/angrybirds.png",
       title: "Angry Birds",
-      dev: "Rovino",
-      rank: 4.4,
+      level: "Beginner",
+      length: "35",
+      price: 94,
     },
     {
       id: 4,
       image: "https://img.mobiscroll.com/demos/nfs.png",
       title: "Need for Speed™ ",
-      dev: "ELECTRONIC ARTS",
-      rank: 4.3,
+      level: "Beginner",
+      length: "35",
+      price: 94,
     },
     {
       id: 5,
       image: "https://img.mobiscroll.com/demos/heartstone.png",
       title: "Hearthstone",
-      dev: "Blizzard Entertainment Inc.",
-      rank: 4.2,
+      level: "Beginner",
+      length: "35",
+      price: 94,
     },
   ],
 };
@@ -45,24 +51,30 @@ const props = {
 function Recommended() {
   return (
     <>
-      <h1 className={styles.mainHeading}>Recommended Courses</h1>
+      <Typography className={styles.mainHeading} gutterBottom variant="h5" component="h2">
+        Recommended Courses
+      </Typography>
       <div className={styles.container}>
         {props.newGames.map((item) => (
-          <SmallCard key={item.id} data={item} />
+          <MediaCard key={item.id} data={item} />
         ))}
       </div>
 
-      <h1 className={styles.mainHeading}>Top Courses</h1>
+      <Typography className={styles.mainHeading} gutterBottom variant="h5" component="h2">
+        Top Courses
+      </Typography>
       <div className={styles.container}>
         {props.newGames.map((item) => (
-          <SmallCard key={item.id} data={item} />
+          <MediaCard key={item.id} data={item} />
         ))}
       </div>
 
-      <h1 className={styles.mainHeading}>Upcoming Courses</h1>
+      <Typography className={styles.mainHeading} gutterBottom variant="h5" component="h2">
+        Upcoming Courses
+      </Typography>
       <div className={styles.container}>
         {props.newGames.map((item) => (
-          <SmallCard key={item.id} data={item} />
+          <MediaCard key={item.id} data={item} />
         ))}
       </div>
     </>
