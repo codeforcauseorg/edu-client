@@ -27,6 +27,12 @@ const useStyles = makeStyles((theme) => ({
       color: "#a60000",
     },
   },
+  centred: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: "100px",
+  },
 }));
 
 export default function CoursePageViewWithVideo() {
@@ -39,7 +45,10 @@ export default function CoursePageViewWithVideo() {
 
   return (
     <div>
-      <Player src="https://firebasestorage.googleapis.com/v0/b/codeforcauseorg.appspot.com/o/course%2Fzoom_0.mp4?alt=media&token=01f3ed1e-8d39-4fde-b945-f3bfe677b6df">
+      <Player
+        className={classes.centered}
+        src="https://firebasestorage.googleapis.com/v0/b/codeforcauseorg.appspot.com/o/course%2Fzoom_0.mp4?alt=media&token=01f3ed1e-8d39-4fde-b945-f3bfe677b6df"
+      >
         <ControlBar autoHide={true} className="my-class" />
       </Player>
       <Box mt={2} ml={2}>
