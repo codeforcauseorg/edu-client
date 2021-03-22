@@ -4,24 +4,10 @@ import ButtonComponent from "../Button/ButtonComponent";
 
 import { Grid, Typography, makeStyles } from "@material-ui/core";
 import LanguageIcon from "@material-ui/icons/Language";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ReactPlayer from "react-player/lazy";
 
 const useStyles = makeStyles((theme) => ({
-  hero: {
-    padding: "0 10px",
-    textAlign: "start",
-  },
-
-  navigation: {
-    widht: "100%",
-    height: "40px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    margin: "8px 10px",
-  },
+  hero: {},
 
   heroHeading: {
     fontWeight: "700",
@@ -92,13 +78,9 @@ function Hero({ title, description, startDate, duration, languages, thumbnail, v
 
   return (
     <>
-      <div className={classes.navigation}>
-        <ArrowBackIcon />
-        <MoreVertIcon />
-      </div>
       <Grid className={classes.hero} container justify="space-between">
         <Grid item xs={12} md={5}>
-          <Typography className={classes.heroHeading} variant="h4" color="secondary" component="h4">
+          <Typography className={classes.heroHeading} variant="h1" color="secondary" component="h4">
             {title}
           </Typography>
           <Typography className={classes.heroBody} variant="subtitle2" component="p">
