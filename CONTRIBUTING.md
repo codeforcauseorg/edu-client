@@ -12,7 +12,7 @@ Be sure to include as much information including screenshots, text output, and b
 
 ## How to Request Enhancements
 
-Firstly please refer to the applicable GitHub repository [github-repo] and search the repository's GitHub issues [issues-list] to make sure that your idea has not been (or is not still) considered.
+Firstly please refer to the applicable [github-repo] and search in the [issues-list] to make sure that your idea has not been (or is not still) considered.
 
 If it is not yet considered or something more can be added then please create a new issue in the GitHub repository[new-issue] describing your enhancement.
 
@@ -145,7 +145,7 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 
 ## 📌 Pushing your changes
 
-Now you have made the changes , tested them, and built them so now its time to push them.
+After doing the changes, and tests are successfully passing you can push your changes to remote.
 
 1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
 2. Then type in `git add` and hit enter, this will add all the files to staging area
