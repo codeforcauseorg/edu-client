@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "100%",
     display: "flex",
     justifyContent: "center",
+    marginTop: "160px",
   },
 }));
 
@@ -83,7 +84,7 @@ export default function CoursePageViewWithVideo(props) {
         </Tabs>
         <TabPanel value={value} index={0}>
           <List style={{ margin: 0, padding: 0 }}>
-            {[0, 1, 2].map((item, index) => {
+            {[1, 2, 3, 4, 5].map((item, index) => {
               return (
                 <ListItem key={index}>
                   <ListItemText
