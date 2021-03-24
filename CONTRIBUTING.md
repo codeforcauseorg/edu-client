@@ -145,7 +145,7 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 
 ## 📌 Pushing your changes
 
-After doing the changes, and tests are successfully passing you can push your changes to remote.
+After doing the changes, and when tests are successfully passing you can push your changes to remote.
 
 1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
 2. Then type in `git add` and hit enter, this will add all the files to staging area
