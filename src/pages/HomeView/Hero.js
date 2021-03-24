@@ -1,5 +1,7 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import Carousel from "react-material-ui-carousel";
+import Item from "./Item";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -17,8 +19,20 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function Hero() {
+export default function Hero(props) {
   const classes = useStyles();
+
+  const items = [
+    {
+      img: "/assets/img/home.png",
+    },
+    {
+      img: "/assets/img/home1.jpg",
+    },
+    {
+      img: "/assets/img/learning.jpg",
+    },
+  ];
 
   return (
     <Container className={classes.root}>
@@ -28,7 +42,25 @@ export default function Hero() {
       <Typography variant="h3" style={{ color: "#FFB2B2" }}>
         Know us connect with us on live!!
       </Typography>
-      <img className={classes.img} src="/assets/img/home.png" alt="" />
+      {/* <img className={classes.img} src="/assets/img/home.png" alt="" /> */}
+      <Carousel
+        fullHeightHover={false}
+        navButtonsProps={{
+          style: {
+            backgroundColor: "transparent",
+          },
+        }}
+        navButtonsWrapperProps={{
+          style: {
+            bottom: "50px",
+            top: "unset",
+          },
+        }}
+      >
+        {items.map((item, i) => (
+          <Item key={i} item={item} />
+        ))}
+      </Carousel>
     </Container>
   );
 }
