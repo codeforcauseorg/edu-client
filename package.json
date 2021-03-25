@@ -30,6 +30,7 @@
     "react-firebaseui": "^4.1.0",
     "react-helmet": "^5.2.1",
     "react-markdown": "^4.3.1",
+    "react-material-ui-carousel": "^2.2.1",
     "react-player": "^2.9.0",
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
