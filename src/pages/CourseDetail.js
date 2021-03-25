@@ -1,5 +1,6 @@
 import React from "react";
 import Description from "../components/courseDetails/description";
+import ScrollToTop from "../utils/ScrollToTop";
 import Hero from "../components/courseDetails/Hero";
 import CardContainer from "../components/cardContainer/cardContainer";
 import SimpleCard from "../components/simpleCard/simpleCard";
@@ -44,6 +45,7 @@ function CourseDetail() {
   const classes = useStyles();
   return (
     <>
+      <ScrollToTop />
       <div className={classes.navigation}>
         <ArrowBackIcon />
         <MoreVertIcon />

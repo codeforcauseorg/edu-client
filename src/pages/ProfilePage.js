@@ -1,4 +1,5 @@
 import { Box, Button } from "@material-ui/core";
+import ScrollToTop from "../utils/ScrollToTop";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../actions/accountActions";
@@ -7,6 +8,7 @@ function ProfilePage() {
   const dispatch = useDispatch();
   return (
     <Box display="flex" flexDirection="column">
+      <ScrollToTop />
       <Button onClick={() => dispatch(logout)}>Logout</Button>
     </Box>
   );
