@@ -9,9 +9,9 @@ const useStyles = makeStyles((theme) => ({
     height: "107px",
     marginTop: "20px",
     background: "#F0F4F8",
-    paddingLeft: `${theme.spacing(2)}px`,
-    paddingTop: `${theme.spacing(1)}px`,
-    paddingBottom: `${theme.spacing(1)}px`,
+    paddingLeft: theme.spacing(2),
+    paddingTop: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
     "& .MuiTypography-body1": {
       fontSize: "0.7rem",
       color: "#748BA0",

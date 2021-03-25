@@ -13,8 +13,8 @@ import {
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTypography-h1": {
-      marginLeft: `${theme.spacing(2)}px`,
-      marginBottom: `${theme.spacing(2)}px`,
+      marginLeft: theme.spacing(2),
+      marginBottom: theme.spacing(2),
       fontSize: "25px",
       fontWeight: 600,
       color: "#0D0F44",

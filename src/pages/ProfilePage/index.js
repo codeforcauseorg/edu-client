@@ -11,17 +11,18 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
   },
-  logoutButton: {
+  buttonwrapper: {
     display: "flex",
     flexDirection: "column",
-    border: "2px solid #9B0000",
     margin: "10px 30px 0px 30px",
-    padding: "3px",
+    padding: "8px",
+  },
+  button: {
+    color: "#9B0000",
+    fontWeight: 600,
+    textTransform: "none",
+    border: "2px solid rgb(155,0,0,0.7)",
     borderRadius: "10px",
-    "& .MuiButton-label": {
-      color: "#9B0000",
-      fontWeight: 600,
-    },
   },
 }));
 function ProfilePage() {
@@ -32,8 +33,10 @@ function ProfilePage() {
       <HeaderComponent />
       <ScoreBoardComponent />
       <ListComponent />
-      <Box className={classes.logoutButton}>
-        <Button onClick={() => dispatch(logout)}>Logout</Button>
+      <Box className={classes.buttonwrapper}>
+        <Button className={classes.button} variant="outlined" onClick={() => dispatch(logout)}>
+          Log out
+        </Button>
       </Box>
       <FooterComponent />
     </Container>

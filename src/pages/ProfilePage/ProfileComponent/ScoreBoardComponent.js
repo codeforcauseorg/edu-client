@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
   Scorboard: {
     background: "#150051",
     borderRadius: "16px",
-    margin: `${theme.spacing(3)}px`,
+    margin: theme.spacing(3),
   },
   Scorboard__details: {
     "& .MuiTypography-h4": {
