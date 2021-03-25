@@ -63,8 +63,8 @@ export default function CoursePageViewWithVideo(props) {
           <ControlBar autoHide={true} className="my-class" />
         </Player>
         <Box mt={2} ml={2}>
-          <Typography variant="h3">Full Stack Development Course by Code For Cause</Typography>
-          <Typography variant="caption">
+          <Typography variant="h2">Full Stack Development Course by Code For Cause</Typography>
+          <Typography variant="body1">
             <i>
               Duration <span style={{ color: "#4C0098" }}>1hr 45min</span>
             </i>
@@ -94,7 +94,7 @@ export default function CoursePageViewWithVideo(props) {
                       }: How to start With WD`}</Typography>
                     }
                     secondary={
-                      <Typography>
+                      <Typography variant="body2">
                         <i>
                           50 Minutes by Anuj Garg{" "}
                           <span style={{ color: "#4C0098" }}>Available in 2 days</span>{" "}

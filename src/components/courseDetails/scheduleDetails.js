@@ -21,9 +21,6 @@ const useStyles = makeStyles((theme) => ({
     flexBasis: "33.33%",
     flexShrink: 0,
   },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-  },
 }));
 
 const Accordion = withStyles({
@@ -83,7 +80,7 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
         >
           <Grid container className={classes.heading} justify="center" alignItems="center">
             <Grid item xs={6} sm={8}>
-              <Typography align="left" variant="h2">
+              <Typography align="left" variant="h3">
                 Chapter {chapter}
               </Typography>
             </Grid>
@@ -95,7 +92,7 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography className={classes.secondaryHeading} align="left">
+              <Typography variant="sutitle2" className={classes.secondaryHeading} align="left">
                 {heading} &nbsp;
                 <span style={{ fontStyle: "italic", color: "purple" }}>{premier}</span>
               </Typography>
