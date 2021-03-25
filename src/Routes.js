@@ -9,9 +9,10 @@ import CoursePage from "./pages/CoursePageViewWithVideo";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage";
 import CourseDetail from "./pages/CourseDetail";
+import { Container } from "@material-ui/core";
 
 const renderRoutes = () => (
-  <React.Fragment>
+  <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
     <Switch>
       <Route path="/" exact>
         <Redirect to="/home" />
@@ -26,7 +27,7 @@ const renderRoutes = () => (
         </SwipeableRoutes>
       </MainLayout>
     </Switch>
-  </React.Fragment>
+  </Container>
 );
 
 function Routes() {
