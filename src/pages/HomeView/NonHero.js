@@ -1,6 +1,8 @@
 import { Container, makeStyles, List, ListItem, Typography } from "@material-ui/core";
 import React from "react";
 import CourseCard from "../../components/courseCard/courseCard1";
+import Recommended from "./Courses";
+import Search from "./Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,9 +21,8 @@ export default function NonHero(props) {
     <div className={classes.root}>
       <Container>
         <Typography variant="h3">Continue Learning</Typography>
-
         <List>
-          {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+          {[1, 2].map((item, index) => {
             return (
               <ListItem key={index} className={classes.li}>
                 <CourseCard />
@@ -29,6 +30,8 @@ export default function NonHero(props) {
             );
           })}
         </List>
+        <Search />
+        <Recommended />
       </Container>
     </div>
   );
