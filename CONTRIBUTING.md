@@ -67,14 +67,14 @@ upstream        https://github.com/codeforcauseorg/edu-client.git (push)
 Whenever you want to contribute to any project. It is best practice that you should create a branch and push the branch as PR rather than directly pushing main/master branch
 
 1. `git branch` will list all the branches in the repository
-2. Now type `git branch <your-branch-name>` to create your branch 
+2. Now type `git branch <your-branch-name>` to create your branch
 3. You can check the created branch by `git branch`
 4. But still if you start editing the edits will go to the main branch. To change the path , type in `git checkout <your-branch-name>`
 5. Now you are ready to do the desired changes.
 
-
 ## 📌 Setting up .env file :
-1. Create a new file `.env` in root directory. 
+
+1. Create a new file `.env` in root directory.
 2. Copy all the default content from `.env.example` file to `.env` file.
 3. You can edit this `.env` file to provide your own project credentials if needed in future for specific tweaks and tests.
 

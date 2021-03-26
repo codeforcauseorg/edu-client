@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import SwipeableRoutes from "react-swipeable-routes";
 

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "React";
 import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import clsx from "clsx";
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
 function TopBar({ className, onMobileNavOpen, ...rest }) {
   const classes = useStyles();
   const user = useSelector((state) => state.account.user);
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     top: false,
     left: false,
     bottom: false,

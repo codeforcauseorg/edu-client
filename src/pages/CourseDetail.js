@@ -1,4 +1,3 @@
-import React from "react";
 import Description from "../components/courseDetails/description";
 import ScrollToTop from "../utils/ScrollToTop";
 import Hero from "../components/courseDetails/Hero";

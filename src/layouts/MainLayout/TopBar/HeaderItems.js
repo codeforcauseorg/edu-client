@@ -1,4 +1,3 @@
-import React from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { Box, Typography, makeStyles } from "@material-ui/core";
 import clsx from "clsx";
