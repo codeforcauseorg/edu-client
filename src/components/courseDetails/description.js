@@ -43,12 +43,12 @@ const Description = ({ description, mentors }) => {
         {mentors.map((mentor) => (
           <Box key={mentor.id} display="flex" alignItems="center">
             {mentor.id === 2 ? <Divider orientation="vertical" className={classes.divider} /> : ""}
-            <Avatar alt={mentor.title} src={mentor.image} className={classes.large} />
+            <Avatar alt={mentor.title} src={mentor.image} />
             <Box margin={1} fontStyle="italic">
               <Typography variant="h5" color="primary">
                 {mentor.name}
               </Typography>
-              <Typography>{mentor.title}</Typography>
+              <Typography variant="subtitle2">{mentor.title}</Typography>
             </Box>
           </Box>
         ))}

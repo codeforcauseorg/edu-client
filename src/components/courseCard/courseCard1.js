@@ -47,7 +47,7 @@ const CourseCard = () => {
           }}
           title={
             <Typography variant="h4">
-              Fullstack Web Development Course <br /> by code for cause
+              Fullstack Web Development Course <br /> by Code For Cause
             </Typography>
           }
           action={

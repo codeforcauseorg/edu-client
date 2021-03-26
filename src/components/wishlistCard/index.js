@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subheaderstyle: {
     marginTop: "5px",
+    fontStyle: "italic",
   },
   captionset: {
     fontStyle: "italic",
@@ -71,12 +72,12 @@ const WishlistCard = () => {
             backgroundSize: "cover",
           }}
           title={
-            <Typography variant="h3" className={classes.titlestyle}>
-              Fullstack Web Development Course <br /> by code for cause
+            <Typography variant="h4" className={classes.titlestyle}>
+              Fullstack Web Development Course <br /> by Code For Cause
             </Typography>
           }
           subheader={
-            <Typography variant="h5" className={classes.subheaderstyle}>
+            <Typography variant="h6" className={classes.subheaderstyle}>
               90hrs of learning with Anuj Garg
             </Typography>
           }
@@ -93,7 +94,7 @@ const WishlistCard = () => {
           }}
         />
         <CardContent>
-          <Typography>
+          <Typography variant="subtitle2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
           </Typography>

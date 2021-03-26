@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
   duration: {
-    fontSize: theme.typography.pxToRem(15),
     flexBasis: "33.33%",
     flexShrink: 0,
   },
@@ -74,7 +73,7 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
     <div className={classes.root}>
       <Accordion square expanded={expanded === panel} onChange={handleChange(panel)}>
         <AccordionSummary
-          expandIcon={<ArrowDropDownCircleOutlinedIcon fontSize="large" />}
+          expandIcon={<ArrowDropDownCircleOutlinedIcon fontSize="medium" />}
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
@@ -85,14 +84,19 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
               </Typography>
             </Grid>
             <Grid item xs={6} sm={4}>
-              <Typography className={classes.duration} align="right" component={"div"}>
+              <Typography
+                className={classes.duration}
+                variant="subtitle2"
+                align="right"
+                component={"div"}
+              >
                 <Box fontStyle="italic">
                   Duration <b>{duration}</b>
                 </Box>
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="sutitle2" className={classes.secondaryHeading} align="left">
+              <Typography variant="subtitle2" align="left">
                 {heading} &nbsp;
                 <span style={{ fontStyle: "italic", color: "purple" }}>{premier}</span>
               </Typography>

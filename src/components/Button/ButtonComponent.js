@@ -22,7 +22,7 @@ function ButtonComponent({ className, title, icon = null, ...rest }) {
   return (
     <Button className={clsx(classes.btn, className)} {...rest}>
       {icon || ""}
-      <Typography variant="h3">{title}</Typography>
+      <Typography variant="h4">{title}</Typography>
     </Button>
   );
 }
