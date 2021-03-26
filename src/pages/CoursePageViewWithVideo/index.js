@@ -63,8 +63,8 @@ export default function CoursePageViewWithVideo(props) {
           <ControlBar autoHide={true} className="my-class" />
         </Player>
         <Box mt={2} ml={2}>
-          <Typography variant="h2">Full Stack Development Course by Code For Cause</Typography>
-          <Typography variant="body1">
+          <Typography variant="h3">Full Stack Development Course by Code For Cause</Typography>
+          <Typography variant="body2">
             <i>
               Duration <span style={{ color: "#4C0098" }}>1hr 45min</span>
             </i>
@@ -89,7 +89,7 @@ export default function CoursePageViewWithVideo(props) {
                 <ListItem key={index}>
                   <ListItemText
                     primary={
-                      <Typography variant="h3" style={{ marginBottom: "4px" }}>{`Chapter ${
+                      <Typography variant="h4" style={{ marginBottom: "4px" }}>{`Chapter ${
                         index + 1
                       }: How to start With WD`}</Typography>
                     }
