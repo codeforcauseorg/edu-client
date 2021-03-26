@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import Zoom from "@material-ui/core/Zoom";

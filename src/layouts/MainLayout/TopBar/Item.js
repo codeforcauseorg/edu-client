@@ -1,4 +1,3 @@
-import React from "react";
 import HeaderItem from "./HeaderItems";
 
 // eslint-disable-next-line react/prop-types
