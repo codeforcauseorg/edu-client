@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Typography, Box, Avatar, Divider } from "@material-ui/core";
 import clsx from "clsx";

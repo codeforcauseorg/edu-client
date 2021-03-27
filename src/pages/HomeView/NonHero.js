@@ -1,5 +1,5 @@
 import { Container, makeStyles, List, ListItem, Typography } from "@material-ui/core";
-import React from "react";
+
 import CourseCard from "../../components/courseCard/courseCard1";
 
 const useStyles = makeStyles((theme) => ({

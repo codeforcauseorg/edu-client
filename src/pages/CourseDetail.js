@@ -1,5 +1,5 @@
-import React from "react";
 import Description from "../components/courseDetails/description";
+import ScrollToTop from "../utils/ScrollToTop";
 import Hero from "../components/courseDetails/Hero";
 import CardContainer from "../components/cardContainer/cardContainer";
 import SimpleCard from "../components/simpleCard/simpleCard";
@@ -49,6 +49,7 @@ function CourseDetail() {
         <MoreVertIcon />
       </div>
       <div className={classes.courseDetail}>
+        <ScrollToTop />
         <Hero
           title={heroData.title}
           description={heroData.description}

@@ -1,5 +1,3 @@
-import React from "react";
-
 import ButtonComponent from "../Button/ButtonComponent";
 
 import { Grid, Typography, makeStyles } from "@material-ui/core";

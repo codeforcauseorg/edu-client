@@ -1,5 +1,5 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+
 import Carousel from "react-material-ui-carousel";
 import Item from "./Item";
 
