@@ -7,7 +7,7 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+
 import ButtonComponent from "../Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
 import { useHistory } from "react-router";
@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WishlistCard = () => {
+const WishlistCard = ({ id }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -107,7 +107,7 @@ const WishlistCard = () => {
           <ButtonComponent
             className={classes.button}
             title="Checkout Now"
-            onClick={() => history.push("/course")}
+            onClick={() => history.push(`/course/${id}`)}
           />
         </CardContent>
       </Card>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   IconButton,
@@ -10,7 +11,7 @@ import {
 } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import React from "react";
+
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
@@ -46,14 +47,14 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CoursePageViewWithVideo(props) {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <React.Fragment>
+    <>
       <div id="back-to-top-anchor"></div>
       <div>
         <Player
@@ -121,7 +122,7 @@ export default function CoursePageViewWithVideo(props) {
           </ScrollTop>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 

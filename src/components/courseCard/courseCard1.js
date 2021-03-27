@@ -1,5 +1,5 @@
 import { Card, CardHeader, Container, IconButton, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+
 import { PlayCircleFilledOutlined } from "@material-ui/icons";
 
 const useStyles = makeStyles((theme) => ({

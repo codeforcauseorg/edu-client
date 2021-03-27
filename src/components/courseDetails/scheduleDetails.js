@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
@@ -64,7 +64,7 @@ const AccordionDetails = withStyles((theme) => ({
 
 const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState("");
+  const [expanded, setExpanded] = useState("");
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };

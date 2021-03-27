@@ -16,9 +16,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react"
-  ],
+  "plugins": ["react"],
   "rules": {
     "prettier/prettier": [
       "warn",
@@ -29,7 +27,8 @@
         "usePrettierrc": true
       }
     ],
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": 0
   },
   "settings": {
     "react": {

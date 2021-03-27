@@ -1,5 +1,5 @@
-import React from "react";
 import Hero from "./Hero";
+import ScrollToTop from "../../utils/ScrollToTop";
 import NonHero from "./NonHero";
 import { makeStyles } from "@material-ui/core";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -20,6 +20,7 @@ export default function HomeView(props) {
 
   return (
     <div>
+      <ScrollToTop />
       <Hero />
       <div id="back-to-top-anchor"></div>
       <NonHero />

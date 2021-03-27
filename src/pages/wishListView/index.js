@@ -1,5 +1,6 @@
 import { List, ListItem, makeStyles } from "@material-ui/core";
-import React from "react";
+
+import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCard from "../../components/wishlistCard";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
@@ -20,13 +21,14 @@ const useStyles = makeStyles((theme) => ({
 const WishListView = (props) => {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <>
       <div id="back-to-top-anchor"></div>
+      <ScrollToTop />
       <List>
         {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
           return (
             <ListItem key={index} className={classes.li}>
-              <WishlistCard />
+              <WishlistCard props={props} />
             </ListItem>
           );
         })}
@@ -38,7 +40,7 @@ const WishListView = (props) => {
           </Fab>
         </ScrollTop>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

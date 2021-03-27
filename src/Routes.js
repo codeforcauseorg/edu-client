@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import SwipeableRoutes from "react-swipeable-routes";
 
@@ -7,7 +6,7 @@ import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomeView";
 import CoursePage from "./pages/CoursePageViewWithVideo";
 import WishlistPage from "./pages/wishListView";
-import ProfilePage from "./pages/ProfilePage";
+import ProfilePage from "./pages/ProfilePage/index";
 import CourseDetail from "./pages/CourseDetail";
 import { Container } from "@material-ui/core";
 
