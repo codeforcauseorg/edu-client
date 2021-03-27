@@ -112,7 +112,7 @@ const WishlistCard = ({ id }) => {
           >
             ₹ 94
           </Typography>
-          <ButtonComponent title="Checkout Now" onClick={() => history.push("/course/" + { id })} />
+          <ButtonComponent title="Checkout Now" onClick={() => history.push(`/course/${id}`)} />
         </CardContent>
       </Card>
     </Container>
