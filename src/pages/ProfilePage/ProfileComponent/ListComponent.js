@@ -70,7 +70,7 @@ const ActivityItems = [
     id: 4,
     listItemIcon: "/assets/icon/classroomIcon.svg",
     primary: "Classroom",
-    secondary: "Manage your Classroom activitys",
+    secondary: "Manage your Classroom activities",
     onPress: () => console.log("Classroom"),
   },
 ];
@@ -100,7 +100,7 @@ function ListComponent() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <List subheader={<Typography variant="h1">Activitys</Typography>}>
+      <List subheader={<Typography variant="h1">Activities</Typography>}>
         {ActivityItems.map((items) => (
           <ListItem button key={items.id} onClick={items.onPress}>
             <ListItemIcon>
