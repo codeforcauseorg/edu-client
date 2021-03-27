@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WishlistCard = () => {
+const WishlistCard = ({ id }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -112,7 +112,7 @@ const WishlistCard = () => {
           >
             ₹ 94
           </Typography>
-          <ButtonComponent title="Checkout Now" onClick={() => history.push("/course")} />
+          <ButtonComponent title="Checkout Now" onClick={() => history.push(`/course/${id}`)} />
         </CardContent>
       </Card>
     </Container>
