@@ -14,8 +14,11 @@ import Privacy from "./pages/Info/Privacy";
 import Terms from "./pages/Info/Terms";
 import Faqs from "./pages/Info/Faqs";
 import About from "./pages/Info/About";
+<<<<<<< HEAD
 import Checkout from "./pages/CheckoutView";
 import MentorRating from "./pages/MentorRating";
+=======
+>>>>>>> 3e1f987... Peer discussion page design
 import PeerPage from "./pages/PeerDiscussionPage/peer";
 import StudentDashboard from "./pages/StudentDashboardPage";
 import AssignmentSubmission from "./pages/StudentDashboardPage/AssignmentSubmission/AssignmentSubmission";
