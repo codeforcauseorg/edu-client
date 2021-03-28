@@ -107,7 +107,6 @@ export default function PeerPage() {
             <Typography variant="h5" style={{ display: "inline-block" }}>
               Lorem ( 27/03/2021 )
             </Typography>
-            {/* <TextField id="outlined-basic" label="Type a Response" variant="outlined" style={{width: "340px"}} /> */}
           </Grid>
           <Box style={{ padding: "10px" }}>
             <Typography variant="body2">
