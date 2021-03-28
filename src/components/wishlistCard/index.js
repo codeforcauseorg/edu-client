@@ -72,12 +72,12 @@ const WishlistCard = ({ id }) => {
             backgroundSize: "cover",
           }}
           title={
-            <Typography variant="h4" className={classes.titlestyle}>
+            <Typography variant="h5" className={classes.titlestyle}>
               Fullstack Web Development Course <br /> by Code For Cause
             </Typography>
           }
           subheader={
-            <Typography variant="h6" className={classes.subheaderstyle}>
+            <Typography variant="subtitle2" className={classes.subheaderstyle}>
               90hrs of learning with Anuj Garg
             </Typography>
           }
@@ -98,10 +98,10 @@ const WishlistCard = ({ id }) => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
           </Typography>
-          <Typography variant="body2" className={classes.captionset}>
+          <Typography variant="caption" className={classes.captionset}>
             Classes Starting <span style={{ color: "#a60000" }}>16th March Onwards</span>
           </Typography>
-          <Typography variant="h3" color="secondary">
+          <Typography variant="body2" color="secondary">
             ₹ 94
           </Typography>
           <ButtonComponent

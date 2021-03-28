@@ -45,8 +45,6 @@ const useStyles = makeStyles({
     top: "-15px",
   },
   instructor: {
-    fontSize: "11px",
-    fontWeight: "bold",
     marginLeft: "50px",
   },
   content: {
@@ -59,12 +57,10 @@ const useStyles = makeStyles({
     marginBottom: "10px",
   },
   subTitle: {
-    fontSize: "14px",
     marginBottom: "6px",
   },
   detail: {
     fontStyle: "italic",
-    fontSize: "15px",
   },
   price: {
     fontWeight: "700",
@@ -106,17 +102,21 @@ export default function SimpleCard({ width, image, title, subTitle, detail, pric
           />
         </div>
         <div>
-          <Typography className={classes.instructor}>Anuj Garg and Ganga Chaturvedi</Typography>
+          <Typography className={classes.instructor} variant="subtitle2">
+            Anuj Garg and Ganga Chaturvedi
+          </Typography>
         </div>
       </div>
       <CardContent className={classes.content}>
         <Typography className={classes.title} variant="h5" component="h5">
           {title}
         </Typography>
-        <Typography className={classes.subTitle} variant="body2" component="p">
+        <Typography className={classes.subTitle} variant="subtitle2" component="p">
           {subTitle}
         </Typography>
-        <Typography className={classes.detail}>{detail}</Typography>
+        <Typography className={classes.detail} variant="caption">
+          {detail}
+        </Typography>
         <div className={classes.action}>
           <Typography className={classes.price} variant="body2" component="p" color="secondary">
             {price}

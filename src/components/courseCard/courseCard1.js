@@ -46,7 +46,7 @@ const CourseCard = () => {
             paddingLeft: "8px",
           }}
           title={
-            <Typography variant="h4">
+            <Typography variant="h5">
               Fullstack Web Development Course <br /> by Code For Cause
             </Typography>
           }
@@ -62,7 +62,7 @@ const CourseCard = () => {
           }}
         />
         <div className={classes.chapterstyle}>
-          <Typography variant="body2">Chapter 1 : How to start with WD?</Typography>
+          <Typography variant="subtitle2">Chapter 1 : How to start with WD?</Typography>
         </div>
         <Typography variant="caption" className={classes.bottomfont}>
           1hr 45 min learned out of 3 days

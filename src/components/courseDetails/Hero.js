@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
   details: {
     marginBottom: "16px",
     fontStyle: "italic",
+    fontWeight: 600,
   },
 
   accentText: {
@@ -84,11 +85,11 @@ function Hero({ title, description, startDate, duration, languages, thumbnail, v
           <Typography className={classes.heroBody} variant="subtitle2" component="p">
             {description}
           </Typography>
-          <Typography className={classes.details} variant="subtitle1" component="p">
-            Classes Starting
+          <Typography className={classes.details} variant="subtitle2" component="p">
+            Classes Starting <span style={{ color: "#4C0098" }}>16th March Onwards</span>
             <span className={classes.accentText}>{startDate}</span>
           </Typography>
-          <Typography className={classes.details} variant="subtitle1" component="p">
+          <Typography className={classes.details} variant="subtitle2" component="p">
             Course Duration {duration} hrs
           </Typography>
           <Typography className={classes.language} variant="subtitle2" component="p">

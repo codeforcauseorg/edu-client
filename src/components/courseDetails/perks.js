@@ -19,10 +19,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2, 0),
   },
   afterCourse: {
-    color: "purple",
+    color: "#4C0098",
   },
   prerequisites: {
-    color: "purple",
+    color: "#4C0098",
   },
 }));
 
@@ -45,32 +45,36 @@ const Perks = ({ perks, afterCourse, prerequisites }) => {
           ))}
         </List>
       </Box>
-      <Typography variant="h5">After Course</Typography>
-      <Typography variant="h2" className={clsx(classes.afterCourse)}>
-        What you Are and can do
+      <Typography variant="h5" className={classes.afterCourse}>
+        After Course
       </Typography>
+      <Typography variant="h2">What you Are and can do</Typography>
       <Box mb={2}>
         <List dense={true}>
           {afterCourse.map((item, index) => (
             <ListItem key={index}>
-              <ListItemText>{item}</ListItemText>
+              <ListItemText>
+                <Typography variant="body1">{item}</Typography>
+              </ListItemText>
             </ListItem>
           ))}
         </List>
       </Box>
-      <Typography variant="h5">Prerequisites</Typography>
-      <Typography variant="h2" className={clsx(classes.prerequisites)}>
-        What you should know before this course?
+      <Typography variant="h5" className={classes.prerequisites}>
+        Prerequisites
       </Typography>
-      <Typography variant="body2" className={clsx(classes.margin)}>
+      <Typography variant="h2">What you should know before this course?</Typography>
+      <Typography variant="body1" className={clsx(classes.margin)}>
         {prerequisites}
       </Typography>
-      <Typography variant="h5" className={""}>
+      <Typography variant="body2" className={""}>
         We have same course in beginner and advanced level.
       </Typography>
       <Box display="flex" alignItems="center">
-        <Typography variant="h5" className={classes.margin}>
-          <Link href="#">Checkout Now</Link>
+        <Typography variant="caption" className={classes.margin}>
+          <Link href="#" color="textPrimary">
+            Checkout Now
+          </Link>
         </Typography>
         <ArrowForwardIosIcon fontSize="small" color="primary" />
       </Box>

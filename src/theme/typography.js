@@ -28,28 +28,28 @@ export default {
     letterSpacing: "-0.05px",
   },
   h6: {
-    fontWeight: 500,
-    fontSize: 12,
+    fontWeight: 700,
+    fontSize: 14,
     letterSpacing: "-0.05px",
   },
   subtitle1: {
     fontWeight: 400,
-    fontSize: 16,
+    fontSize: 14,
     letterSpacing: "-0.05px",
   },
   subtitle2: {
     fontWeight: 500,
-    fontSize: 14,
+    fontSize: 12,
     letterSpacing: "-0.05px",
   },
   body1: {
-    fontWeight: 400,
-    fontSize: 16,
+    fontWeight: 500,
+    fontSize: 14,
     letterSpacing: "-0.05px",
   },
   body2: {
-    fontWeight: 500,
-    fontSize: 12,
+    fontWeight: 600,
+    fontSize: 14,
     letterSpacing: "-0.05px",
   },
   overline: {
@@ -57,6 +57,6 @@ export default {
   },
   caption: {
     fontSize: 10,
-    fontWeight: 500,
+    fontWeight: 600,
   },
 };

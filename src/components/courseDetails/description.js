@@ -33,7 +33,7 @@ const Description = ({ description, mentors }) => {
         Course Description
       </Typography>
       <Box className={clsx(classes.description, classes.margin)}>
-        <Typography variant="body2">{description}</Typography>
+        <Typography variant="body1">{description}</Typography>
       </Box>
       <Typography variant="h2" className={clsx(classes.mentors, classes.margin)}>
         Course Mentors
@@ -44,7 +44,7 @@ const Description = ({ description, mentors }) => {
             {mentor.id === 2 ? <Divider orientation="vertical" className={classes.divider} /> : ""}
             <Avatar alt={mentor.title} src={mentor.image} />
             <Box margin={1} fontStyle="italic">
-              <Typography variant="h5" color="primary">
+              <Typography variant="h5" color="secondary">
                 {mentor.name}
               </Typography>
               <Typography variant="subtitle2">{mentor.title}</Typography>

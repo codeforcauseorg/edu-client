@@ -96,9 +96,11 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography variant="subtitle2" align="left">
+              <Typography variant="body1" align="left">
                 {heading} &nbsp;
-                <span style={{ fontStyle: "italic", color: "purple" }}>{premier}</span>
+                <span style={{ fontStyle: "italic", color: "#4C0098", fontWeight: 600 }}>
+                  {premier}
+                </span>
               </Typography>
             </Grid>
           </Grid>
