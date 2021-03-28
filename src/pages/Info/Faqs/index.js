@@ -29,7 +29,7 @@ function Faqs() {
   };
 
   return (
-    <>
+    <div style={{ padding: "16px" }}>
       <Typography className={classes.mainHeading} variant="h1" color="textPrimary" component="h1">
         FAQs
       </Typography>
@@ -125,7 +125,7 @@ function Faqs() {
           </AccordionDetails>
         </Accordion>
       </div>
-    </>
+    </div>
   );
 }
 
