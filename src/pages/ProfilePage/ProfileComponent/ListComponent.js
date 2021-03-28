@@ -50,7 +50,7 @@ const ActivityItems = [
     listItemIcon: "/assets/icon/messageIcon.svg",
     primary: "Doubt Forum",
     secondary: "A place for students to ask & discuss doubts.",
-    onPress: () => console.log("Doubt Forum"),
+    onPress: () => { window.location.href='/peer' },
   },
   {
     id: 2,
@@ -93,6 +93,7 @@ const SettingsItems = [
   },
 ];
 function ListComponent() {
+  
   const [checked, setChecked] = React.useState(false);
   const toggleChecked = () => {
     setChecked((prev) => !prev);
