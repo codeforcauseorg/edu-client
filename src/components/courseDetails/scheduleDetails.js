@@ -17,12 +17,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
   duration: {
-    fontSize: theme.typography.pxToRem(15),
     flexBasis: "33.33%",
     flexShrink: 0,
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
   },
 }));
 
@@ -77,27 +73,34 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
     <div className={classes.root}>
       <Accordion square expanded={expanded === panel} onChange={handleChange(panel)}>
         <AccordionSummary
-          expandIcon={<ArrowDropDownCircleOutlinedIcon fontSize="large" />}
+          expandIcon={<ArrowDropDownCircleOutlinedIcon fontSize="medium" />}
           aria-controls="panel1d-content"
           id="panel1d-header"
         >
           <Grid container className={classes.heading} justify="center" alignItems="center">
             <Grid item xs={6} sm={8}>
-              <Typography align="left" variant="h2">
+              <Typography align="left" variant="h3">
                 Chapter {chapter}
               </Typography>
             </Grid>
             <Grid item xs={6} sm={4}>
-              <Typography className={classes.duration} align="right" component={"div"}>
+              <Typography
+                className={classes.duration}
+                variant="subtitle2"
+                align="right"
+                component={"div"}
+              >
                 <Box fontStyle="italic">
                   Duration <b>{duration}</b>
                 </Box>
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <Typography className={classes.secondaryHeading} align="left">
+              <Typography variant="body1" align="left">
                 {heading} &nbsp;
-                <span style={{ fontStyle: "italic", color: "purple" }}>{premier}</span>
+                <span style={{ fontStyle: "italic", color: "#4C0098", fontWeight: 600 }}>
+                  {premier}
+                </span>
               </Typography>
             </Grid>
           </Grid>

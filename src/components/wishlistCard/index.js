@@ -44,22 +44,18 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "-8px",
   },
   titlestyle: {
-    marginBottom: "2px",
-    fontSize: "14px",
+    marginBottom: theme.spacing(2),
   },
   subheaderstyle: {
-    fontSize: "12px",
     marginTop: "5px",
-  },
-  stylecontent: {
-    fontSize: "14px",
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "11px",
-    },
+    fontStyle: "italic",
   },
   captionset: {
     fontStyle: "italic",
-    fontSize: "12px",
+    margin: theme.spacing(2, 0),
+  },
+  button: {
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -76,12 +72,12 @@ const WishlistCard = ({ id }) => {
             backgroundSize: "cover",
           }}
           title={
-            <Typography className={classes.titlestyle}>
-              Fullstack Web Development Course <br /> by code for cause
+            <Typography variant="h5" className={classes.titlestyle}>
+              Fullstack Web Development Course <br /> by Code For Cause
             </Typography>
           }
           subheader={
-            <Typography className={classes.subheaderstyle}>
+            <Typography variant="subtitle2" className={classes.subheaderstyle}>
               90hrs of learning with Anuj Garg
             </Typography>
           }
@@ -98,21 +94,21 @@ const WishlistCard = ({ id }) => {
           }}
         />
         <CardContent>
-          <Typography className={classes.stylecontent}>
+          <Typography variant="subtitle2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
           </Typography>
           <Typography variant="caption" className={classes.captionset}>
             Classes Starting <span style={{ color: "#a60000" }}>16th March Onwards</span>
           </Typography>
-          <Typography
-            variant="h3"
-            color="secondary"
-            style={{ margin: "4px 0px 6px", fontSize: "13.1px" }}
-          >
+          <Typography variant="body2" color="secondary">
             ₹ 94
           </Typography>
-          <ButtonComponent title="Checkout Now" onClick={() => history.push(`/course/${id}`)} />
+          <ButtonComponent
+            className={classes.button}
+            title="Checkout Now"
+            onClick={() => history.push(`/course/${id}`)}
+          />
         </CardContent>
       </Card>
     </Container>
