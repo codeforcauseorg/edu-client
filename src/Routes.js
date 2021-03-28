@@ -14,8 +14,6 @@ import Privacy from "./pages/Info/Privacy";
 import Terms from "./pages/Info/Terms";
 import Faqs from "./pages/Info/Faqs";
 import About from "./pages/Info/About";
-import Checkout from "./pages/CheckoutView";
-import MentorRating from "./pages/MentorRating";
 import PeerPage from "./pages/PeerDiscussionPage/peer";
 import Comment from "./pages/PeerDiscussionPage/comments";
 import StudentDashboard from "./pages/StudentDashboardPage";
