@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "auto",
   },
   heading: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
   },
   duration: {
     fontSize: theme.typography.pxToRem(15),
@@ -68,7 +68,7 @@ const AccordionDetails = withStyles((theme) => ({
 
 const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }) => {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState("");
+  const [expanded, setExpanded] = useState("");
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -83,7 +83,7 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
         >
           <Grid container className={classes.heading} justify="center" alignItems="center">
             <Grid item xs={6} sm={8}>
-              <Typography align="left" variant="h6">
+              <Typography align="left" variant="h2">
                 Chapter {chapter}
               </Typography>
             </Grid>
@@ -103,7 +103,7 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
           </Grid>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography align="left" className={classes.heading}>
+          <Typography align="left" className={classes.heading} variant="body2">
             {details}
           </Typography>
         </AccordionDetails>

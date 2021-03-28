@@ -12,9 +12,9 @@ Be sure to include as much information including screenshots, text output, and b
 
 ## How to Request Enhancements
 
-First, please refer to the applicable [GitHub repository][github-repo] and search [the repository's GitHub issues][issues-list] to make sure your idea has not been (or is not still) considered.
+Firstly please refer to the applicable [github-repo] and search in the [issues-list] to make sure that your idea has not been (or is not still) considered.
 
-Then, please [create a new issue in the GitHub repository][new-issue] describing your enhancement.
+If it is not yet considered or something more can be added then please create a new issue in the GitHub repository[new-issue] describing your enhancement.
 
 Be sure to include as much detail as possible including step-by-step descriptions, specific examples, screenshots or mockups, and reasoning for why the enhancement might be worthwhile.
 
@@ -66,15 +66,15 @@ upstream        https://github.com/codeforcauseorg/edu-client.git (push)
 
 Whenever you want to contribute to any project. It is best practice that you should create a branch and push the branch as PR rather than directly pushing main/master branch
 
-1. `git branch` will list all the branched in the repository
-2. Now type `git branch <your-branch-name>`
+1. `git branch` will list all the branches in the repository
+2. Now type `git branch <your-branch-name>` to create your branch
 3. You can check the created branch by `git branch`
-4. But still if you start editing the edits will go to the main branch. To change the path of the edits type in `git checkout <your-branch-name>`
+4. But still if you start editing the edits will go to the main branch. To change the path , type in `git checkout <your-branch-name>`
 5. Now you are ready to do the desired changes.
 
-
 ## 📌 Setting up .env file :
-1. Create a new file `.env` in root directory. 
+
+1. Create a new file `.env` in root directory.
 2. Copy all the default content from `.env.example` file to `.env` file.
 3. You can edit this `.env` file to provide your own project credentials if needed in future for specific tweaks and tests.
 
@@ -92,7 +92,7 @@ Whenever you want to contribute to any project. It is best practice that you sho
 
 ### 🚩 Testing changes :
 
-1. After changes type `npm test`. This launches the test runner in the interactive watch mode.
+1. After doing changes type `npm test`. This launches the test runner in the interactive watch mode.
 2. See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### 🚩 Building project :
@@ -104,7 +104,7 @@ Whenever you want to contribute to any project. It is best practice that you sho
    Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Skip the yarn part and proceed to the Pushing the changes section [here](#-pushing-your-changes)
+Skip the yarn part and proceed to the pushing the changes section [here](#-pushing-your-changes)
 
 ## 📌 Setting up project using `yarn`
 
@@ -145,7 +145,7 @@ Skip the yarn part and proceed to the Pushing the changes section [here](#-pushi
 
 ## 📌 Pushing your changes
 
-Now you have made the changes , tested them, and built them. so now its time to push them.
+After doing the changes, and when tests are successfully passing you can push your changes to remote.
 
 1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
 2. Then type in `git add` and hit enter, this will add all the files to staging area
@@ -154,11 +154,11 @@ Now you have made the changes , tested them, and built them. so now its time to 
 
 ## 📌 Creating a pull request
 
-By this time you can see a message on your github fork as `your fork is ahead of codeforcause:master by <number> of commits` and also you can see a button called `Compare and pull request`.
+By this time you can see a message on your github fork as `your fork is ahead of codeforcause:master by <number> of commits` and you can also see a button `Compare and pull request`.
 
 1. Click on `Compare and pull request` button.(Refer image no 1)
 2. You will see a template.(Refer image no 2)
-3. Fill out the template completely by describing your change, cause of change, issue getting fixed etc.
+3. Fill the template completely by describing your change, cause of change, issue getting fixed etc.
 4. After filling the template completely click on `Pull request`
    <img src="./doc/images/compareAndpull.png" alt="Demo copy image" align="center"/>
    <img src="./doc/images/pull.png" alt="Demo copy image" align="center"/>

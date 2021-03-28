@@ -1,13 +1,31 @@
-import React from "react";
-
-import Hero from "../components/hero/Hero";
+import Description from "../components/courseDetails/description";
+import ScrollToTop from "../utils/ScrollToTop";
+import Hero from "../components/courseDetails/Hero";
 import CardContainer from "../components/cardContainer/cardContainer";
 import SimpleCard from "../components/simpleCard/simpleCard";
-
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+import courseDetail from "../data/courseDetail.json";
+import Perks from "../components/courseDetails/perks";
+import Schedule from "../components/courseDetails/schedule";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Typography } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  navigation: {
+    widht: "100%",
+    height: "100px",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "8px 10px",
+    backgroundColor: "white" /* For browsers that do not support gradients */,
+    backgroundImage: "linear-gradient(purple, white)",
+  },
+  courseDetail: {
+    padding: "0 15px",
+    textAlign: "start",
+  },
   title: {
     fontWeight: "700",
     margin: "10px",
@@ -15,84 +33,79 @@ const useStyles = makeStyles({
   subTitle: {
     margin: "0 10px",
   },
-});
+}));
+
+const heroData = courseDetail[0].heroSection;
+const descriptionData = courseDetail[0].descriptionSection;
+const perksData = courseDetail[0].perksSection;
+const coursesData = courseDetail[0].coursesSection;
 
 function CourseDetail() {
   const classes = useStyles();
-
   return (
-    <div className={classes.courseDetail}>
-      <Hero
-        title="Full Stack Development Course By Code For Cause"
-        description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam,
-            nesciunt necessitatibus? Laboriosam, eum aut explicabo dolores
-            reprehenderit corporis porro provident deleniti nesciunt nostrum?"
-        startDate="16th March Onwards"
-        duration="36"
-        languages="English, Hindi"
-        thumbnail="https://images.unsplash.com/photo-1423530990185-af7dde1155fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
-        videoUrl="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"
-        price="94.00"
-      />
-      <Typography className={classes.title} variant="subtitle2" color="primary">
-        Beginner Courses
-      </Typography>
-      <Typography className={classes.subTitle} variant="h2" component="h2">
-        Learn something New
-      </Typography>
-      <CardContainer>
-        <SimpleCard
-          width="240px"
-          image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-          title="Full Stack Development Course by Code For Cause"
-          subTitle="Beginner Level"
-          detail="35 hrs of learning content"
-          price="₹ 8,096 /-"
-          showIcon={true}
+    <>
+      <div className={classes.navigation}>
+        <ArrowBackIcon />
+        <MoreVertIcon />
+      </div>
+      <div className={classes.courseDetail}>
+        <ScrollToTop />
+        <Hero
+          title={heroData.title}
+          description={heroData.description}
+          startDate={heroData.startDate}
+          duration={heroData.duration}
+          languages={heroData.languages}
+          thumbnail={heroData.thumbnail}
+          videoUrl={heroData.videoUrl}
+          price={heroData.price}
         />
-        <SimpleCard
-          width="240px"
-          image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-          title="Full Stack Development Course by Code For Cause"
-          subTitle="Beginner Level"
-          detail="35 hrs of learning content"
-          price="₹ 8,096 /-"
-          showIcon={true}
+        <Description description={descriptionData.description} mentors={descriptionData.mentors} />
+        <Perks
+          perks={perksData.perks}
+          afterCourse={perksData.afterCourse}
+          prerequisites={perksData.prerequisites}
         />
-        <SimpleCard
-          width="240px"
-          image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-          title="Full Stack Development Course by Code For Cause"
-          subTitle="Beginner Level"
-          detail="35 hrs of learning content"
-          price="₹ 8,096 /-"
-          showIcon={true}
-        />
-      </CardContainer>
-      <Typography className={classes.subTitle} variant="h2" component="h2">
-        Top Picks
-      </Typography>
-      <CardContainer>
-        <SimpleCard
-          width="300px"
-          image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-          title="Full Stack Development Course by Code For Cause"
-          subTitle="Beginner Level"
-          detail="35 hrs of learning content"
-          price="₹ 8,096 /-"
-          showIcon={false}
-        />
-        <SimpleCard
-          width="300px"
-          image="https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg"
-          title="Full Stack Development Course by Code For Cause"
-          subTitle="Beginner Level"
-          detail="35 hrs of learning content"
-          price="₹ 8,096 /-"
-          showIcon={false}
-        />
-      </CardContainer>
-    </div>
+        <Schedule />
+        <Typography className={classes.title} variant="subtitle2" color="primary">
+          Beginner Courses
+        </Typography>
+        <Typography className={classes.subTitle} variant="h2" component="h2">
+          Learn something New
+        </Typography>
+        <CardContainer>
+          {coursesData.map((course, index) => (
+            <SimpleCard
+              key={index}
+              width="240px"
+              image={course.image}
+              title={course.title}
+              subTitle={course.subTitle}
+              detail={course.detail}
+              price={course.price}
+              showIcon={true}
+            />
+          ))}
+        </CardContainer>
+        <Typography className={classes.subTitle} variant="h2" component="h2">
+          Top Picks
+        </Typography>
+        <CardContainer>
+          {coursesData.map((course, index) => (
+            <SimpleCard
+              key={index}
+              width="300px"
+              image={course.image}
+              title={course.title}
+              subTitle={course.subTitle}
+              detail={course.detail}
+              price={course.price}
+              showIcon={false}
+            />
+          ))}
+        </CardContainer>
+      </div>
+    </>
   );
 }
 

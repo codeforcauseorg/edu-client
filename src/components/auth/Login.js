@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { Typography, Button, CircularProgress, makeStyles } from "@material-ui/core";
