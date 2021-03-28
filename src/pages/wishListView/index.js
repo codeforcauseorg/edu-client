@@ -28,7 +28,7 @@ const WishListView = (props) => {
         {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
           return (
             <ListItem key={index} className={classes.li}>
-              <WishlistCard />
+              <WishlistCard props={props} />
             </ListItem>
           );
         })}

@@ -66,7 +66,7 @@ export default function CoursePageViewWithVideo(props) {
         </Player>
         <Box mt={2} ml={2}>
           <Typography variant="h3">Full Stack Development Course by Code For Cause</Typography>
-          <Typography variant="caption">
+          <Typography variant="body1">
             <i>
               Duration <span style={{ color: "#4C0098" }}>1hr 45min</span>
             </i>
@@ -91,12 +91,12 @@ export default function CoursePageViewWithVideo(props) {
                 <ListItem key={index}>
                   <ListItemText
                     primary={
-                      <Typography variant="h3" style={{ marginBottom: "4px" }}>{`Chapter ${
+                      <Typography variant="body2" style={{ marginBottom: "4px" }}>{`Chapter ${
                         index + 1
                       }: How to start With WD`}</Typography>
                     }
                     secondary={
-                      <Typography>
+                      <Typography variant="caption">
                         <i>
                           50 Minutes by Anuj Garg{" "}
                           <span style={{ color: "#4C0098" }}>Available in 2 days</span>{" "}

@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     padding: "8px 10px",
     backgroundColor: "white" /* For browsers that do not support gradients */,
-    backgroundImage: "linear-gradient(purple, white)",
+    backgroundImage: "linear-gradient(#4C0098, white)",
   },
   courseDetail: {
     padding: "0 15px",
@@ -32,6 +32,9 @@ const useStyles = makeStyles((theme) => ({
   },
   subTitle: {
     margin: "0 10px",
+  },
+  svg: {
+    color: "white",
   },
 }));
 
@@ -45,8 +48,8 @@ function CourseDetail() {
   return (
     <>
       <div className={classes.navigation}>
-        <ArrowBackIcon />
-        <MoreVertIcon />
+        <ArrowBackIcon className={classes.svg} />
+        <MoreVertIcon className={classes.svg} />
       </div>
       <div className={classes.courseDetail}>
         <ScrollToTop />
