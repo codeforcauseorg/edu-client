@@ -16,18 +16,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     overflowX: "scroll",
     "&::-webkit-scrollbar": {
-      backgroundColor: "#F5F5F5",
-      height: "8px",
-    },
-    "&::-webkit-scrollbar-track": {
-      "&::-webkit-box-shadow": "inset 0 0 6px rgba(0,0,0,0.3)",
-      backgroundColor: "#a2a6ab",
-      borderRadius: "12px",
-    },
-    "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "#332928",
-      borderRadius: "12px",
-      margin: "16px",
+      display : "none"
     },
   },
 }));
@@ -50,7 +39,7 @@ export default function NonHero(props) {
         </List>
         <Search />
         <Recommended />
-      </Container>
+        </Container>
     </div>
   );
 }
