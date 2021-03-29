@@ -1,5 +1,4 @@
 import { Container, makeStyles, List, ListItem, Typography } from "@material-ui/core";
-
 import CourseCard from "../../components/courseCard/courseCard1";
 import Recommended from "./Courses";
 import Search from "./Search";
@@ -16,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     overflowX: "scroll",
     "&::-webkit-scrollbar": {
-      display : "none"
+      display: "none",
     },
   },
 }));
@@ -39,7 +38,7 @@ export default function NonHero(props) {
         </List>
         <Search />
         <Recommended />
-        </Container>
+      </Container>
     </div>
   );
 }
