@@ -53,16 +53,16 @@ function Login() {
       {user ? (
         <CircularProgress size="24px" color="inherit" />
       ) : (
-        <Typography component="h4" variant="subtitle1">
-          <div className={classes.flex}>
-            <img
-              alt="google icon"
-              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-              className={classes.googleimg}
-            />
-            <p> Google</p>
-          </div>
-        </Typography>
+        <div className={classes.flex}>
+          <img
+            alt="google icon"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+            className={classes.googleimg}
+          />
+          <Typography component="h4" variant="subtitle1">
+            Google
+          </Typography>
+        </div>
       )}
     </Button>
   );
