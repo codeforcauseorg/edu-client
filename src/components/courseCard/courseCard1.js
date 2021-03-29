@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     marginTop: "16px",
     borderRadius: "8px",
+    width : "400px",
     padding: 0,
     "&:hover": {
       cursor: "pointer",
