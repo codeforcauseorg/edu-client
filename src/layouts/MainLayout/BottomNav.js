@@ -3,7 +3,7 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import {
   HomeOutlined,
-  PlayCircleOutline,
+  ImportContactsOutlined,
   AccountCircleOutlined,
   AddCircleOutlineOutlined,
 } from "@material-ui/icons";
@@ -43,6 +43,11 @@ export default function BottomNav(props) {
       showLabels
       className={classes.root}
     >
+      <BottomNavigationAction
+        label="My Courses"
+        value="/mycourses"
+        icon={<ImportContactsOutlined />}
+      />
       <BottomNavigationAction
         className={classes.navItem}
         label="Home"
