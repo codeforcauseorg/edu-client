@@ -18,11 +18,11 @@ const renderRoutes = () => (
         <Redirect to="/home" />
       </Route>
       <Route path="/course/:id" exact component={CourseDetail} />
+      <Route path="/mycourses/:coursename" exact component={CoursePage} />
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/home" exact component={HomePage} />
           <Route path="/mycourses" exact component={MyCourses} />
-          <Route path="/mycourses/:coursename" exact component={CoursePage} />
           <Route path="/wishlist" exact component={WishlistPage} />
           <Route path="/profile" exact component={ProfilePage} />
         </SwipeableRoutes>
