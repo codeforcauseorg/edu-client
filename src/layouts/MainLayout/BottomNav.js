@@ -3,7 +3,7 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import {
   HomeOutlined,
-  PlayCircleOutline,
+  ImportContactsOutlined,
   AccountCircleOutlined,
   AddCircleOutlineOutlined,
 } from "@material-ui/icons";
@@ -36,7 +36,11 @@ export default function BottomNav(props) {
       className={classes.root}
     >
       <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
-      <BottomNavigationAction label="My Classes" value="/personal" icon={<PlayCircleOutline />} />
+      <BottomNavigationAction
+        label="My Courses"
+        value="/mycourses"
+        icon={<ImportContactsOutlined />}
+      />
       <BottomNavigationAction
         label="Wishlist"
         value="/wishlist"

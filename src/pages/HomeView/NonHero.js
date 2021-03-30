@@ -28,7 +28,7 @@ export default function NonHero(props) {
       <Container>
         <Typography variant="h3">Continue Learning</Typography>
         <List className={classes.list}>
-          {[1, 2].map((item, index) => {
+          {[1].map((item, index) => {
             return (
               <ListItem key={index} className={classes.li}>
                 <CourseCard />
