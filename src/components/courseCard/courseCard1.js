@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     marginTop: "16px",
     borderRadius: "8px",
-    width: "400px",
     padding: 0,
     "&:hover": {
       cursor: "pointer",
@@ -42,7 +41,7 @@ const CourseCard = () => {
       <Card style={{ margin: 0, padding: 0 }}>
         <CardHeader
           style={{
-            backgroundImage: "url(/assets/wishlist/2.png)",
+            backgroundImage: "url(/assets/wishlist/1.png)",
             backgroundSize: "cover",
             paddingLeft: "8px",
           }}

@@ -3,7 +3,7 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import {
   HomeOutlined,
-  PlayCircleOutline,
+  ImportContactsOutlined,
   AccountCircleOutlined,
   AddCircleOutlineOutlined,
 } from "@material-ui/icons";
@@ -18,6 +18,14 @@ const useStyles = makeStyles({
     bottom: 0,
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.25)",
     margin: "auto",
+  },
+  navItem: {
+    "& .MuiBottomNavigationAction-label.Mui-selected": {
+      whitespace: "nowrap",
+    },
+    "& .MuiButtonBase-root": {
+      whitespace: "nowrap",
+    },
   },
 });
 
@@ -35,9 +43,27 @@ export default function BottomNav(props) {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
-      <BottomNavigationAction label="My Classes" value="/personal" icon={<PlayCircleOutline />} />
       <BottomNavigationAction
+        label="My Courses"
+        value="/mycourses"
+        icon={<ImportContactsOutlined />}
+      />
+      <BottomNavigationAction
+        className={classes.navItem}
+        label="Home"
+        value="/home"
+        icon={<HomeOutlined />}
+      />
+
+      <BottomNavigationAction
+        className={classes.navItem}
+        label="My Classes"
+        value="/personal"
+        icon={<PlayCircleOutline />}
+      />
+
+      <BottomNavigationAction
+        className={classes.navItem}
         label="Wishlist"
         value="/wishlist"
         icon={<AddCircleOutlineOutlined />}
