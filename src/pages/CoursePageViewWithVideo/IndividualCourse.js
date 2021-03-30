@@ -38,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "100px",
   },
   backtotop: {
-    minWidth: "100%",
     display: "flex",
     justifyContent: "center",
     marginTop: "160px",
