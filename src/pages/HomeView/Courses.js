@@ -21,6 +21,9 @@ const useStyles = makeStyles({
     overflowX: "auto",
     overflowStyle: "none",
     scrollbarWidth: "none",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   },
   mainHeading: {
     marginTop: "1rem",
