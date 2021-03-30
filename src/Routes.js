@@ -20,17 +20,17 @@ const renderRoutes = () => (
       <Route path="/" exact>
         <Redirect to="/home" />
       </Route>
+      <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/course/:id" exact component={CourseDetail} />
       <Route path="/privacy" exact component={Privacy} />
-      <Route path="/about" exact component={About} />
-      <Route path="/faq" exact component={Faqs} />
-      <Route path="/terms-and-conditions" exact component={Terms} />
       <MainLayout>
         <SwipeableRoutes replace>
+          <Route path="/faq" exact component={Faqs} />
+          <Route path="/about" exact component={About} />
           <Route path="/home" exact component={HomePage} />
+          <Route path="/profile" exact component={ProfilePage} />
           <Route path="/personal" exact component={CoursePage} />
           <Route path="/wishlist" exact component={WishlistPage} />
-          <Route path="/profile" exact component={ProfilePage} />
         </SwipeableRoutes>
       </MainLayout>
     </Switch>

@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   list: {
     display: "flex",
     overflowX: "scroll",
+    scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
       display: "none",
     },
