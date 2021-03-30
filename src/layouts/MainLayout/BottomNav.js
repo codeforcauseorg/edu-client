@@ -6,6 +6,7 @@ import {
   ImportContactsOutlined,
   AccountCircleOutlined,
   AddCircleOutlineOutlined,
+  PlayCircleOutline,
 } from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router";
 import "./BottomNav.css";
