@@ -4,7 +4,8 @@ import SwipeableRoutes from "react-swipeable-routes";
 
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomeView";
-import CoursePage from "./pages/CoursePageViewWithVideo";
+import CoursePage from "./pages/CoursePageViewWithVideo/IndividualCourse";
+import MyCourses from "./pages/CoursePageViewWithVideo/index";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage/index";
 import CourseDetail from "./pages/CourseDetail";
@@ -20,7 +21,8 @@ const renderRoutes = () => (
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/home" exact component={HomePage} />
-          <Route path="/personal" exact component={CoursePage} />
+          <Route path="/mycourses" exact component={MyCourses} />
+          <Route path="/mycourses/each" exact component={CoursePage} />
           <Route path="/wishlist" exact component={WishlistPage} />
           <Route path="/profile" exact component={ProfilePage} />
         </SwipeableRoutes>

@@ -36,7 +36,7 @@ export default function BottomNav(props) {
       className={classes.root}
     >
       <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
-      <BottomNavigationAction label="My Classes" value="/personal" icon={<PlayCircleOutline />} />
+      <BottomNavigationAction label="My Classes" value="/mycourses" icon={<PlayCircleOutline />} />
       <BottomNavigationAction
         label="Wishlist"
         value="/wishlist"
