@@ -8,16 +8,16 @@
 
 @media screen and (max-width: 361px) and (min-width: 360px) {
   .Mui-selected {
-    font-size: 0.7rem !important;
+    font-size: 0.77rem !important;
   }
 }
 
 @media screen and (max-width: 321px) and (min-width: 320px) {
   .Mui-selected {
-    font-size: 0.6rem !important;
+    font-size: 0.67rem !important;
   }
   .MuiBottomNavigationAction-label {
-    font-size: 0.6rem !important;
+    font-size: 0.66rem !important;
   }
 }
 
