@@ -25,7 +25,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ### ⚡ 3. Skill set :
 
-1. Knowledge of git & github.
+1. [Knowledge of git & github.](https://www.youtube.com/watch?v=4iDQ7CHHZZM&t=1s)
 2. JavaScript
 3. ReactJS
 4. Mobile development Experience in Any Tech (optionally)
