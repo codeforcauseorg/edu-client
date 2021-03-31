@@ -23,12 +23,6 @@ const useStyles = makeStyles({
     "& .MuiBottomNavigationAction-label": {
       whiteSpace: "nowrap",
     },
-    "& .MuiBottomNavigationAction-label.Mui-selected": {
-      whitespace: "nowrap",
-    },
-    "& .MuiButtonBase-root": {
-      whitespace: "nowrap",
-    },
   },
 });
 
@@ -58,11 +52,6 @@ export default function BottomNav(props) {
         label="My Courses"
         value="/mycourses"
         icon={<ImportContactsOutlined />}
-        style={{
-          label: {
-            whitespace: "nowrap",
-          },
-        }}
       />
 
       <BottomNavigationAction
