@@ -92,9 +92,7 @@ export default function CoursePageViewWithVideo(props) {
           <ControlBar autoHide={true} className="my-class" />
         </Player>
         <Box mt={2} ml={2}>
-          <Typography variant="h3">
-            Full Stack Development Course by Code For Cause
-          </Typography>
+          <Typography variant="h3">Full Stack Development Course by Code For Cause</Typography>
           <Typography variant="body1">
             <i>
               Duration <span style={{ color: "#4C0098" }}>1hr 45min</span>
@@ -115,11 +113,7 @@ export default function CoursePageViewWithVideo(props) {
         </Typography>
         <div className={classes.inputBox}>
           <CreateIcon className={classes.icon} />
-          <textarea
-            className={classes.input}
-            type="text"
-            placeholder="Add a note"
-          ></textarea>
+          <textarea className={classes.input} type="text" placeholder="Add a note"></textarea>
           <button className={classes.buttonsave}>Save</button>
         </div>
 
@@ -142,10 +136,7 @@ export default function CoursePageViewWithVideo(props) {
                 <ListItem key={index}>
                   <ListItemText
                     primary={
-                      <Typography
-                        variant="body2"
-                        style={{ marginBottom: "4px" }}
-                      >{`Chapter ${
+                      <Typography variant="body2" style={{ marginBottom: "4px" }}>{`Chapter ${
                         index + 1
                       }: How to start With WD`}</Typography>
                     }
@@ -153,10 +144,7 @@ export default function CoursePageViewWithVideo(props) {
                       <Typography variant="caption">
                         <i>
                           50 Minutes by Anuj Garg{" "}
-                          <span style={{ color: "#4C0098" }}>
-                            {" "}
-                            Available in 2 day{" "}
-                          </span>{" "}
+                          <span style={{ color: "#4C0098" }}>Available in 2 days</span>{" "}
                         </i>
                       </Typography>
                     }
