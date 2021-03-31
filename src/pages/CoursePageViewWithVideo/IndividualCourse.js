@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import {
   Box,
   IconButton,
@@ -8,11 +9,13 @@ import {
   ListItemText,
   makeStyles,
   Typography,
+  
 } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
+import CreateIcon from '@material-ui/icons/Create';
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
 // import { IonIcon } from '@ionic/react';
@@ -42,6 +45,34 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     marginTop: "160px",
   },
+  inputBox: {
+    marginTop: "1rem",
+    padding: ".25rem .55rem",
+    display: "flex",
+    border: "2px solid darkgray",
+    borderRadius: "20px",
+  },
+  icon: {
+    color: "#AD0517",
+  },
+  input: {
+    paddingLeft: ".5rem",
+    width: "100%",
+    border: "none",
+    outline: "none",
+  },
+  buttonsave:{
+    "borderTopLeftRadius": 12.5,
+  "borderTopRightRadius": 12.5,
+  "borderBottomRightRadius": 12.5,
+  "borderBottomLeftRadius": 12.5,
+  "display": "inline-block",
+  "paddingTop":10,
+  "paddingRight": 10,
+  "paddingBottom": 10,
+  "paddingLeft": 10, 
+    backgroundImage: "linear-gradient(to right,#5f0403,#b80505,#d80805)", 
+  }, 
 }));
 
 export default function CoursePageViewWithVideo(props) {
@@ -70,6 +101,30 @@ export default function CoursePageViewWithVideo(props) {
             </i>
           </Typography>
         </Box>
+        
+        
+        {/* <div className= "notes">
+        
+ 
+        <Typography variant="h3" padding-top="10px"><br/>Take Notes</Typography> */}
+
+        <Typography variant="h3" >
+          <span style={{ color: "#b30000" }}><br/>Take Notes</span>{" "}
+        </Typography> 
+        <div className={classes.inputBox}>
+        
+        < CreateIcon className={classes.icon} />
+        <textarea
+          className={classes.input}
+          type="text"
+          placeholder="Add a note"
+        ></textarea>
+        <button className={classes.buttonsave}
+        >Save</button>
+      </div>
+          
+
+    
         <Tabs
           value={value}
           onChange={handleChange}
@@ -83,6 +138,7 @@ export default function CoursePageViewWithVideo(props) {
           <Tab label="More Options" />
         </Tabs>
         <TabPanel value={value} index={0}>
+          
           <List style={{ margin: 0, padding: 0 }}>
             {[1, 2, 3, 4, 5].map((item, index) => {
               return (
