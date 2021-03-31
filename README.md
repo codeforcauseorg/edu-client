@@ -25,7 +25,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ### ⚡ 3. Skill set :
 
-1. Knowledge of git & github.
+1. [Knowledge of git & github.](https://www.youtube.com/watch?v=4iDQ7CHHZZM)
 2. JavaScript
 3. ReactJS
 4. Mobile development Experience in Any Tech (optionally)
@@ -155,7 +155,7 @@ Skip the yarn part and proceed to the Pushing the changes section [here](#-pushi
 Now you have made the changes , tested them, and built them. so now its time to push them.
 
 1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
-2. Then type in `git add` and hit enter, this will add all the files to staging area
+2. Then type in `git add .` and hit enter, this will add all the files to staging area
 3. Commit the changes by `git commit -m "<message-describing-your-change>"` and hit enter.
 4. Now push your branch to your fork by `git push origin <your-branch-name>` and hit enter.
 
