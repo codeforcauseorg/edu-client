@@ -3,7 +3,6 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import {
   HomeOutlined,
-  PlayCircleOutline,
   ImportContactsOutlined,
   AccountCircleOutlined,
   AddCircleOutlineOutlined,
