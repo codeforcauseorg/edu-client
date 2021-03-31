@@ -9,13 +9,12 @@ import {
   ListItemText,
   makeStyles,
   Typography,
-  
 } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import CreateIcon from '@material-ui/icons/Create';
+import CreateIcon from "@material-ui/icons/Create";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
 // import { IonIcon } from '@ionic/react';
@@ -61,18 +60,17 @@ const useStyles = makeStyles((theme) => ({
     border: "none",
     outline: "none",
   },
-  buttonsave:{
-    "borderTopLeftRadius": 12.5,
-  "borderTopRightRadius": 12.5,
-  "borderBottomRightRadius": 12.5,
-  "borderBottomLeftRadius": 12.5,
-  "display": "inline-block",
-  "paddingTop":10,
-  "paddingRight": 10,
-  "paddingBottom": 10,
-  "paddingLeft": 10, 
-    backgroundImage: "linear-gradient(to right,#5f0403,#b80505,#d80805)", 
-  }, 
+  buttonsave: {
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+    borderBottomRightRadius: 12,
+    borderBottomLeftRadius: 12,
+    paddingTop: 10,
+    paddingRight: 10,
+    paddingBottom: 10,
+    paddingLeft: 10,
+    backgroundImage: "linear-gradient(to right,#5f0403,#b80505,#d80805)",
+  },
 }));
 
 export default function CoursePageViewWithVideo(props) {
@@ -94,37 +92,37 @@ export default function CoursePageViewWithVideo(props) {
           <ControlBar autoHide={true} className="my-class" />
         </Player>
         <Box mt={2} ml={2}>
-          <Typography variant="h3">Full Stack Development Course by Code For Cause</Typography>
+          <Typography variant="h3">
+            Full Stack Development Course by Code For Cause
+          </Typography>
           <Typography variant="body1">
             <i>
               Duration <span style={{ color: "#4C0098" }}>1hr 45min</span>
             </i>
           </Typography>
         </Box>
-        
-        
+
         {/* <div className= "notes">
         
  
         <Typography variant="h3" padding-top="10px"><br/>Take Notes</Typography> */}
 
-        <Typography variant="h3" >
-          <span style={{ color: "#b30000" }}><br/>Take Notes</span>{" "}
-        </Typography> 
+        <Typography variant="h3">
+          <span style={{ color: "#b30000" }}>
+            <br />
+            Take Notes
+          </span>{" "}
+        </Typography>
         <div className={classes.inputBox}>
-        
-        < CreateIcon className={classes.icon} />
-        <textarea
-          className={classes.input}
-          type="text"
-          placeholder="Add a note"
-        ></textarea>
-        <button className={classes.buttonsave}
-        >Save</button>
-      </div>
-          
+          <CreateIcon className={classes.icon} />
+          <textarea
+            className={classes.input}
+            type="text"
+            placeholder="Add a note"
+          ></textarea>
+          <button className={classes.buttonsave}>Save</button>
+        </div>
 
-    
         <Tabs
           value={value}
           onChange={handleChange}
@@ -138,14 +136,16 @@ export default function CoursePageViewWithVideo(props) {
           <Tab label="More Options" />
         </Tabs>
         <TabPanel value={value} index={0}>
-          
           <List style={{ margin: 0, padding: 0 }}>
             {[1, 2, 3, 4, 5].map((item, index) => {
               return (
                 <ListItem key={index}>
                   <ListItemText
                     primary={
-                      <Typography variant="body2" style={{ marginBottom: "4px" }}>{`Chapter ${
+                      <Typography
+                        variant="body2"
+                        style={{ marginBottom: "4px" }}
+                      >{`Chapter ${
                         index + 1
                       }: How to start With WD`}</Typography>
                     }
@@ -153,13 +153,16 @@ export default function CoursePageViewWithVideo(props) {
                       <Typography variant="caption">
                         <i>
                           50 Minutes by Anuj Garg{" "}
-                          <span style={{ color: "#4C0098" }}>Available in 2 days</span>{" "}
+                          <span style={{ color: "#4C0098" }}>
+                            {" "}
+                            Available in 2 day{" "}
+                          </span>{" "}
                         </i>
                       </Typography>
                     }
                   />
                   <ListItemSecondaryAction>
-                    <IconButton>{/* <IonIcon src={playCircleOutline} /> */}</IconButton>
+                    <IconButton></IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>
               );
