@@ -20,6 +20,9 @@ const useStyles = makeStyles({
     margin: "auto",
   },
   navItem: {
+    "& .MuiBottomNavigationAction-label": {
+      whiteSpace: "nowrap",
+    },
     "& .MuiBottomNavigationAction-label.Mui-selected": {
       whitespace: "nowrap",
     },
@@ -44,11 +47,6 @@ export default function BottomNav(props) {
       className={classes.root}
     >
       <BottomNavigationAction
-        label="My Courses"
-        value="/mycourses"
-        icon={<ImportContactsOutlined />}
-      />
-      <BottomNavigationAction
         className={classes.navItem}
         label="Home"
         value="/home"
@@ -57,9 +55,14 @@ export default function BottomNav(props) {
 
       <BottomNavigationAction
         className={classes.navItem}
-        label="My Classes"
-        value="/personal"
-        icon={<PlayCircleOutline />}
+        label="My Courses"
+        value="/mycourses"
+        icon={<ImportContactsOutlined />}
+        style={{
+          label: {
+            whitespace: "nowrap",
+          },
+        }}
       />
 
       <BottomNavigationAction
@@ -68,7 +71,12 @@ export default function BottomNav(props) {
         value="/wishlist"
         icon={<AddCircleOutlineOutlined />}
       />
-      <BottomNavigationAction label="Profile" value="/profile" icon={<AccountCircleOutlined />} />
+      <BottomNavigationAction
+        className={classes.navItem}
+        label="Profile"
+        value="/profile"
+        icon={<AccountCircleOutlined />}
+      />
     </BottomNavigation>
   );
 }
