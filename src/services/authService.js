@@ -8,8 +8,8 @@ import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
 class AuthService {
   // Configure Firebase.
   config = {
-    apiKey: "AIzaSyAbqqXtHNIuNrsamkCxRk9sOuMO-ZWDiEk",
-    authDomain: "codeforcauseorg.firebaseapp.com",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "AIzaSyAbqqXtHNIuNrsamkCxRk9sOuMO-ZWDiEk",
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "codeforcauseorg.firebaseapp.com",
     // ...
   };
 
@@ -52,9 +52,7 @@ class AuthService {
   }
 
   login = () => {
-    cfaSignIn("google.com").subscribe((user) => {
-      console.log(user);
-    });
+    cfaSignIn("google.com").subscribe();
   };
 
   logout = () => {

@@ -7,7 +7,7 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+
 import ButtonComponent from "../Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
 import { useHistory } from "react-router";
@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     // marginTop: '8px',
     borderRadius: "8px",
+    "&:hover": {
+      cursor: "pointer",
+      transform: "translateY(-2px)",
+    },
   },
   cardHeader: {
     backgroundColor: "#A60000",
@@ -39,9 +43,23 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "8px",
     marginBottom: "-8px",
   },
+  titlestyle: {
+    marginBottom: theme.spacing(2),
+  },
+  subheaderstyle: {
+    marginTop: "5px",
+    fontStyle: "italic",
+  },
+  captionset: {
+    fontStyle: "italic",
+    margin: theme.spacing(2, 0),
+  },
+  button: {
+    marginTop: theme.spacing(2),
+  },
 }));
 
-const WishlistCard = () => {
+const WishlistCard = ({ id }) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -54,11 +72,15 @@ const WishlistCard = () => {
             backgroundSize: "cover",
           }}
           title={
-            <Typography variant="h3">
-              Fullstack Web Development Course <br /> by code for cause
+            <Typography variant="h5" className={classes.titlestyle}>
+              Fullstack Web Development Course <br /> by Code For Cause
             </Typography>
           }
-          subheader="90hrs of learning with Anuj Garg"
+          subheader={
+            <Typography variant="subtitle2" className={classes.subheaderstyle}>
+              90hrs of learning with Anuj Garg
+            </Typography>
+          }
           action={
             <IconButton className={classes.icon}>
               <DeleteOutline />
@@ -72,17 +94,21 @@ const WishlistCard = () => {
           }}
         />
         <CardContent>
-          <Typography>
+          <Typography variant="subtitle2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
           </Typography>
-          <Typography variant="caption" style={{ fontStyle: "italic" }}>
+          <Typography variant="caption" className={classes.captionset}>
             Classes Starting <span style={{ color: "#a60000" }}>16th March Onwards</span>
           </Typography>
-          <Typography variant="h3" color="secondary" style={{ margin: "4px 0px 6px" }}>
+          <Typography variant="body2" color="secondary">
             ₹ 94
           </Typography>
-          <ButtonComponent title="Checkout Now" onClick={() => history.push("/course")} />
+          <ButtonComponent
+            className={classes.button}
+            title="Checkout Now"
+            onClick={() => history.push(`/course/${id}`)}
+          />
         </CardContent>
       </Card>
     </Container>

@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import PersonIcon from "@material-ui/icons/Person";
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Account() {
   const user = useSelector((state) => state.account.user);
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();
   const classes = useStyles();
   // const { enqueueSnackbar } = useSnackbar();
