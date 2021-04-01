@@ -182,7 +182,6 @@ By this time you can see a message on your github fork as `your fork is ahead of
 4. After filling the template completely click on `Pull request`
    <img src="./doc/images/compareAndpull.png" alt="Demo copy image" align="center"/>
    <img src="./doc/images/pull.png" alt="Demo copy image" align="center"/>
-=======
 5. [Ionic](https://ionicframework.com/) / [Capacitor](https://capacitorjs.com/) (optionally)
 
 
