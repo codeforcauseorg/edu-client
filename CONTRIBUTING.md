@@ -14,7 +14,7 @@ Be sure to include as much information including screenshots, text output, and b
 
 Firstly please refer to the applicable [github-repo] and search in the [issues-list] to make sure that your idea has not been (or is not still) considered.
 
-If it is not yet considered or something more can be added then please create a new issue in the GitHub repository[new-issue] describing your enhancement.
+If it is not yet considered or something more can be added then please create a new issue in the GitHub repository [new-issue] describing your enhancement.
 
 Be sure to include as much detail as possible including step-by-step descriptions, specific examples, screenshots or mockups, and reasoning for why the enhancement might be worthwhile.
 
