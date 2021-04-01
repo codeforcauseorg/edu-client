@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 400,
     },
   },
+  link_footer: {
+    textDecoration: "none",
+  },
 }));
 const footerItems = [
   {
@@ -48,7 +51,7 @@ function FooterComponent() {
     <React.Fragment>
       <Box className={classes.footer}>
         {footerItems.map((items) => (
-          <Link to={items.link} key={items.id}>
+          <Link to={items.link} key={items.id} className={classes.link_footer}>
             <Typography>{items.title}</Typography>
           </Link>
         ))}
