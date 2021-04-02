@@ -42,7 +42,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 2. JavaScript
 3. [ReactJS](https://reactjs.org/)
 4. Mobile development Experience in Any Tech (optionally)
-5. Ionic / Capacitor (optionally)
+5. [Ionic / Capacitor](https://capacitorjs.com/) (optionally)
 
 ## 📌 Potential Maintainers :
 
