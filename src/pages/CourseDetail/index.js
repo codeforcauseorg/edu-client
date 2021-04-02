@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   svg: {
     color: "white",
+    cursor: "pointer",
   },
   backtotop: {
     minWidth: "100%",
