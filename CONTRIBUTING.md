@@ -131,9 +131,9 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 ### 🚩 Building project :
 
 1. Run the command `yarn build`
-2. Builds the app for production to the `build` folder.\
+2. Builds the app for production to the `build` folder.
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
-4. The build is minified and the filenames include the hashes.\
+4. The build is minified and the filenames include the hashes.
    Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
