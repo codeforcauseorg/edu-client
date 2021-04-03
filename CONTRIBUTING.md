@@ -116,9 +116,10 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
    4. If you already have `scoop` installed you can simply type in `scoop install yarn`
 3. To check if the yarn has installed correctly type in `yarn --version` this should show you the current version of yarn.
 
-### 🚩 Running in Deployment mode :
+### 🚩 Running in Development mode :
 
-1. Open the terminal and type in `yarn start`
+1. Open the terminal and type in `yarn install`, to install all the dependencies.
+1. Run: `yarn start`
 2. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 3. The page will reload if you make edits.
 4. You will also see any lint errors in the console.
