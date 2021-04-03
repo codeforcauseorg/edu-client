@@ -16,6 +16,7 @@ import Faqs from "./pages/Info/Faqs";
 import About from "./pages/Info/About";
 import Checkout from "./pages/CheckoutView";
 import PeerPage from "./pages/PeerDiscussionPage/peer";
+import StudentDashboard from "./pages/StudentDashboardPage";
 
 const renderRoutes = () => (
   <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
@@ -30,7 +31,7 @@ const renderRoutes = () => (
       <Route path="/about" exact component={About} />
       <Route path="/faq" exact component={Faqs} />
       <Route path="/terms-and-conditions" exact component={Terms} />
-
+      <Route path="/dashboard" exact component={StudentDashboard} />
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/home" exact component={HomePage} />
