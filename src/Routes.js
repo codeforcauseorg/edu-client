@@ -14,6 +14,8 @@ import Privacy from "./pages/Info/Privacy";
 import Terms from "./pages/Info/Terms";
 import Faqs from "./pages/Info/Faqs";
 import About from "./pages/Info/About";
+import Checkout from "./pages/CheckoutView";
+import PeerPage from "./pages/PeerDiscussionPage/peer";
 
 const renderRoutes = () => (
   <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
@@ -23,6 +25,7 @@ const renderRoutes = () => (
       </Route>
       <Route path="/course/:id" exact component={CourseDetail} />
       <Route path="/mycourses/:coursename" exact component={CoursePage} />
+      <Route path="/checkout/:id" exact component={Checkout} />
       <Route path="/privacy" exact component={Privacy} />
       <Route path="/about" exact component={About} />
       <Route path="/faq" exact component={Faqs} />
@@ -34,6 +37,7 @@ const renderRoutes = () => (
           <Route path="/mycourses" exact component={MyCourses} />
           <Route path="/wishlist" exact component={WishlistPage} />
           <Route path="/profile" exact component={ProfilePage} />
+          <Route path="/peer" exact component={PeerPage} />
         </SwipeableRoutes>
       </MainLayout>
     </Switch>
