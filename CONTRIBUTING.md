@@ -38,7 +38,7 @@ Be sure to include as much detail as possible including step-by-step description
 
 ### 🚩 Setting up remote :
 
-1. Now you have to set up remote repositories
+1. Now you have to set up remote repositories.
 2. Type `git remote -v` in terminal to list remote connections to your repo.
 3. It will show something like this:
 
@@ -49,8 +49,8 @@ origin  https://github.com/<your-user-name>/edu-client.git (push)
 
 ```
 
-4. Now type the command `git remote add upstream https://github.com/codeforcauseorg/edu-client.git` this will set upstream as main directory
-5. Again type in command `git remote -v` to check if remote has been set up correctly
+4. Now type the command `git remote add upstream https://github.com/codeforcauseorg/edu-client.git` this will set upstream as main directory.
+5. Again type in command `git remote -v` to check if remote has been set up correctly.
 6. It should show something like this :
 
 ```console
@@ -64,10 +64,10 @@ upstream        https://github.com/codeforcauseorg/edu-client.git (push)
 
 ### 🚩 Creating a branch :
 
-Whenever you want to contribute to any project. It is best practice that you should create a branch and push the branch as PR rather than directly pushing main/master branch
+Whenever you want to contribute to any project. It is best practice that you should create a branch and push the branch as PR rather than directly pushing main/master branch.
 
-1. `git branch` will list all the branches in the repository
-2. Now type `git branch <your-branch-name>` to create your branch
+1. `git branch` will list all the branches in the repository.
+2. Now type `git branch <your-branch-name>` to create your branch.
 3. You can check the created branch by `git branch`
 4. But still if you start editing the edits will go to the main branch. To change the path , type in `git checkout <your-branch-name>`
 5. Now you are ready to do the desired changes.
@@ -80,8 +80,8 @@ Whenever you want to contribute to any project. It is best practice that you sho
 
 ## 📌 Setting up project using `npm` :
 
-1. Open this clonned folder in text editor of your choice
-2. If you want to use the project using `npm` then that comes along side when you download and install node js
+1. Open this clonned folder in text editor of your choice.
+2. If you want to use the project using `npm` then that comes along side when you download and install node js.
 
 ### 🚩 Running in Development mode :
 
@@ -98,9 +98,9 @@ Whenever you want to contribute to any project. It is best practice that you sho
 ### 🚩 Building project :
 
 1. Run the command `npm run build`
-2. Builds the app for production to the `build` folder.\
+2. Builds the app for production to the `build` folder.
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
-4. The build is minified and the filenames include the hashes.\
+4. The build is minified and the filenames include the hashes.
    Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
@@ -108,10 +108,10 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 
 ## 📌 Setting up project using `yarn`
 
-1. Open this clonned folder in text editor of your choice
+1. Open this clonned folder in text editor of your choice.
 2. If you want to use the project using `yarn` then you can do either of the following
    1. Download Yarn Package manager [here](https://classic.yarnpkg.com/en/docs/install)
-   2. If you already have `npm` installed you can simply type in `npm install --global yarn`.
+   2. If you already have `npm` installed you can simply type in `npm install --global yarn.
    3. If you already have `choco` installed you can simply type in `choco install yarn`
    4. If you already have `scoop` installed you can simply type in `scoop install yarn`
 3. To check if the yarn has installed correctly type in `yarn --version` this should show you the current version of yarn.
@@ -132,9 +132,9 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 ### 🚩 Building project :
 
 1. Run the command `yarn build`
-2. Builds the app for production to the `build` folder.\
+2. Builds the app for production to the `build` folder.
 3. It correctly bundles React in production mode and optimizes the build for the best performance.
-4. The build is minified and the filenames include the hashes.\
+4. The build is minified and the filenames include the hashes.
    Your app is ready to be deployed!
 5. See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
@@ -148,8 +148,8 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 
 After doing the changes, and when tests are successfully passing you can push your changes to remote.
 
-1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
-2. Then type in `git add .` and hit enter, this will add all the files to staging area
+1. Go to your terminal and type `git status` and hit enter, this will show your changes from the files.
+2. Then type in `git add .` and hit enter, this will add all the files to staging area.
 3. Commit the changes by `git commit -m "<message-describing-your-change>"` and hit enter.
 4. Now push your branch to your fork by `git push origin <your-branch-name>` and hit enter.
 
