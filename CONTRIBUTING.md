@@ -81,7 +81,7 @@ Whenever you want to contribute to any project. It is best practice that you sho
 ## 📌 Setting up project using `npm` :
 
 1. Open this clonned folder in text editor of your choice
-2. If you want to use the project using `npm` then that comes along side when you download and install node js
+2. If you want to use the project using `npm` then that comes along side when you download and install node js (LTS version prefered)
 
 ### 🚩 Running in Development mode :
 
@@ -148,7 +148,7 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 After doing the changes, and when tests are successfully passing you can push your changes to remote.
 
 1. Goto your terminal and type `git status` and hit enter, this will show your changes from the files
-2. Then type in `git add` and hit enter, this will add all the files to staging area
+2. Then type in `git add .` and hit enter, this will add all the files to staging area
 3. Commit the changes by `git commit -m "<message-describing-your-change>"` and hit enter.
 4. Now push your branch to your fork by `git push origin <your-branch-name>` and hit enter.
 
