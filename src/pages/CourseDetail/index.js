@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Description from "../../components/courseDetails/description";
 import ScrollToTop from "../../utils/ScrollToTop";
 import Hero from "../../components/courseDetails/Hero";
@@ -59,6 +59,7 @@ const coursesData = courseDetail[0].coursesSection;
 
 function CourseDetail(props) {
   const classes = useStyles();
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = (event) => {
@@ -74,9 +75,7 @@ function CourseDetail(props) {
       <div id="back-to-top-anchor"></div>
       <ScrollToTop />
       <div className={classes.navigation}>
-        <Link to="/">
-          <ArrowBackIcon className={classes.svg} />
-        </Link>
+        <ArrowBackIcon className={classes.svg} onClick={() => history.goBack()} />
         <MoreVertIcon className={classes.svg} onClick={handleClick} />
         <Menu
           id="simple-menu"
