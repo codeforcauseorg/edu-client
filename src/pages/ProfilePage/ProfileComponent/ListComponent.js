@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { useHistory } from "react-router-dom";
 import {
@@ -46,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function ListComponent() {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
+
   const toggleChecked = () => {
     setChecked((prev) => !prev);
   };
@@ -85,6 +86,14 @@ export default function ListComponent() {
       secondary: "Manage your Classroom activities",
       onPress: () => console.log("Classroom"),
     },
+
+    {
+      id: 5,
+      listItemIcon: "/assets/icon/shareIcon.svg",
+      primary: "Share",
+      secondary: "Share the app with your buddies",
+      onPress: () => console.log("Share"),
+    },
   ];
   const SettingsItems = [
     {
@@ -117,6 +126,7 @@ export default function ListComponent() {
           </ListItem>
         ))}
       </List>
+
       <List subheader={<Typography variant="h1">Settings</Typography>}>
         {SettingsItems.map((items) => (
           <ListItem button key={items.id} onClick={items.onPress}>
