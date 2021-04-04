@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     paddingButtom: 64,
     paddingLeft: 20,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("md")]:{
       paddingLeft: 5,
     },
   },
