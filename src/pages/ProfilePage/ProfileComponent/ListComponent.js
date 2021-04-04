@@ -73,6 +73,13 @@ const ActivityItems = [
     secondary: "Manage your Classroom activities",
     onPress: () => console.log("Classroom"),
   },
+  {
+    id: 5,
+    listItemIcon: "/assets/icon/shareIcon.svg",
+    primary: "Share",
+    secondary: "Share the app with your buddies",
+    onPress: () => console.log("Share"),
+  },
 ];
 
 const SettingsItems = [
