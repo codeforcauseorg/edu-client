@@ -19,6 +19,11 @@ const useStyles = makeStyles({
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.25)",
     margin: "auto",
   },
+  navItem: {
+    "& .MuiBottomNavigationAction-label": {
+      whiteSpace: "nowrap",
+    },
+  },
 });
 
 export default function BottomNav(props) {
@@ -35,18 +40,32 @@ export default function BottomNav(props) {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction label="Home" value="/home" icon={<HomeOutlined />} />
       <BottomNavigationAction
+        className={classes.navItem}
+        label="Home"
+        value="/home"
+        icon={<HomeOutlined />}
+      />
+
+      <BottomNavigationAction
+        className={classes.navItem}
         label="My Courses"
         value="/mycourses"
         icon={<ImportContactsOutlined />}
       />
+
       <BottomNavigationAction
+        className={classes.navItem}
         label="Wishlist"
         value="/wishlist"
         icon={<AddCircleOutlineOutlined />}
       />
-      <BottomNavigationAction label="Profile" value="/profile" icon={<AccountCircleOutlined />} />
+      <BottomNavigationAction
+        className={classes.navItem}
+        label="Profile"
+        value="/profile"
+        icon={<AccountCircleOutlined />}
+      />
     </BottomNavigation>
   );
 }

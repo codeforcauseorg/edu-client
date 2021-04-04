@@ -52,7 +52,7 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ## 📌 Credits :
 
-This project exists thanks to all the people who contribute.
+This project exists, thanks to all the people who contribute.
 
 <a href="https://github.com/codeforcauseorg/edu-client/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=codeforcauseorg/edu-client" />
