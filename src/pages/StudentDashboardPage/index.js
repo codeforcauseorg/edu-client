@@ -3,6 +3,7 @@ import React from "react";
 import DashboardHeader from "./DashboardComponents/DashboardHeader";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ProgressCourse from "./DashboardComponents/ProgressCourse";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,6 +37,7 @@ function StudentDashboard() {
         </Toolbar>
       </AppBar>
       <DashboardHeader />
+      <ProgressCourse />
     </Container>
   );
 }
