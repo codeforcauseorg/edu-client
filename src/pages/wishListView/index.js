@@ -15,6 +15,8 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "100%",
     display: "flex",
     justifyContent: "center",
+    position: "absolute",
+    bottom: 0,
   },
 }));
 
