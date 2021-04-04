@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 const ActivityItems = [
   {
     id: 1,
@@ -72,6 +73,13 @@ const ActivityItems = [
     primary: "Classroom",
     secondary: "Manage your Classroom activities",
     onPress: () => console.log("Classroom"),
+  },
+  {
+    id: 5,
+    listItemIcon: "/assets/icon/share.svg",
+    primary: "Share",
+    secondary: "Share the app with your friends and family",
+    onPress: () => console.log("Share"),
   },
 ];
 
