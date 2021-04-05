@@ -54,6 +54,10 @@ export default function ListComponent() {
 
   const history = useHistory();
 
+  const handelchange = () => {
+    history.push("/dashboard");
+  };
+
   const ActivityItems = [
     {
       id: 1,
@@ -76,7 +80,6 @@ export default function ListComponent() {
       listItemIcon: "/assets/icon/statsIcon.svg",
       primary: "Contests and Statistics Dashboard",
       secondary: "View contests and statistics dashboard",
-      onPress: () => console.log("Contests and Statistics Dashboard"),
     },
     {
       id: 4,
@@ -115,7 +118,7 @@ export default function ListComponent() {
     <div className={classes.root}>
       <List subheader={<Typography variant="h1">Activities</Typography>}>
         {ActivityItems.map((items) => (
-          <ListItem button key={items.id} onClick={items.onPress}>
+          <ListItem button key={items.id} onClick={items.id === 3 ? handelchange : items.onPress}>
             <ListItemIcon>
               <img src={items.listItemIcon} />
             </ListItemIcon>
