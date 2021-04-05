@@ -3,13 +3,13 @@ import { useHistory } from "react-router-dom";
 import ScrollToTop from "../../utils/ScrollToTop";
 import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { Typography } from "@material-ui/core";
+import { Typography, TextField } from "@material-ui/core";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
-
+import ButtonComponent from "../../components/Button/ButtonComponent";
 import Grid from "@material-ui/core/Grid";
 
 const labels = {
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px",
   },
   feedback: {
-    marginTop: "50px",
+    marginTop: "80px",
     marginLeft: "10px",
     marginRight: "10px",
   },
@@ -128,6 +128,25 @@ function CourseDetail(props) {
               <Typography variant="body2">{labels[hover !== -1 ? hover : value]}</Typography>
             </Box>
           )}
+          <TextField
+            rowsMin={5}
+            className={classes.feedback}
+            variant="outlined"
+            margin="normal"
+            fullWidth
+            multiline
+            id="feedback"
+            label="Any feedback?"
+            name="text"
+            rows={5}
+            autoFocus
+          />
+          <ButtonComponent
+            className={classes.button}
+            variant="contained"
+            color="secondary"
+            title="Submit Feedback"
+          />
         </Grid>
         <div className={classes.backtotop}>
           <ScrollTop {...props}>
