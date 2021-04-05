@@ -15,6 +15,7 @@ import Terms from "./pages/Info/Terms";
 import Faqs from "./pages/Info/Faqs";
 import About from "./pages/Info/About";
 import Checkout from "./pages/CheckoutView";
+import MentorRating from "./pages/MentorRating";
 import PeerPage from "./pages/PeerDiscussionPage/peer";
 
 const renderRoutes = () => (
@@ -29,6 +30,7 @@ const renderRoutes = () => (
       <Route path="/privacy" exact component={Privacy} />
       <Route path="/about" exact component={About} />
       <Route path="/faq" exact component={Faqs} />
+      <Route path="/ratementor" exact component={MentorRating} />
       <Route path="/terms-and-conditions" exact component={Terms} />
 
       <MainLayout>
