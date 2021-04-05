@@ -5,6 +5,8 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,10 +20,18 @@ const useStyles = makeStyles((theme) => ({
     margin: "1rem 0",
     fontSize: "2rem",
   },
+  navigationBar: {
+    widht: "100%",
+    height: "100px",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: "6px 10px",
+  },
 }));
 
 function Faqs() {
   const classes = useStyles();
+  const history = useHistory();
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -29,7 +39,8 @@ function Faqs() {
   };
 
   return (
-    <div style={{ padding: "16px" }}>
+    <div style={{ padding: "16px" }} className={classes.navigationBar}>
+      <ArrowBackIcon className={classes.svg} onClick={() => history.goBack()} />
       <Typography className={classes.mainHeading} variant="h1" color="textPrimary" component="h1">
         FAQs
       </Typography>
