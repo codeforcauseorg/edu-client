@@ -85,6 +85,13 @@ export default function ListComponent() {
       secondary: "Manage your Classroom activities",
       onPress: () => console.log("Classroom"),
     },
+    {
+      id: 5,
+      listItemIcon: "/assets/icon/achivements.png",
+      primary: "My Achivements",
+      secondary: "View your badges",
+      onPress: () => console.log("My Achivements"),
+    },
   ];
   const SettingsItems = [
     {

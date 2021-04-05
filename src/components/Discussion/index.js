@@ -17,6 +17,12 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
   },
+  Buttons: {
+    padding: "15px",
+  },
+  BoxSpaces: {
+    padding: "15px",
+  },
 }));
 
 function Discussion({ data }) {
@@ -32,10 +38,10 @@ function Discussion({ data }) {
           <Grid item xs={6}>
             <Typography variant="h5" style={{ display: "inline-block" }}>
               ( 27/03/2021 )<br></br>
-              by {data.name}
+              <i>by {data.name}</i>
             </Typography>
           </Grid>
-          <Box style={{ padding: "10px" }}>
+          <Box className={classes.BoxSpaces}>
             <Typography variant="body2">
               Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
               document or a typeface without relying on meaningful content.
