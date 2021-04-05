@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
+import { useHistory } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,8 +25,10 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(1.5),
   },
 }));
-function SubAssignmentTask({ taskTitle, dueDate, tasktilecolor }) {
+function SubAssignmentTask({ id, taskTitle, dueDate, tasktilecolor }) {
   const classes = useStyles();
+  const history = useHistory();
+
   return (
     <List
       component="div"
@@ -33,7 +36,11 @@ function SubAssignmentTask({ taskTitle, dueDate, tasktilecolor }) {
       style={{ background: tasktilecolor }}
       className={classes.root}
     >
-      <ListItem button className={classes.nested}>
+      <ListItem
+        button
+        className={classes.nested}
+        onClick={() => history.push(`/dashboard/assignment/${id}`)}
+      >
         <ListItemIcon>
           <img src="assets/icon/task-planning_Icon.png" className={classes.taskIcon} />
         </ListItemIcon>

@@ -68,6 +68,7 @@ function AssignmentList({
         {taskList.map((items, index) => (
           <SubAssignmentTask
             key={index}
+            id={items.taskId}
             taskTitle={items.taskTitle}
             dueDate={items.dueDate}
             tasktilecolor={tasktilecolor}
