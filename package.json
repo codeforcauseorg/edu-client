@@ -9,6 +9,7 @@
     "@capacitor/core": "^2.4.7",
     "@material-ui/core": "^4.9.9",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.57",
     "@material-ui/pickers": "^3.2.10",
     "@material-ui/styles": "^4.9.6",
     "@mdx-js/react": "^1.6.22",
