@@ -67,9 +67,9 @@ function AssignmentList({
       <Collapse in={open} timeout="auto" unmountOnExit>
         {taskList.map((items, index) => (
           <SubAssignmentTask
-            key={taskList.taskId}
-            taskTitle={taskList[index].taskTitle}
-            dueDate={taskList[index].dueDate}
+            key={index}
+            taskTitle={items.taskTitle}
+            dueDate={items.dueDate}
             tasktilecolor={tasktilecolor}
           />
         ))}

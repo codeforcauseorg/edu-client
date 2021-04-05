@@ -28,7 +28,6 @@ function SubAssignmentTask({ taskTitle, dueDate, tasktilecolor }) {
   const classes = useStyles();
   return (
     <List
-      key
       component="div"
       disablePadding
       style={{ background: tasktilecolor }}
