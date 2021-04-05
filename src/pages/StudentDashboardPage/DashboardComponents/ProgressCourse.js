@@ -59,7 +59,7 @@ const completed = [
     chapterTitle: "How to start with App Development",
     courseName: "Full Stack Mobile Development Course by Code For Cause",
     bannerImage:
-      "https://images.pexels.com/photos/326518/pexels-photo-326518.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
     completedDuration: "3 days",
     totalDuration: "3 days",
     progressValue: "100",
@@ -108,28 +108,28 @@ function ProgressCourse() {
       </Box>
       <Box className={classes.mediacardcontainer}>
         {status === "On Going"
-          ? ongoingdata.map((ongoingcourse, index) => (
+          ? ongoingdata.map((items, index) => (
               <CourseMediaCard
                 key={index}
-                chapterNumber={ongoingcourse.chapterNumber}
-                chapterTitle={ongoingcourse.chapterTitle}
-                courseName={ongoingcourse.courseName}
-                bannerImage={ongoingcourse.bannerImage}
-                completedDuration={ongoingcourse.completedDuration}
-                totalDuration={ongoingcourse.totalDuration}
-                progressValue={ongoingcourse.progressValue}
+                chapterNumber={items.chapterNumber}
+                chapterTitle={items.chapterTitle}
+                courseName={items.courseName}
+                bannerImage={items.bannerImage}
+                completedDuration={items.completedDuration}
+                totalDuration={items.totalDuration}
+                progressValue={items.progressValue}
               />
             ))
-          : completed.map((ongoingcourse, index) => (
+          : completed.map((items, index) => (
               <CourseMediaCard
                 key={index}
-                chapterNumber={ongoingcourse.chapterNumber}
-                chapterTitle={ongoingcourse.chapterTitle}
-                courseName={ongoingcourse.courseName}
-                bannerImage={ongoingcourse.bannerImage}
-                completedDuration={ongoingcourse.completedDuration}
-                totalDuration={ongoingcourse.totalDuration}
-                progressValue={ongoingcourse.progressValue}
+                chapterNumber={items.chapterNumber}
+                chapterTitle={items.chapterTitle}
+                courseName={items.courseName}
+                bannerImage={items.bannerImage}
+                completedDuration={items.completedDuration}
+                totalDuration={items.totalDuration}
+                progressValue={items.progressValue}
               />
             ))}
       </Box>

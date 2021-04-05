@@ -4,6 +4,7 @@ import DashboardHeader from "./DashboardComponents/DashboardHeader";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ProgressCourse from "./DashboardComponents/ProgressCourse";
+import CourseAssignments from "./DashboardComponents/CourseAssignments";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,6 +39,7 @@ function StudentDashboard() {
       </AppBar>
       <DashboardHeader />
       <ProgressCourse />
+      <CourseAssignments />
     </Container>
   );
 }
