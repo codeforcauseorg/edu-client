@@ -1,5 +1,4 @@
 import { Container, makeStyles, List, ListItem, Typography } from "@material-ui/core";
-
 import CourseCard from "../../components/courseCard/courseCard1";
 import Recommended from "./Courses";
 import Search from "./Search";
@@ -12,6 +11,13 @@ const useStyles = makeStyles((theme) => ({
     color: "#000",
     padding: theme.spacing(5, 0),
   },
+  list: {
+    display: "flex",
+    overflowX: "scroll",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
+  },
 }));
 
 export default function NonHero(props) {
@@ -21,8 +27,8 @@ export default function NonHero(props) {
     <div className={classes.root}>
       <Container>
         <Typography variant="h3">Continue Learning</Typography>
-        <List>
-          {[1, 2].map((item, index) => {
+        <List className={classes.list}>
+          {[1].map((item, index) => {
             return (
               <ListItem key={index} className={classes.li}>
                 <CourseCard />

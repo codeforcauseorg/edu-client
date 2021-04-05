@@ -31,6 +31,9 @@ const useStyles = makeStyles(() => ({
     flexWrap: "nowrap",
     overflowX: "auto",
     scrollbarWidth: "none",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   },
   tag: {
     marginRight: ".5rem",
