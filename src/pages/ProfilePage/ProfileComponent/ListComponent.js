@@ -80,13 +80,13 @@ export default function ListComponent() {
       listItemIcon: "/assets/icon/statsIcon.svg",
       primary: "Contests and Statistics Dashboard",
       secondary: "View contests and statistics dashboard",
+      onPress: () => console.log("Contests & Statistics"),
     },
     {
       id: 4,
       listItemIcon: "/assets/icon/classroomIcon.svg",
       primary: "Classroom",
       secondary: "Manage your Classroom activities",
-      onPress: () => console.log("Classroom"),
     },
     {
       id: 5,
@@ -118,7 +118,7 @@ export default function ListComponent() {
     <div className={classes.root}>
       <List subheader={<Typography variant="h1">Activities</Typography>}>
         {ActivityItems.map((items) => (
-          <ListItem button key={items.id} onClick={items.id === 3 ? handelchange : items.onPress}>
+          <ListItem button key={items.id} onClick={items.id === 4 ? handelchange : items.onPress}>
             <ListItemIcon>
               <img src={items.listItemIcon} />
             </ListItemIcon>
