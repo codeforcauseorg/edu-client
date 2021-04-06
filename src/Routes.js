@@ -19,6 +19,7 @@ import MentorRating from "./pages/MentorRating";
 import PeerPage from "./pages/PeerDiscussionPage/peer";
 import StudentDashboard from "./pages/StudentDashboardPage";
 import AssignmentSubmission from "./pages/StudentDashboardPage/AssignmentSubmission/AssignmentSubmission";
+import JobOpenings from "./pages/JobOpeningPage";
 
 const renderRoutes = () => (
   <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
@@ -36,6 +37,7 @@ const renderRoutes = () => (
       <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/dashboard" exact component={StudentDashboard} />
       <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
+      <Route path="/job-openings" exact component={JobOpenings} />
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/home" exact component={HomePage} />
