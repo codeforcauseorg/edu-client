@@ -106,7 +106,7 @@ const ScheduleDetails = ({ chapter, duration, heading, details, premier, panel }
           </Grid>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography align="left" className={classes.heading} variant="body2">
+          <Typography align="left" className={classes.heading} variant="subtitle2">
             {details}
           </Typography>
         </AccordionDetails>

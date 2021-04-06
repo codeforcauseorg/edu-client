@@ -1,15 +1,22 @@
-import Description from "../components/courseDetails/description";
-import ScrollToTop from "../utils/ScrollToTop";
-import Hero from "../components/courseDetails/Hero";
-import CardContainer from "../components/cardContainer/cardContainer";
-import SimpleCard from "../components/simpleCard/simpleCard";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import Description from "../../components/courseDetails/description";
+import ScrollToTop from "../../utils/ScrollToTop";
+import Hero from "../../components/courseDetails/Hero";
+import CardContainer from "../../components/cardContainer/cardContainer";
+import SimpleCard from "../../components/simpleCard/simpleCard";
 import { makeStyles } from "@material-ui/core/styles";
-import courseDetail from "../data/courseDetail.json";
-import Perks from "../components/courseDetails/perks";
-import Schedule from "../components/courseDetails/schedule";
+import courseDetail from "../../data/courseDetail.json";
+import Perks from "../../components/courseDetails/perks";
+import Schedule from "../../components/courseDetails/schedule";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Typography } from "@material-ui/core";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Fab from "@material-ui/core/Fab";
+import ScrollTop from "../../components/backTop/index";
+import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 
 const useStyles = makeStyles((theme) => ({
   navigation: {
@@ -35,6 +42,13 @@ const useStyles = makeStyles((theme) => ({
   },
   svg: {
     color: "white",
+    cursor: "pointer",
+  },
+  backtotop: {
+    minWidth: "100%",
+    display: "flex",
+    justifyContent: "center",
+    paddingBottom: "24px",
   },
 }));
 
@@ -43,16 +57,39 @@ const descriptionData = courseDetail[0].descriptionSection;
 const perksData = courseDetail[0].perksSection;
 const coursesData = courseDetail[0].coursesSection;
 
-function CourseDetail() {
+function CourseDetail(props) {
   const classes = useStyles();
+  const history = useHistory();
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <>
+      <div id="back-to-top-anchor"></div>
+      <ScrollToTop />
       <div className={classes.navigation}>
-        <ArrowBackIcon className={classes.svg} />
-        <MoreVertIcon className={classes.svg} />
+        <ArrowBackIcon className={classes.svg} onClick={() => history.goBack()} />
+        <MoreVertIcon className={classes.svg} onClick={handleClick} />
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>My account</MenuItem>
+          <MenuItem onClick={handleClose}>Cart</MenuItem>
+        </Menu>
       </div>
       <div className={classes.courseDetail}>
-        <ScrollToTop />
         <Hero
           title={heroData.title}
           description={heroData.description}
@@ -107,6 +144,13 @@ function CourseDetail() {
             />
           ))}
         </CardContainer>
+        <div className={classes.backtotop}>
+          <ScrollTop {...props}>
+            <Fab color="secondary" size="small" aria-label="scroll back to top">
+              <KeyboardArrowUpIcon />
+            </Fab>
+          </ScrollTop>
+        </div>
       </div>
     </>
   );
