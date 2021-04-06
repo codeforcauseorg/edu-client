@@ -57,7 +57,9 @@ export default function ListComponent() {
   const handelchange = () => {
     history.push("/dashboard");
   };
-
+  const openContests = () => {
+    history.push("/contests");
+  };
   const ActivityItems = [
     {
       id: 1,
@@ -80,7 +82,9 @@ export default function ListComponent() {
       listItemIcon: "/assets/icon/statsIcon.svg",
       primary: "Contests and Statistics Dashboard",
       secondary: "View contests and statistics dashboard",
-      onPress: () => console.log("Contests & Statistics"),
+      onPress: () => {
+        openContests();
+      },
     },
     {
       id: 4,
