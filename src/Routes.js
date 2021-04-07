@@ -26,6 +26,7 @@ const renderRoutes = () => (
       <Route path="/" exact>
         <Redirect to="/home" />
       </Route>
+      <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/course/:id" exact component={CourseDetail} />
       <Route path="/mycourses/:coursename" exact component={CoursePage} />
       <Route path="/checkout/:id" exact component={Checkout} />
@@ -38,6 +39,8 @@ const renderRoutes = () => (
       <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
       <MainLayout>
         <SwipeableRoutes replace>
+          <Route path="/faq" exact component={Faqs} />
+          <Route path="/about" exact component={About} />
           <Route path="/home" exact component={HomePage} />
           <Route path="/mycourses" exact component={MyCourses} />
           <Route path="/wishlist" exact component={WishlistPage} />
