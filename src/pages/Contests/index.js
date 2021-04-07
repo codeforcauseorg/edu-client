@@ -1,5 +1,16 @@
-import { Box, Button, Container, makeStyles, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Box,
+  Button,
+  Container,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import React, { useState } from "react";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ContestsList from "./ContestsList";
 import contests from "../../data/contestsDetails.json";
 const useStyle = makeStyles((theme) => ({
@@ -9,11 +20,23 @@ const useStyle = makeStyles((theme) => ({
   buttoncontainer: {
     marginTop: theme.spacing(1),
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
   trophyIcon: {
     height: 30,
     width: 30,
   },
-
+  titlecontainer: {
+    textAlign: "center",
+    marginTop: "5px",
+  },
   button: {
     textTransform: "none",
     borderRadius: 5,
@@ -49,12 +72,24 @@ function Contests() {
     setStatus(status);
   };
   return (
-    <Container className={classes.root}>
+    <Container component="main" maxWidth="xs" className={classes.root}>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar variant="dense">
+          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.title}>
+            Contests & Statistics
+          </Typography>
+          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MoreVertIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
       <Box className={classes.titlecontainer}>
         <Typography variant="h1">
           Contests
           <span>
-            {" "}
             <img src="assets/icon/trophy.png" className={classes.trophyIcon} />
           </span>
         </Typography>
