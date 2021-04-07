@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(1),
   },
 }));
-function ContestsList({ date, ContestTitle, ListTileColor }) {
+function ContestsList({ date, contestTitle, ListTileColor }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
@@ -64,10 +64,10 @@ function ContestsList({ date, ContestTitle, ListTileColor }) {
         </ListItemIcon>
         <ListItemText>
           <Box className={classes.listItem}>
-            <Typography variant="h5">{ContestTitle}</Typography>
+            <Typography variant="h5">{contestTitle}</Typography>
 
             <Typography variant="body1" className={classes.date}>
-              Date : {date}
+              date : {date}
             </Typography>
           </Box>
         </ListItemText>

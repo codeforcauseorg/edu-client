@@ -84,8 +84,8 @@ function Contests() {
               return ongoing.map((items, index) => (
                 <ContestsList
                   key={index}
-                  ContestTitle={items.ContestTitle}
-                  date={items.Date}
+                  contestTitle={items.contestTitle}
+                  date={items.date}
                   ListTileColor="#EEF7FB"
                   tasktilecolor="#DAE9F0"
                 />
@@ -94,8 +94,8 @@ function Contests() {
               return upcoming.map((items, index) => (
                 <ContestsList
                   key={index}
-                  ContestTitle={items.ContestTitle}
-                  date={items.Date}
+                  contestTitle={items.contestTitle}
+                  date={items.date}
                   ListTileColor="#FEF7EF"
                   tasktilecolor="#F7E6D3"
                 />
@@ -104,8 +104,8 @@ function Contests() {
               return completed.map((items, index) => (
                 <ContestsList
                   key={index}
-                  ContestTitle={items.ContestTitle}
-                  date={items.Date}
+                  contestTitle={items.contestTitle}
+                  date={items.date}
                   ListTileColor="#EBFDF5"
                   tasktilecolor="#C8EEDD"
                 />
