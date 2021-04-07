@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textAlign: "center",
   },
   backButton: {
     marginRight: theme.spacing(2),
