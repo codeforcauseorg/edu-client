@@ -11,12 +11,10 @@ import {
 } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
-// import { IonIcon } from '@ionic/react';
-// import { heartOutline, playCircleOutline } from 'ionicons/icons'
 
 import { Player, ControlBar } from "video-react";
 
@@ -37,10 +35,22 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     marginLeft: "100px",
   },
+  tabBackground: {
+    width: "100%",
+    height: "100%",
+    background: "#F5F5F5",
+  },
+
+  menuItems: {
+    padding: "2%",
+    fontFamily: "Montserrat",
+  },
+
   backtotop: {
     display: "flex",
     justifyContent: "center",
-    marginTop: "160px",
+    position: "absolute",
+    bottom: 0,
   },
 }));
 
@@ -51,6 +61,39 @@ export default function CoursePageViewWithVideo(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  const menuOptions = [
+    {
+      id: 1,
+      title: "Anouncements",
+      onPress: () => console.log("Anouncements"),
+    },
+    {
+      id: 2,
+      title: "Doubt resolutions",
+      onPress: () => console.log("Doubt resolutions"),
+    },
+    {
+      id: 3,
+      title: "Resources",
+      onPress: () => console.log("Resources"),
+    },
+    {
+      id: 4,
+      title: "Links",
+      onPress: () => console.log("Links"),
+    },
+    {
+      id: 5,
+      title: "About Course",
+      onPress: () => console.log("About Course"),
+    },
+    {
+      id: 6,
+      title: "Share with friends",
+      onPress: () => console.log("Share with friends"),
+    },
+  ];
 
   return (
     <>
@@ -110,8 +153,15 @@ export default function CoursePageViewWithVideo(props) {
             })}
           </List>
         </TabPanel>
-        <TabPanel value={value} index={1}>
-          Item Two
+        <TabPanel value={value} index={1} className={classes.tabBackground}>
+          <Box>
+            {menuOptions.map((items) => (
+              <ListItem button key={items.id} onClick={items.onPress}>
+                <ListItemText secondary={items.title} className={classes.menuItems} />
+                <ChevronRightIcon />
+              </ListItem>
+            ))}
+          </Box>
         </TabPanel>
         <div className={classes.backtotop}>
           <ScrollTop {...props}>
