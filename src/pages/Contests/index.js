@@ -58,13 +58,13 @@ function Contests() {
   const classes = useStyle();
   const buttonItems = [
     {
-      status: "ongoing",
+      status: "Ongoing",
     },
     {
-      status: "upcoming",
+      status: "Upcoming",
     },
     {
-      status: "completed",
+      status: "Completed",
     },
   ];
   const [status, setStatus] = useState("Active");
@@ -72,7 +72,7 @@ function Contests() {
     setStatus(status);
   };
   return (
-    <Container component="main" maxWidth="xs" className={classes.root}>
+    <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
           <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
@@ -86,69 +86,71 @@ function Contests() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Box className={classes.titlecontainer}>
-        <Typography variant="h1">
-          Contests
-          <span>
-            <img src="assets/icon/trophy.png" className={classes.trophyIcon} />
-          </span>
-        </Typography>
-      </Box>
-      <Box className={classes.buttoncontainer}>
-        <div>
-          <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
-            My Past Perfomance Statistics
-          </Button>
-        </div>
-        {buttonItems.map((items, index) => (
-          <Button
-            key={index}
-            className={classes.button}
-            variant="contained"
-            style={{ background: status === items.status ? "#a70202" : "#160050" }}
-            onClick={() => setStatusFilter(items.status)}
-          >
-            <Typography variant="caption">{items.status}</Typography>
-          </Button>
-        ))}
-      </Box>
-      <Box className={classes.assignmentContainer}>
-        {(() => {
-          switch (status) {
-            case "ongoing":
-              return ongoing.map((items, index) => (
-                <ContestsList
-                  key={index}
-                  contestTitle={items.contestTitle}
-                  date={items.date}
-                  ListTileColor="#EEF7FB"
-                  tasktilecolor="#DAE9F0"
-                />
-              ));
-            case "upcoming":
-              return upcoming.map((items, index) => (
-                <ContestsList
-                  key={index}
-                  contestTitle={items.contestTitle}
-                  date={items.date}
-                  ListTileColor="#FEF7EF"
-                  tasktilecolor="#F7E6D3"
-                />
-              ));
-            default:
-              return completed.map((items, index) => (
-                <ContestsList
-                  key={index}
-                  contestTitle={items.contestTitle}
-                  date={items.date}
-                  ListTileColor="#EBFDF5"
-                  tasktilecolor="#C8EEDD"
-                />
-              ));
-          }
-        })()}
-      </Box>
-    </Container>
+      <Container component="main" maxWidth="xs" className={classes.root}>
+        <Box className={classes.titlecontainer}>
+          <Typography variant="h1">
+            Contests
+            <span>
+              <img src="assets/icon/trophy.png" className={classes.trophyIcon} />
+            </span>
+          </Typography>
+        </Box>
+        <Box className={classes.buttoncontainer}>
+          <div>
+            <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
+              My Past Perfomance Statistics
+            </Button>
+          </div>
+          {buttonItems.map((items, index) => (
+            <Button
+              key={index}
+              className={classes.button}
+              variant="contained"
+              style={{ background: status === items.status ? "#a70202" : "#160050" }}
+              onClick={() => setStatusFilter(items.status)}
+            >
+              <Typography variant="caption">{items.status}</Typography>
+            </Button>
+          ))}
+        </Box>
+        <Box className={classes.assignmentContainer}>
+          {(() => {
+            switch (status) {
+              case "ongoing":
+                return ongoing.map((items, index) => (
+                  <ContestsList
+                    key={index}
+                    contestTitle={items.contestTitle}
+                    date={items.date}
+                    ListTileColor="#EEF7FB"
+                    tasktilecolor="#DAE9F0"
+                  />
+                ));
+              case "upcoming":
+                return upcoming.map((items, index) => (
+                  <ContestsList
+                    key={index}
+                    contestTitle={items.contestTitle}
+                    date={items.date}
+                    ListTileColor="#FEF7EF"
+                    tasktilecolor="#F7E6D3"
+                  />
+                ));
+              default:
+                return completed.map((items, index) => (
+                  <ContestsList
+                    key={index}
+                    contestTitle={items.contestTitle}
+                    date={items.date}
+                    ListTileColor="#EBFDF5"
+                    tasktilecolor="#C8EEDD"
+                  />
+                ));
+            }
+          })()}
+        </Box>
+      </Container>
+    </>
   );
 }
 
