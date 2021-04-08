@@ -116,7 +116,7 @@ function Contests() {
         <Box className={classes.assignmentContainer}>
           {(() => {
             switch (status) {
-              case "ongoing":
+              case "Ongoing":
                 return ongoing.map((items, index) => (
                   <ContestsList
                     key={index}
@@ -126,7 +126,7 @@ function Contests() {
                     tasktilecolor="#DAE9F0"
                   />
                 ));
-              case "upcoming":
+              case "Upcoming":
                 return upcoming.map((items, index) => (
                   <ContestsList
                     key={index}
