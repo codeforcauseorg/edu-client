@@ -16,6 +16,7 @@ import {
 import { ArrowBack, Assignment, Delete } from "@material-ui/icons";
 import React from "react";
 import ControlPointOutlinedIcon from "@material-ui/icons/ControlPointOutlined";
+import { useHistory } from "react-router";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
@@ -71,11 +72,17 @@ const useStyles = makeStyles((theme) => ({
 
 function AssignmentSubmission() {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit">
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
             <ArrowBack />
           </IconButton>
           <Typography variant="h6" color="inherit">
