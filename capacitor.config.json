@@ -6,7 +6,16 @@
   "webDir": "build",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 0
+      "launchShowDuration": 10000,
+      "launchAutoHide": false,
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "androidSpinnerStyle": "horizontal",
+      "iosSpinnerStyle": "small",
+      "spinnerColor": "#a10000",
+      "showSpinner": true,
+      "splashFullScreen": true,
+      "splashImmersive": true
     },
     "CapacitorFirebaseAuth": {
       "providers": ["google.com"],
@@ -20,5 +29,6 @@
       }
     }
   },
-  "cordova": {}
+  "cordova": {},
+  "linuxAndroidStudioPath": "/opt/android-studio-4.1/android-studio/bin/studio.sh"
 }
