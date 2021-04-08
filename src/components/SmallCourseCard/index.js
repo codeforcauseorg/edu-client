@@ -11,6 +11,7 @@ const useStyles = makeStyles({
   root: {
     marginLeft: "2rem",
     minWidth: "10rem",
+    boxShadow: "0px 0px 5px rgba(0,0,0,0.2)",
   },
   media: {
     height: "5rem",
