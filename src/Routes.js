@@ -20,6 +20,7 @@ import PeerPage from "./pages/PeerDiscussionPage/peer";
 import StudentDashboard from "./pages/StudentDashboardPage";
 import AssignmentSubmission from "./pages/StudentDashboardPage/AssignmentSubmission/AssignmentSubmission";
 import JobOpenings from "./pages/JobOpeningPage";
+import Contests from "./pages/Contests";
 import Statistics from "./pages/Statistics";
 
 const renderRoutes = () => (
@@ -38,6 +39,7 @@ const renderRoutes = () => (
       <Route path="/ratementor" exact component={MentorRating} />
       <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/dashboard" exact component={StudentDashboard} />
+      <Route path="/contests" exact component={Contests} />
       <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
       <Route path="/job-openings" exact component={JobOpenings} />
       <Route path="/statistics" exact component={Statistics} />

@@ -24,6 +24,7 @@ const labels = {
   4.5: "Excellent",
   5: "Excellent+",
 };
+
 const useStyles = makeStyles((theme) => ({
   navigation: {
     widht: "100%",
