@@ -1,0 +1,80 @@
+[
+  {
+    "linedata": [
+      {
+        "name": "Contest A",
+        "2020": 400,
+        "2021": 240,
+        "rank": 240
+      },
+      {
+        "name": "Contest B",
+        "2020": 189,
+        "2021": 480,
+        "rank": 218
+      },
+      {
+        "name": "Contest C",
+        "2020": 239,
+        "2021": 380,
+        "rank": 250
+      },
+      {
+        "name": "Contest D",
+        "2020": 349,
+        "2021": 230,
+        "rank": 210
+      }
+    ],
+    "piedata": [
+      {
+        "name": "Contest A",
+        "value": 400
+      },
+      {
+        "name": "Contest B",
+        "value": 300
+      },
+      {
+        "name": "Contest C",
+        "value": 100
+      },
+      {
+        "name": "Contest D",
+        "value": 200
+      }
+    ],
+    "composeddata": [
+      {
+        "name": "Cont A",
+        "percentage": 590,
+        "score": 800,
+        "rank": 900
+      },
+      {
+        "name": "Cont B",
+        "percentage": 868,
+        "score": 967,
+        "rank": 1206
+      },
+      {
+        "name": "Cont C",
+        "percentage": 1097,
+        "score": 1098,
+        "rank": 989
+      },
+      {
+        "name": "Cont D",
+        "percentage": 1180,
+        "score": 1200,
+        "rank": 1228
+      },
+      {
+        "name": "Cont E",
+        "percentage": 1220,
+        "score": 1108,
+        "rank": 1100
+      }
+    ]
+  }
+]

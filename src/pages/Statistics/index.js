@@ -27,6 +27,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import stats from "../../data/statisticsData.json";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -61,72 +62,10 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const data = [
-  {
-    name: "Contest A",
-    2020: 400,
-    2021: 240,
-    rank: 240,
-  },
+const linedata = stats[0].linedata;
+const piedata = stats[0].piedata;
+const composeddata = stats[0].composeddata;
 
-  {
-    name: "Contest B",
-    2020: 189,
-    2021: 480,
-    rank: 218,
-  },
-  {
-    name: "Contest C",
-    2020: 239,
-    2021: 380,
-    rank: 250,
-  },
-  {
-    name: "Contest D",
-    2020: 349,
-    2021: 230,
-    rank: 210,
-  },
-];
-
-const data2 = [
-  { name: "Contest A", value: 400 },
-  { name: "Contest B", value: 300 },
-  { name: "Contest C", value: 300 },
-  { name: "Contest D", value: 200 },
-];
-const data3 = [
-  {
-    name: "Cont A",
-    percentage: 590,
-    score: 800,
-    rank: 900,
-  },
-  {
-    name: "Cont B",
-    percentage: 868,
-    score: 967,
-    rank: 1206,
-  },
-  {
-    name: "Cont C",
-    percentage: 1097,
-    score: 1098,
-    rank: 989,
-  },
-  {
-    name: "Cont D",
-    percentage: 1180,
-    score: 1200,
-    rank: 1228,
-  },
-  {
-    name: "Cont E",
-    percentage: 1220,
-    score: 1108,
-    rank: 1100,
-  },
-];
 const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
 
 const RADIAN = Math.PI / 180;
@@ -172,10 +111,9 @@ function Statistics(props) {
         <LineChart
           width={350}
           height={250}
-          data={data}
+          data={linedata}
           margin={{
             top: 15,
-
             bottom: 15,
           }}
         >
@@ -197,7 +135,7 @@ function Statistics(props) {
 
         <PieChart width={300} height={300}>
           <Pie
-            data={data2}
+            data={piedata}
             cx="50%"
             cy="50%"
             labelLine={false}
@@ -206,7 +144,7 @@ function Statistics(props) {
             fill="#8884d8"
             dataKey="value"
           >
-            {data.map((entry, index) => (
+            {piedata.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
@@ -215,7 +153,7 @@ function Statistics(props) {
           layout="vertical"
           width={300}
           height={450}
-          data={data3}
+          data={composeddata}
           margin={{
             top: 20,
             bottom: 20,
