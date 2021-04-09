@@ -38,7 +38,7 @@ const CourseCard = () => {
 
   return (
     <Container className={classes.root}>
-      <Card style={{ margin: 0, padding: 0 }}>
+      <Card style={{ margin: 0, padding: 0, boxShadow: "0px 0px 5px rgba(0,0,0,0.2)" }}>
         <CardHeader
           style={{
             backgroundImage: "url(/assets/wishlist/1.png)",

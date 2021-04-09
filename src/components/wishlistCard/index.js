@@ -65,7 +65,7 @@ const WishlistCard = ({ id }) => {
 
   return (
     <Container className={classes.root}>
-      <Card>
+      <Card style={{ boxShadow: "0px 0px 5px rgba(0,0,0,0.2)" }}>
         <CardHeader
           style={{
             backgroundImage: "url(/assets/wishlist/2.png)",
