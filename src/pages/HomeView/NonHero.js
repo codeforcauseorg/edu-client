@@ -31,7 +31,7 @@ export default function NonHero(props) {
         <List className={classes.list}>
           {[1].map((item, index) => {
             return (
-              <ListItem key={index} className={classes.li}>
+              <ListItem key={index}>
                 <CourseCard />
               </ListItem>
             );
