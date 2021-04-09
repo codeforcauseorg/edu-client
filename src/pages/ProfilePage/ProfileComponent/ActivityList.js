@@ -22,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     background: "#ECEFF2",
     borderRadius: 4,
   },
+  primary: {
+    marginBottom: theme.spacing(0.5),
+  },
 }));
 
 function ActivityList({ listItemIcon, primary, secondary, onPress, collapse }) {
@@ -49,7 +52,9 @@ function ActivityList({ listItemIcon, primary, secondary, onPress, collapse }) {
           <img src={listItemIcon} />
         </ListItemIcon>
         <ListItemText>
-          <Typography variant="h5">{primary}</Typography>
+          <Typography variant="h5" className={classes.primary}>
+            {primary}
+          </Typography>
           <Typography variant="body1">{secondary}</Typography>
         </ListItemText>
         {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}

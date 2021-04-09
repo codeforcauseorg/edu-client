@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
       margin: "0px 10px 0px 10px",
     },
   },
+  primary: {
+    marginBottom: theme.spacing(0.5),
+  },
 }));
 
 function SettingList({ listItemIcon, primary, secondary, onPress, toggle }) {
@@ -34,7 +37,9 @@ function SettingList({ listItemIcon, primary, secondary, onPress, toggle }) {
           <img src={listItemIcon} />
         </ListItemIcon>
         <ListItemText>
-          <Typography variant="h5">{primary}</Typography>
+          <Typography variant="h5" className={classes.primary}>
+            {primary}
+          </Typography>
           <Typography variant="body1">{secondary}</Typography>
         </ListItemText>
         {toggle ? (
