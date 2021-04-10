@@ -77,6 +77,15 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
 }));
 
 export default function PeerPage(props) {

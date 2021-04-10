@@ -9,7 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ContestsList from "./ContestsList";
 import contests from "../../data/contestsDetails.json";

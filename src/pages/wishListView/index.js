@@ -1,12 +1,4 @@
-import {
-  List,
-  ListItem,
-  makeStyles,
-  AppBar,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
+import { List, ListItem, makeStyles, AppBar, IconButton, Toolbar, Typography,} from "@material-ui/core";
 import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCard from "../../components/wishlistCard";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";

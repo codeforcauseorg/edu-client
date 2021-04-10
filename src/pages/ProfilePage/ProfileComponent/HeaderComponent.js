@@ -1,35 +1,8 @@
 import React from "react";
-import {
-  makeStyles,
-  AppBar,
-  IconButton,
-  Toolbar,
-  Typography,
-  Avatar,
-  Box,
-  Button,
-  Divider,
-} from "@material-ui/core";
+import { makeStyles, AppBar, IconButton, Toolbar, Typography,Avatar, Box, Button,} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ShareIcon from "@material-ui/icons/Share";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import {
-  TwitterShareButton,
-  TwitterIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  EmailShareButton,
-  EmailIcon,
-  TelegramShareButton,
-  TelegramIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-} from "react-share";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   profiletitle: {
@@ -104,16 +77,6 @@ const useStyles = makeStyles((theme) => ({
 function HeaderComponent() {
   const classes = useStyles();
   const history = useHistory();
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
@@ -175,6 +138,9 @@ function HeaderComponent() {
           </IconButton>
         </Toolbar>
       </AppBar>
+      {/* <Box className={classes.profiletitle}>
+        <Typography variant="h2">Profile</Typography>
+      </Box> */}
       <Box className={classes.headerContainer}>
         <Avatar
           src="https://yt3.ggpht.com/ytc/AAUvwnhpLAOxx0GesrqkAMyNs3Fd3ZULf8yfNc8nTmMp=s900-c-k-c0x00ffffff-no-rj"
