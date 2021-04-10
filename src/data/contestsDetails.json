@@ -1,0 +1,85 @@
+[
+  {
+    "ongoing": [
+      {
+        "contestId": "1",
+        "contestTitle": "CP Challenge",
+        "date": "29 August 2021"
+      },
+      {
+        "contestId": "2",
+        "contestTitle": "C++ Challenge",
+        "date": "29 November 2021"
+      },
+      {
+        "contestId": "3",
+        "contestTitle": "2 hours  Challenge",
+        "date": "30 Dec 2021"
+      },
+      {
+        "contestId": "4",
+        "contestTitle": "Long Coding Challenge",
+        "date": "23 May 2021"
+      },
+      {
+        "contestId": "5",
+        "contestTitle": "Hack CFC Challenge",
+        "date": "18 June 2021"
+      },
+      {
+        "contestId": "6",
+        "contestTitle": "CP Challenge",
+        "date": "29 August 2021"
+      },
+      {
+        "contestId": "7",
+        "contestTitle": "C++ Challenge",
+        "date": "29 November 2021"
+      },
+      {
+        "contestId": "8",
+        "contestTitle": "2 hours  Challenge",
+        "date": "30 Dec 2021"
+      }
+    ],
+    "upcoming": [
+      {
+        "contestId": "1",
+        "contestTitle": "Long Coding Challenge",
+        "date": "23 May 2021"
+      },
+      {
+        "contestId": "2",
+        "contestTitle": "Hack CFC Challenge",
+        "date": "18 June 2021"
+      },
+      {
+        "contestId": "3",
+        "contestTitle": "CP Challenge",
+        "date": "29 August 2021"
+      },
+      {
+        "contestId": "4",
+        "contestTitle": "C++ Challenge",
+        "date": "29 November 2021"
+      },
+      {
+        "contestId": "5",
+        "contestTitle": "2 hours  Challenge",
+        "date": "30 Dec 2021"
+      }
+    ],
+    "completed": [
+      {
+        "contestId": "1",
+        "contestTitle": "CP Challenge",
+        "date": "29 August 2021"
+      },
+      {
+        "contestId": "2",
+        "contestTitle": "C++ Challenge",
+        "date": "29 November 2021"
+      }
+    ]
+  }
+]
