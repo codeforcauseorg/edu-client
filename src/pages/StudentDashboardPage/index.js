@@ -22,13 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    textAlign: "center",
   },
   backButton: {
     marginRight: theme.spacing(2),
   },
   appBar: {
-    background: "#50407C",
+    background: "#160050",
   },
 }));
 function StudentDashboard() {
