@@ -14,10 +14,6 @@ import ScrollTop from "../../components/backTop/index";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-<<<<<<< HEAD
-=======
-import MoreVertIcon from "@material-ui/icons/MoreVert";
->>>>>>> Header style changes
 
 const useStyles = makeStyles((theme) => ({
   root: { borderRadius: "10px", color: "#000", padding: theme.spacing(3, 0) },
@@ -48,32 +44,16 @@ export default function MyCourses(props) {
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-<<<<<<< HEAD
           <IconButton edge="start" className={classes.backButton} color="inherit">
-=======
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
->>>>>>> Header style changes
             <ArrowBackIcon onClick={() => history.goBack()} />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Your Courses
           </Typography>
-<<<<<<< HEAD
-=======
-          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MoreVertIcon />
-          </IconButton>
->>>>>>> Header style changes
         </Toolbar>
       </AppBar>
       <Container className={classes.root}>
         <ScrollTop />
-<<<<<<< HEAD
-=======
-        {/* <Typography variant="h2" align="center">
-        Your Courses
-      </Typography> */}
->>>>>>> Header style changes
         <List>
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
             return (

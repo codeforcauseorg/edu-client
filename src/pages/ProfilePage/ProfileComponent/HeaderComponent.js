@@ -30,9 +30,6 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
-import { useHistory } from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   profiletitle: {
