@@ -117,15 +117,6 @@ const useStyles = makeStyles((theme) => ({
   BoxSpaces: {
     padding: "15px",
   },
-  backButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  appBar: {
-    background: "#160050",
-  },
 }));
 
 const data = [
