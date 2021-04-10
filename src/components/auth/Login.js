@@ -41,22 +41,9 @@ function Login() {
       {user ? (
         <CircularProgress size="24px" color="inherit" />
       ) : (
-<<<<<<< HEAD
-        <div className={classes.flex}>
-          <img
-            alt="google icon"
-            src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-            className={classes.googleimg}
-          />
-          <Typography component="h4" variant="subtitle1">
-            Google
-          </Typography>
-        </div>
-=======
         <Typography component="h1" variant="subtitle1">
           Google
         </Typography>
->>>>>>> parent of 50e2346... fix:improved the UI of login with google button
       )}
     </Button>
   );
