@@ -1,5 +1,8 @@
-import { Avatar, Box, Button, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import { makeStyles, AppBar, IconButton, Toolbar, Typography,Avatar, Box, Button,} from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   profiletitle: {
@@ -44,14 +47,37 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 16px 0 16px",
     fontSize: "0.8rem",
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
 }));
 function HeaderComponent() {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <React.Fragment>
-      <Box className={classes.profiletitle}>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar variant="dense">
+          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+            <ArrowBackIcon onClick={() => history.goBack()} />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.title}>
+            Profile
+          </Typography>
+          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MoreVertIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      {/* <Box className={classes.profiletitle}>
         <Typography variant="h2">Profile</Typography>
-      </Box>
+      </Box> */}
       <Box className={classes.headerContainer}>
         <Avatar
           src="https://yt3.ggpht.com/ytc/AAUvwnhpLAOxx0GesrqkAMyNs3Fd3ZULf8yfNc8nTmMp=s900-c-k-c0x00ffffff-no-rj"
