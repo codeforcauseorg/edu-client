@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   },
   li: {
     display: "flex",
-    padding: "0px",
     alignItems: "center",
     justifyContent: "center",
   },
