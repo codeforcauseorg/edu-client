@@ -1,8 +1,35 @@
 import React from "react";
-import { makeStyles, AppBar, IconButton, Toolbar, Typography,Avatar, Box, Button,} from "@material-ui/core";
+import {
+  makeStyles,
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  Avatar,
+  Box,
+  Button,
+  Divider,
+} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ShareIcon from "@material-ui/icons/Share";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  EmailShareButton,
+  EmailIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
 
 const useStyles = makeStyles((theme) => ({
   profiletitle: {
