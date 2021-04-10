@@ -1,8 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> Header UI changes with back button
 import {
   makeStyles,
   AppBar,
@@ -12,7 +8,6 @@ import {
   Avatar,
   Box,
   Button,
-<<<<<<< HEAD
   Divider,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
@@ -35,15 +30,9 @@ import {
   LinkedinShareButton,
   LinkedinIcon,
 } from "react-share";
-=======
-import { makeStyles, AppBar, IconButton, Toolbar, Typography,Avatar, Box, Button,} from "@material-ui/core";
-=======
-} from "@material-ui/core";
->>>>>>> Header UI changes with back button
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
->>>>>>> Header style changes
 
 const useStyles = makeStyles((theme) => ({
   profiletitle: {
@@ -98,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
-<<<<<<< HEAD
   modal: {
     display: "grid",
     alignItems: "center",
@@ -114,14 +102,11 @@ const useStyles = makeStyles((theme) => ({
     margin: "6%",
     textAlign: "center",
   },
-=======
->>>>>>> Header style changes
 }));
 
 function HeaderComponent() {
   const classes = useStyles();
   const history = useHistory();
-<<<<<<< HEAD
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -132,8 +117,6 @@ function HeaderComponent() {
     setOpen(false);
   };
 
-=======
->>>>>>> Header style changes
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
@@ -145,7 +128,6 @@ function HeaderComponent() {
             Profile
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-<<<<<<< HEAD
             <ShareIcon onClick={handleOpen} />
             <Modal
               className={classes.modal}
@@ -190,15 +172,6 @@ function HeaderComponent() {
           </IconButton>
         </Toolbar>
       </AppBar>
-=======
-            <MoreVertIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      {/* <Box className={classes.profiletitle}>
-        <Typography variant="h2">Profile</Typography>
-      </Box> */}
->>>>>>> Header style changes
       <Box className={classes.headerContainer}>
         <Avatar
           src="https://yt3.ggpht.com/ytc/AAUvwnhpLAOxx0GesrqkAMyNs3Fd3ZULf8yfNc8nTmMp=s900-c-k-c0x00ffffff-no-rj"
