@@ -84,6 +84,7 @@ export default function SimpleCard({ width, image, title, subTitle, detail, pric
     <Card
       style={{
         minWidth: `${width}`,
+        marginRight: "25px",
       }}
       className={classes.root}
     >
