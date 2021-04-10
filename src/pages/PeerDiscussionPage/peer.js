@@ -77,15 +77,6 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
-  backButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  appBar: {
-    background: "#160050",
-  },
 }));
 
 export default function PeerPage(props) {
@@ -134,13 +125,7 @@ export default function PeerPage(props) {
         </Toolbar>
       </AppBar>
       <Container>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
         <div id="back-to-top-anchor"></div>
-=======
->>>>>>> Header style changes
->>>>>>> e860b69... Header style changes
         <ScrollToTop />
         <Box>
           <Typography className={classes.profiletitle} variant="h5">
@@ -227,14 +212,7 @@ export default function PeerPage(props) {
             ))}
           </List>
         </div>
-<<<<<<< HEAD
         <Divider />
-=======
-<<<<<<< HEAD
-=======
-        <Divider />
->>>>>>> Header style changes
->>>>>>> e860b69... Header style changes
         <div className={classes.backtotop}>
           <ScrollTop {...props}>
             <Fab color="secondary" size="small" aria-label="scroll back to top">
