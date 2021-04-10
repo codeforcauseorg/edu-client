@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ContestsList from "./ContestsList";
@@ -57,6 +58,7 @@ const completed = contests[0].completed;
 
 function Contests() {
   const classes = useStyle();
+  const history = useHistory();
   const buttonItems = [
     {
       status: "Ongoing",
@@ -77,13 +79,8 @@ function Contests() {
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            onClick={() => history.goBack()}
-          >
-            <ArrowBackIcon />
+          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+            <ArrowBackIcon onClick={() => history.goBack()} />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Contests & Statistics
