@@ -1,35 +1,8 @@
 import React from "react";
-import {
-  makeStyles,
-  AppBar,
-  IconButton,
-  Toolbar,
-  Typography,
-  Avatar,
-  Box,
-  Button,
-  Divider,
-} from "@material-ui/core";
+import { makeStyles, AppBar, IconButton, Toolbar, Typography,Avatar, Box, Button,} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import ShareIcon from "@material-ui/icons/Share";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import Fade from "@material-ui/core/Fade";
-import {
-  TwitterShareButton,
-  TwitterIcon,
-  WhatsappShareButton,
-  WhatsappIcon,
-  FacebookShareButton,
-  FacebookIcon,
-  EmailShareButton,
-  EmailIcon,
-  TelegramShareButton,
-  TelegramIcon,
-  LinkedinShareButton,
-  LinkedinIcon,
-} from "react-share";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   profiletitle: {
@@ -84,36 +57,11 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
-  modal: {
-    display: "grid",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    width: 400,
-  },
-  icons: {
-    margin: "6%",
-    textAlign: "center",
-  },
 }));
 
 function HeaderComponent() {
   const classes = useStyles();
   const history = useHistory();
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
