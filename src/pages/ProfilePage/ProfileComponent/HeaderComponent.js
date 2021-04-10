@@ -84,11 +84,36 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
+  modal: {
+    display: "grid",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(2, 4, 3),
+    width: 350,
+    borderRadius: 15,
+  },
+  icons: {
+    margin: "6%",
+    textAlign: "center",
+  },
 }));
 
 function HeaderComponent() {
   const classes = useStyles();
   const history = useHistory();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
