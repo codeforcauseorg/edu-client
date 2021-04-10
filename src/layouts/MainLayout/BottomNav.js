@@ -1,30 +1,34 @@
 import { makeStyles } from "@material-ui/core/styles";
 import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
-import {
-  HomeOutlined,
-  ImportContactsOutlined,
-  AccountCircleOutlined,
-  AddCircleOutlineOutlined,
-} from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router";
+import HomeIcon from "@material-ui/icons/Home";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import "./BottomNav.css";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
+    minHeight: "8vh",
     position: "fixed",
     left: 0,
     right: 0,
     bottom: 0,
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.25)",
+    boxShadow: "0 -2px 50px 0 rgba(0, 0, 0, 0.3)",
+    padding: theme.spacing(1, 0),
     margin: "auto",
+    borderRadius: "20px 20px 0 0",
   },
   navItem: {
+    color: "rgba(0,0,0,0.54)",
     "& .MuiBottomNavigationAction-label": {
       whiteSpace: "nowrap",
+      fontSize: "0.8rem",
+      fontWeight: 600,
     },
   },
-});
+}));
 
 export default function BottomNav(props) {
   const classes = useStyles();
@@ -44,27 +48,27 @@ export default function BottomNav(props) {
         className={classes.navItem}
         label="Home"
         value="/home"
-        icon={<HomeOutlined />}
+        icon={<HomeIcon />}
       />
 
       <BottomNavigationAction
         className={classes.navItem}
         label="My Courses"
         value="/mycourses"
-        icon={<ImportContactsOutlined />}
+        icon={<MenuBookIcon />}
       />
 
       <BottomNavigationAction
         className={classes.navItem}
         label="Wishlist"
         value="/wishlist"
-        icon={<AddCircleOutlineOutlined />}
+        icon={<FavoriteIcon />}
       />
       <BottomNavigationAction
         className={classes.navItem}
         label="Profile"
         value="/profile"
-        icon={<AccountCircleOutlined />}
+        icon={<AccountCircleIcon />}
       />
     </BottomNavigation>
   );

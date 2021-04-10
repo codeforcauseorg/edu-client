@@ -1,9 +1,13 @@
-.MuiBottomNavigationAction-root.Mui-selected {
+/* .MuiBottomNavigationAction-root.Mui-selected {
   border-bottom: 2px solid #3949ab;
-}
+} */
 
 .Mui-selected {
-  font-size: 0.8rem !important;
+  font-size: 0.9rem !important;
+}
+
+.MuiBottomNavigationAction-root.Mui-selected {
+  color: #a60000 !important;
 }
 
 @media screen and (max-width: 361px) and (min-width: 360px) {
@@ -29,7 +33,6 @@
     font-size: 0.6rem !important;
   }
 }
-
 
 /* .MuiPaper-root .MuiAppBar-root .MuiAppBar-positionFixed .MuiAppBar-colorPrimary .mui-fixed{
   transition: cubic-bezier(0, 0, 0.2, 1)  ;
