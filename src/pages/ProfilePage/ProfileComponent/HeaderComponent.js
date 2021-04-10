@@ -84,21 +84,6 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
-  modal: {
-    display: "grid",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-    width: 400,
-  },
-  icons: {
-    margin: "6%",
-    textAlign: "center",
-  },
 }));
 
 function HeaderComponent() {
