@@ -13,7 +13,6 @@ import ScrollTop from "../../components/backTop/index";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   root: { borderRadius: "10px", color: "#000" },
@@ -54,9 +53,6 @@ export default function MyCourses(props) {
           <Typography variant="h6" color="inherit" className={classes.title}>
             Your Courses
           </Typography>
-          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MoreVertIcon />
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Container className={classes.root}>
