@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import {
   List,
   ListItem,
@@ -8,9 +7,6 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-=======
-import { List, ListItem, makeStyles, AppBar, IconButton, Toolbar, Typography,} from "@material-ui/core";
->>>>>>> Header style changes
 import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCard from "../../components/wishlistCard";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -18,11 +14,8 @@ import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-<<<<<<< HEAD
-=======
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
->>>>>>> Header style changes
 const useStyles = makeStyles((theme) => ({
   root: {},
   li: {
@@ -51,22 +44,15 @@ const WishListView = (props) => {
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-<<<<<<< HEAD
-          <IconButton edge="start" className={classes.backButton} color="inherit">
-=======
           <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
->>>>>>> Header style changes
             <ArrowBackIcon onClick={() => history.goBack()} />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             WishList
           </Typography>
-<<<<<<< HEAD
-=======
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
             <MoreVertIcon />
           </IconButton>
->>>>>>> Header style changes
         </Toolbar>
       </AppBar>
       <div id="back-to-top-anchor"></div>

@@ -1,5 +1,8 @@
 import React from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Header UI changes with back button
 import {
   makeStyles,
   AppBar,
@@ -9,6 +12,7 @@ import {
   Avatar,
   Box,
   Button,
+<<<<<<< HEAD
   Divider,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
@@ -33,6 +37,9 @@ import {
 } from "react-share";
 =======
 import { makeStyles, AppBar, IconButton, Toolbar, Typography,Avatar, Box, Button,} from "@material-ui/core";
+=======
+} from "@material-ui/core";
+>>>>>>> Header UI changes with back button
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
