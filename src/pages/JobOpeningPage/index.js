@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 5,
     },
   },
-  labelChip_t: {
+  labelChip_techstack: {
 
     margin: theme.spacing(1),
     marginLeft: theme.spacing(2),
@@ -113,7 +113,7 @@ function JobOpenings() {
             <Box className={classes.labelChip}>
               <Chip size="small" label="Internship" />
             </Box>
-            <Box className={classes.labelChip_t}>
+            <Box className={classes.labelChip_techstack}>
               <Chip size="small" label="HTML" />
               <Chip size="small" label="CSS" />
               <Chip size="small" label="JS" />
