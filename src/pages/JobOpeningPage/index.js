@@ -50,7 +50,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   labelChip_techstack: {
-
     margin: theme.spacing(1),
     marginLeft: theme.spacing(2),
     "& .MuiChip-root": {
