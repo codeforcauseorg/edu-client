@@ -20,6 +20,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  li: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 }));
 
 export default function MyCourses(props) {
