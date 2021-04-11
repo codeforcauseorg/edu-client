@@ -25,15 +25,14 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(1.5),
   },
 }));
-function SubAssignmentTask({ id, taskTitle, dueDate, tasktilecolor }) {
+function SubAssignmentTask({ id, taskTitle, dueDate, taskTileColor }) {
   const classes = useStyles();
   const history = useHistory();
-
   return (
     <List
       component="div"
       disablePadding
-      style={{ background: tasktilecolor }}
+      style={{ background: taskTileColor }}
       className={classes.root}
     >
       <ListItem

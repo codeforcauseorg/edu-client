@@ -4,10 +4,10 @@ import CourseMediaCard from "./CourseMediaCard";
 
 const useStyle = makeStyles((theme) => ({
   root: {},
-  titlecontainer: {
+  titleContainer: {
     marginTop: theme.spacing(2),
   },
-  buttoncontainer: {
+  buttonContainer: {
     marginTop: theme.spacing(1),
   },
   button: {
@@ -17,7 +17,7 @@ const useStyle = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     marginTop: theme.spacing(1),
   },
-  mediacardcontainer: {
+  mediaCardContainer: {
     padding: "20px 10px",
     paddingBottom: "50px",
     display: "flex",
@@ -31,7 +31,7 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
-const ongoingdata = [
+const ongoingData = [
   {
     chapterNumber: "3",
     chapterTitle: "How to start with Web Development",
@@ -85,15 +85,15 @@ function ProgressCourse() {
   };
   return (
     <Container className={classes.root}>
-      <Box className={classes.titlecontainer}>
+      <Box className={classes.titleContainer}>
         <Typography variant="h3">
           Course Progress
           <Typography variant="h3" component="span" style={{ color: "#808080" }}>
-            {"  "}({status === "On Going" ? ongoingdata.length : completed.length})
+            {"  "}({status === "On Going" ? ongoingData.length : completed.length})
           </Typography>
         </Typography>
       </Box>
-      <Box className={classes.buttoncontainer}>
+      <Box className={classes.buttonContainer}>
         {buttonItems.map((items, index) => (
           <Button
             key={index}
@@ -106,9 +106,9 @@ function ProgressCourse() {
           </Button>
         ))}
       </Box>
-      <Box className={classes.mediacardcontainer}>
+      <Box className={classes.mediaCardContainer}>
         {status === "On Going"
-          ? ongoingdata.map((items, index) => (
+          ? ongoingData.map((items, index) => (
               <CourseMediaCard
                 key={index}
                 chapterNumber={items.chapterNumber}

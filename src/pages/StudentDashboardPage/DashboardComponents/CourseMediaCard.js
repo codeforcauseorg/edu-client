@@ -18,11 +18,11 @@ const useStyle = makeStyles((theme) => ({
     minWidth: 300,
     boxShadow: "0px 0px 5px grey",
   },
-  cardmedia: {
+  cardMedia: {
     position: "relative",
     height: 150,
   },
-  playarrowicon: {
+  playArrowIcon: {
     position: "absolute",
     color: "#fff",
     height: 30,
@@ -30,11 +30,11 @@ const useStyle = makeStyles((theme) => ({
     left: "45%",
     bottom: "40%",
   },
-  progressbar: {
+  progressBar: {
     padding: 0,
     marginBottom: theme.spacing(1),
   },
-  coursetitle: {
+  courseTitle: {
     fontWeight: 500,
   },
 }));
@@ -51,19 +51,19 @@ function CourseMediaCard({
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia className={classes.cardmedia} component="div" image={bannerImage}>
-          <PlayCircleOutlineIcon className={classes.playarrowicon} />
+        <CardMedia className={classes.cardMedia} component="div" image={bannerImage}>
+          <PlayCircleOutlineIcon className={classes.playArrowIcon} />
         </CardMedia>
         <CardContent>
           <LinearProgress
             variant="determinate"
             value={progressValue}
-            className={classes.progressbar}
+            className={classes.progressBar}
           />
           <Typography gutterBottom variant="subtitle2">
             Chapter {chapterNumber} : {chapterTitle}
           </Typography>
-          <Typography variant="h3" color="#000" component="p" className={classes.coursetitle}>
+          <Typography variant="h3" color="#000" component="p" className={classes.courseTitle}>
             {courseName}
           </Typography>
         </CardContent>
