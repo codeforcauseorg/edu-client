@@ -6,6 +6,9 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles({
+  root: {
+    marginRight: "25px",
+  },
   media: {
     postion: "relative",
     height: 0,
@@ -81,13 +84,7 @@ export default function SimpleCard({ width, image, title, subTitle, detail, pric
   const classes = useStyles();
 
   return (
-    <Card
-      style={{
-        minWidth: `${width}`,
-        marginRight: "25px",
-      }}
-      className={classes.root}
-    >
+    <Card className={classes.root} style={{ minWidth: `${width}` }}>
       <CardMedia className={classes.media} image={image} title="Paella dish" />
       <div className={classes.cardInfo}>
         <div className={classes.instructorProfile}>
