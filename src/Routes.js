@@ -41,6 +41,7 @@ const renderRoutes = () => (
       <Route path="/contests" exact component={Contests} />
       <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
       <Route path="/job-openings" exact component={JobOpenings} />
+      <Route path="/peer" exact component={PeerPage} />
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/faq" exact component={Faqs} />
@@ -49,7 +50,6 @@ const renderRoutes = () => (
           <Route path="/mycourses" exact component={MyCourses} />
           <Route path="/wishlist" exact component={WishlistPage} />
           <Route path="/profile" exact component={ProfilePage} />
-          <Route path="/peer" exact component={PeerPage} />
         </SwipeableRoutes>
       </MainLayout>
     </Switch>

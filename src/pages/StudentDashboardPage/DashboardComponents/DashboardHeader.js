@@ -2,8 +2,8 @@ import { Avatar, Box, IconButton, makeStyles, Typography } from "@material-ui/co
 import React from "react";
 import CameraIcon from "@material-ui/icons/Camera";
 const useStyles = makeStyles((theme) => ({
-  wrappercontainer: {
-    minHeight: 170,
+  wrapperContainer: {
+    minHeight: 200,
     backgroundImage: `url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80")`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     color: "white",
     display: "flex",
-    alignItems: "center",
+    flexDirection: "column",
     marginLeft: 10,
     marginRight: 10,
     marginBottom: 10,
@@ -45,10 +45,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 function DashboardHeader() {
-  // eslint-disable-next-line no-unused-vars
   const classes = useStyles();
   return (
-    <Box component="div" className={classes.wrappercontainer}>
+    <Box component="div" className={classes.wrapperContainer}>
       <Box className={classes.fadeBottom} />
       <Avatar
         className={classes.avatar}
@@ -61,6 +60,7 @@ function DashboardHeader() {
           </Typography>
           Code For Cause
         </Typography>
+        <Typography variant="subtitle2">career@codeforcause.org</Typography>
       </Box>
       <IconButton className={classes.cameraIcon}>
         <CameraIcon />

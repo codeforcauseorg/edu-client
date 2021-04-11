@@ -4,7 +4,7 @@ import AssignmentList from "./AssignmentComponents/AssignmentList";
 import assignments from "../../../data/assignmentsDetails.json";
 const useStyle = makeStyles((theme) => ({
   root: {},
-  buttoncontainer: {
+  buttonContainer: {
     marginTop: theme.spacing(1),
   },
   button: {
@@ -43,7 +43,7 @@ function CourseAssignments() {
   };
   return (
     <Container className={classes.root}>
-      <Box className={classes.titlecontainer}>
+      <Box>
         <Typography variant="h3">
           Course Assignments{" "}
           <Typography variant="h3" component="span" style={{ color: "#808080" }}>
@@ -62,7 +62,7 @@ function CourseAssignments() {
           </Typography>
         </Typography>
       </Box>
-      <Box className={classes.buttoncontainer}>
+      <Box className={classes.buttonContainer}>
         {buttonItems.map((items, index) => (
           <Button
             key={index}
@@ -83,11 +83,11 @@ function CourseAssignments() {
                 <AssignmentList
                   key={index}
                   courseAssignmentTitle={items.courseAssignmentTitle}
-                  latesttaskdueDate={items.latestTaskDueDate}
+                  latestTaskDueDate={items.latestTaskDueDate}
                   taskCount={items.taskCount}
                   ListTileColor="#EEF7FB"
                   taskList={items.taskList}
-                  tasktilecolor="#DAE9F0"
+                  taskTileColor="#DAE9F0"
                 />
               ));
             case "Pending":
@@ -95,11 +95,11 @@ function CourseAssignments() {
                 <AssignmentList
                   key={index}
                   courseAssignmentTitle={items.courseAssignmentTitle}
-                  latesttaskdueDate={items.latestTaskDueDate}
+                  latestTaskDueDate={items.latestTaskDueDate}
                   taskCount={items.taskCount}
                   ListTileColor="#FEF7EF"
                   taskList={items.taskList}
-                  tasktilecolor="#F7E6D3"
+                  taskTileColor="#F7E6D3"
                 />
               ));
             default:
@@ -107,11 +107,11 @@ function CourseAssignments() {
                 <AssignmentList
                   key={index}
                   courseAssignmentTitle={items.courseAssignmentTitle}
-                  latesttaskdueDate={items.latestTaskDueDate}
+                  latestTaskDueDate={items.latestTaskDueDate}
                   taskCount={items.taskCount}
                   ListTileColor="#EBFDF5"
                   taskList={items.taskList}
-                  tasktilecolor="#C8EEDD"
+                  taskTileColor="#C8EEDD"
                 />
               ));
           }
