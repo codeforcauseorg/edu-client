@@ -68,7 +68,7 @@ function Contests() {
       status: "Completed",
     },
   ];
-  const [status, setStatus] = useState("Active");
+  const [status, setStatus] = useState("Ongoing");
   const setStatusFilter = (status) => {
     setStatus(status);
   };

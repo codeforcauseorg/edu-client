@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Collapse,
@@ -9,8 +10,8 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import StarIcon from "@material-ui/icons/Star";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
-import React, { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -60,7 +61,12 @@ function ContestsList({ date, contestTitle, ListTileColor }) {
     >
       <ListItem button onClick={handleClick}>
         <ListItemIcon>
-          <img src="assets/icon/contest.png" className={classes.contestIcon} />
+          <StarIcon
+            style={{
+              fontSize: "2.5rem",
+              color: "gold",
+            }}
+          />
         </ListItemIcon>
         <ListItemText>
           <Box className={classes.listItem}>
@@ -75,10 +81,10 @@ function ContestsList({ date, contestTitle, ListTileColor }) {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <div className={classes.flex}>
-          <div style={{ margin: "1px" }}>
+          <Typography style={{ margin: ".5rem" }}>
             lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem
             ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-          </div>
+          </Typography>
           <div>
             <Button
               className={classes.button}
