@@ -44,6 +44,9 @@ const useStyle = makeStyles((theme) => ({
     alignItems: "center",
     borderRadius: "10px",
     marginBottom: "15px",
+    marginLeft: "2px",
+    marginRight: "2px",
+    width: "95%",
   },
   details: {
     display: "flex",
