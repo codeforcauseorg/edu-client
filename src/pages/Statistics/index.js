@@ -22,43 +22,37 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import ScrollTop from "../../components/backTop/index";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";
+
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import stats from "../../data/statisticsData.json";
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    margin: "5px",
+    padding: "5px",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    alignItems: "center",
   },
   backButton: {
     marginRight: theme.spacing(2),
   },
   title: {
     flexGrow: 1,
-    marginTop: "10px",
+    marginTop: "15px",
+    marginBottom: "15px",
   },
   appBar: {
     background: "#160050",
   },
-  titlecontainer: {
-    marginTop: "15px",
-    marginBottom: "15px",
-  },
+
   buttoncontainer: {
     marginTop: theme.spacing(1),
   },
   Icon: {
     height: 30,
     width: 30,
-  },
-
-  backtotop: {
-    minWidth: "100%",
-    display: "flex",
-    justifyContent: "center",
   },
 }));
 
@@ -85,7 +79,6 @@ function Statistics(props) {
 
   return (
     <>
-      <ScrollTop />
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
           <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
@@ -100,7 +93,7 @@ function Statistics(props) {
         </Toolbar>
       </AppBar>
       <Container className={classes.root}>
-        <Box className={classes.titlecontainer}>
+        <Box className={classes.title}>
           <Typography variant="h1">
             Statistics &nbsp;
             <span>
@@ -108,14 +101,16 @@ function Statistics(props) {
             </span>
           </Typography>
         </Box>
+
         <LineChart
-          width={350}
-          height={250}
+          width={300}
+          height={200}
           data={linedata}
           margin={{
             top: 15,
             bottom: 15,
           }}
+          style={{ fontSize: "12px" }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
@@ -132,8 +127,11 @@ function Statistics(props) {
           />
           <Line yAxisId="right" type="monotone" dataKey="2020" stroke="#a70202" />
         </LineChart>
+        <Typography variant="h3" style={{ marginBottom: "20px", color: "gray" }}>
+          Line Chart
+        </Typography>
 
-        <PieChart width={300} height={300}>
+        <PieChart width={250} height={250} style={{ fontSize: "12px" }}>
           <Pie
             data={piedata}
             cx="50%"
@@ -149,15 +147,19 @@ function Statistics(props) {
             ))}
           </Pie>
         </PieChart>
+        <Typography variant="h3" style={{ marginBottom: "20px", color: "gray" }}>
+          Pie Chart
+        </Typography>
         <ComposedChart
           layout="vertical"
-          width={300}
-          height={450}
+          width={250}
+          height={350}
           data={composeddata}
           margin={{
             top: 20,
             bottom: 20,
           }}
+          style={{ fontSize: "12px" }}
         >
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis type="number" />
@@ -168,14 +170,10 @@ function Statistics(props) {
           <Bar dataKey="score" barSize={20} fill="#413ea0" />
           <Line dataKey="percentage" stroke="#ff7300" />
         </ComposedChart>
+        <Typography variant="h3" style={{ marginBottom: "20px", color: "gray" }}>
+          Composed Chart
+        </Typography>
       </Container>
-      <div className={classes.backtotop}>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
-      </div>
     </>
   );
 }
