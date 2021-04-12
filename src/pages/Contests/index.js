@@ -14,7 +14,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ContestsList from "./ContestsList";
 import contests from "../../data/contestsDetails.json";
-import { useHistory } from "react-router-dom";
 const useStyle = makeStyles((theme) => ({
   root: {
     margin: "5px",
@@ -74,7 +73,6 @@ function Contests() {
   const setStatusFilter = (status) => {
     setStatus(status);
   };
-  const history = useHistory();
   return (
     <>
       <AppBar position="static" className={classes.appBar}>
