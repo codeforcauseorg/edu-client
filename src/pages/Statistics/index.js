@@ -23,6 +23,7 @@ import {
   Cell,
 } from "recharts";
 
+import CardContent from "@material-ui/core/CardContent";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import stats from "../../data/statisticsData.json";
@@ -34,6 +35,25 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
+  },
+  cardbox: {
+    padding: "5px",
+    display: "flex",
+    justifyContent: "center",
+    boxShadow: "2px 2px 4px 2px lightgray",
+    alignItems: "center",
+    borderRadius: "10px",
+    marginBottom: "15px",
+  },
+  details: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  content: {
+    margin: "3px",
+  },
+  cover: {
+    width: 151,
   },
   backButton: {
     marginRight: theme.spacing(2),
@@ -101,7 +121,33 @@ function Statistics(props) {
             </span>
           </Typography>
         </Box>
+        <div className={classes.cardbox}>
+          <CardContent className={classes.content}>
+            <Typography variant="subtitle1" color="textSecondary">
+              Total Participated
+            </Typography>
+            <Typography component="h5" variant="h5">
+              14
+            </Typography>
+          </CardContent>
 
+          <CardContent className={classes.content}>
+            <Typography variant="subtitle1" color="textSecondary">
+              Best Performance
+            </Typography>
+            <Typography component="h5" variant="h5">
+              1st
+            </Typography>
+          </CardContent>
+          <CardContent className={classes.content}>
+            <Typography variant="subtitle1" color="textSecondary">
+              Total Won
+            </Typography>
+            <Typography component="h5" variant="h5">
+              2
+            </Typography>
+          </CardContent>
+        </div>
         <LineChart
           width={300}
           height={200}
