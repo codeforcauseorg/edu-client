@@ -69,6 +69,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "45px",
     paddingBottom: "10px",
     paddingLeft: "10px",
+    cursor: "pointer",
   },
   contactForm: {
     backgroundColor: "#22A7F0",
@@ -160,11 +161,11 @@ function ContactUs(props) {
           Connect with us :
         </Typography>
         <div className={classes.socialIcons}>
-          <FacebookIcon className={classes.socialIcons} />
-          <TwitterIcon className={classes.socialIcons} />
-          <InstagramIcon className={classes.socialIcons} />
-          <LinkedInIcon className={classes.socialIcons} />
-          <YouTubeIcon className={classes.socialIcons} />
+          <FacebookIcon href="#" className={classes.socialIcons} />
+          <TwitterIcon href="#" className={classes.socialIcons} />
+          <InstagramIcon href="#" className={classes.socialIcons} />
+          <LinkedInIcon href="#" className={classes.socialIcons} />
+          <YouTubeIcon href="#" className={classes.socialIcons} />
         </div>
         <Grid
           className={classes.contactForm}
@@ -189,7 +190,7 @@ function ContactUs(props) {
             }}
             id="contactUser"
             label="Username"
-            name="text"
+            name="username"
             autoFocus
           />
           <TextField
@@ -205,7 +206,7 @@ function ContactUs(props) {
             multiline
             id="contactEmail"
             label="Email"
-            name="text"
+            name="Email"
             autoFocus
           />
           <TextField
@@ -221,7 +222,7 @@ function ContactUs(props) {
             multiline
             id="contactPhone"
             label="Phone"
-            name="text"
+            name="phone"
             autoFocus
           />
           <TextField
@@ -239,7 +240,7 @@ function ContactUs(props) {
             borderRadius="20px"
             id="contactMessage"
             label="Message"
-            name="text"
+            name="message"
             rows={5}
             autoFocus
           />
