@@ -11,7 +11,25 @@ import {
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+// import MoreVertIcon from "@material-ui/icons/MoreVert";
+import ShareIcon from "@material-ui/icons/Share";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import {
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  EmailShareButton,
+  EmailIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share";
 
 const useStyles = makeStyles((theme) => ({
   profiletitle: {
@@ -65,10 +83,36 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
+  modal: {
+    display: "grid",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    width: 400,
+  },
+  icons: {
+    margin: "6%",
+    textAlign: "center",
+  },
 }));
+
 function HeaderComponent() {
   const classes = useStyles();
   const history = useHistory();
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
@@ -80,7 +124,49 @@ function HeaderComponent() {
             Profile
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MoreVertIcon />
+            {/* <MoreVertIcon /> */}
+            <ShareIcon onClick={handleOpen} />
+            <Modal
+              aria-labelledby="transition-modal-title"
+              className={classes.modal}
+              open={open}
+              onClose={handleClose}
+              closeAfterTransition
+              BackdropComponent={Backdrop}
+              BackdropProps={{
+                timeout: 500,
+              }}
+            >
+              <Fade in={open}>
+                <div className={classes.paper}>
+                  <h2 style={{ textAlign: "center" }}>Share with</h2>
+                  <hr />
+                  <br />
+                  <div style={{ textAlign: "center" }}>
+                    <TwitterShareButton url="https://github.com/" className={classes.icons}>
+                      <TwitterIcon size={52} round />
+                    </TwitterShareButton>
+                    <WhatsappShareButton url="https://github.com/" className={classes.icons}>
+                      <WhatsappIcon size={52} round />
+                    </WhatsappShareButton>
+                    <FacebookShareButton url="https://github.com/" className={classes.icons}>
+                      <FacebookIcon size={52} round />
+                    </FacebookShareButton>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <EmailShareButton url="https://github.com/" className={classes.icons}>
+                      <EmailIcon size={52} round />
+                    </EmailShareButton>
+                    <TelegramShareButton url="https://github.com/" className={classes.icons}>
+                      <TelegramIcon size={52} round />
+                    </TelegramShareButton>
+                    <LinkedinShareButton url="https://github.com/" className={classes.icons}>
+                      <LinkedinIcon size={52} round />
+                    </LinkedinShareButton>
+                  </div>
+                </div>
+              </Fade>
+            </Modal>
           </IconButton>
         </Toolbar>
       </AppBar>
