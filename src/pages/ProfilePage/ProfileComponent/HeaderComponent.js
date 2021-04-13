@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+// import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ShareIcon from "@material-ui/icons/Share";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -91,9 +92,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    width: 350,
-    borderRadius: 15,
+    width: 400,
   },
   icons: {
     margin: "6%",
@@ -130,6 +131,7 @@ function HeaderComponent() {
             Profile
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+            {/* <MoreVertIcon /> */}
             <ShareIcon onClick={handleOpen} />
             <Modal
               aria-labelledby="transition-modal-title"
