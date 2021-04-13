@@ -35,11 +35,16 @@ const footerItems = [
   },
   {
     id: 3,
+    link: "/ContactUs",
+    title: "CONTACT US",
+  },
+  {
+    id: 4,
     link: "/terms-and-conditions",
     title: "TERMS OF USE",
   },
   {
-    id: 4,
+    id: 5,
     link: "/privacy",
     title: "PRIVACY POLICY",
   },
