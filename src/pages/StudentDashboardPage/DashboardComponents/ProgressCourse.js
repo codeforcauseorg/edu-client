@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import CourseMediaCard from "./CourseMediaCard";
 
 const useStyle = makeStyles((theme) => ({
-  root: {},
   titleContainer: {
     marginTop: theme.spacing(2),
   },
@@ -18,10 +17,10 @@ const useStyle = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   mediaCardContainer: {
-    padding: "20px 10px",
     paddingBottom: "50px",
     display: "flex",
     flexWrap: "nowrap",
+
     gap: "24px",
     overflowX: "scroll",
     scrollbarWidth: "none" /* mozilla */,
@@ -64,6 +63,26 @@ const completed = [
     totalDuration: "3 days",
     progressValue: "100",
   },
+  {
+    chapterNumber: "2",
+    chapterTitle: "How to start with App Development",
+    courseName: "Full Stack Mobile Development Course by Code For Cause",
+    bannerImage:
+      "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    completedDuration: "3 days",
+    totalDuration: "3 days",
+    progressValue: "40",
+  },
+  {
+    chapterNumber: "2",
+    chapterTitle: "How to start with App Development",
+    courseName: "Full Stack Mobile Development Course by Code For Cause",
+    bannerImage:
+      "https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    completedDuration: "3 days",
+    totalDuration: "3 days",
+    progressValue: "90",
+  },
 ];
 function ProgressCourse() {
   const classes = useStyle();
@@ -84,28 +103,30 @@ function ProgressCourse() {
     setStatus(status);
   };
   return (
-    <Container className={classes.root}>
-      <Box className={classes.titleContainer}>
-        <Typography variant="h3">
-          Course Progress
-          <Typography variant="h3" component="span" style={{ color: "#808080" }}>
-            {"  "}({status === "On Going" ? ongoingData.length : completed.length})
+    <div>
+      <Container>
+        <Box className={classes.titleContainer}>
+          <Typography variant="h3">
+            Course Progress
+            <Typography variant="h3" component="span" style={{ color: "#808080" }}>
+              {"  "}({status === "On Going" ? ongoingData.length : completed.length})
+            </Typography>
           </Typography>
-        </Typography>
-      </Box>
-      <Box className={classes.buttonContainer}>
-        {buttonItems.map((items, index) => (
-          <Button
-            key={index}
-            className={classes.button}
-            variant="contained"
-            style={{ background: status === items.status ? "#150051" : "#8A80A8" }}
-            onClick={() => setStatusFilter(items.status)}
-          >
-            <Typography variant="caption">{items.status}</Typography>
-          </Button>
-        ))}
-      </Box>
+        </Box>
+        <Box className={classes.buttonContainer}>
+          {buttonItems.map((items, index) => (
+            <Button
+              key={index}
+              className={classes.button}
+              variant="contained"
+              style={{ background: status === items.status ? "#150051" : "#8A80A8" }}
+              onClick={() => setStatusFilter(items.status)}
+            >
+              <Typography variant="caption">{items.status}</Typography>
+            </Button>
+          ))}
+        </Box>
+      </Container>
       <Box className={classes.mediaCardContainer}>
         {status === "On Going"
           ? ongoingData.map((items, index) => (
@@ -133,7 +154,7 @@ function ProgressCourse() {
               />
             ))}
       </Box>
-    </Container>
+    </div>
   );
 }
 
