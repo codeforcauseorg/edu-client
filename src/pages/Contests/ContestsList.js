@@ -33,8 +33,8 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(2),
   },
   contestIcon: {
-    height: 40,
-    width: 40,
+    height: 30,
+    width: 30,
   },
   listItem: {
     paddingLeft: theme.spacing(1.5),

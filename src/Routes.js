@@ -21,6 +21,7 @@ import StudentDashboard from "./pages/StudentDashboardPage";
 import AssignmentSubmission from "./pages/StudentDashboardPage/AssignmentSubmission/AssignmentSubmission";
 import JobOpenings from "./pages/JobOpeningPage";
 import Contests from "./pages/Contests";
+import Statistics from "./pages/Statistics";
 
 const renderRoutes = () => (
   <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
@@ -41,6 +42,7 @@ const renderRoutes = () => (
       <Route path="/contests" exact component={Contests} />
       <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
       <Route path="/job-openings" exact component={JobOpenings} />
+      <Route path="/statistics" exact component={Statistics} />
       <Route path="/peer" exact component={PeerPage} />
       <MainLayout>
         <SwipeableRoutes replace>
