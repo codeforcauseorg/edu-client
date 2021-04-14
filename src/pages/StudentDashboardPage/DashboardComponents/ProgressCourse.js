@@ -1,6 +1,7 @@
 import { Box, Button, Container, makeStyles, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import CourseMediaCard from "./CourseMediaCard";
+import CardContainer from "../../../components/cardContainer/cardContainer";
 
 const useStyle = makeStyles((theme) => ({
   titleContainer: {
@@ -15,18 +16,6 @@ const useStyle = makeStyles((theme) => ({
     color: "#fff",
     marginRight: theme.spacing(1),
     marginTop: theme.spacing(1),
-  },
-  mediaCardContainer: {
-    paddingBottom: "50px",
-    display: "flex",
-    flexWrap: "nowrap",
-
-    gap: "24px",
-    overflowX: "scroll",
-    scrollbarWidth: "none" /* mozilla */,
-    "&::-webkit-scrollbar": {
-      display: "none" /* Safari and Chrome browsers */,
-    },
   },
 }));
 
@@ -127,7 +116,7 @@ function ProgressCourse() {
           ))}
         </Box>
       </Container>
-      <Box className={classes.mediaCardContainer}>
+      <CardContainer>
         {status === "On Going"
           ? ongoingData.map((items, index) => (
               <CourseMediaCard
@@ -153,7 +142,7 @@ function ProgressCourse() {
                 progressValue={items.progressValue}
               />
             ))}
-      </Box>
+      </CardContainer>
     </div>
   );
 }
