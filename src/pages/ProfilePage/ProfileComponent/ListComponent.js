@@ -38,7 +38,7 @@ export default function ListComponent() {
     },
     {
       id: 3,
-      listItemIcon: "/assets/icon/contest.png",
+      listItemIcon: "/assets/icon/contest2.png",
       primary: "View Contests",
       secondary: "Explore ongoing and upcoming contest",
       onPress: () => {
