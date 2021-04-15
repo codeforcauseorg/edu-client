@@ -36,7 +36,7 @@ const renderRoutes = () => (
       <Route path="/privacy" exact component={Privacy} />
       <Route path="/about" exact component={About} />
       <Route path="/faq" exact component={Faqs} />
-      <Route path="/ratementor" exact component={MentorRating} />
+      <Route path="/ratementor/:coursename" exact component={MentorRating} />
       <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/dashboard" exact component={StudentDashboard} />
       <Route path="/contests" exact component={Contests} />
