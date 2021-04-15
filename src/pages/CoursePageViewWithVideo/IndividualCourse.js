@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
+import { useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 export default function CoursePageViewWithVideo(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-
+  const history = useHistory();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -88,8 +89,16 @@ export default function CoursePageViewWithVideo(props) {
       title: "About Course",
       onPress: () => console.log("About Course"),
     },
+
     {
       id: 6,
+      title: "Rate the Mentor",
+      onPress: () => {
+        history.push("/ratementor/:coursename");
+      },
+    },
+    {
+      id: 7,
       title: "Share with friends",
       onPress: () => console.log("Share with friends"),
     },
