@@ -41,12 +41,10 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     background: "#F5F5F5",
   },
-
   menuItems: {
     padding: "2%",
     fontFamily: "Montserrat",
   },
-
   backtotop: {
     display: "flex",
     justifyContent: "center",
@@ -89,7 +87,6 @@ export default function CoursePageViewWithVideo(props) {
       title: "About Course",
       onPress: () => console.log("About Course"),
     },
-
     {
       id: 6,
       title: "Rate the Mentor",
