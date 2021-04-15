@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { AppBar, Container, IconButton, makeStyles, Toolbar, Typography } from "@material-ui/core";
 import HeaderComponent from "./ContestComponents/HeaderComponent";
 import TitleComponent from "./ContestComponents/TitleComponent";
+import LeaderboardComponent from "./ContestComponents/LeaderboardComponent";
 const useStyle = makeStyles((theme) => ({
   root: {
     padding: 0,
@@ -17,7 +18,7 @@ function Contests() {
   const history = useHistory();
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="sticky" className={classes.appBar}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"
@@ -38,6 +39,14 @@ function Contests() {
         subTitle="Last contest’s winner"
         onClick={() => console.log("View Laderboard")}
         textButton={true}
+      />
+      <LeaderboardComponent
+        winnerProfileAvatar="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+        winnerName="Abhishek Kumar"
+        winnerScore="800"
+        winnerPosition="1st"
+        currentUserScore="50"
+        currentUserPosition="128st"
       />
       <TitleComponent
         title="Your stats"
