@@ -49,17 +49,17 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: 5,
     },
   },
-  labelChip_techstack: {
-    margin: theme.spacing(1),
-    marginLeft: theme.spacing(2),
-    "& .MuiChip-root": {
-      marginRight: theme.spacing(1),
-      color: "#FFFFF",
-      background: "#ffce47",
-      fontWeight: 700,
-      borderRadius: 100,
-    },
+
+  techstack: {
+    marginTop: theme.spacing(1),
+    marginLeft: theme.spacing(1),
+    marginRight: theme.spacing(1),
+    color: "#FFFFF",
+    background: "#ffce47",
+    fontWeight: 700,
+    borderRadius: 100,
   },
+
   cardActions: {
     "& .MuiTypography-body1": {
       flexGrow: 1,
@@ -112,11 +112,11 @@ function JobOpenings() {
             <Box className={classes.labelChip}>
               <Chip size="small" label="Internship" />
             </Box>
-            <Box className={classes.labelChip_techstack}>
-              <Chip size="small" label="HTML" />
-              <Chip size="small" label="CSS" />
-              <Chip size="small" label="JS" />
-              <Chip size="small" label="REACT-NATIVE" />
+            <Box>
+              <Chip size="small" label="HTML" className={classes.techstack} />
+              <Chip size="small" label="CSS" className={classes.techstack} />
+              <Chip size="small" label="JS" className={classes.techstack} />
+              <Chip size="small" label="REACT-NATIVE" className={classes.techstack} />
             </Box>
             <CardActions disableSpacing className={classes.cardActions}>
               <Typography>March 27 2021</Typography>
