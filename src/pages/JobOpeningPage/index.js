@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
 
   techstack: {
     marginTop: theme.spacing(1),
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(2),
     marginRight: theme.spacing(1),
     color: "#FFFFF",
     background: "#ffce47",
