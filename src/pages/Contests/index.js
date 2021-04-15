@@ -13,7 +13,8 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ContestsList from "./ContestsList";
 import contests from "../../data/contestsDetails.json";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+
 const useStyle = makeStyles((theme) => ({
   root: {
     margin: "5px",
@@ -29,6 +30,10 @@ const useStyle = makeStyles((theme) => ({
   },
   appBar: {
     background: "#160050",
+  },
+  Icon: {
+    height: 25,
+    width: 25,
   },
   trophyIcon: {
     height: 30,
@@ -104,9 +109,14 @@ function Contests() {
         </Box>
         <Box className={classes.buttoncontainer}>
           <div>
-            <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
-              My Past Perfomance Statistics
-            </Button>
+            <Link to="/statistics" style={{ textDecoration: "none" }}>
+              <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
+                My Past Perfomance Statistics &nbsp;{" "}
+                <span>
+                  <img src="assets/icon/stats.png" className={classes.Icon} />
+                </span>
+              </Button>
+            </Link>
           </div>
           {buttonItems.map((items, index) => (
             <Button

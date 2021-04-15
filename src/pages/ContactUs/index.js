@@ -17,7 +17,9 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import EmailIcon from "@material-ui/icons/Email";
 import PhoneInTalkIcon from "@material-ui/icons/PhoneInTalk";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
-import "./contactUs.css";
+import { useForm } from "react-hook-form";
+import Link from "@material-ui/core/Link";
+
 <link
   href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
   rel="stylesheet"
@@ -64,15 +66,36 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "0.9rem",
     margin: "20px",
   },
+  socialWrapper: {
+    paddingBottom: "10px",
+    paddingLeft: "10px",
+  },
   socialIcons: {
     color: "#0D0F44",
     fontSize: "45px",
     paddingBottom: "10px",
     paddingLeft: "10px",
     cursor: "pointer",
+    "&:hover": {
+      color: "#22A7F0",
+    },
   },
   contactForm: {
     backgroundColor: "#22A7F0",
+    "& .MuiFormLabel-root": {
+      color: "white !important ",
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+      color: "white ",
+    },
+    "& .MuiInputBase-input": {
+      color: "white !important ",
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+      borderWidth: "2px",
+      borderColor: "white ",
+      borderRadius: "25px",
+    },
   },
   textFields: {
     marginLeft: "30px",
@@ -84,11 +107,6 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "30px",
     marginLeft: "30px",
     marginRight: "30px",
-  },
-  notchedOutline: {
-    borderWidth: "2px",
-    borderColor: "white !important",
-    borderRadius: "25px",
   },
   button: {
     padding: "'0.6rem','1.3rem'",
@@ -112,6 +130,12 @@ const useStyles = makeStyles((theme) => ({
 function ContactUs(props) {
   const classes = useStyles();
   const history = useHistory();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
 
   return (
     <>
@@ -160,98 +184,112 @@ function ContactUs(props) {
         <Typography className={classes.title} variant="h2" color="secondary">
           Connect with us :
         </Typography>
-        <div className={classes.socialIcons}>
-          <FacebookIcon href="#" className={classes.socialIcons} />
-          <TwitterIcon href="#" className={classes.socialIcons} />
-          <InstagramIcon href="#" className={classes.socialIcons} />
-          <LinkedInIcon href="#" className={classes.socialIcons} />
-          <YouTubeIcon href="#" className={classes.socialIcons} />
+        <div className={classes.socialWrapper}>
+          <Link href="https://www.facebook.com/codeforcauseorg">
+            <FacebookIcon className={classes.socialIcons} />
+          </Link>
+          <Link href="https://twitter.com/codeforcauseIn">
+            <TwitterIcon className={classes.socialIcons} />
+          </Link>
+          <Link href="https://www.instagram.com/codeforcause/">
+            <InstagramIcon className={classes.socialIcons} />
+          </Link>
+          <Link href="https://www.linkedin.com/company/codeforcauseorg/">
+            <LinkedInIcon className={classes.socialIcons} />
+          </Link>
+          <Link href="https://www.youtube.com/channel/UCfv8cds8AfIM3UZtAWOz6Gg">
+            <YouTubeIcon className={classes.socialIcons} />
+          </Link>
         </div>
-        <Grid
-          className={classes.contactForm}
-          container
-          align="center"
-          justify="center"
-          alignItems="center"
-          style={{ border: "2px solid white", borderRadius: "2px" }}
-        >
-          <Typography className={classes.title2} variant="h2" color="secondary">
-            Contact Us
-          </Typography>
-          <TextField
-            className={classes.textFields}
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
-            id="contactUser"
-            label="Username"
-            name="username"
-            autoFocus
-          />
-          <TextField
-            className={classes.textFields}
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
-            multiline
-            id="contactEmail"
-            label="Email"
-            name="Email"
-            autoFocus
-          />
-          <TextField
-            className={classes.textFields}
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
-            multiline
-            id="contactPhone"
-            label="Phone"
-            name="phone"
-            autoFocus
-          />
-          <TextField
-            rowsMin={5}
-            className={classes.messageBox}
-            variant="outlined"
-            margin="normal"
-            fullWidth
-            InputProps={{
-              classes: {
-                notchedOutline: classes.notchedOutline,
-              },
-            }}
-            multiline
-            borderRadius="20px"
-            id="contactMessage"
-            label="Message"
-            name="message"
-            rows={5}
-            autoFocus
-          />
-          <ButtonComponent
-            className={classes.button}
-            variant="contained"
-            color="secondary"
-            title="Send"
-            style={{ border: "2px solid white" }}
-          />
-        </Grid>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Grid
+            className={classes.contactForm}
+            container
+            align="center"
+            justify="center"
+            alignItems="center"
+            style={{ border: "2px solid white", borderRadius: "2px" }}
+          >
+            <Typography className={classes.title2} variant="h2" color="secondary">
+              Contact Us
+            </Typography>
+            <TextField
+              className={classes.textFields}
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              id="contactUser"
+              label="Firstname"
+              name="firstname"
+              {...register("firstname", { required: "*Firstname is required" })}
+              error={Boolean(errors.firstname)}
+              helperText={errors.firstname?.message}
+              autoFocus
+            />
+            <TextField
+              className={classes.textFields}
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              id="contactUser"
+              label="Lastname"
+              name="lastname"
+              {...register("lastname", { required: "*Lastname is required" })}
+              error={Boolean(errors.lastname)}
+              helperText={errors.lastname?.message}
+              autoFocus
+            />
+            <TextField
+              className={classes.textFields}
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              multiline
+              id="contactEmail"
+              label="Email"
+              name="Email"
+              {...register("Email", { required: "*Email is required" })}
+              error={Boolean(errors.Email)}
+              helperText={errors.Email?.message}
+              autoFocus
+            />
+            <TextField
+              className={classes.textFields}
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              multiline
+              id="contactPhone"
+              label="Phone"
+              name="phone"
+              {...register("Phone")}
+              autoFocus
+            />
+            <TextField
+              rowsMin={5}
+              className={classes.messageBox}
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              multiline
+              id="contactMessage"
+              label="Message"
+              name="messageField"
+              {...register("messageField", { required: "*Message is required" })}
+              error={Boolean(errors.messageField)}
+              helperText={errors.messageField?.message}
+              rows={5}
+              autoFocus
+            />
+            <ButtonComponent
+              className={classes.button}
+              variant="contained"
+              title="Send"
+              style={{ border: "2px solid white" }}
+              type="submit"
+            />
+          </Grid>
+        </form>
       </div>
     </>
   );
