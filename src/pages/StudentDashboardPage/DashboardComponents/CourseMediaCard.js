@@ -15,7 +15,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(1),
     marginLeft: "10px",
-    marginRight: "20px",
+    marginRight: "18px",
     minWidth: 300,
     boxShadow: "4px 5px 20px lightgray",
   },
