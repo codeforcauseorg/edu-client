@@ -27,7 +27,7 @@ import CardContent from "@material-ui/core/CardContent";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import stats from "../../data/statisticsData.json";
-
+import { useHistory } from "react-router-dom";
 const useStyle = makeStyles((theme) => ({
   root: {
     padding: "5px",
@@ -99,18 +99,23 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 function Statistics(props) {
   const classes = useStyle();
-
+  const history = useHistory();
   return (
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
             <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Your Past Perfomance Statistics
           </Typography>
-          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="end" className={classes.menuButton} color="inherit">
             <MoreVertIcon />
           </IconButton>
         </Toolbar>

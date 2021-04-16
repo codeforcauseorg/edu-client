@@ -1,10 +1,9 @@
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import ContestCard from "./ContestCard";
-import ContestCategories from "./ContestCategories";
 const useStyle = makeStyles((theme) => ({
   headerContainer: {
-    minHeight: 400,
+    minHeight: 300,
     background: "linear-gradient(180deg, #271576 0%, #4C3896 100%)",
   },
   titleContainer: {
@@ -24,19 +23,7 @@ const useStyle = makeStyles((theme) => ({
     color: "#9DA3A8",
   },
   cardWrapper: {
-    marginLeft: theme.spacing(3),
-    marginRight: theme.spacing(3),
-    display: "flex",
-    flexWrap: "nowrap",
-    overflowX: "scroll",
-    scrollbarWidth: "none" /* mozilla */,
-    "&::-webkit-scrollbar": {
-      display: "none" /* Safari and Chrome browsers */,
-    },
-  },
-  categoriesButton: {
-    marginLeft: theme.spacing(3),
-    marginRight: theme.spacing(3),
+    paddingLeft: theme.spacing(3),
     display: "flex",
     flexWrap: "nowrap",
     overflowX: "scroll",
@@ -46,6 +33,30 @@ const useStyle = makeStyles((theme) => ({
     },
   },
 }));
+
+const contestData = [
+  {
+    id: 1,
+    contestLogo:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkl-uo_VyIJuVih38dOHqCdKhtwzlmDrmeNw&usqp=CAU       ",
+    contestName: "Full Stack Developer Challenge",
+    countdownDuration: "may 17, 2021 00:00:00",
+  },
+  {
+    id: 2,
+    contestLogo:
+      "https://he-s3.s3.amazonaws.com/media/cache/c1/ac/c1ac27f899fcd944bdb55b6fc3dbc2e0.png",
+    contestName: "HackOn 2.0",
+    countdownDuration: "April 30, 2021 00:00:00",
+  },
+  {
+    id: 3,
+    contestLogo: "   https://techyeverything.com/wp-content/uploads/2020/11/Main-9.jpg",
+    contestName: "Brute Force 4.0 - Cybersecurity",
+    countdownDuration: "may 01, 2021 00:00:00",
+  },
+];
+
 function HeaderComponent() {
   const classes = useStyle();
   return (
@@ -54,7 +65,7 @@ function HeaderComponent() {
         <Typography variant="h3">
           Live Contests{"  "}
           <Typography component="span" variant="h3" className={classes.spanText}>
-            (5)
+            ({contestData.length})
           </Typography>
         </Typography>
         <Button className={classes.viewTextButton}>
@@ -62,13 +73,13 @@ function HeaderComponent() {
         </Button>
       </Box>
       <Box className={classes.cardWrapper}>
-        {[1, 2, 3].map((items, index) => (
-          <ContestCard key={index} />
-        ))}
-      </Box>
-      <Box className={classes.categoriesButton}>
-        {[1, 2, 3].map((items, index) => (
-          <ContestCategories key={index} />
+        {contestData.map((items, index) => (
+          <ContestCard
+            key={index}
+            contestLogo={items.contestLogo}
+            contestName={items.contestName}
+            countdownDuration={items.countdownDuration}
+          />
         ))}
       </Box>
     </Box>

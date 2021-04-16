@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React from "react";
-
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: 200,
@@ -48,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 function StatsComponent({ total, won, bestPosition }) {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <Card className={classes.root}>
       <CardContent>
@@ -84,7 +85,9 @@ function StatsComponent({ total, won, bestPosition }) {
             </Paper>
           </Grid>
         </Grid>
-        <Button className={classes.statsButton}>Previous stats</Button>
+        <Button className={classes.statsButton} onClick={() => history.push("/statistics")}>
+          Previous stats
+        </Button>
       </CardContent>
     </Card>
   );

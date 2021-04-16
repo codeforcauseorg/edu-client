@@ -5,7 +5,6 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  Chip,
   Grid,
   makeStyles,
   Paper,
@@ -15,7 +14,7 @@ import {
 const useStyle = makeStyles((theme) => ({
   root: {
     minWidth: "90%",
-    marginRight: theme.spacing(3),
+    marginRight: theme.spacing(2),
     borderRadius: 15,
   },
   avatar: {
@@ -28,16 +27,6 @@ const useStyle = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  chipContainer: {
-    display: "flex",
-    flexDirection: "row-reverse",
-    "& .MuiChip-root": {
-      borderRadius: 5,
-      background: "#8785F0",
-      color: "#fff",
-    },
-  },
-
   timerContainer: {
     marginTop: theme.spacing(1),
     marginBottom: theme.spacing(1.5),
@@ -62,7 +51,7 @@ const useStyle = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
 }));
-function ContestCard() {
+function ContestCard({ contestLogo, contestName, countdownDuration }) {
   const classes = useStyle();
   const [timerDays, setTimerDays] = useState("00");
   const [timerHours, setTimerHours] = useState("00");
@@ -72,7 +61,7 @@ function ContestCard() {
   let interval = useRef();
 
   const startTimer = () => {
-    const countdownDate = new Date("may 17, 2021 00:00:00").getTime();
+    const countdownDate = new Date(countdownDuration).getTime();
     interval = setInterval(() => {
       const now = new Date().getTime();
       const distance = countdownDate - now;
@@ -103,11 +92,8 @@ function ContestCard() {
       <CardActionArea>
         <CardContent>
           <Box className={classes.cardHeader}>
-            <Avatar
-              className={classes.avatar}
-              src="https://techyeverything.com/wp-content/uploads/2020/11/Main-9.jpg"
-            />
-            <Typography variant="h5">Full Stack Developer Challenge</Typography>
+            <Avatar className={classes.avatar} src={contestLogo} />
+            <Typography variant="h5">{contestName}</Typography>
           </Box>
 
           <Box className={classes.timerContainer}>
@@ -140,9 +126,6 @@ function ContestCard() {
                 </Grid>
               </Grid>
             </Box>
-          </Box>
-          <Box className={classes.chipContainer}>
-            <Chip label="CFC HACK" />
           </Box>
         </CardContent>
       </CardActionArea>
