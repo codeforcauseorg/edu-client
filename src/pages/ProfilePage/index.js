@@ -10,6 +10,10 @@ import HeaderComponent from "./ProfileComponent/HeaderComponent";
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
+    overflow: "hidden",
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
   },
   buttonwrapper: {
     display: "flex",

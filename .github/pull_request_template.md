@@ -37,3 +37,9 @@ Example how to mark a checkbox:-
 - [ ] I have updated the documentation accordingly.
 - [ ] All new and existing tests passed.
 - [ ] The title of my pull request is a short description of the requested changes.
+
+**Provide a Deployed link of route/page that needs to review**
+Preview: Deploy preview link here with the appropriate route
+ 
+
+<!-- Please add deployed link to here text >
