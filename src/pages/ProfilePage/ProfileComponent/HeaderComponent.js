@@ -139,7 +139,7 @@ function HeaderComponent() {
             >
               <Fade in={open}>
                 <div className={classes.paper}>
-                  <h2 style={{ textAlign: "center" }}>Share with</h2>
+                  <Typography style={{ textAlign: "center" }}>Share with</Typography>
                   <hr />
                   <br />
                   <div style={{ textAlign: "center" }}>

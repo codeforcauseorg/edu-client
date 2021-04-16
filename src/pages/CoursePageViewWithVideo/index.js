@@ -58,9 +58,6 @@ export default function MyCourses(props) {
       </AppBar>
       <Container className={classes.root}>
         <ScrollTop />
-        {/* <Typography variant="h2" align="center">
-        Your Courses
-      </Typography> */}
         <List>
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
             return (
