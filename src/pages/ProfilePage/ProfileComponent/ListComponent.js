@@ -14,10 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function ListComponent() {
-  // const [checked, setChecked] = React.useState(false);
-  // const toggleChecked = () => {
-  //   setChecked((prev) => !prev);
-  // };
   const classes = useStyles();
   const history = useHistory();
   const openContests = () => {
