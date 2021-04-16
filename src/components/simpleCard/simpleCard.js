@@ -7,7 +7,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles({
   root: {
-    marginRight: "25px",
+    marginRight: "20px",
   },
   media: {
     postion: "relative",
