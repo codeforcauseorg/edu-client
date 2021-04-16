@@ -2,13 +2,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   cardContainer: {
-    padding: "20px 10px",
-    paddingBottom: "50px",
+    padding: "20px 10px 50px",
     display: "flex",
     flexWrap: "nowrap",
     marginTop: "10px",
     marginBottom: "10px",
-    gap: "24px",
+    gap: "32px",
     overflowX: "scroll",
     scrollbarWidth: "none" /* mozilla */,
     "&::-webkit-scrollbar": {

@@ -6,9 +6,6 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
 const useStyles = makeStyles({
-  root: {
-    marginRight: "18px",
-  },
   media: {
     postion: "relative",
     height: 0,
