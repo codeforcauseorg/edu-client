@@ -32,13 +32,8 @@ function Contests() {
     <Container component="main" maxWidth="xs" className={classes.root}>
       <AppBar position="sticky" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            onClick={() => history.goBack()}
-          >
-            <ArrowBackIcon />
+          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+            <ArrowBackIcon onClick={() => history.goBack()} />
           </IconButton>
           <Typography variant="h6" color="inherit">
             Contests

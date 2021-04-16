@@ -6,6 +6,9 @@ import {
   makeStyles,
   Box,
   Typography,
+  AppBar,
+  IconButton,
+  Toolbar,
 } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
@@ -68,6 +71,15 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     bottom: 2,
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
 }));
 
 export default function PeerPage(props) {
@@ -96,108 +108,116 @@ export default function PeerPage(props) {
     },
   ];
   return (
-    <Container>
-      <ScrollToTop />
-      <div className={classes.navigationBar}>
-        <ArrowBackIcon className={classes.svg} onClick={() => history.goBack()} />
-        <Box className={classes.MainTitle}>
-          <Typography variant="h1">Discussion Form</Typography>
+    <>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar variant="dense">
+          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+            <ArrowBackIcon onClick={() => history.goBack()} />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.title}>
+            Discussion Form
+          </Typography>
+          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MoreVertIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Container>
+        <ScrollToTop />
+        <Box>
+          <Typography className={classes.profiletitle} variant="h5">
+            Discussion Topic
+          </Typography>
         </Box>
-        <MoreVertIcon className={classes.svg} />
-      </div>
-      <Box>
-        <Typography className={classes.profiletitle} variant="h5">
-          Discussion Topic
-        </Typography>
-      </Box>
-      <Divider />
-      <Box className={classes.BoxSpaces}>
-        <Typography variant="body2">
-          Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
-          document.
-        </Typography>
-      </Box>
-      <Box>
-        <Typography className={classes.profiletitle} variant="h5">
-          Responses
-        </Typography>
-      </Box>
-      <Divider />
-      <div className={classes.searchSection}>
-        <AccountCircleOutlined />
-        <div>
-          <TextField id="outlined-basic" label="Type a Response" variant="outlined" />
-          <Button className={classes.Buttons}>
-            <ArrowForwardIosIcon />
-          </Button>
-        </div>
-      </div>
-      <Divider />
-
-      <div className={classes.margin}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <AccountCircleOutlined />
-          </Grid>
-          <Grid item>
-            <Typography variant="h5" style={{ display: "inline-block" }}>
-              Lorem ( 27/03/2021 )
-            </Typography>
-          </Grid>
-          <Box className={classes.BoxSpaces}>
-            <Typography variant="body2">
-              Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
-              document or a typeface without relying on meaningful content.
-            </Typography>
-          </Box>
-        </Grid>
-      </div>
-      <Divider />
-
-      <div className={classes.margin}>
-        <Grid container spacing={2}>
-          <Grid item>
-            <AccountCircleOutlined />
-          </Grid>
-          <Grid item>
-            <Typography variant="h5" style={{ display: "inline-block" }}>
-              Ipsum ( 26/03/2021 )
-            </Typography>
-          </Grid>
-          <Box className={classes.BoxSpaces}>
-            <Typography variant="body2">
-              Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
-              document or a typeface without relying on meaningful content.
-            </Typography>
-          </Box>
-        </Grid>
-      </div>
-      <Divider />
-
-      <div className={classes.margin}>
-        <List
-          subheader={
-            <Typography variant="h5" className={classes.profiletitle}>
-              Other Topics
-            </Typography>
-          }
-        >
-          {Items.map((items) => (
-            <ListItem button key={items.id} onClick={items.onPress}>
-              <ListItemText secondary={items.text} />
+        <Divider />
+        <Box className={classes.BoxSpaces}>
+          <Typography variant="body2">
+            Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
+            document.
+          </Typography>
+        </Box>
+        <Box>
+          <Typography className={classes.profiletitle} variant="h5">
+            Responses
+          </Typography>
+        </Box>
+        <Divider />
+        <div className={classes.searchSection}>
+          <AccountCircleOutlined />
+          <div>
+            <TextField id="outlined-basic" label="Type a Response" variant="outlined" />
+            <Button className={classes.Buttons}>
               <ArrowForwardIosIcon />
-            </ListItem>
-          ))}
-        </List>
-      </div>
-      <Divider />
-      <div className={classes.backtotop}>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
-      </div>
-    </Container>
+            </Button>
+          </div>
+        </div>
+        <Divider />
+
+        <div className={classes.margin}>
+          <Grid container spacing={2}>
+            <Grid item>
+              <AccountCircleOutlined />
+            </Grid>
+            <Grid item>
+              <Typography variant="h5" style={{ display: "inline-block" }}>
+                Lorem ( 27/03/2021 )
+              </Typography>
+            </Grid>
+            <Box className={classes.BoxSpaces}>
+              <Typography variant="body2">
+                Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
+                document or a typeface without relying on meaningful content.
+              </Typography>
+            </Box>
+          </Grid>
+        </div>
+        <Divider />
+
+        <div className={classes.margin}>
+          <Grid container spacing={2}>
+            <Grid item>
+              <AccountCircleOutlined />
+            </Grid>
+            <Grid item>
+              <Typography variant="h5" style={{ display: "inline-block" }}>
+                Ipsum ( 26/03/2021 )
+              </Typography>
+            </Grid>
+            <Box className={classes.BoxSpaces}>
+              <Typography variant="body2">
+                Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
+                document or a typeface without relying on meaningful content.
+              </Typography>
+            </Box>
+          </Grid>
+        </div>
+        <Divider />
+
+        <div className={classes.margin}>
+          <List
+            subheader={
+              <Typography variant="h5" className={classes.profiletitle}>
+                Other Topics
+              </Typography>
+            }
+          >
+            {Items.map((items) => (
+              <ListItem button key={items.id} onClick={items.onPress}>
+                <ListItemText secondary={items.text} />
+                <ArrowForwardIosIcon />
+              </ListItem>
+            ))}
+          </List>
+        </div>
+        <Divider />
+        <div className={classes.backtotop}>
+          <ScrollTop {...props}>
+            <Fab color="secondary" size="small" aria-label="scroll back to top">
+              <KeyboardArrowUpIcon />
+            </Fab>
+          </ScrollTop>
+        </div>
+      </Container>
+    </>
   );
 }
