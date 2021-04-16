@@ -1,16 +1,28 @@
 import React from "react";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { useHistory } from "react-router-dom";
-import { AppBar, Container, IconButton, makeStyles, Toolbar, Typography } from "@material-ui/core";
+import {
+  AppBar,
+  Container,
+  Divider,
+  IconButton,
+  makeStyles,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import HeaderComponent from "./ContestComponents/HeaderComponent";
 import TitleComponent from "./ContestComponents/TitleComponent";
 import LeaderboardComponent from "./ContestComponents/LeaderboardComponent";
+import StatsComponent from "./ContestComponents/StatsComponent";
 const useStyle = makeStyles((theme) => ({
   root: {
     padding: 0,
   },
   appBar: {
     background: "#160050",
+  },
+  divider: {
+    margin: theme.spacing(3),
   },
 }));
 function Contests() {
@@ -48,11 +60,13 @@ function Contests() {
         currentUserScore="50"
         currentUserPosition="128st"
       />
+      <Divider className={classes.divider} />
       <TitleComponent
         title="Your stats"
         subTitle="Personal Overall statistics"
         textButton={false}
       />
+      <StatsComponent total="10" won="2" bestPosition="1st" />
     </Container>
   );
 }
