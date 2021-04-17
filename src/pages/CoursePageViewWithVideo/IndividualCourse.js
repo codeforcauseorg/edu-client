@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   IconButton,
@@ -9,14 +9,20 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
-
+import EditIcon from "@material-ui/icons/Edit";
+import Popper from "@material-ui/core/Popper";
 import { Player, ControlBar } from "video-react";
+import Fade from "@material-ui/core/Fade";
+import Paper from "@material-ui/core/Paper";
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
 
 const useStyles = makeStyles((theme) => ({
   tabroot: {
@@ -35,12 +41,27 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     marginLeft: "100px",
   },
+  button: {
+    margin: theme.spacing(1),
+  },
+  paper: {
+    boxShadow: "2px 1px 4px 1px lightgray",
+    padding: theme.spacing(1),
+    borderRadius: "10px",
+    margin: "5px",
+    display: "flex",
+    flexDirection: "column",
+  },
   tabBackground: {
     width: "100%",
     height: "100%",
     background: "#F5F5F5",
   },
-
+  addnote: {
+    display: "flex",
+    float: "right",
+    margin: "20px",
+  },
   menuItems: {
     padding: "2%",
     fontFamily: "Montserrat",
@@ -61,7 +82,14 @@ export default function CoursePageViewWithVideo(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = React.useState(false);
+  const [placement, setPlacement] = React.useState();
+  const handleClick = (newPlacement) => (event) => {
+    setAnchorEl(event.currentTarget);
+    setOpen((prev) => placement !== newPlacement || !prev);
+    setPlacement(newPlacement);
+  };
   const menuOptions = [
     {
       id: 1,
@@ -152,6 +180,36 @@ export default function CoursePageViewWithVideo(props) {
               );
             })}
           </List>
+
+          <div className={classes.addnote}>
+            <Popper open={open} anchorEl={anchorEl} placement={placement} transition>
+              {({ TransitionProps }) => (
+                <Fade {...TransitionProps} timeout={350}>
+                  <Paper className={classes.paper}>
+                    <TextField
+                      id="outlined-multiline-static"
+                      label="Add a Note"
+                      multiline
+                      rows={5}
+                      variant="outlined"
+                    />
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      size="small"
+                      className={classes.button}
+                      startIcon={<SaveIcon />}
+                    >
+                      Save
+                    </Button>
+                  </Paper>
+                </Fade>
+              )}
+            </Popper>
+            <Fab color="primary" aria-label="add" type="button" onClick={handleClick("left-start")}>
+              <EditIcon />
+            </Fab>
+          </div>
         </TabPanel>
         <TabPanel value={value} index={1} className={classes.tabBackground}>
           <Box>
@@ -163,6 +221,7 @@ export default function CoursePageViewWithVideo(props) {
             ))}
           </Box>
         </TabPanel>
+
         <div className={classes.backtotop}>
           <ScrollTop {...props}>
             <Fab color="secondary" size="small" aria-label="scroll back to top">
