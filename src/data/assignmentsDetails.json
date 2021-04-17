@@ -1,0 +1,95 @@
+[
+    {
+        "active": [
+            {
+                "courseAssignmentId": "1",
+                "courseAssignmentTitle": "Android Programming",
+                "latestTaskDueDate": "20 April 2021 23:59",
+                "taskCount": "3",
+                "taskList": [
+                    {
+                        "taskId": "101",
+                        "taskTitle": "Assignment 1",
+                        "dueDate": "20 April 2021 23:59"
+                    },
+                    {
+                        "taskId": "102",
+                        "taskTitle": "Assignment 2",
+                        "dueDate": "15 April 2021 23:59"
+                    },
+                    {
+                        "taskId": "103",
+                        "taskTitle": "Assignment 3",
+                        "dueDate": "10 April 2021 23:59"
+                    }
+                ]
+            },
+            {
+                "courseAssignmentId": "2",
+                "courseAssignmentTitle": "WhatsApp Clone Bootcamp",
+                "latestTaskDueDate": "25 April 2021 23:59",
+                "taskCount": "1",
+                "taskList": [
+                    {
+                        "taskId": "201",
+                        "taskTitle": "Assignment 1",
+                        "dueDate": "25 April 2021 23:59"
+                    }
+                ]
+            }
+        ],
+        "pending": [
+            {
+                "courseAssignmentId": "1",
+                "courseAssignmentTitle": "Android Programming",
+                "latestTaskDueDate": "20 April 2021 23:59",
+                "taskCount": "3",
+                "taskList": [
+                    {
+                        "taskId": "101",
+                        "taskTitle": "Assignment 1",
+                        "dueDate": "20 April 2021 23:59"
+                    },
+                    {
+                        "taskId": "102",
+                        "taskTitle": "Assignment 2",
+                        "dueDate": "15 April 2021 23:59"
+                    },
+                    {
+                        "taskId": "103",
+                        "taskTitle": "Assignment 3",
+                        "dueDate": "10 April 2021 23:59"
+                    }
+                ]
+            }
+        ],
+        "completed": [
+            {
+                "courseAssignmentId": "1",
+                "courseAssignmentTitle": "Android Programming",
+                "latestTaskDueDate": "20 April 2021 23:59",
+                "taskCount": "3",
+                "taskList": [
+                    {
+                        "taskId": "101",
+                        "taskTitle": "Assignment 1",
+                        "dueDate": "20 April 2021 23:59"
+                    }
+                ]
+            },
+            {
+                "courseAssignmentId": "2",
+                "courseAssignmentTitle": "Android Programming",
+                "latestTaskDueDate": "20 April 2021 23:59",
+                "taskCount": "1",
+                "taskList": [
+                    {
+                        "taskId": "201",
+                        "taskTitle": "Assignment 1",
+                        "dueDate": "20 April 2021 23:59"
+                    }
+                ]
+            }
+        ]
+    }
+]

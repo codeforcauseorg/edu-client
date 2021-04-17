@@ -25,7 +25,7 @@ const WishListView = (props) => {
       <div id="back-to-top-anchor"></div>
       <ScrollToTop />
       <List>
-        {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+        {[1, 2, 3, 4].map((item, index) => {
           return (
             <ListItem key={index} className={classes.li}>
               <WishlistCard props={props} />
