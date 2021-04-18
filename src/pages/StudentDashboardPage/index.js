@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   appBar: {
-    background: "#50407C",
+    background: "#160050",
   },
 }));
 function StudentDashboard() {
