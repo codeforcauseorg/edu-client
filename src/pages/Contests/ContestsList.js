@@ -81,7 +81,7 @@ function ContestsList({ date, contestTitle, ListTileColor }) {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <div className={classes.flex}>
-          <Typography style={{ margin: ".5rem" }}>
+          <Typography variant="body1" color="textPrimary" style={{ margin: ".5rem" }}>
             lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem
             ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
           </Typography>
