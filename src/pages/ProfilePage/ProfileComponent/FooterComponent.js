@@ -24,27 +24,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 const footerItems = [
   {
-    id: 1,
+    link: "/job-openings",
+    title: "CAREERS",
+  },
+  {
     link: "/faq",
     title: "FAQs",
   },
   {
-    id: 2,
     link: "/about",
     title: "ABOUT US",
   },
   {
-    id: 3,
     link: "/ContactUs",
     title: "CONTACT US",
   },
   {
-    id: 4,
     link: "/terms-and-conditions",
     title: "TERMS OF USE",
   },
   {
-    id: 5,
     link: "/privacy",
     title: "PRIVACY POLICY",
   },
@@ -55,8 +54,8 @@ function FooterComponent() {
   return (
     <React.Fragment>
       <Box className={classes.footer}>
-        {footerItems.map((items) => (
-          <Link to={items.link} key={items.id} className={classes.link_footer}>
+        {footerItems.map((items, i) => (
+          <Link to={items.link} key={i} className={classes.link_footer}>
             <Typography>{items.title}</Typography>
           </Link>
         ))}
