@@ -23,6 +23,8 @@ import Fade from "@material-ui/core/Fade";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
   tabroot: {
@@ -75,6 +77,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 export default function CoursePageViewWithVideo(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
@@ -84,6 +90,20 @@ export default function CoursePageViewWithVideo(props) {
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [open, setOpen] = React.useState(false);
+  const [show, setShow] = React.useState(false);
+
+  const doClick = () => {
+    setShow(true);
+    setOpen(false);
+  };
+
+  const doClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setShow(false);
+  };
   const [placement, setPlacement] = React.useState();
   const handleClick = (newPlacement) => (event) => {
     setAnchorEl(event.currentTarget);
@@ -199,6 +219,7 @@ export default function CoursePageViewWithVideo(props) {
                       size="small"
                       className={classes.button}
                       startIcon={<SaveIcon />}
+                      onClick={doClick}
                     >
                       Save
                     </Button>
@@ -209,6 +230,11 @@ export default function CoursePageViewWithVideo(props) {
             <Fab color="primary" aria-label="add" type="button" onClick={handleClick("left-start")}>
               <EditIcon />
             </Fab>
+            <Snackbar open={show} autoHideDuration={6000} onClose={doClose}>
+              <Alert onClose={doClose} severity="success">
+                Note Added!
+              </Alert>
+            </Snackbar>
           </div>
         </TabPanel>
         <TabPanel value={value} index={1} className={classes.tabBackground}>
