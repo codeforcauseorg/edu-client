@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Container,
-  IconButton,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
+import { AppBar, Container, IconButton, makeStyles, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
 import DashboardHeader from "./DashboardComponents/DashboardHeader";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
@@ -32,12 +25,7 @@ function StudentDashboard() {
     <Container component="main" maxWidth="xs" className={classes.root}>
       <AppBar position="sticky" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            href="/profile"
-          >
+          <IconButton edge="start" className={classes.backButton} color="inherit" href="/profile">
             <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
