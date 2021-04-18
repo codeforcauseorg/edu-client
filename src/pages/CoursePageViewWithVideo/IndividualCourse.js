@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Tab from "@material-ui/core/Tab";
+import { useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -68,7 +69,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "2%",
     fontFamily: "Montserrat",
   },
-
   backtotop: {
     display: "flex",
     justifyContent: "center",
@@ -84,7 +84,7 @@ function Alert(props) {
 export default function CoursePageViewWithVideo(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
-
+  const history = useHistory();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -138,6 +138,13 @@ export default function CoursePageViewWithVideo(props) {
     },
     {
       id: 6,
+      title: "Rate the Mentor",
+      onPress: () => {
+        history.push("/ratementor/:coursename");
+      },
+    },
+    {
+      id: 7,
       title: "Share with friends",
       onPress: () => console.log("Share with friends"),
     },
