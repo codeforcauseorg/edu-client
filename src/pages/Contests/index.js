@@ -11,7 +11,6 @@ import {
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ContestsList from "./ContestsList";
 import contests from "../../data/contestsDetails.json";
 const useStyle = makeStyles((theme) => ({
@@ -40,7 +39,7 @@ const useStyle = makeStyles((theme) => ({
   },
   titlecontainer: {
     textAlign: "center",
-    marginTop: "5px",
+    marginTop: theme.spacing(2),
   },
   button: {
     textTransform: "none",
@@ -53,6 +52,9 @@ const useStyle = makeStyles((theme) => ({
   },
   contestContainer: {
     marginTop: theme.spacing(3),
+  },
+  assignmentContainer: {
+    marginTop: theme.spacing(2),
   },
 }));
 const ongoing = contests[0].ongoing;
@@ -87,9 +89,6 @@ function Contests() {
           <Typography variant="h6" color="inherit" className={classes.title}>
             Contests & Statistics
           </Typography>
-          <IconButton edge="end" className={classes.menuButton} color="inherit">
-            <MoreVertIcon />
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Container component="main" maxWidth="xs" className={classes.root}>
