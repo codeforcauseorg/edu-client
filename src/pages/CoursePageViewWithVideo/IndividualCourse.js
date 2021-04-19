@@ -14,9 +14,7 @@ import Tab from "@material-ui/core/Tab";
 import { useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
 import EditIcon from "@material-ui/icons/Edit";
 import Popper from "@material-ui/core/Popper";
 import { Player, ControlBar } from "video-react";
@@ -68,12 +66,6 @@ const useStyles = makeStyles((theme) => ({
   menuItems: {
     padding: "2%",
     fontFamily: "Montserrat",
-  },
-  backtotop: {
-    display: "flex",
-    justifyContent: "center",
-    position: "absolute",
-    bottom: 0,
   },
 }));
 
@@ -254,14 +246,6 @@ export default function CoursePageViewWithVideo(props) {
             ))}
           </Box>
         </TabPanel>
-
-        <div className={classes.backtotop}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
-        </div>
       </div>
     </>
   );
