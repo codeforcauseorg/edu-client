@@ -8,10 +8,10 @@ import {
   Avatar,
   Box,
   Button,
+  Divider,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-// import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ShareIcon from "@material-ui/icons/Share";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-start",
     marginLeft: theme.spacing(4),
+    marginTop: theme.spacing(3),
     color: "#000",
   },
   studentdetails: {
@@ -90,9 +91,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    width: 400,
+    width: 350,
+    borderRadius: 15,
   },
   icons: {
     margin: "6%",
@@ -124,10 +125,8 @@ function HeaderComponent() {
             Profile
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-            {/* <MoreVertIcon /> */}
             <ShareIcon onClick={handleOpen} />
             <Modal
-              aria-labelledby="transition-modal-title"
               className={classes.modal}
               open={open}
               onClose={handleClose}
@@ -140,7 +139,7 @@ function HeaderComponent() {
               <Fade in={open}>
                 <div className={classes.paper}>
                   <Typography style={{ textAlign: "center" }}>Share with</Typography>
-                  <hr />
+                  <Divider />
                   <br />
                   <div style={{ textAlign: "center" }}>
                     <TwitterShareButton url="https://github.com/" className={classes.icons}>
@@ -170,9 +169,6 @@ function HeaderComponent() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      {/* <Box className={classes.profiletitle}>
-        <Typography variant="h2">Profile</Typography>
-      </Box> */}
       <Box className={classes.headerContainer}>
         <Avatar
           src="https://yt3.ggpht.com/ytc/AAUvwnhpLAOxx0GesrqkAMyNs3Fd3ZULf8yfNc8nTmMp=s900-c-k-c0x00ffffff-no-rj"

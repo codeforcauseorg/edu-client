@@ -65,11 +65,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "15px",
   },
   backtotop: {
-    minWidth: "100%",
     display: "flex",
     justifyContent: "center",
-    position: "absolute",
-    bottom: 2,
   },
   backButton: {
     marginRight: theme.spacing(2),
@@ -123,6 +120,7 @@ export default function PeerPage(props) {
         </Toolbar>
       </AppBar>
       <Container>
+        <div id="back-to-top-anchor"></div>
         <ScrollToTop />
         <Box>
           <Typography className={classes.profiletitle} variant="h5">
@@ -209,7 +207,6 @@ export default function PeerPage(props) {
             ))}
           </List>
         </div>
-        <Divider />
         <div className={classes.backtotop}>
           <ScrollTop {...props}>
             <Fab color="secondary" size="small" aria-label="scroll back to top">

@@ -11,7 +11,6 @@ import {
 import React, { useState } from "react";
 import { useHistory, Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ContestsList from "./ContestsList";
 import contests from "../../data/contestsDetails.json";
 const useStyle = makeStyles((theme) => ({
@@ -40,7 +39,7 @@ const useStyle = makeStyles((theme) => ({
   },
   titlecontainer: {
     textAlign: "center",
-    marginTop: "5px",
+    marginTop: theme.spacing(2),
   },
   button: {
     textTransform: "none",
@@ -53,6 +52,9 @@ const useStyle = makeStyles((theme) => ({
   },
   contestContainer: {
     marginTop: theme.spacing(3),
+  },
+  assignmentContainer: {
+    marginTop: theme.spacing(2),
   },
 }));
 const ongoing = contests[0].ongoing;
@@ -87,9 +89,6 @@ function Contests() {
           <Typography variant="h6" color="inherit" className={classes.title}>
             Contests & Statistics
           </Typography>
-          <IconButton edge="end" className={classes.menuButton} color="inherit">
-            <MoreVertIcon />
-          </IconButton>
         </Toolbar>
       </AppBar>
       <Container component="main" maxWidth="xs" className={classes.root}>
@@ -105,7 +104,7 @@ function Contests() {
           <div>
             <Link to="/statistics" style={{ textDecoration: "none" }}>
               <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
-                My Past Perfomance Statistics &nbsp;{" "}
+                My Past Performance Statistics &nbsp;{" "}
                 <span>
                   <img src="assets/icon/stats.png" className={classes.Icon} />
                 </span>
@@ -133,7 +132,7 @@ function Contests() {
                     key={index}
                     contestTitle={items.contestTitle}
                     date={items.date}
-                    ListTileColor="#EEF7FB"
+                    ListTileColor="#4791db33"
                     tasktilecolor="#DAE9F0"
                   />
                 ));
@@ -143,7 +142,7 @@ function Contests() {
                     key={index}
                     contestTitle={items.contestTitle}
                     date={items.date}
-                    ListTileColor="#FEF7EF"
+                    ListTileColor="#e3337122"
                     tasktilecolor="#F7E6D3"
                   />
                 ));
@@ -153,7 +152,7 @@ function Contests() {
                     key={index}
                     contestTitle={items.contestTitle}
                     date={items.date}
-                    ListTileColor="#EBFDF5"
+                    ListTileColor="#81c78444"
                     tasktilecolor="#C8EEDD"
                   />
                 ));
