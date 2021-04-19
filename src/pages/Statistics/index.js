@@ -108,7 +108,7 @@ function Statistics(props) {
             <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
-            Your Past Perfomance Statistics
+            Your Past Performance Statistics
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
             <MoreVertIcon />

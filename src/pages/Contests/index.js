@@ -105,7 +105,7 @@ function Contests() {
           <div>
             <Link to="/statistics" style={{ textDecoration: "none" }}>
               <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
-                My Past Perfomance Statistics &nbsp;{" "}
+                My Past Performance Statistics &nbsp;{" "}
                 <span>
                   <img src="assets/icon/stats.png" className={classes.Icon} />
                 </span>
