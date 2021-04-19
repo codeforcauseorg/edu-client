@@ -14,8 +14,6 @@ import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
-
 const useStyles = makeStyles((theme) => ({
   root: {},
   li: {
@@ -44,15 +42,12 @@ const WishListView = (props) => {
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+          <IconButton edge="start" className={classes.backButton} color="inherit">
             <ArrowBackIcon onClick={() => history.goBack()} />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             WishList
           </Typography>
-          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MoreVertIcon />
-          </IconButton>
         </Toolbar>
       </AppBar>
       <div id="back-to-top-anchor"></div>
