@@ -1,5 +1,4 @@
 import React from "react";
-// import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, IconButton, Toolbar, Typography, Container, Box } from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
@@ -11,11 +10,9 @@ import Avatar from "@material-ui/core/Avatar";
 import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
 import Link from "@material-ui/core/Link";
 
-// const Content = lazy(() => import("!babel-loader!mdx-loader!./About.mdx"));
-
 const useStyles = makeStyles((theme) => ({
   img: {
-    width: "130%",
+    width: "100%",
     background: "#ddd",
   },
   btn: {
@@ -38,11 +35,9 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   large: {
-    width: theme.spacing(15),
-    height: theme.spacing(15),
-  },
-  card: {
-    padding: "5%",
+    margin: "auto",
+    width: theme.spacing(10),
+    height: theme.spacing(10),
   },
   icon: {
     float: "right",
@@ -58,32 +53,27 @@ function About() {
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
-            <ArrowBackIcon onClick={() => history.goBack()} />
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             About Us
           </Typography>
-          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton edge="end" className={classes.menuButton} color="inherit">
             <MoreVertIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-      {/* <Suspense fallback={null}>
-        <Content />
-        <img
-          className={classes.img}
-          src="https://automattic.files.wordpress.com/2018/02/a8c_2017gm.jpg"
-        />
-        <Button variant="contained" color="secondary">
-          Say Hello!
-        </Button>
-      </Suspense> */}
       <Container>
         <ScrollToTop />
-        <div style={{ padding: "5%" }}>
+        <div>
           <Box>
-            <Typography variant="h4" style={{ textAlign: "center", padding: "2%" }}>
+            <Typography variant="h4" style={{ textAlign: "center", padding: "5%" }}>
               Code for Cause
             </Typography>
           </Box>
@@ -98,9 +88,9 @@ function About() {
             </Grid>
           </Grid>
         </div>
-        <div style={{ padding: "5%" }}>
+        <div>
           <Box>
-            <Typography variant="h4" style={{ textAlign: "center", padding: "2%" }}>
+            <Typography variant="h4" style={{ textAlign: "center", padding: "5%" }}>
               Our Vision
             </Typography>
             <br />
@@ -134,13 +124,13 @@ function About() {
         <br />
         <div>
           <Box>
-            <Typography variant="h4" style={{ textAlign: "center", padding: "2%" }}>
+            <Typography variant="h4" style={{ textAlign: "center", padding: "5%" }}>
               Our Team
             </Typography>
           </Box>
           <br />
           <Grid container spacing={3}>
-            <Grid item xs={4} className={classes.card}>
+            <Grid item xs={4}>
               <Avatar
                 alt="Remy Sharp"
                 src="https://www.w3schools.com/w3images/team1.jpg"
@@ -150,13 +140,11 @@ function About() {
               <Typography variant="body2" component="p" style={{ float: "left" }}>
                 Jane Doe
               </Typography>
-              <Typography variant="body2" component="p">
-                <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
-                  <EmailOutlinedIcon />
-                </Link>
-              </Typography>
+              <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
+                <EmailOutlinedIcon />
+              </Link>
             </Grid>
-            <Grid item xs={4} className={classes.card}>
+            <Grid item xs={4}>
               <Avatar
                 alt="Remy Sharp"
                 src="https://www.w3schools.com/w3images/team1.jpg"
@@ -166,13 +154,11 @@ function About() {
               <Typography variant="body2" component="p" style={{ float: "left" }}>
                 Jane Doe
               </Typography>
-              <Typography variant="body2" component="p">
-                <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
-                  <EmailOutlinedIcon />
-                </Link>
-              </Typography>
+              <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
+                <EmailOutlinedIcon />
+              </Link>
             </Grid>
-            <Grid item xs={4} className={classes.card}>
+            <Grid item xs={4}>
               <Avatar
                 alt="Remy Sharp"
                 src="https://www.w3schools.com/w3images/team1.jpg"
@@ -182,11 +168,9 @@ function About() {
               <Typography variant="body2" component="p" style={{ float: "left" }}>
                 Jane Doe
               </Typography>
-              <Typography variant="body2" component="p">
-                <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
-                  <EmailOutlinedIcon />
-                </Link>
-              </Typography>
+              <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
+                <EmailOutlinedIcon />
+              </Link>
             </Grid>
           </Grid>
         </div>
