@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Sheet from "react-modal-sheet";
 import {
   Box,
   IconButton,
@@ -16,14 +17,9 @@ import Tabs from "@material-ui/core/Tabs";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
-import Popper from "@material-ui/core/Popper";
 import { Player, ControlBar } from "video-react";
-import Fade from "@material-ui/core/Fade";
-import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
 
 const useStyles = makeStyles((theme) => ({
   tabroot: {
@@ -43,7 +39,8 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: "100px",
   },
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(3),
+    padding: 10,
   },
   paper: {
     boxShadow: "2px 1px 4px 1px lightgray",
@@ -69,39 +66,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
-
 export default function CoursePageViewWithVideo(props) {
   const classes = useStyles();
   const [value, setValue] = useState(0);
+  const [isopen, setisOpen] = React.useState(false);
+
   const history = useHistory();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [open, setOpen] = React.useState(false);
-  const [show, setShow] = React.useState(false);
 
-  const doClick = () => {
-    setShow(true);
-    setOpen(false);
-  };
-
-  const doClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setShow(false);
-  };
-  const [placement, setPlacement] = React.useState();
-  const handleClick = (newPlacement) => (event) => {
-    setAnchorEl(event.currentTarget);
-    setOpen((prev) => placement !== newPlacement || !prev);
-    setPlacement(newPlacement);
-  };
   const menuOptions = [
     {
       id: 1,
@@ -201,39 +175,50 @@ export default function CoursePageViewWithVideo(props) {
           </List>
 
           <div className={classes.addnote}>
-            <Popper open={open} anchorEl={anchorEl} placement={placement} transition>
-              {({ TransitionProps }) => (
-                <Fade {...TransitionProps} timeout={350}>
-                  <Paper className={classes.paper}>
-                    <TextField
-                      id="outlined-multiline-static"
-                      label="Add a Note"
-                      multiline
-                      rows={5}
-                      variant="outlined"
-                    />
-                    <Button
-                      variant="contained"
-                      color="secondary"
-                      size="small"
-                      className={classes.button}
-                      startIcon={<SaveIcon />}
-                      onClick={doClick}
-                    >
-                      Save
-                    </Button>
-                  </Paper>
-                </Fade>
-              )}
-            </Popper>
-            <Fab color="primary" aria-label="add" type="button" onClick={handleClick("left-start")}>
+            <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
               <EditIcon />
             </Fab>
-            <Snackbar open={show} autoHideDuration={6000} onClose={doClose}>
-              <Alert onClose={doClose} severity="success">
-                Note Added!
-              </Alert>
-            </Snackbar>
+            <Sheet isOpen={isopen} onClose={() => setisOpen(false)}>
+              <Sheet.Container>
+                <Sheet.Header />
+                <Sheet.Content>
+                  {" "}
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <div>
+                      <TextField
+                        id="filled-search"
+                        variant="filled"
+                        label="Add a Note"
+                        multiline
+                        style={{ width: "90vw" }}
+                        rows={35}
+                      />
+                    </div>
+                    <div>
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        size="small"
+                        className={classes.button}
+                        startIcon={<SaveIcon />}
+                        onClick={() => setisOpen(false)}
+                      >
+                        Save
+                      </Button>
+                    </div>
+                  </div>
+                </Sheet.Content>
+              </Sheet.Container>
+
+              <Sheet.Backdrop />
+            </Sheet>
           </div>
         </TabPanel>
         <TabPanel value={value} index={1} className={classes.tabBackground}>
