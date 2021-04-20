@@ -20,6 +20,12 @@ import EditIcon from "@material-ui/icons/Edit";
 import { Player, ControlBar } from "video-react";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const useStyles = makeStyles((theme) => ({
   tabroot: {
@@ -74,6 +80,22 @@ export default function CoursePageViewWithVideo(props) {
   const history = useHistory();
   const handleChange = (event, newValue) => {
     setValue(newValue);
+  };
+  const [state, setState] = React.useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+
+  const { vertical, horizontal, open } = state;
+
+  const handleClick = (newState) => () => {
+    setState({ open: true, ...newState });
+    setisOpen(false);
+  };
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
   };
 
   const menuOptions = [
@@ -173,7 +195,16 @@ export default function CoursePageViewWithVideo(props) {
               );
             })}
           </List>
-
+          <Snackbar
+            anchorOrigin={{ vertical, horizontal }}
+            open={open}
+            onClose={handleClose}
+            key={vertical + horizontal}
+          >
+            <Alert onClose={handleClose} severity="success">
+              Note Added!
+            </Alert>
+          </Snackbar>
           <div className={classes.addnote}>
             <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
               <EditIcon />
@@ -208,7 +239,7 @@ export default function CoursePageViewWithVideo(props) {
                         size="small"
                         className={classes.button}
                         startIcon={<SaveIcon />}
-                        onClick={() => setisOpen(false)}
+                        onClick={handleClick({ vertical: "top", horizontal: "center" })}
                       >
                         Save
                       </Button>
