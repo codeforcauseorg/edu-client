@@ -122,7 +122,6 @@ function HeaderComponent() {
             Profile
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-            {/* <MoreVertIcon /> */}
             <ShareIcon onClick={handleOpen} />
             <Modal
               aria-labelledby="transition-modal-title"
