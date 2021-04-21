@@ -185,6 +185,7 @@ export default function CoursePageViewWithVideo(props) {
                   key={index}
                   className={index === state.videoPlaying ? classes.selectedVideo : null}
                   onClick={() => playVideo(index)}
+                  style={{ cursor: "pointer" }}
                 >
                   <ListItemText
                     primary={
