@@ -7,7 +7,7 @@ const useStyles = makeStyles((theme) => ({
   top: {
     position: "fixed",
     right: "10px",
-    bottom: "25px",
+    bottom: "65px",
     height: "20px",
     zIndex: 1000,
     animation: "fadeIn 0.3s",
