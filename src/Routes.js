@@ -23,7 +23,7 @@ import JobOpenings from "./pages/JobOpeningPage";
 import Contests from "./pages/Contests";
 import Statistics from "./pages/Statistics";
 import ContactUs from "./pages/ContactUs";
-
+import ScrollToTop from "./components/scrollToTop/index";
 // IMPORTANT - Don't add any route inside the scope of <SwipeableRoutes> </SwipeableRoutes> unless it is a page which can be navigated using the bottom navigation.
 const renderRoutes = () => (
   <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
@@ -58,6 +58,7 @@ const renderRoutes = () => (
         </SwipeableRoutes>
       </MainLayout>
     </Switch>
+    <ScrollToTop />
   </Container>
 );
 
