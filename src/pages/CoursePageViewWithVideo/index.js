@@ -11,8 +11,6 @@ import {
 import { Link, useHistory } from "react-router-dom";
 import CourseCard from "../../components/courseCard/courseCard1";
 import ScrollTop from "../../components/backTop/index";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles((theme) => ({
@@ -65,13 +63,6 @@ export default function MyCourses(props) {
             );
           })}
         </List>
-        <div className={classes.backtotop}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
-        </div>
       </Container>
     </>
   );

@@ -9,9 +9,6 @@ import {
 } from "@material-ui/core";
 import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCard from "../../components/wishlistCard";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 const useStyles = makeStyles((theme) => ({
@@ -61,13 +58,6 @@ const WishListView = (props) => {
           );
         })}
       </List>
-      <div className={classes.backtotop}>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
-      </div>
     </>
   );
 };

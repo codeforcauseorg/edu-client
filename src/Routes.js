@@ -39,7 +39,6 @@ const renderRoutes = () => (
       <Route path="/about" exact component={About} />
       <Route path="/faq" exact component={Faqs} />
       <Route path="/ratementor/:coursename" exact component={MentorRating} />
-      <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/contactUs" exact component={ContactUs} />
       <Route path="/dashboard" exact component={StudentDashboard} />
       <Route path="/contests" exact component={Contests} />
@@ -47,8 +46,6 @@ const renderRoutes = () => (
       <Route path="/job-openings" exact component={JobOpenings} />
       <Route path="/statistics" exact component={Statistics} />
       <Route path="/peer" exact component={PeerPage} />
-      <Route path="/faq" exact component={Faqs} />
-      <Route path="/about" exact component={About} />
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/home" exact component={HomePage} />

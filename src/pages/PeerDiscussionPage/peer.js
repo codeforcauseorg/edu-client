@@ -20,9 +20,6 @@ import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ScrollToTop from "../../utils/ScrollToTop";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
 
 const useStyles = makeStyles((theme) => ({
   MainTitle: {
@@ -206,13 +203,6 @@ export default function PeerPage(props) {
               </ListItem>
             ))}
           </List>
-        </div>
-        <div className={classes.backtotop}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
         </div>
       </Container>
     </>
