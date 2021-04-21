@@ -87,6 +87,45 @@ function About() {
     },
   ];
 
+  const Items = [
+    {
+      id: 1,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 2,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 3,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 4,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 5,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 6,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+  ];
+
   return (
     <>
       <AppBar position="static" className={classes.appBar}>
