@@ -49,6 +49,45 @@ function About() {
   const classes = useStyles();
   const history = useHistory();
 
+  const Items = [
+    {
+      id: 1,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 2,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 3,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 4,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 5,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+    {
+      id: 6,
+      src: "https://www.w3schools.com/w3images/team1.jpg",
+      text: "Jane Doe",
+      mailto: "lorem@ipsum.com",
+    },
+  ];
+
   return (
     <>
       <AppBar position="static" className={classes.appBar}>
@@ -77,11 +116,12 @@ function About() {
               Code for Cause
             </Typography>
           </Box>
-          <br />
           <Grid container spacing={3}>
             <Grid item xs={8}>
-              Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-              maximus est, id dignissim quam.
+              <Typography variant="inherit">
+                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
+                maximus est, id dignissim quam.
+              </Typography>
             </Grid>
             <Grid item xs={4}>
               <img className={classes.img} src="/assets/img/team.jpg" />
@@ -90,15 +130,19 @@ function About() {
         </div>
         <div>
           <Box>
-            <Typography variant="h4" style={{ textAlign: "center", padding: "5%" }}>
+            <Typography
+              variant="h4"
+              style={{ textAlign: "center", padding: "5%", marginTop: "2%" }}
+            >
               Our Vision
             </Typography>
-            <br />
             <Grid container spacing={3} style={{ textAlign: "center" }}>
               <Grid item xs={12}>
-                Grow Up Your Workflow Speed.
+                <Typography variant="inherit">Grow Up Your Workflow Speed.</Typography>
                 <br />
-                Join our team and become a part of that believe in open education for all.
+                <Typography variant="inherit">
+                  Join our team and become a part of that believe in open education for all.
+                </Typography>
               </Grid>
             </Grid>
             <br />
@@ -129,50 +173,25 @@ function About() {
             </Typography>
           </Box>
           <br />
-          <Grid container spacing={3}>
-            <Grid item xs={4}>
-              <Avatar
-                alt="Remy Sharp"
-                src="https://www.w3schools.com/w3images/team1.jpg"
-                className={classes.large}
-              />
-              <br />
-              <Typography variant="body2" component="p" style={{ float: "left" }}>
-                Jane Doe
-              </Typography>
-              <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
-                <EmailOutlinedIcon />
-              </Link>
+          <div>
+            <Grid container spacing={3}>
+              {Items.map((items) => (
+                <Grid item xs={4} key={items.id}>
+                  <Avatar alt={items.text} src={items.src} className={classes.large} />
+                  <br />
+                  <Typography variant="body2" component="p" style={{ float: "left" }}>
+                    {items.text}
+                  </Typography>
+                  <Link
+                    href={"mailto:" + items.mailto + "?body=Hello Friends"}
+                    className={classes.icon}
+                  >
+                    <EmailOutlinedIcon />
+                  </Link>
+                </Grid>
+              ))}
             </Grid>
-            <Grid item xs={4}>
-              <Avatar
-                alt="Remy Sharp"
-                src="https://www.w3schools.com/w3images/team1.jpg"
-                className={classes.large}
-              />
-              <br />
-              <Typography variant="body2" component="p" style={{ float: "left" }}>
-                Jane Doe
-              </Typography>
-              <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
-                <EmailOutlinedIcon />
-              </Link>
-            </Grid>
-            <Grid item xs={4}>
-              <Avatar
-                alt="Remy Sharp"
-                src="https://www.w3schools.com/w3images/team1.jpg"
-                className={classes.large}
-              />
-              <br />
-              <Typography variant="body2" component="p" style={{ float: "left" }}>
-                Jane Doe
-              </Typography>
-              <Link href="mailto:lorem@ipsum.com?body=Hello Friends" className={classes.icon}>
-                <EmailOutlinedIcon />
-              </Link>
-            </Grid>
-          </Grid>
+          </div>
         </div>
       </Container>
     </>
