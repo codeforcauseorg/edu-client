@@ -126,13 +126,20 @@ export default function CoursePageViewWithVideo(props) {
     },
     {
       id: 6,
+      title: "About Mentor",
+      onPress: () => {
+        history.push("/mentorPage");
+      },
+    },
+    {
+      id: 7,
       title: "Rate the Mentor",
       onPress: () => {
         history.push("/ratementor/:coursename");
       },
     },
     {
-      id: 7,
+      id: 8,
       title: "Share with friends",
       onPress: () => console.log("Share with friends"),
     },

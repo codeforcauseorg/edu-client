@@ -23,6 +23,7 @@ import JobOpenings from "./pages/JobOpeningPage";
 import Contests from "./pages/Contests";
 import Statistics from "./pages/Statistics";
 import ContactUs from "./pages/ContactUs";
+import MentorPage from "./pages/MentorPage";
 
 // IMPORTANT - Don't add any route inside the scope of <SwipeableRoutes> </SwipeableRoutes> unless it is a page which can be navigated using the bottom navigation.
 const renderRoutes = () => (
@@ -49,6 +50,7 @@ const renderRoutes = () => (
       <Route path="/peer" exact component={PeerPage} />
       <Route path="/faq" exact component={Faqs} />
       <Route path="/about" exact component={About} />
+      <Route path="/mentorPage" exact component={MentorPage} />
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/home" exact component={HomePage} />
