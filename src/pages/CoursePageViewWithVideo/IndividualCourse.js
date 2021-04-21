@@ -89,7 +89,7 @@ export default function CoursePageViewWithVideo(props) {
     open: false,
     vertical: "top",
     horizontal: "center",
-    vidPlaying: -1,
+    videoPlaying: -1,
   });
 
   const { vertical, horizontal, open } = state;
