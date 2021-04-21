@@ -48,8 +48,7 @@ const useStyles = makeStyles((theme) => ({
 function About() {
   const classes = useStyles();
   const history = useHistory();
-
-  const Items = [
+  const Members = [
     {
       id: 1,
       src: "https://www.w3schools.com/w3images/team1.jpg",
@@ -175,7 +174,7 @@ function About() {
           <br />
           <div>
             <Grid container spacing={3}>
-              {Items.map((items) => (
+              {Members.map((items) => (
                 <Grid item xs={4} key={items.id}>
                   <Avatar alt={items.text} src={items.src} className={classes.large} />
                   <br />
