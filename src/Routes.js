@@ -22,7 +22,9 @@ import AssignmentSubmission from "./pages/StudentDashboardPage/AssignmentSubmiss
 import JobOpenings from "./pages/JobOpeningPage";
 import Contests from "./pages/Contests";
 import Statistics from "./pages/Statistics";
+import ContactUs from "./pages/ContactUs";
 
+// IMPORTANT - Don't add any route inside the scope of <SwipeableRoutes> </SwipeableRoutes> unless it is a page which can be navigated using the bottom navigation.
 const renderRoutes = () => (
   <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
     <Switch>
@@ -36,18 +38,19 @@ const renderRoutes = () => (
       <Route path="/privacy" exact component={Privacy} />
       <Route path="/about" exact component={About} />
       <Route path="/faq" exact component={Faqs} />
-      <Route path="/ratementor" exact component={MentorRating} />
+      <Route path="/ratementor/:coursename" exact component={MentorRating} />
       <Route path="/terms-and-conditions" exact component={Terms} />
+      <Route path="/contactUs" exact component={ContactUs} />
       <Route path="/dashboard" exact component={StudentDashboard} />
       <Route path="/contests" exact component={Contests} />
       <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
       <Route path="/job-openings" exact component={JobOpenings} />
       <Route path="/statistics" exact component={Statistics} />
       <Route path="/peer" exact component={PeerPage} />
+      <Route path="/faq" exact component={Faqs} />
+      <Route path="/about" exact component={About} />
       <MainLayout>
         <SwipeableRoutes replace>
-          <Route path="/faq" exact component={Faqs} />
-          <Route path="/about" exact component={About} />
           <Route path="/home" exact component={HomePage} />
           <Route path="/mycourses" exact component={MyCourses} />
           <Route path="/wishlist" exact component={WishlistPage} />

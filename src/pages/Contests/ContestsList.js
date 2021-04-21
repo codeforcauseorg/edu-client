@@ -42,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
   dateText: {
     paddingTop: theme.spacing(1),
   },
+  description: {
+    margin: theme.spacing(2),
+  },
 }));
 function ContestsList({ date, contestTitle, ListTileColor }) {
   const classes = useStyles();
@@ -74,12 +77,12 @@ function ContestsList({ date, contestTitle, ListTileColor }) {
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        <div className={classes.flex}>
-          <div style={{ margin: "1px" }}>
+        <Box className={classes.flex}>
+          <Typography className={classes.description}>
             lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem
             ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-          </div>
-          <div>
+          </Typography>
+          <Box>
             <Button
               className={classes.button}
               variant="contained"
@@ -90,8 +93,8 @@ function ContestsList({ date, contestTitle, ListTileColor }) {
             <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
               Know more
             </Button>
-          </div>
-        </div>
+          </Box>
+        </Box>
       </Collapse>
     </List>
   );
