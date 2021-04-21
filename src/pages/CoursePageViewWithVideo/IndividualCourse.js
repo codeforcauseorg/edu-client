@@ -104,7 +104,7 @@ export default function CoursePageViewWithVideo(props) {
   };
 
   const playVideo = (index) => {
-    setState({ ...state, vidPlaying: index });
+    setState({ ...state, videoPlaying: index });
   };
 
   const menuOptions = [
@@ -183,7 +183,7 @@ export default function CoursePageViewWithVideo(props) {
               return (
                 <ListItem
                   key={index}
-                  className={index === state.vidPlaying ? classes.selectedVideo : null}
+                  className={index === state.videoPlaying ? classes.selectedVideo : null}
                   onClick={() => playVideo(index)}
                 >
                   <ListItemText
@@ -198,7 +198,7 @@ export default function CoursePageViewWithVideo(props) {
                           50 Minutes by Anuj Garg{" "}
                           <span
                             style={{
-                              color: `${index === state.vidPlaying ? "white" : "#4C0098"}`,
+                              color: `${index === state.videoPlaying ? "white" : "#4C0098"}`,
                               fontWeight: "700",
                             }}
                           >
