@@ -108,8 +108,13 @@ export default function PeerPage(props) {
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
-            <ArrowBackIcon onClick={() => history.goBack()} />
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Discussion Form
@@ -120,7 +125,6 @@ export default function PeerPage(props) {
         </Toolbar>
       </AppBar>
       <Container>
-        <div id="back-to-top-anchor"></div>
         <ScrollToTop />
         <Box>
           <Typography className={classes.profiletitle} variant="h5">
@@ -207,6 +211,7 @@ export default function PeerPage(props) {
             ))}
           </List>
         </div>
+        <Divider />
         <div className={classes.backtotop}>
           <ScrollTop {...props}>
             <Fab color="secondary" size="small" aria-label="scroll back to top">
