@@ -6,7 +6,6 @@
   "webDir": "build",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 10000,
       "launchAutoHide": false,
       "androidSplashResourceName": "splash",
       "androidScaleType": "CENTER_CROP",
