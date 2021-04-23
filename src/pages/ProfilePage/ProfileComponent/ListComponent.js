@@ -59,6 +59,13 @@ export default function ListComponent() {
       secondary: "View your badges",
       onPress: () => console.log("My Achivements"),
     },
+    {
+      id: 6,
+      listItemIcon: "/assets/icon/discount.png",
+      primary: "Referral And Coupons",
+      secondary: "Refer and Earn Discounts",
+      onPress: () => history.push("/referralAndCoupons"),
+    },
   ];
   const SettingsItems = [
     {
