@@ -5,7 +5,7 @@ import React from "react";
 import { deepOrange, deepPurple } from "@material-ui/core/colors";
 import TextField from "@material-ui/core/TextField";
 import SendIcon from "@material-ui/icons/Send";
-
+import { Link } from "react-router-dom";
 import AttachmentIcon from "@material-ui/icons/Attachment";
 
 const useStyles = makeStyles((theme) => ({
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
     padding: "15px",
   },
-  cmt: {
+  viewcomment: {
     margin: "7px",
   },
   material: {
@@ -101,11 +101,13 @@ function PostCard({ data }) {
               </div>
             )}
           </Box>
-          <Typography className={classes.cmt}>
-            <i>
-              <a>View all 28 comments</a>
-            </i>
-          </Typography>
+          <div className={classes.viewcomment}>
+            <Typography>
+              <Link to="/mycourses/:coursename/announcement/:id/comments">
+                <i style={{ color: "gray" }}>View all 28 comments </i>
+              </Link>
+            </Typography>
+          </div>
           <div style={{ display: "flex" }}>
             <Grid>
               <Avatar className={classes.purple}>{`Me`.slice(0, 1)}</Avatar>

@@ -25,6 +25,7 @@ import Statistics from "./pages/Statistics";
 import ContactUs from "./pages/ContactUs";
 import MentorPage from "./pages/MentorPage";
 import CourseAnnouncement from "./pages/CourseAnnouncement";
+import Comment from "./pages/CourseAnnouncement/comments";
 
 // IMPORTANT - Don't add any route inside the scope of <SwipeableRoutes> </SwipeableRoutes> unless it is a page which can be navigated using the bottom navigation.
 const renderRoutes = () => (
@@ -42,6 +43,7 @@ const renderRoutes = () => (
       <Route path="/faq" exact component={Faqs} />
       <Route path="/ratementor/:coursename" exact component={MentorRating} />
       <Route path="/mycourses/:coursename/announcement" exact component={CourseAnnouncement} />
+      <Route path="/mycourses/:coursename/announcement/:id/comments" exact component={Comment} />
       <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/contactUs" exact component={ContactUs} />
       <Route path="/dashboard" exact component={StudentDashboard} />

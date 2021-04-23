@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
   head: {
     flexGrow: 1,
   },
+  appBar: {
+    background: "#160050",
+  },
   backButton: {
     marginRight: theme.spacing(2),
   },
@@ -81,7 +84,7 @@ function CourseAnnouncement() {
   ];
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"
