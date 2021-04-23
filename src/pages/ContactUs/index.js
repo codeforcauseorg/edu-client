@@ -139,7 +139,7 @@ function ContactUs(props) {
 
   return (
     <>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="static">
         <Toolbar variant="dense">
           <IconButton
             edge="start"
@@ -166,7 +166,7 @@ function ContactUs(props) {
           praesentium dicta!
         </Typography>
         <Grid container>
-          <div className={classes.info}>
+          <div>
             <div className={classes.information}>
               <LocationCityIcon className={classes.icons} />
               <Typography>92 Cherry Drive Uniondale, NY 11553</Typography>
@@ -176,7 +176,7 @@ function ContactUs(props) {
               <Typography>lorem@ipsum.com</Typography>
             </div>
             <div className={classes.information}>
-              <PhoneInTalkIcon className={classes.icons} alt="" />
+              <PhoneInTalkIcon className={classes.icons} />
               <Typography>123-456-789</Typography>
             </div>
           </div>

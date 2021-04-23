@@ -70,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
     padding: "2%",
     fontFamily: "Montserrat",
   },
+  selectedVideo: {
+    color: "white",
+    backgroundColor: "rgb(21,0,81)",
+  },
 }));
 
 export default function CoursePageViewWithVideo(props) {
@@ -85,6 +89,7 @@ export default function CoursePageViewWithVideo(props) {
     open: false,
     vertical: "top",
     horizontal: "center",
+    playingIndex: -1,
   });
 
   const { vertical, horizontal, open } = state;
@@ -96,6 +101,10 @@ export default function CoursePageViewWithVideo(props) {
 
   const handleClose = () => {
     setState({ ...state, open: false });
+  };
+
+  const playVideo = (index) => {
+    setState({ ...state, playingIndex: index });
   };
 
   const menuOptions = [
@@ -126,13 +135,20 @@ export default function CoursePageViewWithVideo(props) {
     },
     {
       id: 6,
+      title: "About Mentor",
+      onPress: () => {
+        history.push("/mentorPage");
+      },
+    },
+    {
+      id: 7,
       title: "Rate the Mentor",
       onPress: () => {
         history.push("/ratementor/:coursename");
       },
     },
     {
-      id: 7,
+      id: 8,
       title: "Share with friends",
       onPress: () => console.log("Share with friends"),
     },
@@ -172,7 +188,12 @@ export default function CoursePageViewWithVideo(props) {
           <List style={{ margin: 0, padding: 0 }}>
             {[1, 2, 3, 4, 5].map((item, index) => {
               return (
-                <ListItem key={index}>
+                <ListItem
+                  key={index}
+                  className={index === state.playingIndex ? classes.selectedVideo : null}
+                  onClick={() => playVideo(index)}
+                  style={{ cursor: "pointer" }}
+                >
                   <ListItemText
                     primary={
                       <Typography variant="body2" style={{ marginBottom: "4px" }}>{`Chapter ${
@@ -183,7 +204,14 @@ export default function CoursePageViewWithVideo(props) {
                       <Typography variant="caption">
                         <i>
                           50 Minutes by Anuj Garg{" "}
-                          <span style={{ color: "#4C0098" }}>Available in 2 days</span>{" "}
+                          <span
+                            style={{
+                              color: `${index === state.playingIndex ? "white" : "#4C0098"}`,
+                              fontWeight: "700",
+                            }}
+                          >
+                            Available in 2 days
+                          </span>{" "}
                         </i>
                       </Typography>
                     }

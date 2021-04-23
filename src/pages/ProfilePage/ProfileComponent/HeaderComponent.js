@@ -91,9 +91,9 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    width: 350,
-    borderRadius: 15,
+    width: 400,
   },
   icons: {
     margin: "6%",
@@ -118,8 +118,13 @@ function HeaderComponent() {
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
-            <ArrowBackIcon onClick={() => history.goBack()} />
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Profile
@@ -127,6 +132,7 @@ function HeaderComponent() {
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
             <ShareIcon onClick={handleOpen} />
             <Modal
+              aria-labelledby="transition-modal-title"
               className={classes.modal}
               open={open}
               onClose={handleClose}
