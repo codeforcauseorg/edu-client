@@ -14,9 +14,10 @@ import React from "react";
 const useStyle = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(1),
-    marginLeft: "-8px",
-    minWidth: 300,
-    boxShadow: "0px 0px 5px grey",
+    minWidth: "80vw",
+    width: "80vw",
+    marginRight: "16px",
+    boxShadow: "4px 5px 20px lightgray",
   },
   cardMedia: {
     position: "relative",

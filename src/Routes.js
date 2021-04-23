@@ -35,6 +35,7 @@ const renderRoutes = () => (
       <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/course/:id" exact component={CourseDetail} />
       <Route path="/mycourses/:coursename" exact component={CoursePage} />
+      {/* <Route path="/mycourses/announcement/:coursename" exact component={CourseAnnouncement} /> */}
       <Route path="/checkout/:id" exact component={Checkout} />
       <Route path="/privacy" exact component={Privacy} />
       <Route path="/about" exact component={About} />

@@ -81,12 +81,7 @@ export default function SimpleCard({ width, image, title, subTitle, detail, pric
   const classes = useStyles();
 
   return (
-    <Card
-      style={{
-        minWidth: `${width}`,
-      }}
-      className={classes.root}
-    >
+    <Card className={classes.root} style={{ minWidth: `${width}` }}>
       <CardMedia className={classes.media} image={image} title="Paella dish" />
       <div className={classes.cardInfo}>
         <div className={classes.instructorProfile}>
