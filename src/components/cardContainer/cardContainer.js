@@ -8,8 +8,9 @@ const useStyles = makeStyles({
     flexWrap: "nowrap",
     marginTop: "10px",
     marginBottom: "10px",
-    gap: "24px",
+    gap: "18px",
     overflowX: "scroll",
+    width: "max-content",
     scrollbarWidth: "none" /* mozilla */,
     "&::-webkit-scrollbar": {
       display: "none" /* Safari and Chrome browsers */,

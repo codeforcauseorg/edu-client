@@ -14,9 +14,9 @@ import React from "react";
 const useStyle = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(1),
-    marginLeft: "10px",
-    marginRight: "18px",
-    minWidth: 300,
+    minWidth: "80vw",
+    width: "80vw",
+    marginRight: "16px",
     boxShadow: "4px 5px 20px lightgray",
   },
   cardMedia: {
