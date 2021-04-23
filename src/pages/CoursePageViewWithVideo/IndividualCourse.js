@@ -111,7 +111,9 @@ export default function CoursePageViewWithVideo(props) {
     {
       id: 1,
       title: "Anouncements",
-      onPress: () => console.log("Anouncements"),
+      onPress: () => {
+        history.push("/mycourses/:coursename/announcement");
+      },
     },
     {
       id: 2,
