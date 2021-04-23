@@ -39,31 +39,37 @@ const Data = [
     id: 1,
     name: "John",
     cmt: "Lorem ipsum is a placeholder text commonly used to demonstrate the visual document",
+    date: "15:20 12 Apr",
   },
   {
     id: 2,
     name: "Sam",
     cmt: "Lorem ipsum is a placeholder text commonly used to demonstrate the visual document",
+    date: "15:20 12 Apr",
   },
   {
     id: 3,
     name: "Anny",
     cmt: "Lorem ipsum is a placeholder text commonly used to demonstrate the visual document",
+    date: "15:20 12 Apr",
   },
   {
     id: 4,
     name: "Lnny",
     cmt: "Lorem ipsum is a placeholder text commonly used to demonstrate the visual document",
+    date: "15:20 12 Apr",
   },
   {
     id: 5,
     name: "Mnny",
     cmt: "Lorem ipsum is a placeholder text commonly used to demonstrate the visual document",
+    date: "15:20 12 Apr",
   },
   {
     id: 5,
     name: "Cnny",
     cmt: "Lorem ipsum is a placeholder text commonly used to demonstrate the visual document",
+    date: "15:20 12 Apr",
   },
 ];
 function Comment() {
@@ -101,6 +107,9 @@ function Comment() {
                   <div>
                     <Typography variant="body2" className={classes.info}>
                       {data.name}
+                    </Typography>
+                    <Typography variant="body1" className={classes.info}>
+                      {data.date}
                     </Typography>
                   </div>
                 </div>
