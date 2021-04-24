@@ -34,7 +34,7 @@ function ScrollTop(props) {
     const anchor = (event.target.ownerDocument || document).querySelector("#back-to-top-anchor");
 
     if (anchor) {
-      anchor.scrollIntoView({ behavior: "smooth", block: "center" });
+      anchor.scrollIntoView({ behavior: "smooth", block: "end" });
     }
   };
 

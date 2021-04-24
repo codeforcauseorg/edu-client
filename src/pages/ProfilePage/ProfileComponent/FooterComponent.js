@@ -1,12 +1,12 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-
+import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   footer: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    height: "107px",
+    height: 150,
     marginTop: "20px",
     background: "#F0F4F8",
     paddingLeft: theme.spacing(2),
@@ -18,22 +18,34 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 400,
     },
   },
+  link_footer: {
+    textDecoration: "none",
+  },
 }));
 const footerItems = [
   {
     id: 1,
+    link: "/faq",
     title: "FAQs",
   },
   {
     id: 2,
+    link: "/about",
     title: "ABOUT US",
   },
   {
     id: 3,
-    title: "TERMS OF USE",
+    link: "/ContactUs",
+    title: "CONTACT US",
   },
   {
     id: 4,
+    link: "/terms-and-conditions",
+    title: "TERMS OF USE",
+  },
+  {
+    id: 5,
+    link: "/privacy",
     title: "PRIVACY POLICY",
   },
 ];
@@ -44,7 +56,9 @@ function FooterComponent() {
     <React.Fragment>
       <Box className={classes.footer}>
         {footerItems.map((items) => (
-          <Typography key={items.id}>{items.title}</Typography>
+          <Link to={items.link} key={items.id} className={classes.link_footer}>
+            <Typography>{items.title}</Typography>
+          </Link>
         ))}
       </Box>
     </React.Fragment>

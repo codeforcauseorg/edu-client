@@ -41,7 +41,7 @@ const CourseCard = () => {
       <Card style={{ margin: 0, padding: 0 }}>
         <CardHeader
           style={{
-            backgroundImage: "url(/assets/wishlist/2.png)",
+            backgroundImage: "url(/assets/wishlist/1.png)",
             backgroundSize: "cover",
             paddingLeft: "8px",
           }}

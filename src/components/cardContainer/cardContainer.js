@@ -6,8 +6,11 @@ const useStyles = makeStyles({
     paddingBottom: "50px",
     display: "flex",
     flexWrap: "nowrap",
-    gap: "24px",
+    marginTop: "10px",
+    marginBottom: "10px",
+    gap: "18px",
     overflowX: "scroll",
+    width: "max-content",
     scrollbarWidth: "none" /* mozilla */,
     "&::-webkit-scrollbar": {
       display: "none" /* Safari and Chrome browsers */,

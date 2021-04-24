@@ -1,10 +1,20 @@
-import { List, ListItem, makeStyles } from "@material-ui/core";
-
+import {
+  List,
+  ListItem,
+  makeStyles,
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCard from "../../components/wishlistCard";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
+import { useHistory } from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -16,16 +26,44 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
 }));
 
 const WishListView = (props) => {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar variant="dense">
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.title}>
+            WishList
+          </Typography>
+          <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
+            <MoreVertIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
       <div id="back-to-top-anchor"></div>
       <ScrollToTop />
       <List>
-        {[1, 2, 3, 4, 5, 6, 7].map((item, index) => {
+        {[1, 2, 3, 4].map((item, index) => {
           return (
             <ListItem key={index} className={classes.li}>
               <WishlistCard props={props} />
