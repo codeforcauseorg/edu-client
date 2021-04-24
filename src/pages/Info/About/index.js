@@ -22,9 +22,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     flexGrow: 1,
   },
-  appBar: {
-    background: "#160050",
-  },
   aboutText: {
     color: "#555",
   },
@@ -112,7 +109,7 @@ function About() {
 
   return (
     <>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="static">
         <Toolbar variant="dense">
           <IconButton
             edge="start"
