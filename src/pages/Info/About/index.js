@@ -1,27 +1,21 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, IconButton, Toolbar, Typography, Container, Box } from "@material-ui/core";
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+  Container,
+  Grid,
+  makeStyles,
+  Divider,
+  Box,
+} from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { useHistory } from "react-router-dom";
-import ScrollToTop from "../../././../utils/ScrollToTop";
-import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
-import EmailOutlinedIcon from "@material-ui/icons/EmailOutlined";
-import Link from "@material-ui/core/Link";
+import Team from "./Team.js";
 
 const useStyles = makeStyles((theme) => ({
-  img: {
-    width: "100%",
-    background: "#ddd",
-  },
-  btn: {
-    margin: "0 auto",
-    width: "7rem",
-    fontSize: ".9rem",
-    textTransform: "none",
-    backgroundColor: "#ba000d",
-  },
   backButton: {
     marginRight: theme.spacing(2),
   },
@@ -31,59 +25,88 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     background: "#160050",
   },
+  aboutText: {
+    color: "#555",
+  },
   root: {
     flexGrow: 1,
+    fontFamily: ["Poppins", "sans-serif"].join(","),
   },
   large: {
     margin: "auto",
     width: theme.spacing(10),
     height: theme.spacing(10),
   },
-  icon: {
-    float: "right",
-    color: "red",
+  content: {
+    marginTop: "34px",
+    marginBottom: "34px",
+    color: "#333",
+  },
+  mainTitles: {
+    padding: theme.spacing(2),
+    fontSize: "20px",
+    fontWeight: 400,
+    color: "#0D0F44",
+  },
+  mainHead: {
+    padding: theme.spacing(2),
+    fontSize: "20px",
+    fontWeight: 600,
+  },
+  BoxSpaces: {
+    padding: "15px",
+  },
+  icons: {
+    marginTop: "50px",
+    width: "4rem",
+    marginBottom: "10px",
+  },
+  iconsText: {
+    fontWeight: "600",
+    fontSize: "0.8rem",
   },
 }));
 
 function About() {
   const classes = useStyles();
   const history = useHistory();
-  const Members = [
+  const mentors = [
     {
-      id: 1,
-      src: "https://www.w3schools.com/w3images/team1.jpg",
-      text: "Jane Doe",
-      mailto: "lorem@ipsum.com",
+      id: "1",
+      name: "Anuj Garg",
+      avatar: "#",
+      linkedin: "#",
     },
     {
-      id: 2,
-      src: "https://www.w3schools.com/w3images/team1.jpg",
-      text: "Jane Doe",
-      mailto: "lorem@ipsum.com",
+      id: "2",
+      name: "Kunal Kushwaha",
+      avatar: "#",
+      linkedin: "#",
     },
     {
-      id: 3,
-      src: "https://www.w3schools.com/w3images/team1.jpg",
-      text: "Jane Doe",
-      mailto: "lorem@ipsum.com",
+      id: "3",
+      name: "Ganga Chaturvedi",
+      avatar: "#",
+      linkedin: "#",
     },
     {
-      id: 4,
-      src: "https://www.w3schools.com/w3images/team1.jpg",
-      text: "Jane Doe",
-      mailto: "lorem@ipsum.com",
+      id: "4",
+      name: "Ekta Mishra",
+      avatar: "#",
+      linkedin: "#",
     },
     {
-      id: 5,
-      src: "https://www.w3schools.com/w3images/team1.jpg",
-      text: "Jane Doe",
-      mailto: "lorem@ipsum.com",
+      id: "5",
+      name: "Bharat Kumar",
+      avatar: "#",
+      linkedin: "#",
     },
     {
-      id: 6,
-      src: "https://www.w3schools.com/w3images/team1.jpg",
-      text: "Jane Doe",
-      mailto: "lorem@ipsum.com",
+      id: "6",
+      name: "Shubham Rawat",
+      position: "Instructor",
+      avatar: "#",
+      linkedin: "#",
     },
   ];
 
@@ -107,92 +130,81 @@ function About() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Container>
-        <ScrollToTop />
-        <div>
+      <Container className={classes.root}>
+        <Grid>
           <Box>
-            <Typography variant="h4" style={{ textAlign: "center", padding: "5%" }}>
-              Code for Cause
+            <Typography className={classes.mainHead} variant="h2" color="secondary">
+              What We Stand For
             </Typography>
           </Box>
-          <Grid container spacing={3}>
-            <Grid item xs={8}>
-              <Typography variant="inherit">
-                Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat. Aliquam eget
-                maximus est, id dignissim quam.
-              </Typography>
-            </Grid>
-            <Grid item xs={4}>
-              <img className={classes.img} src="/assets/img/team.jpg" />
-            </Grid>
-          </Grid>
-        </div>
-        <div>
-          <Box>
-            <Typography
-              variant="h4"
-              style={{ textAlign: "center", padding: "5%", marginTop: "2%" }}
-            >
-              Our Vision
-            </Typography>
-            <Grid container spacing={3} style={{ textAlign: "center" }}>
-              <Grid item xs={12}>
-                <Typography variant="inherit">Grow Up Your Workflow Speed.</Typography>
-                <br />
-                <Typography variant="inherit">
-                  Join our team and become a part of that believe in open education for all.
-                </Typography>
-              </Grid>
-            </Grid>
-            <br />
-            <Grid container spacing={3} style={{ textAlign: "center", color: "blue" }}>
-              <Grid item xs={4}>
-                <Typography variant="h4" style={{ textAlign: "center" }}>
-                  27,889
-                </Typography>
-              </Grid>
-              <Grid item xs={4}>
-                <Typography variant="h4" style={{ textAlign: "center" }}>
-                  90%
-                </Typography>
-              </Grid>
-              <Grid item xs={4}>
-                <Typography variant="h4" style={{ textAlign: "center" }}>
-                  70,592
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
-        </div>
-        <br />
-        <div>
-          <Box>
-            <Typography variant="h4" style={{ textAlign: "center", padding: "5%" }}>
-              Our Team
+          <Divider />
+          <Box className={classes.BoxSpaces}>
+            <Typography variant="body2" className={classes.aboutText}>
+              We aim to provide a real world practical learning experience and keep students
+              informed about the latest trends in technology, open-source and opportunities, so that
+              they can keep up with the fast-paced digital world by following a pi-shaped learning
+              pattern.
             </Typography>
           </Box>
-          <br />
-          <div>
-            <Grid container spacing={3}>
-              {Members.map((items) => (
-                <Grid item xs={4} key={items.id}>
-                  <Avatar alt={items.text} src={items.src} className={classes.large} />
-                  <br />
-                  <Typography variant="body2" component="p" style={{ float: "left" }}>
-                    {items.text}
-                  </Typography>
-                  <Link
-                    href={"mailto:" + items.mailto + "?body=Hello Friends"}
-                    className={classes.icon}
-                  >
-                    <EmailOutlinedIcon />
-                  </Link>
-                </Grid>
-              ))}
-            </Grid>
-          </div>
-        </div>
+          <Box>
+            <Typography className={classes.mainTitles} variant="h5">
+              Open Knowledge
+            </Typography>
+          </Box>
+          <Divider />
+          <Box className={classes.BoxSpaces}>
+            <Typography variant="body2" className={classes.aboutText}>
+              Our structure is based on generating knowledge flow that is not limited by
+              bottlenecks. We inspire our mentees to pass on guidance and support, expanding our
+              mentor base with each student we teach.
+            </Typography>
+          </Box>
+          <Box display="flex" alignItems="center" flexDirection="column" textAlign="center">
+            <div>
+              <img src="assets/icon/live.svg" className={classes.icons} />
+              <Typography className={classes.iconsText}>live classes</Typography>
+            </div>
+            <div>
+              <img src="assets/icon/doubt.svg" className={classes.icons} />
+              <Typography className={classes.iconsText}>Doubt Resolution</Typography>
+            </div>
+            <div>
+              <img src="assets/icon/carrer.svg" className={classes.icons} />
+              <Typography className={classes.iconsText}>Career Guidance</Typography>
+            </div>
+          </Box>
+          <Box style={{ marginTop: "30px" }}>
+            <Typography className={classes.mainTitles} variant="h5">
+              Open Source
+            </Typography>
+          </Box>
+          <Divider />
+          <Box className={classes.BoxSpaces}>
+            <Typography variant="body2" className={classes.aboutText}>
+              Our motivation is to funnel learning through OSS development that can solve real-world
+              problems. With this, you can enhance your ideation, development, and soft skills such
+              as communication, teamwork, and leadership.
+            </Typography>
+          </Box>
+          <Box display="flex" alignItems="center" flexDirection="column" textAlign="center">
+            <div>
+              <img src="assets/icon/dev.svg" className={classes.icons} />
+              <Typography className={classes.iconsText}>Develop Products</Typography>
+            </div>
+            <div>
+              <img src="assets/icon/col.svg" className={classes.icons} />
+              <Typography className={classes.iconsText}>Collaborative Coding</Typography>
+            </div>
+            <div>
+              <img src="assets/icon/net.svg" className={classes.icons} />
+              <Typography className={classes.iconsText}>Networking Events</Typography>
+            </div>
+          </Box>
+        </Grid>
       </Container>
+      <div style={{ marginTop: "30px" }}>
+        <Team id="team" mentors={mentors} />
+      </div>
     </>
   );
 }

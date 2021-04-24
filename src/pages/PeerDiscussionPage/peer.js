@@ -9,6 +9,7 @@ import {
   AppBar,
   IconButton,
   Toolbar,
+  Avatar,
 } from "@material-ui/core";
 import Divider from "@material-ui/core/Divider";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
@@ -76,6 +77,9 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     background: "#160050",
+  },
+  mainAvatar: {
+    marginBottom: "5px",
   },
 }));
 
@@ -145,13 +149,24 @@ export default function PeerPage(props) {
         </Box>
         <Divider />
         <div className={classes.searchSection}>
-          <AccountCircleOutlined />
-          <div>
-            <TextField id="outlined-basic" label="Type a Response" variant="outlined" />
-            <Button className={classes.Buttons}>
-              <ArrowForwardIosIcon />
-            </Button>
-          </div>
+          <Grid container spacing={2} alignItems="flex-end">
+            <Grid item xs={2}>
+              <Avatar className={classes.mainAvatar} />
+            </Grid>
+            <Grid item xs={8}>
+              <TextField
+                id="outlined-basic"
+                label="Type a Response"
+                variant="outlined"
+                style={{ width: "110%" }}
+              />
+            </Grid>
+            <Grid item xs={2} style={{ display: "flex", alignItems: "center" }}>
+              <Button className={classes.Buttons}>
+                <ArrowForwardIosIcon style={{ fontSize: "large", marginTop: "-10px" }} />
+              </Button>
+            </Grid>
+          </Grid>
         </div>
         <Divider />
 
