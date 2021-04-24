@@ -25,6 +25,7 @@ import Statistics from "./pages/Statistics";
 import ContactUs from "./pages/ContactUs";
 import MentorPage from "./pages/MentorPage";
 import ReferralAndCoupons from "./pages/ReferralAndCouponCodes";
+import EditProfile from "./pages/ProfilePage/ProfileComponent/EditProfile";
 
 // IMPORTANT - Don't add any route inside the scope of <SwipeableRoutes> </SwipeableRoutes> unless it is a page which can be navigated using the bottom navigation.
 const renderRoutes = () => (
@@ -54,6 +55,7 @@ const renderRoutes = () => (
       <Route path="/about" exact component={About} />
       <Route path="/mentorPage" exact component={MentorPage} />
       <Route path="/referralAndCoupons" exact component={ReferralAndCoupons} />
+      <Route path="/editprofile" exact component={EditProfile} />
       <MainLayout>
         <SwipeableRoutes replace>
           <Route path="/home" exact component={HomePage} />
