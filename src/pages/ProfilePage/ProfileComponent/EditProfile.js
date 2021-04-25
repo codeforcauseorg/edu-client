@@ -87,7 +87,7 @@ export default function EditProfile() {
         <div>
           <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2}>
-              <Grid item xs={12} style={{ textAlign: "center" }}>
+              <Grid item xs={12} style={{ textAlign: "center", padding: "7%" }}>
                 <Avatar
                   className={classes.avatar}
                   src="https://yt3.ggpht.com/ytc/AAUvwnhpLAOxx0GesrqkAMyNs3Fd3ZULf8yfNc8nTmMp=s900-c-k-c0x00ffffff-no-rj"
@@ -112,7 +112,7 @@ export default function EditProfile() {
                   </Button>
                 </label>
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} style={{ padding: "6%" }}>
                 <TextField
                   autoComplete="fname"
                   name="name"
@@ -127,7 +127,7 @@ export default function EditProfile() {
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} style={{ padding: "6%" }}>
                 <TextField
                   variant="outlined"
                   required
