@@ -9,8 +9,6 @@ import {
   ListItemText,
   makeStyles,
   Typography,
-  AppBar,
-  Toolbar,
 } from "@material-ui/core";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
@@ -19,7 +17,7 @@ import Tab from "@material-ui/core/Tab";
 import { useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-// import Fab from "@material-ui/core/Fab";
+import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
 import { Player, ControlBar } from "video-react";
 import Button from "@material-ui/core/Button";
@@ -81,15 +79,6 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     backgroundColor: "rgb(21,0,81)",
   },
-  backButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  appBar: {
-    background: "#160050",
-  },
 }));
 
 export default function CoursePageViewWithVideo(props) {
@@ -124,12 +113,6 @@ export default function CoursePageViewWithVideo(props) {
 
   const playVideo = (index) => {
     setState({ ...state, playingIndex: index });
-  };
-
-  const [clicked, setClicked] = useState("");
-  const handleLike = () => {
-    const clickedIcon = clicked ? "" : <FavoriteBorderIcon />;
-    setClicked(clickedIcon);
   };
 
   const menuOptions = [
@@ -280,9 +263,9 @@ export default function CoursePageViewWithVideo(props) {
             </Alert>
           </Snackbar>
           <div className={classes.addnote}>
-            {/* <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
+            <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
               <EditIcon />
-            </Fab> */}
+            </Fab>
             <Sheet isOpen={isopen} onClose={() => setisOpen(false)}>
               <Sheet.Container>
                 <Sheet.Header />
@@ -316,15 +299,6 @@ export default function CoursePageViewWithVideo(props) {
                         onClick={handleClick({ vertical: "top", horizontal: "center" })}
                       >
                         Save
-                      </Button>
-                      <Button
-                        variant="contained"
-                        color="default"
-                        size="small"
-                        className={classes.button}
-                        onClick={() => setisOpen(false)}
-                      >
-                        Cancel
                       </Button>
                     </div>
                   </div>
