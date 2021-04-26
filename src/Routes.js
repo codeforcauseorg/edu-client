@@ -17,6 +17,7 @@ import About from "./pages/Info/About";
 import Checkout from "./pages/CheckoutView";
 import MentorRating from "./pages/MentorRating";
 import PeerPage from "./pages/PeerDiscussionPage/peer";
+import Comment from "./pages/PeerDiscussionPage/comments";
 import StudentDashboard from "./pages/StudentDashboardPage";
 import AssignmentSubmission from "./pages/StudentDashboardPage/AssignmentSubmission/AssignmentSubmission";
 import JobOpenings from "./pages/JobOpeningPage";
@@ -50,6 +51,7 @@ const renderRoutes = () => (
       <Route path="/job-openings" exact component={JobOpenings} />
       <Route path="/statistics" exact component={Statistics} />
       <Route path="/peer" exact component={PeerPage} />
+      <Route path="/peer/:id/comments" exact component={Comment} />
       <Route path="/faq" exact component={Faqs} />
       <Route path="/about" exact component={About} />
       <Route path="/mentorPage" exact component={MentorPage} />
