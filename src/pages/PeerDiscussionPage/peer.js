@@ -125,6 +125,7 @@ export default function PeerPage(props) {
         </Toolbar>
       </AppBar>
       <Container>
+        <div id="back-to-top-anchor"></div>
         <ScrollToTop />
         <Box>
           <Typography className={classes.profiletitle} variant="h5">

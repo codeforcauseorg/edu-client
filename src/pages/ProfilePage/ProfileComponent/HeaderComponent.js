@@ -183,7 +183,13 @@ function HeaderComponent() {
         <Box className={classes.studentdetails}>
           <Typography variant="h2">Code for Cause</Typography>
           <Typography variant="h3">team@codeforcause.org</Typography>
-          <Button variant="outlined" className={classes.editbutton}>
+          <Button
+            variant="outlined"
+            className={classes.editbutton}
+            onClick={() => {
+              history.push("/editprofile");
+            }}
+          >
             Edit Profile
           </Button>
         </Box>
