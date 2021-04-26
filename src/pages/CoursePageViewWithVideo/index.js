@@ -16,7 +16,7 @@ import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles((theme) => ({
-  root: { borderRadius: "10px", color: "#000", padding: theme.spacing(3, 0) },
+  root: { borderRadius: "10px", color: "#000" },
   link: {
     textDecoration: "none",
   },
