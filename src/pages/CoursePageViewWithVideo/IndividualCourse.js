@@ -18,7 +18,8 @@ import TextField from "@material-ui/core/TextField";
 import Tab from "@material-ui/core/Tab";
 import { useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
-import Fab from "@material-ui/core/Fab";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+// import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
 import { Player, ControlBar } from "video-react";
 import Button from "@material-ui/core/Button";
@@ -279,9 +280,9 @@ export default function CoursePageViewWithVideo(props) {
             </Alert>
           </Snackbar>
           <div className={classes.addnote}>
-            <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
+            {/* <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
               <EditIcon />
-            </Fab>
+            </Fab> */}
             <Sheet isOpen={isopen} onClose={() => setisOpen(false)}>
               <Sheet.Container>
                 <Sheet.Header />
