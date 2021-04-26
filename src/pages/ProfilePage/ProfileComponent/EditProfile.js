@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
 import {
   makeStyles,
   Typography,
@@ -17,6 +18,48 @@ import { useForm } from "react-hook-form";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import Avatar from "@material-ui/core/Avatar";
 import SaveIcon from "@material-ui/icons/Save";
+import MuiAccordion from "@material-ui/core/Accordion";
+import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
+import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
+const Accordion = withStyles({
+  root: {
+    boxShadow: "none",
+    "&:not(:last-child)": {
+      borderBottom: 0,
+    },
+    "&:before": {
+      display: "none",
+    },
+    "&$expanded": {
+      margin: "auto",
+    },
+  },
+  expanded: {},
+})(MuiAccordion);
+
+const AccordionSummary = withStyles({
+  root: {
+    marginBottom: -1,
+    minHeight: 56,
+    "&$expanded": {
+      minHeight: 56,
+    },
+  },
+  content: {
+    "&$expanded": {
+      margin: "12px 0",
+    },
+  },
+  expanded: {},
+})(MuiAccordionSummary);
+
+const AccordionDetails = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiAccordionDetails);
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -41,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -62,6 +105,12 @@ export default function EditProfile() {
   } = useForm();
 
   const onSubmit = (data) => console.log(data);
+
+  const [expanded, setExpanded] = React.useState("");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
 
   return (
     <>
@@ -99,7 +148,7 @@ export default function EditProfile() {
                   type="file"
                   name="image"
                   id="image"
-                  {...register("image", { required: "*Image is required" })}
+                  {...register("image")}
                 />
                 <label htmlFor="image">
                   <Button
@@ -112,36 +161,119 @@ export default function EditProfile() {
                   </Button>
                 </label>
               </Grid>
-              <Grid item xs={12} style={{ padding: "6%" }}>
+              <Grid item xs={12} style={{ padding: "4%" }}>
                 <TextField
                   autoComplete="fname"
                   name="name"
                   variant="outlined"
-                  required
                   fullWidth
                   id="name"
                   label="Organisation Name"
-                  {...register("name", { required: "*Name is required" })}
+                  {...register("name")}
                   error={Boolean(errors.name)}
                   helperText={errors.name?.message}
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} style={{ padding: "6%" }}>
+              <Grid item xs={12} sm={6} style={{ padding: "4%" }}>
                 <TextField
                   variant="outlined"
-                  required
                   fullWidth
                   id="email"
                   label="Organisation Email"
                   name="email"
                   autoComplete="email"
-                  {...register("email", { required: "*Email is required" })}
+                  {...register("email")}
                   error={Boolean(errors.email)}
                   helperText={errors.email?.message}
                   autoFocus
                 />
               </Grid>
+              <Grid item xs={12} sm={6} style={{ padding: "4%" }}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="phone"
+                  label="Phone Number"
+                  name="phone"
+                  autoComplete="phone"
+                  {...register("phone")}
+                  error={Boolean(errors.phone)}
+                  helperText={errors.phone?.message}
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} style={{ padding: "4%" }}>
+                <TextField
+                  variant="outlined"
+                  fullWidth
+                  id="website"
+                  label="Website"
+                  name="website"
+                  autoComplete="website"
+                  {...register("website")}
+                  error={Boolean(errors.website)}
+                  helperText={errors.website?.message}
+                  autoFocus
+                />
+              </Grid>
+              <Accordion expanded={expanded === "panel1"} onChange={handleChange("panel1")}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1d-content"
+                  id="panel1d-header"
+                >
+                  <Typography variant="h4" color="inherit">
+                    Contact Settings
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Grid container spacing={2}>
+                    <Grid item xs={12} style={{ padding: "4%" }}>
+                      <TextField
+                        variant="outlined"
+                        fullWidth
+                        id="linkedin"
+                        label="LinkedIn"
+                        name="linkedin"
+                        autoComplete="linkedin"
+                        {...register("linkedin")}
+                        error={Boolean(errors.linkedin)}
+                        helperText={errors.linkedin?.message}
+                        autoFocus
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6} style={{ padding: "4%" }}>
+                      <TextField
+                        variant="outlined"
+                        fullWidth
+                        id="github"
+                        label="GitHub"
+                        name="github"
+                        autoComplete="github"
+                        {...register("github")}
+                        error={Boolean(errors.github)}
+                        helperText={errors.github?.message}
+                        autoFocus
+                      />
+                    </Grid>
+                    <Grid item xs={12} sm={6} style={{ padding: "4%" }}>
+                      <TextField
+                        variant="outlined"
+                        fullWidth
+                        id="twitter"
+                        label="Twitter"
+                        name="twitter"
+                        autoComplete="twitter"
+                        {...register("twitter")}
+                        error={Boolean(errors.twitter)}
+                        helperText={errors.twitter?.message}
+                        autoFocus
+                      />
+                    </Grid>
+                  </Grid>
+                </AccordionDetails>
+              </Accordion>
             </Grid>
             <Button
               type="submit"
