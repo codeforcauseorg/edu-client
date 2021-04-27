@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import CourseCard from "../../components/courseCard/courseCard1";
 import ScrollTop from "../../components/backTop/index";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";;
+import Fab from "@material-ui/core/Fab";
 
 const useStyles = makeStyles((theme) => ({
   root: { borderRadius: "10px", color: "#000", padding: theme.spacing(3, 0) },
