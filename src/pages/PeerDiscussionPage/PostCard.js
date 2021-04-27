@@ -81,7 +81,7 @@ function PostCard({ data }) {
       <div className={classes.root}>
         <Grid container spacing={1}>
           <Grid>
-            <Avatar className={classes.orange}>{`Mentor`.slice(0, 1)}</Avatar>
+            <Avatar className={classes.orange}>{data.person.slice(0, 1)}</Avatar>
           </Grid>
           <Box margin={1}>
             <div>
@@ -118,7 +118,7 @@ function PostCard({ data }) {
           </div>
           <div style={{ display: "flex" }}>
             <Grid>
-              <Avatar className={classes.purple}>{`User`.slice(0, 1)}</Avatar>
+              <Avatar className={classes.purple}>{`me`}</Avatar>
             </Grid>
             <div className={classes.comment}>
               <TextField
