@@ -12,8 +12,6 @@ import WishlistCard from "../../components/wishlistCard";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
-import { useHistory } from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const useStyles = makeStyles((theme) => ({
@@ -39,19 +37,10 @@ const useStyles = makeStyles((theme) => ({
 
 const WishListView = (props) => {
   const classes = useStyles();
-  const history = useHistory();
   return (
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            onClick={() => history.goBack()}
-          >
-            <ArrowBackIcon />
-          </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             WishList
           </Typography>
