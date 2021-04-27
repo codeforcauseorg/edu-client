@@ -17,10 +17,6 @@ const useStyle = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
     marginTop: theme.spacing(1),
   },
-  container: {
-    overflowX: "scroll",
-    scrollbarWidth: "none",
-  },
 }));
 
 const ongoingData = [
@@ -120,35 +116,33 @@ function ProgressCourse() {
           ))}
         </Box>
       </Container>
-      <div className={classes.container}>
-        <CardContainer>
-          {status === "On Going"
-            ? ongoingData.map((items, index) => (
-                <CourseMediaCard
-                  key={index}
-                  chapterNumber={items.chapterNumber}
-                  chapterTitle={items.chapterTitle}
-                  courseName={items.courseName}
-                  bannerImage={items.bannerImage}
-                  completedDuration={items.completedDuration}
-                  totalDuration={items.totalDuration}
-                  progressValue={items.progressValue}
-                />
-              ))
-            : completed.map((items, index) => (
-                <CourseMediaCard
-                  key={index}
-                  chapterNumber={items.chapterNumber}
-                  chapterTitle={items.chapterTitle}
-                  courseName={items.courseName}
-                  bannerImage={items.bannerImage}
-                  completedDuration={items.completedDuration}
-                  totalDuration={items.totalDuration}
-                  progressValue={items.progressValue}
-                />
-              ))}
-        </CardContainer>
-      </div>
+      <CardContainer>
+        {status === "On Going"
+          ? ongoingData.map((items, index) => (
+              <CourseMediaCard
+                key={index}
+                chapterNumber={items.chapterNumber}
+                chapterTitle={items.chapterTitle}
+                courseName={items.courseName}
+                bannerImage={items.bannerImage}
+                completedDuration={items.completedDuration}
+                totalDuration={items.totalDuration}
+                progressValue={items.progressValue}
+              />
+            ))
+          : completed.map((items, index) => (
+              <CourseMediaCard
+                key={index}
+                chapterNumber={items.chapterNumber}
+                chapterTitle={items.chapterTitle}
+                courseName={items.courseName}
+                bannerImage={items.bannerImage}
+                completedDuration={items.completedDuration}
+                totalDuration={items.totalDuration}
+                progressValue={items.progressValue}
+              />
+            ))}
+      </CardContainer>
     </div>
   );
 }
