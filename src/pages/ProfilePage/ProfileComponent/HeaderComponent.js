@@ -118,6 +118,14 @@ function HeaderComponent() {
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
+          </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Profile
           </Typography>
