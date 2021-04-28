@@ -9,6 +9,8 @@ import {
   ListItemText,
   makeStyles,
   Typography,
+  AppBar,
+  Toolbar,
 } from "@material-ui/core";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
@@ -79,6 +81,15 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     backgroundColor: "rgb(21,0,81)",
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
 }));
 
 export default function CoursePageViewWithVideo(props) {
@@ -113,6 +124,12 @@ export default function CoursePageViewWithVideo(props) {
 
   const playVideo = (index) => {
     setState({ ...state, playingIndex: index });
+  };
+
+  const [clicked, setClicked] = useState("");
+  const handleLike = () => {
+    const clickedIcon = clicked ? "" : <FavoriteBorderIcon />;
+    setClicked(clickedIcon);
   };
 
   const menuOptions = [
@@ -304,6 +321,15 @@ export default function CoursePageViewWithVideo(props) {
                         onClick={handleClick({ vertical: "top", horizontal: "center" })}
                       >
                         Save
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="default"
+                        size="small"
+                        className={classes.button}
+                        onClick={() => setisOpen(false)}
+                      >
+                        Cancel
                       </Button>
                     </div>
                   </div>
