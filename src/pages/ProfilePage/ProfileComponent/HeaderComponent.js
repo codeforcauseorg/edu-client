@@ -10,8 +10,6 @@ import {
   Button,
   Divider,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ShareIcon from "@material-ui/icons/Share";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -103,7 +101,6 @@ const useStyles = makeStyles((theme) => ({
 
 function HeaderComponent() {
   const classes = useStyles();
-  const history = useHistory();
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
@@ -118,14 +115,6 @@ function HeaderComponent() {
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            onClick={() => history.goBack()}
-          >
-            <ArrowBackIcon />
-          </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Profile
           </Typography>
@@ -183,7 +172,13 @@ function HeaderComponent() {
         <Box className={classes.studentdetails}>
           <Typography variant="h2">Code for Cause</Typography>
           <Typography variant="h3">team@codeforcause.org</Typography>
-          <Button variant="outlined" className={classes.editbutton}>
+          <Button
+            variant="outlined"
+            className={classes.editbutton}
+            onClick={() => {
+              history.push("/editprofile");
+            }}
+          >
             Edit Profile
           </Button>
         </Box>

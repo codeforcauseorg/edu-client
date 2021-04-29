@@ -1,5 +1,6 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
+import SocialShare from "../../../components/SocialShare/SocialShare";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -24,8 +25,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 function ReferralCode() {
   const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
+  const handleDrawer = () => {
+    setOpen(!open);
+  };
   return (
-    <Box className={classes.root} onClick={() => console.log("LVWDIEEYV")}>
+    <Box className={classes.root} onClick={() => handleDrawer()}>
       <Typography variant="h6" className={classes.title}>
         REFERRAL CODE
       </Typography>
@@ -37,6 +43,7 @@ function ReferralCode() {
           </Typography>
         </Box>
       </Box>
+      <SocialShare open={open} message="Referral Code: LVWDIEEYV" />
     </Box>
   );
 }

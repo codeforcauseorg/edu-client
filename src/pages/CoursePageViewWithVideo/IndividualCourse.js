@@ -20,13 +20,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import { Player, ControlBar } from "video-react";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert from "@material-ui/lab/Alert";
-
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
-
+import SnackBarComponent from "../../components/SnackBar/SnackBar";
 const useStyles = makeStyles((theme) => ({
   tabroot: {
     textTransform: "capitalize",
@@ -223,16 +217,15 @@ export default function CoursePageViewWithVideo(props) {
               );
             })}
           </List>
-          <Snackbar
-            anchorOrigin={{ vertical, horizontal }}
-            open={open}
-            onClose={handleClose}
-            key={vertical + horizontal}
-          >
-            <Alert onClose={handleClose} severity="success">
-              Note Added!
-            </Alert>
-          </Snackbar>
+          <SnackBarComponent
+            vertical={vertical}
+            horizontal={horizontal}
+            opensnack={open}
+            handleClose={handleClose}
+            severity="success"
+            message=" Note Added!"
+            autoHideDuration={1500}
+          />
           <div className={classes.addnote}>
             <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
               <EditIcon />
