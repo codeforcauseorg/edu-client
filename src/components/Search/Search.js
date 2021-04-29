@@ -1,6 +1,6 @@
 import React from "react";
 import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -30,6 +30,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexWrap: "nowrap",
     overflowX: "auto",
+    cursor: "pointer",
     scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
       display: "none",
@@ -45,24 +46,20 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function Search() {
+function Search({ data, placeholder }) {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <div className={classes.inputBox}>
         <SearchIcon className={classes.icon} />
-        <input
-          className={classes.input}
-          type="text"
-          placeholder="Search courses, categories or mentors"
-        ></input>
+        <input className={classes.input} type="text" placeholder={placeholder}></input>
       </div>
       <div className={classes.tags}>
-        {["Web", "Programming", "Android", "Kotlin", "C/C++", "Python"].map((item, i) => (
-          <p className={classes.tag} key={i}>
+        {data.map((item, i) => (
+          <Typography variant="body1" className={classes.tag} key={i}>
             {item}
-          </p>
+          </Typography>
         ))}
       </div>
     </div>
