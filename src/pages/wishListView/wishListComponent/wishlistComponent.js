@@ -17,10 +17,6 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     margin: 0,
     borderRadius: "8px",
-    "&:hover": {
-      cursor: "pointer",
-      transform: "translateY(-2px)",
-    },
   },
   cardHeader: {
     backgroundColor: "#A60000",
@@ -56,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(2),
   },
+  listItem: {
+    transition: " all 0.4s ease-out",
+  },
 }));
 
 const WishlistCardComponent = ({ props, onClick }) => {
@@ -63,7 +62,7 @@ const WishlistCardComponent = ({ props, onClick }) => {
   const history = useHistory();
   return (
     <Container className={classes.root}>
-      <ListItem>
+      <ListItem className={classes.listItem}>
         <Card>
           <CardHeader
             style={{
@@ -102,7 +101,7 @@ const WishlistCardComponent = ({ props, onClick }) => {
             <ButtonComponent
               className={classes.button}
               title="Checkout Now"
-              onClick={() => history.push(`/checkout/${1}`)}
+              onClick={() => history.push(`/checkout/${props.id}`)}
             />
           </CardContent>
         </Card>

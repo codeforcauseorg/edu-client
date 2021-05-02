@@ -7,6 +7,7 @@ import ScrollTop from "../../components/backTop/index";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { connect } from "react-redux";
 import { wishlistDeleted } from "../../actions/wishlistActions";
+import EmptyWishlist from "./wishListComponent/emptyWishlist";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -30,7 +31,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const WishListView = ({ props, wishlist, wishlistDeleted }) => {
-  console.log(wishlist);
   const classes = useStyles();
   return (
     <>
@@ -46,18 +46,22 @@ const WishListView = ({ props, wishlist, wishlistDeleted }) => {
       </AppBar>
       <div id="back-to-top-anchor"></div>
       <ScrollToTop />
-      <List>
-        {wishlist.map((item) => {
-          return (
-            <WishlistCardComponent
-              key={item.id}
-              props={item}
-              onClick={() => wishlistDeleted({ id: item.id })}
-            />
-          );
-        })}
-      </List>
 
+      {wishlist.length ? (
+        <List>
+          {wishlist.map((item) => {
+            return (
+              <WishlistCardComponent
+                key={item.id}
+                props={item}
+                onClick={() => wishlistDeleted({ id: item.id })}
+              />
+            );
+          })}
+        </List>
+      ) : (
+        <EmptyWishlist />
+      )}
       <div className={classes.backtotop}>
         <ScrollTop {...props}>
           <Fab color="secondary" size="small" aria-label="scroll back to top">
