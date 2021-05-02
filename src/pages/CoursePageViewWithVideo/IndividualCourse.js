@@ -9,6 +9,8 @@ import {
   ListItemText,
   makeStyles,
   Typography,
+  AppBar,
+  Toolbar,
 } from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import Tab from "@material-ui/core/Tab";
@@ -20,7 +22,16 @@ import EditIcon from "@material-ui/icons/Edit";
 import { Player, ControlBar } from "video-react";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
-import SnackBarComponent from "../../components/SnackBar/SnackBar";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const useStyles = makeStyles((theme) => ({
   tabroot: {
     textTransform: "capitalize",
@@ -68,6 +79,15 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     backgroundColor: "rgb(21,0,81)",
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
 }));
 
 export default function CoursePageViewWithVideo(props) {
@@ -99,6 +119,12 @@ export default function CoursePageViewWithVideo(props) {
 
   const playVideo = (index) => {
     setState({ ...state, playingIndex: index });
+  };
+
+  const [clicked, setClicked] = useState("");
+  const handleLike = () => {
+    const clickedIcon = clicked ? "" : <FavoriteBorderIcon />;
+    setClicked(clickedIcon);
   };
 
   const menuOptions = [
@@ -150,6 +176,30 @@ export default function CoursePageViewWithVideo(props) {
 
   return (
     <>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar variant="dense">
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.title}>
+            Course Name
+          </Typography>
+          <IconButton
+            edge="end"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            onClick={handleLike}
+          >
+            {clicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+        </Toolbar>
+      </AppBar>
       <div id="back-to-top-anchor"></div>
       <div>
         <Player
@@ -217,15 +267,16 @@ export default function CoursePageViewWithVideo(props) {
               );
             })}
           </List>
-          <SnackBarComponent
-            vertical={vertical}
-            horizontal={horizontal}
-            opensnack={open}
-            handleClose={handleClose}
-            severity="success"
-            message=" Note Added!"
-            autoHideDuration={1500}
-          />
+          <Snackbar
+            anchorOrigin={{ vertical, horizontal }}
+            open={open}
+            onClose={handleClose}
+            key={vertical + horizontal}
+          >
+            <Alert onClose={handleClose} severity="success">
+              Note Added!
+            </Alert>
+          </Snackbar>
           <div className={classes.addnote}>
             <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
               <EditIcon />
@@ -263,6 +314,15 @@ export default function CoursePageViewWithVideo(props) {
                         onClick={handleClick({ vertical: "top", horizontal: "center" })}
                       >
                         Save
+                      </Button>
+                      <Button
+                        variant="contained"
+                        color="default"
+                        size="small"
+                        className={classes.button}
+                        onClick={() => setisOpen(false)}
+                      >
+                        Cancel
                       </Button>
                     </div>
                   </div>
