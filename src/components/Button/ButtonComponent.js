@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function ButtonComponent({ className, title, icon = null, ...rest }) {
+function ButtonComponent({ className, title, icon = null, onClick }) {
   const classes = useStyles();
   return (
-    <Button className={clsx(classes.btn, className)} {...rest}>
+    <Button className={clsx(classes.btn, className)} onClick={onClick}>
       {icon || ""}
       <Typography variant="subtitle2">{title}</Typography>
     </Button>
