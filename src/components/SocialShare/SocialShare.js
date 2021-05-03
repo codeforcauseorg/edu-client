@@ -1,4 +1,13 @@
-import { Box, Button, Divider, Drawer, makeStyles, Paper, Typography } from "@material-ui/core";
+import {
+  Box,
+  Button,
+  Divider,
+  Drawer,
+  makeStyles,
+  Paper,
+  Typography,
+  Container,
+} from "@material-ui/core";
 import React from "react";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 import {
@@ -18,6 +27,12 @@ import {
 import CopyToClipboard from "react-copy-to-clipboard";
 import SnackBarComponent from "../SnackBar/SnackBar";
 const useStyles = makeStyles((theme) => ({
+  drawer: {
+    "&.MuiPaper-root": {
+      background: "none !important",
+      color: "none !important",
+    },
+  },
   paper: {
     background: "#fff",
     textAlign: "center",
@@ -76,49 +91,53 @@ function SocialShare({ open, message }) {
 
   return (
     <>
-      <Drawer className={classes.drawer} anchor="bottom" open={open}>
-        <Paper className={classes.paper}>
-          <Box className={classes.title}>
-            <Typography variant="h4">Share to</Typography>
-          </Box>
-          <Divider />
-          <Box className={classes.container}>
-            <TwitterShareButton url={message} className={classes.icons}>
-              <TwitterIcon size={52} round />
-            </TwitterShareButton>
-            <WhatsappShareButton url={message} className={classes.icons}>
-              <WhatsappIcon size={52} round />
-            </WhatsappShareButton>
-            <FacebookShareButton url={message} className={classes.icons}>
-              <FacebookIcon size={52} round />
-            </FacebookShareButton>
-            <EmailShareButton url={message} className={classes.icons}>
-              <EmailIcon size={52} round />
-            </EmailShareButton>
-            <TelegramShareButton url={message} className={classes.icons}>
-              <TelegramIcon size={52} round />
-            </TelegramShareButton>
-            <LinkedinShareButton url={message} className={classes.icons}>
-              <LinkedinIcon size={52} round />
-            </LinkedinShareButton>
-          </Box>
-          <Divider />
-          <Box>
-            <CopyToClipboard text={message}>
-              <Button
-                className={classes.copyButton}
-                style={{ background: "#3E4BAE" }}
-                onClick={handleClick({ vertical: "top", horizontal: "center" })}
-              >
-                <Box className={classes.buttonContainer}>
-                  <AssignmentIcon className={classes.assignmentIcon} />
-                  <Typography>Copy to Clipboard</Typography>
-                </Box>
-              </Button>
-            </CopyToClipboard>
-          </Box>
-        </Paper>
-      </Drawer>
+      <div>
+        <Drawer className={classes.drawer} anchor="bottom" open={open}>
+          <Container maxWidth="xs">
+            <Paper className={classes.paper}>
+              <Box className={classes.title}>
+                <Typography variant="h4">Share to</Typography>
+              </Box>
+              <Divider />
+              <Box className={classes.container}>
+                <TwitterShareButton url={message} className={classes.icons}>
+                  <TwitterIcon size={52} round />
+                </TwitterShareButton>
+                <WhatsappShareButton url={message} className={classes.icons}>
+                  <WhatsappIcon size={52} round />
+                </WhatsappShareButton>
+                <FacebookShareButton url={message} className={classes.icons}>
+                  <FacebookIcon size={52} round />
+                </FacebookShareButton>
+                <EmailShareButton url={message} className={classes.icons}>
+                  <EmailIcon size={52} round />
+                </EmailShareButton>
+                <TelegramShareButton url={message} className={classes.icons}>
+                  <TelegramIcon size={52} round />
+                </TelegramShareButton>
+                <LinkedinShareButton url={message} className={classes.icons}>
+                  <LinkedinIcon size={52} round />
+                </LinkedinShareButton>
+              </Box>
+              <Divider />
+              <Box>
+                <CopyToClipboard text={message}>
+                  <Button
+                    className={classes.copyButton}
+                    style={{ background: "#3E4BAE" }}
+                    onClick={handleClick({ vertical: "top", horizontal: "center" })}
+                  >
+                    <Box className={classes.buttonContainer}>
+                      <AssignmentIcon className={classes.assignmentIcon} />
+                      <Typography>Copy to Clipboard</Typography>
+                    </Box>
+                  </Button>
+                </CopyToClipboard>
+              </Box>
+            </Paper>
+          </Container>
+        </Drawer>
+      </div>
       <SnackBarComponent
         vertical={vertical}
         horizontal={horizontal}

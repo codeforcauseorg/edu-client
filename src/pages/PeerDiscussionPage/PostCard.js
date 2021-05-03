@@ -41,8 +41,6 @@ const useStyles = makeStyles((theme) => ({
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
-    width: theme.spacing(5),
-    height: theme.spacing(5),
   },
   Buttons: {
     padding: "15px",
@@ -118,7 +116,7 @@ function PostCard({ data }) {
           </div>
           <div style={{ display: "flex" }}>
             <Grid>
-              <Avatar className={classes.purple}>{`me`}</Avatar>
+              <Avatar className={classes.purple}>I</Avatar>
             </Grid>
             <div className={classes.comment}>
               <TextField
