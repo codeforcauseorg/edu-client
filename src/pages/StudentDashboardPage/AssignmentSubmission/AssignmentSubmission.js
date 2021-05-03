@@ -12,11 +12,19 @@ import {
   makeStyles,
   Toolbar,
   Typography,
+  Divider,
 } from "@material-ui/core";
 import { ArrowBack, Assignment, Delete } from "@material-ui/icons";
+import Link from "@material-ui/core/Link";
 import React from "react";
 import ControlPointOutlinedIcon from "@material-ui/icons/ControlPointOutlined";
 import { useHistory } from "react-router";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import Fade from "@material-ui/core/Fade";
+import { useFileUpload } from "use-file-upload";
+import AddIcon from "@material-ui/icons/Add";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: 0,
@@ -68,11 +76,50 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(3),
   },
+  modal: {
+    display: "grid",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    width: 400,
+  },
+  icons: {
+    margin: "6%",
+    textAlign: "center",
+  },
+  img: {
+    width: "100px",
+    padding: "1em",
+  },
 }));
 
 function AssignmentSubmission() {
   const classes = useStyles();
   const history = useHistory();
+
+  const [files, selectFiles] = useFileUpload();
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const onChange = () => {
+    selectFiles({ multiple: true }, (files) => {
+      files.map(({ file, source, name, size }) => console.log({ source, name, size, file }));
+    });
+    setOpen(false);
+  };
+
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
@@ -110,25 +157,74 @@ function AssignmentSubmission() {
       <Box className={classes.submissionsection}>
         <Typography variant="h5">My Submission</Typography>
         <IconButton>
-          <ControlPointOutlinedIcon />
+          <ControlPointOutlinedIcon onClick={handleOpen} />
+          <Modal
+            aria-labelledby="transition-modal-title"
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+              timeout: 500,
+            }}
+          >
+            <Fade in={open}>
+              <div className={classes.paper}>
+                <Typography style={{ textAlign: "center" }}>Upload Assignment</Typography>
+                <Divider />
+                <br />
+                <div style={{ textAlign: "center" }}>
+                  <Button
+                    variant="contained"
+                    color="default"
+                    component="span"
+                    startIcon={<AddIcon />}
+                    onClick={onChange}
+                  >
+                    Add
+                  </Button>
+                </div>
+              </div>
+            </Fade>
+          </Modal>
         </IconButton>
       </Box>
       <Box>
-        {[1, 2, 3, 4].map((items, index) => (
-          <List key={index} component="nav" className={classes.list} aria-label="contacts">
-            <ListItem>
-              <ListItemIcon>
-                <Assignment />
-              </ListItemIcon>
-              <ListItemText primary="Assignment1.pdf" />
-              <ListItemIcon>
-                <IconButton>
-                  <Delete />
-                </IconButton>
-              </ListItemIcon>
-            </ListItem>
-          </List>
-        ))}
+        {files
+          ? files.map((file, index) => (
+              <List key={index} component="nav" className={classes.list} aria-label="contacts">
+                <Link href={file.source} color="inherit" target="_blank" underline="none">
+                  <ListItem>
+                    <ListItemIcon>
+                      <Assignment />
+                    </ListItemIcon>
+                    <ListItemText primary={file.name} />
+                    <span> Size: {file.size} bytes </span>
+                    <ListItemIcon>
+                      <IconButton>
+                        <Delete />
+                      </IconButton>
+                    </ListItemIcon>
+                  </ListItem>
+                </Link>
+              </List>
+            ))
+          : [1, 2, 3].map((file, index) => (
+              <List key={index} component="nav" className={classes.list} aria-label="contacts">
+                <ListItem>
+                  <ListItemIcon>
+                    <Assignment />
+                  </ListItemIcon>
+                  <ListItemText primary="Assignments.pdf" />
+                  <ListItemIcon>
+                    <IconButton>
+                      <Delete />
+                    </IconButton>
+                  </ListItemIcon>
+                </ListItem>
+              </List>
+            ))}
       </Box>
     </Container>
   );
