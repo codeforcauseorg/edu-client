@@ -84,7 +84,7 @@ function ContestsList({ date, contestTitle, ListTileColor }) {
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         <Box className={classes.flex}>
-          <Typography className={classes.description}>
+          <Typography variant="body1" className={classes.description}>
             lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem
             ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
           </Typography>

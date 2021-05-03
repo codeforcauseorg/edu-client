@@ -132,7 +132,7 @@ function Contests() {
                     key={index}
                     contestTitle={items.contestTitle}
                     date={items.date}
-                    ListTileColor="#4791db33"
+                    ListTileColor="#4791db22"
                     tasktilecolor="#DAE9F0"
                   />
                 ));
@@ -152,7 +152,7 @@ function Contests() {
                     key={index}
                     contestTitle={items.contestTitle}
                     date={items.date}
-                    ListTileColor="#81c78444"
+                    ListTileColor="#81c78433"
                     tasktilecolor="#C8EEDD"
                   />
                 ));
