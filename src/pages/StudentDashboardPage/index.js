@@ -45,7 +45,7 @@ function StudentDashboard() {
   };
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
-      <AppBar position="sticky" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"

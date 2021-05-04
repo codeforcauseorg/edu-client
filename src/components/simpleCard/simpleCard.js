@@ -5,7 +5,13 @@ import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  root: {
+    marginTop: theme.spacing(1),
+    minWidth: theme.spacing(35),
+    marginRight: "30px",
+    boxShadow: "4px 5px 20px lightgrey",
+  },
   media: {
     postion: "relative",
     height: 0,
@@ -71,22 +77,17 @@ const useStyles = makeStyles({
     justifyContent: "space-between",
     alignItems: "center",
   },
-});
+}));
 
 const renderIcon = (showIcon) => {
   return showIcon ? <FavoriteIcon /> : null;
 };
 
-export default function SimpleCard({ width, image, title, subTitle, detail, price, showIcon }) {
+export default function SimpleCard({ image, title, subTitle, detail, price, showIcon }) {
   const classes = useStyles();
 
   return (
-    <Card
-      style={{
-        minWidth: `${width}`,
-      }}
-      className={classes.root}
-    >
+    <Card className={classes.root}>
       <CardMedia className={classes.media} image={image} title="Paella dish" />
       <div className={classes.cardInfo}>
         <div className={classes.instructorProfile}>

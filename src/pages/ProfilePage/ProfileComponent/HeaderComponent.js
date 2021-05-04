@@ -8,10 +8,10 @@ import {
   Avatar,
   Box,
   Button,
+  Divider,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-// import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ShareIcon from "@material-ui/icons/Share";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-start",
     marginLeft: theme.spacing(4),
+    marginTop: theme.spacing(3),
     color: "#000",
   },
   studentdetails: {
@@ -117,14 +118,18 @@ function HeaderComponent() {
     <React.Fragment>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
-            <ArrowBackIcon onClick={() => history.goBack()} />
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             Profile
           </Typography>
           <IconButton edge="end" className={classes.menuButton} color="inherit" aria-label="menu">
-            {/* <MoreVertIcon /> */}
             <ShareIcon onClick={handleOpen} />
             <Modal
               aria-labelledby="transition-modal-title"
@@ -140,7 +145,7 @@ function HeaderComponent() {
               <Fade in={open}>
                 <div className={classes.paper}>
                   <Typography style={{ textAlign: "center" }}>Share with</Typography>
-                  <hr />
+                  <Divider />
                   <br />
                   <div style={{ textAlign: "center" }}>
                     <TwitterShareButton url="https://github.com/" className={classes.icons}>
@@ -170,9 +175,6 @@ function HeaderComponent() {
           </IconButton>
         </Toolbar>
       </AppBar>
-      {/* <Box className={classes.profiletitle}>
-        <Typography variant="h2">Profile</Typography>
-      </Box> */}
       <Box className={classes.headerContainer}>
         <Avatar
           src="https://yt3.ggpht.com/ytc/AAUvwnhpLAOxx0GesrqkAMyNs3Fd3ZULf8yfNc8nTmMp=s900-c-k-c0x00ffffff-no-rj"
@@ -181,7 +183,13 @@ function HeaderComponent() {
         <Box className={classes.studentdetails}>
           <Typography variant="h2">Code for Cause</Typography>
           <Typography variant="h3">team@codeforcause.org</Typography>
-          <Button variant="outlined" className={classes.editbutton}>
+          <Button
+            variant="outlined"
+            className={classes.editbutton}
+            onClick={() => {
+              history.push("/editprofile");
+            }}
+          >
             Edit Profile
           </Button>
         </Box>

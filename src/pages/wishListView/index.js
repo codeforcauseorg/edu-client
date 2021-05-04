@@ -1,20 +1,13 @@
-import {
-  List,
-  ListItem,
-  makeStyles,
-  AppBar,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
+import { List, makeStyles, AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
 import ScrollToTop from "../../utils/ScrollToTop";
-import WishlistCard from "../../components/wishlistCard";
+import WishlistCardComponent from "./wishListComponent/wishlistComponent";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
-import { useHistory } from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { connect } from "react-redux";
+import { wishlistDeleted } from "../../actions/wishlistActions";
+import EmptyWishlist from "./wishListComponent/emptyWishlist";
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -37,16 +30,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WishListView = (props) => {
+const WishListView = ({ props, wishlist, wishlistDeleted }) => {
   const classes = useStyles();
-  const history = useHistory();
   return (
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
-          <IconButton edge="start" className={classes.backButton} color="inherit" aria-label="menu">
-            <ArrowBackIcon onClick={() => history.goBack()} />
-          </IconButton>
           <Typography variant="h6" color="inherit" className={classes.title}>
             WishList
           </Typography>
@@ -57,15 +46,22 @@ const WishListView = (props) => {
       </AppBar>
       <div id="back-to-top-anchor"></div>
       <ScrollToTop />
-      <List>
-        {[1, 2, 3, 4].map((item, index) => {
-          return (
-            <ListItem key={index} className={classes.li}>
-              <WishlistCard props={props} />
-            </ListItem>
-          );
-        })}
-      </List>
+
+      {wishlist.length ? (
+        <List>
+          {wishlist.map((item) => {
+            return (
+              <WishlistCardComponent
+                key={item.id}
+                props={item}
+                onClick={() => wishlistDeleted({ id: item.id })}
+              />
+            );
+          })}
+        </List>
+      ) : (
+        <EmptyWishlist />
+      )}
       <div className={classes.backtotop}>
         <ScrollTop {...props}>
           <Fab color="secondary" size="small" aria-label="scroll back to top">
@@ -76,5 +72,12 @@ const WishListView = (props) => {
     </>
   );
 };
+const mapStateToProps = (state) => ({
+  wishlist: state.wishlist,
+});
 
-export default WishListView;
+const mapDispatchToProps = (dispatch) => ({
+  wishlistDeleted: (id) => dispatch(wishlistDeleted(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(WishListView);
