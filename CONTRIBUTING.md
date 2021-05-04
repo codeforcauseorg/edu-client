@@ -39,7 +39,7 @@ Be sure to include as much detail as possible including step-by-step description
 ### 🚩 Setting up remote :
 
 1. Now you have to set up remote repositories.
-2. Type 'git remote -v ' in the terminal to list remote connections to your repo.
+2. Type `git remote -v` in the terminal to list remote connections to your repo.
 3. It will show something like this:
 
 ```console
@@ -78,7 +78,6 @@ Whenever you want to contribute to any project. It is a best practice that you s
 2. Copy all the default content from the `.env.example` file to the `.env` file.
 3. You can edit this `.env` file to provide your own project credentials if needed in the future for specific tweaks and tests.
 
-
 ## 📌 Setting up project using `npm` :
 
 1. Open this cloned folder in the text editor of your choice.
@@ -109,7 +108,6 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
 
 ## 📌 Setting up project using `yarn`
 
-
 1. Open this cloned folder in the text editor of your choice.
 2. If you want to use the project using `yarn` then you can do either of the following
    1. Download Yarn Package manager [here](https://classic.yarnpkg.com/en/docs/install)
@@ -117,8 +115,6 @@ Skip the yarn part and proceed to the pushing the changes section [here](#-pushi
    3. If you already have `choco` installed you can simply type in `choco install yarn`
    4. If you already have `scoop` installed you can simply type in `scoop install yarn`
 3. To check if the yarn has been installed correctly type in `yarn --version` this should show you the current version of yarn.
-
-
 
 ### 🚩 Running in Development mode :
 
