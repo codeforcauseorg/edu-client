@@ -12,11 +12,12 @@ import {
   AppBar,
   Toolbar,
 } from "@material-ui/core";
+import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import TextField from "@material-ui/core/TextField";
 import Tab from "@material-ui/core/Tab";
 import { useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
 import { Player, ControlBar } from "video-react";
@@ -112,7 +113,10 @@ export default function CoursePageViewWithVideo(props) {
     setState({ open: true, ...newState });
     setisOpen(false);
   };
-
+  const [subMenu, setSubMenu] = React.useState(false);
+  const handleOpenSubMenu = () => {
+    setSubMenu(!subMenu);
+  };
   const handleClose = () => {
     setState({ ...state, open: false });
   };
@@ -152,6 +156,7 @@ export default function CoursePageViewWithVideo(props) {
       id: 5,
       title: "About Course",
       onPress: () => console.log("About Course"),
+      collapse: true,
     },
     {
       id: 6,
@@ -260,6 +265,7 @@ export default function CoursePageViewWithVideo(props) {
                       </Typography>
                     }
                   />
+
                   <ListItemSecondaryAction>
                     <IconButton>{/* <IonIcon src={playCircleOutline} /> */}</IconButton>
                   </ListItemSecondaryAction>
@@ -336,10 +342,29 @@ export default function CoursePageViewWithVideo(props) {
         <TabPanel value={value} index={1} className={classes.tabBackground}>
           <Box>
             {menuOptions.map((items) => (
-              <ListItem button key={items.id} onClick={items.onPress}>
-                <ListItemText secondary={items.title} className={classes.menuItems} />
-                <ChevronRightIcon />
-              </ListItem>
+              <Box key={items.id}>
+                <ListItem button onClick={items.collapse ? handleOpenSubMenu : items.onPress}>
+                  <ListItemText secondary={items.title} className={classes.menuItems} />
+                  {subMenu && items.collapse ? (
+                    <KeyboardArrowDownIcon />
+                  ) : (
+                    <KeyboardArrowRightIcon />
+                  )}
+                </ListItem>
+                {subMenu && items.collapse && (
+                  <ListItem>
+                    <ListItemText className={classes.menuItems} />
+                    <Typography>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, nesciunt
+                      necessitatibus? Laboriosam, eum aut explicabo dolores reprehenderit corporis
+                      porro provident deleniti nesciunt nostrum? Lorem ipsum dolor, sit amet
+                      consectetur adipisicing elit. Aliquam, nesciunt necessitatibus? Laboriosam,
+                      eum aut explicabo dolores reprehenderit corporis porro provident deleniti
+                      nesciunt nostrum
+                    </Typography>
+                  </ListItem>
+                )}
+              </Box>
             ))}
           </Box>
         </TabPanel>
