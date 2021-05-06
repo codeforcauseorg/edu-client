@@ -18,10 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
   mainTitle: {
     display: "flex",
-    flexGrow: 1,
     marginTop: theme.spacing(2.1),
-    justifyContent: "space-between",
+    marginRight: theme.spacing(3),
     alignItems: "center",
+    justifyContent: "space-between",
   },
   root: {
     marginLeft: theme.spacing(3),
