@@ -1,4 +1,4 @@
-import { Box, IconButton, makeStyles, Typography } from "@material-ui/core";
+import { AppBar, Box, IconButton, makeStyles, Toolbar, Typography } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -15,13 +15,6 @@ const useStyles = makeStyles((theme) => ({
   },
   expanded: {
     flexGrow: 1,
-  },
-  mainTitle: {
-    display: "flex",
-    marginTop: theme.spacing(2.1),
-    marginRight: theme.spacing(3),
-    alignItems: "center",
-    justifyContent: "space-between",
   },
   root: {
     marginLeft: theme.spacing(3),
@@ -60,9 +53,9 @@ function ReferralAndCoupons() {
   const history = useHistory();
   return (
     <>
-      <Box className={classes.root}>
-        <div className={classes.mainTitle}>
-          <Typography variant="h2">Refer a friend</Typography>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar variant="dense">
+          <Box className={classes.expanded} />
           <IconButton
             edge="end"
             className={classes.clearIcon}
@@ -71,7 +64,10 @@ function ReferralAndCoupons() {
           >
             <ClearIcon />
           </IconButton>
-        </div>
+        </Toolbar>
+      </AppBar>
+      <Box className={classes.root}>
+        <Typography variant="h2">Refer a friend</Typography>
         <Typography variant="body1" className={classes.subtitle}>
           And you can both save 15% off on available courses.
         </Typography>
