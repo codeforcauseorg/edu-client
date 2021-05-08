@@ -9,18 +9,30 @@ import {
   ListItemText,
   makeStyles,
   Typography,
+  AppBar,
+  Toolbar,
 } from "@material-ui/core";
+import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import TextField from "@material-ui/core/TextField";
 import Tab from "@material-ui/core/Tab";
 import { useHistory } from "react-router-dom";
 import Tabs from "@material-ui/core/Tabs";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Fab from "@material-ui/core/Fab";
 import EditIcon from "@material-ui/icons/Edit";
 import { Player, ControlBar } from "video-react";
 import Button from "@material-ui/core/Button";
 import SaveIcon from "@material-ui/icons/Save";
-import SnackBarComponent from "../../components/SnackBar/SnackBar";
+import Snackbar from "@material-ui/core/Snackbar";
+import MuiAlert from "@material-ui/lab/Alert";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const useStyles = makeStyles((theme) => ({
   tabroot: {
     textTransform: "capitalize",
@@ -68,6 +80,15 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     backgroundColor: "rgb(21,0,81)",
   },
+  backButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+  appBar: {
+    background: "#160050",
+  },
 }));
 
 export default function CoursePageViewWithVideo(props) {
@@ -92,13 +113,22 @@ export default function CoursePageViewWithVideo(props) {
     setState({ open: true, ...newState });
     setisOpen(false);
   };
-
+  const [subMenu, setSubMenu] = React.useState(false);
+  const handleOpenSubMenu = () => {
+    setSubMenu(!subMenu);
+  };
   const handleClose = () => {
     setState({ ...state, open: false });
   };
 
   const playVideo = (index) => {
     setState({ ...state, playingIndex: index });
+  };
+
+  const [clicked, setClicked] = useState("");
+  const handleLike = () => {
+    const clickedIcon = clicked ? "" : <FavoriteBorderIcon />;
+    setClicked(clickedIcon);
   };
 
   const menuOptions = [
@@ -126,6 +156,7 @@ export default function CoursePageViewWithVideo(props) {
       id: 5,
       title: "About Course",
       onPress: () => console.log("About Course"),
+      collapse: true,
     },
     {
       id: 6,
@@ -150,6 +181,30 @@ export default function CoursePageViewWithVideo(props) {
 
   return (
     <>
+      <AppBar position="static" className={classes.appBar}>
+        <Toolbar variant="dense">
+          <IconButton
+            edge="start"
+            className={classes.backButton}
+            color="inherit"
+            onClick={() => history.goBack()}
+          >
+            <ArrowBackIcon />
+          </IconButton>
+          <Typography variant="h6" color="inherit" className={classes.title}>
+            Course Name
+          </Typography>
+          <IconButton
+            edge="end"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            onClick={handleLike}
+          >
+            {clicked ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+          </IconButton>
+        </Toolbar>
+      </AppBar>
       <div id="back-to-top-anchor"></div>
       <div>
         <Player
@@ -210,6 +265,7 @@ export default function CoursePageViewWithVideo(props) {
                       </Typography>
                     }
                   />
+
                   <ListItemSecondaryAction>
                     <IconButton>{/* <IonIcon src={playCircleOutline} /> */}</IconButton>
                   </ListItemSecondaryAction>
@@ -217,15 +273,16 @@ export default function CoursePageViewWithVideo(props) {
               );
             })}
           </List>
-          <SnackBarComponent
-            vertical={vertical}
-            horizontal={horizontal}
-            opensnack={open}
-            handleClose={handleClose}
-            severity="success"
-            message=" Note Added!"
-            autoHideDuration={1500}
-          />
+          <Snackbar
+            anchorOrigin={{ vertical, horizontal }}
+            open={open}
+            onClose={handleClose}
+            key={vertical + horizontal}
+          >
+            <Alert onClose={handleClose} severity="success">
+              Note Added!
+            </Alert>
+          </Snackbar>
           <div className={classes.addnote}>
             <Fab color="primary" aria-label="add" type="button" onClick={() => setisOpen(true)}>
               <EditIcon />
@@ -264,6 +321,15 @@ export default function CoursePageViewWithVideo(props) {
                       >
                         Save
                       </Button>
+                      <Button
+                        variant="contained"
+                        color="default"
+                        size="small"
+                        className={classes.button}
+                        onClick={() => setisOpen(false)}
+                      >
+                        Cancel
+                      </Button>
                     </div>
                   </div>
                 </Sheet.Content>
@@ -276,10 +342,29 @@ export default function CoursePageViewWithVideo(props) {
         <TabPanel value={value} index={1} className={classes.tabBackground}>
           <Box>
             {menuOptions.map((items) => (
-              <ListItem button key={items.id} onClick={items.onPress}>
-                <ListItemText secondary={items.title} className={classes.menuItems} />
-                <ChevronRightIcon />
-              </ListItem>
+              <Box key={items.id}>
+                <ListItem button onClick={items.collapse ? handleOpenSubMenu : items.onPress}>
+                  <ListItemText secondary={items.title} className={classes.menuItems} />
+                  {subMenu && items.collapse ? (
+                    <KeyboardArrowDownIcon />
+                  ) : (
+                    <KeyboardArrowRightIcon />
+                  )}
+                </ListItem>
+                {subMenu && items.collapse && (
+                  <ListItem>
+                    <ListItemText className={classes.menuItems} />
+                    <Typography>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, nesciunt
+                      necessitatibus? Laboriosam, eum aut explicabo dolores reprehenderit corporis
+                      porro provident deleniti nesciunt nostrum? Lorem ipsum dolor, sit amet
+                      consectetur adipisicing elit. Aliquam, nesciunt necessitatibus? Laboriosam,
+                      eum aut explicabo dolores reprehenderit corporis porro provident deleniti
+                      nesciunt nostrum
+                    </Typography>
+                  </ListItem>
+                )}
+              </Box>
             ))}
           </Box>
         </TabPanel>
