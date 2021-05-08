@@ -97,6 +97,45 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function AssignmentList({ items }) {
+  const classes = useStyles();
+
+  return items
+    ? items.map((file, index) => (
+        <List key={index} component="nav" className={classes.list} aria-label="contacts">
+          <Link href={file.source} color="inherit" target="_blank" underline="none">
+            <ListItem>
+              <ListItemIcon>
+                <Assignment />
+              </ListItemIcon>
+              <ListItemText primary={file.name} />
+              <span> Size: {file.size} bytes </span>
+              <ListItemIcon>
+                <IconButton>
+                  <Delete />
+                </IconButton>
+              </ListItemIcon>
+            </ListItem>
+          </Link>
+        </List>
+      ))
+    : [1, 2, 3].map((file, index) => (
+        <List key={index} component="nav" className={classes.list} aria-label="contacts">
+          <ListItem>
+            <ListItemIcon>
+              <Assignment />
+            </ListItemIcon>
+            <ListItemText primary="Assignments.pdf" />
+            <ListItemIcon>
+              <IconButton>
+                <Delete />
+              </IconButton>
+            </ListItemIcon>
+          </ListItem>
+        </List>
+      ));
+}
+
 function AssignmentSubmission() {
   const classes = useStyles();
   const history = useHistory();
@@ -191,40 +230,7 @@ function AssignmentSubmission() {
         </IconButton>
       </Box>
       <Box>
-        {files
-          ? files.map((file, index) => (
-              <List key={index} component="nav" className={classes.list} aria-label="contacts">
-                <Link href={file.source} color="inherit" target="_blank" underline="none">
-                  <ListItem>
-                    <ListItemIcon>
-                      <Assignment />
-                    </ListItemIcon>
-                    <ListItemText primary={file.name} />
-                    <span> Size: {file.size} bytes </span>
-                    <ListItemIcon>
-                      <IconButton>
-                        <Delete />
-                      </IconButton>
-                    </ListItemIcon>
-                  </ListItem>
-                </Link>
-              </List>
-            ))
-          : [1, 2, 3].map((file, index) => (
-              <List key={index} component="nav" className={classes.list} aria-label="contacts">
-                <ListItem>
-                  <ListItemIcon>
-                    <Assignment />
-                  </ListItemIcon>
-                  <ListItemText primary="Assignments.pdf" />
-                  <ListItemIcon>
-                    <IconButton>
-                      <Delete />
-                    </IconButton>
-                  </ListItemIcon>
-                </ListItem>
-              </List>
-            ))}
+        <AssignmentList items={files} />
       </Box>
     </Container>
   );
