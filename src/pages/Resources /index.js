@@ -18,7 +18,7 @@ import CallMadeIcon from "@material-ui/icons/CallMade";
 
 const useStyle = makeStyles((theme) => ({
   card: {
-    margin: 10,
+    margin: 35,
   },
   media: {
     height: 180,
