@@ -157,7 +157,7 @@ export default function EditProfile() {
                     component="span"
                     startIcon={<CloudUploadIcon />}
                   >
-                    Change Picture
+                    Change Profile Picture
                   </Button>
                 </label>
               </Grid>
@@ -168,7 +168,7 @@ export default function EditProfile() {
                   variant="outlined"
                   fullWidth
                   id="name"
-                  label="Organisation Name"
+                  label="User Name"
                   {...register("name")}
                   error={Boolean(errors.name)}
                   helperText={errors.name?.message}
@@ -180,7 +180,7 @@ export default function EditProfile() {
                   variant="outlined"
                   fullWidth
                   id="email"
-                  label="Organisation Email"
+                  label="User Email"
                   name="email"
                   autoComplete="email"
                   {...register("email")}
@@ -234,7 +234,7 @@ export default function EditProfile() {
                         variant="outlined"
                         fullWidth
                         id="linkedin"
-                        label="LinkedIn"
+                        label="LinkedIn URL"
                         name="linkedin"
                         autoComplete="linkedin"
                         {...register("linkedin")}
@@ -248,7 +248,7 @@ export default function EditProfile() {
                         variant="outlined"
                         fullWidth
                         id="github"
-                        label="GitHub"
+                        label="GitHub URL"
                         name="github"
                         autoComplete="github"
                         {...register("github")}
@@ -262,7 +262,7 @@ export default function EditProfile() {
                         variant="outlined"
                         fullWidth
                         id="twitter"
-                        label="Twitter"
+                        label="Twitter Handle"
                         name="twitter"
                         autoComplete="twitter"
                         {...register("twitter")}

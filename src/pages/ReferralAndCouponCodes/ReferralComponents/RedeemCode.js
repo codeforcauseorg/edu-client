@@ -5,7 +5,7 @@ import RedeemCodeList from "./RedeemCodeList";
 const listElements = [
   {
     title: "20% off",
-    subtitle: "Avale on your first transaction",
+    subtitle: "Avail on your first transaction",
     image:
       "https://cdn1.iconfinder.com/data/icons/ecommerce-moonlit/32/Discount_percent_percent_tag_price_tag_sale_shop_tag-512.png",
   },
