@@ -3,7 +3,8 @@ import ButtonComponent from "../Button/ButtonComponent";
 import { Grid, Typography, makeStyles } from "@material-ui/core";
 import LanguageIcon from "@material-ui/icons/Language";
 import ReactPlayer from "react-player/lazy";
-
+import { connect } from "react-redux";
+import { wishlistAdded } from "../../actions/wishlistActions";
 const useStyles = makeStyles((theme) => ({
   hero: {},
 
@@ -72,9 +73,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Hero({ title, description, startDate, duration, languages, thumbnail, videoUrl, price }) {
+function Hero({
+  title,
+  description,
+  startDate,
+  duration,
+  languages,
+  thumbnail,
+  videoUrl,
+  price,
+  dispatch,
+}) {
   const classes = useStyles();
-
+  const handleAddWishlist = () => {
+    dispatch(
+      wishlistAdded({
+        title: title,
+        startDate: startDate,
+        duration: duration,
+        price: price,
+        description: description,
+      })
+    );
+  };
   return (
     <>
       <Grid className={classes.hero} container justify="space-between">
@@ -86,8 +107,7 @@ function Hero({ title, description, startDate, duration, languages, thumbnail, v
             {description}
           </Typography>
           <Typography className={classes.details} variant="subtitle2" component="p">
-            Classes Starting <span style={{ color: "#4C0098" }}>16th March Onwards</span>
-            <span className={classes.accentText}>{startDate}</span>
+            Classes Starting <span style={{ color: "#4C0098" }}>{startDate} Onwards</span>
           </Typography>
           <Typography className={classes.details} variant="subtitle2" component="p">
             Course Duration {duration} hrs
@@ -123,6 +143,7 @@ function Hero({ title, description, startDate, duration, languages, thumbnail, v
               variant="outlined"
               color="secondary"
               title="Add to wishlist"
+              onClick={() => handleAddWishlist()}
             />
           </div>
         </Grid>
@@ -130,5 +151,4 @@ function Hero({ title, description, startDate, duration, languages, thumbnail, v
     </>
   );
 }
-
-export default Hero;
+export default connect()(Hero);

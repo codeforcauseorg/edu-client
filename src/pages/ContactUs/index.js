@@ -1,13 +1,17 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import {
+  makeStyles,
+  Grid,
+  AppBar,
+  Toolbar,
+  Typography,
+  TextField,
+  IconButton,
+  Link,
+} from "@material-ui/core";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { Typography, TextField } from "@material-ui/core";
 import ButtonComponent from "../../components/Button/ButtonComponent";
-import Grid from "@material-ui/core/Grid";
-import AppBar from "@material-ui/core/AppBar";
-import IconButton from "@material-ui/core/IconButton";
-import Toolbar from "@material-ui/core/Toolbar";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
@@ -18,7 +22,6 @@ import EmailIcon from "@material-ui/icons/Email";
 import PhoneInTalkIcon from "@material-ui/icons/PhoneInTalk";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
 import { useForm } from "react-hook-form";
-import Link from "@material-ui/core/Link";
 
 <link
   href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"

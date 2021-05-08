@@ -54,11 +54,15 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
     padding: "15px",
   },
+  postContent: {
+    display: "flex",
+    flexGrow: 1,
+    alignItems: "center",
+    margin: theme.spacing(0.5),
+  },
   paper: {
-    position: "relative",
-    left: "3%",
-    top: 50,
-    width: 350,
+    marginTop: "70px",
+    width: 330,
     backgroundColor: theme.palette.background.paper,
     borderRadius: "7px",
     boxShadow: theme.shadows[5],
@@ -246,7 +250,7 @@ function PeerPage(props) {
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
         >
-          <div className={classes.paper}>
+          <Container maxWidth="xs" className={classes.paper}>
             <Typography align="center" id="simple-modal-title" variant="body2">
               Post Something!
             </Typography>
@@ -314,13 +318,16 @@ function PeerPage(props) {
                 </Button>
               </form>
             </div>
-          </div>
+          </Container>
         </Modal>
 
         <div className={classes.post} onClick={handlemodalOpen}>
-          <Typography variant="body2">
-            <PostAddIcon /> Share something to discuss...
-          </Typography>
+          <div className={classes.postContent}>
+            <PostAddIcon />
+            <Typography variant="body2" style={{ marginLeft: 10 }}>
+              Share something to discuss...
+            </Typography>
+          </div>
         </div>
         <div>
           <Box className={classes.BoxSpaces}>
