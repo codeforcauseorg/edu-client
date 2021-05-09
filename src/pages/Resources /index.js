@@ -15,10 +15,17 @@ import {
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import CallMadeIcon from "@material-ui/icons/CallMade";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
+import copy from "copy-to-clipboard";
+import Snackbar from "@material-ui/core/Snackbar";
+import CloseIcon from "@material-ui/icons/Close";
 
 const useStyle = makeStyles((theme) => ({
   card: {
-    margin: 35,
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 20,
+    marginBottom: 20,
   },
   media: {
     height: 180,
@@ -34,15 +41,11 @@ const useStyle = makeStyles((theme) => ({
     height: 30,
     width: 30,
   },
-
-  link: {
-    textDecoration: "none",
-  },
 }));
 
 const RESOURCES = [
   {
-    link: "https://github.com/codeforcauseorg/edu-client",
+    link: "https://github.com/codeforcauseorg",
     name: "Backtracking",
   },
   {
@@ -51,12 +54,12 @@ const RESOURCES = [
       "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80g",
   },
   {
-    link: "https://github.com/codeforcauseorg/edu-client",
+    link: "https://github.com/codeforcauseorg",
     preview: "https://images.hdqwalls.com/download/landscape-lake-mountains-4k-zg-2560x1080.jpg",
     name: "Kruskal's Algorithm",
   },
   {
-    link: "https://github.com/codeforcauseorg/edu-client",
+    link: "https://github.com/codeforcauseorg",
     name: "Backtracking",
   },
   {
@@ -68,6 +71,22 @@ const RESOURCES = [
 
 const Resources = () => {
   const classes = useStyle();
+  const [copyText, setCopyText] = React.useState("");
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+  const copyToClipboard = (link) => {
+    setCopyText(`${link}`);
+    copy(copyText);
+    setOpen(true);
+  };
+
   return (
     <>
       <AppBar position="static" className={classes.appBar}>
@@ -87,40 +106,71 @@ const Resources = () => {
       </AppBar>
       <Box>
         {RESOURCES.map((item) => (
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href={item.link}
-            key={item.name}
-            className={classes.link}
-          >
-            <Card className={classes.card}>
-              <CardActionArea>
-                {item.preview && (
-                  <CardMedia className={classes.media} image={item.preview} title={item.name} />
-                )}
-                <CardContent>
-                  <Box
-                    display="flex"
-                    width="100%"
-                    justifyContent="space-between"
-                    alignItems={"center"}
-                  >
-                    <Box>
-                      <Typography variant="h6" color="inherit" className={classes.title}>
-                        {item.name} &nbsp; {item.link ? " 🔗 " : "📑"}
+          <Card className={classes.card} key={item.name}>
+            <CardActionArea>
+              {item.preview && (
+                <CardMedia className={classes.media} image={item.preview} title={item.name} />
+              )}
+              <CardContent>
+                <Box
+                  display="flex"
+                  width="100%"
+                  justifyContent="space-between"
+                  alignItems={"center"}
+                >
+                  <Box>
+                    <Typography variant="h6" color="inherit" className={classes.title}>
+                      {item.name} &nbsp; {item.link ? " 🔗 " : "📑"}
+                    </Typography>
+                    {item.link && (
+                      <Typography variant="caption">
+                        {item.link} &nbsp;{" "}
+                        <FileCopyIcon
+                          onClick={() => {
+                            copyToClipboard(`${item.link}`);
+                          }}
+                          button
+                          style={{ fontSize: "15px" }}
+                        />{" "}
                       </Typography>
-                      {item.link && <Typography variant="caption">{item.link}</Typography>}
-                    </Box>
-                    <Box>
-                      <Button>{!item.link ? <GetAppIcon /> : <CallMadeIcon />}</Button>
-                    </Box>
+                    )}
                   </Box>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </a>
+                  <Box>
+                    <Button>
+                      {!item.link ? (
+                        <GetAppIcon />
+                      ) : (
+                        <a href={item.link} target="_blank" rel="noreferrer">
+                          <CallMadeIcon />
+                        </a>
+                      )}
+                    </Button>
+                  </Box>
+                </Box>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         ))}
+        <Snackbar
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          message=" Copied to Clipboard!"
+          action={
+            <React.Fragment>
+              <Button color="secondary" size="small" onClick={handleClose}>
+                Close
+              </Button>
+              <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                <CloseIcon fontSize="small" />
+              </IconButton>
+            </React.Fragment>
+          }
+        />
       </Box>
     </>
   );
