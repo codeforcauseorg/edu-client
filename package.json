@@ -17,6 +17,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "axios-mock-adapter": "^1.19.0",
     "capacitor-firebase-auth": "^2.3.5",
     "clsx": "^1.1.1",
     "copy-to-clipboard": "^3.3.1",
