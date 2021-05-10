@@ -5,8 +5,8 @@ const useStyles = makeStyles({
     padding: "20px 10px",
     paddingBottom: "50px",
     display: "flex",
-    flexWrap: "nowrap",
-    gap: "24px",
+    marginTop: "10px",
+    marginBottom: "10px",
     overflowX: "scroll",
     scrollbarWidth: "none" /* mozilla */,
     "&::-webkit-scrollbar": {

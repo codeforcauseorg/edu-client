@@ -29,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 function AssignmentList({
   courseAssignmentTitle,
-  latesttaskdueDate,
+  latestTaskDueDate,
   taskCount,
   ListTileColor,
   taskList,
-  tasktilecolor,
+  taskTileColor,
 }) {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
@@ -58,7 +58,7 @@ function AssignmentList({
             <Typography variant="h5">{courseAssignmentTitle}</Typography>
             <Typography variant="body1">Assignment ({taskCount})</Typography>
             <Typography variant="body1" className={classes.date}>
-              Due {latesttaskdueDate}
+              Due {latestTaskDueDate}
             </Typography>
           </Box>
         </ListItemText>
@@ -68,10 +68,9 @@ function AssignmentList({
         {taskList.map((items, index) => (
           <SubAssignmentTask
             key={index}
-            id={items.taskId}
             taskTitle={items.taskTitle}
             dueDate={items.dueDate}
-            tasktilecolor={tasktilecolor}
+            tasktilecolor={taskTileColor}
           />
         ))}
       </Collapse>

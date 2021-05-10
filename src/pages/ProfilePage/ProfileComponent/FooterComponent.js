@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    height: "107px",
+    height: 150,
     marginTop: "20px",
     background: "#F0F4F8",
     paddingLeft: theme.spacing(2),
@@ -35,11 +35,16 @@ const footerItems = [
   },
   {
     id: 3,
+    link: "/ContactUs",
+    title: "CONTACT US",
+  },
+  {
+    id: 4,
     link: "/terms-and-conditions",
     title: "TERMS OF USE",
   },
   {
-    id: 4,
+    id: 5,
     link: "/privacy",
     title: "PRIVACY POLICY",
   },

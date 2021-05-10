@@ -22,13 +22,12 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    textAlign: "center",
   },
   backButton: {
     marginRight: theme.spacing(2),
   },
   appBar: {
-    background: "#50407C",
+    background: "#160050",
   },
 }));
 function StudentDashboard() {
@@ -46,7 +45,7 @@ function StudentDashboard() {
   };
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
-      <AppBar position="sticky" className={classes.appBar}>
+      <AppBar position="static" className={classes.appBar}>
         <Toolbar variant="dense">
           <IconButton
             edge="start"

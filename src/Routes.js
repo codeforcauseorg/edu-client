@@ -17,10 +17,18 @@ import About from "./pages/Info/About";
 import Checkout from "./pages/CheckoutView";
 import MentorRating from "./pages/MentorRating";
 import PeerPage from "./pages/PeerDiscussionPage/peer";
+import Comment from "./pages/PeerDiscussionPage/comments";
 import StudentDashboard from "./pages/StudentDashboardPage";
 import AssignmentSubmission from "./pages/StudentDashboardPage/AssignmentSubmission/AssignmentSubmission";
 import JobOpenings from "./pages/JobOpeningPage";
+import Contests from "./pages/Contests";
+import Statistics from "./pages/Statistics";
+import ContactUs from "./pages/ContactUs";
+import MentorPage from "./pages/MentorPage";
+import ReferralAndCoupons from "./pages/ReferralAndCouponCodes";
+import EditProfile from "./pages/ProfilePage/ProfileComponent/EditProfile";
 
+// IMPORTANT - Don't add any route inside the scope of <SwipeableRoutes> </SwipeableRoutes> unless it is a page which can be navigated using the bottom navigation.
 const renderRoutes = () => (
   <Container maxWidth="xs" style={{ margin: "auto", padding: 0 }}>
     <Switch>
@@ -30,24 +38,32 @@ const renderRoutes = () => (
       <Route path="/terms-and-conditions" exact component={Terms} />
       <Route path="/course/:id" exact component={CourseDetail} />
       <Route path="/mycourses/:coursename" exact component={CoursePage} />
+      {/* <Route path="/mycourses/announcement/:coursename" exact component={CourseAnnouncement} /> */}
       <Route path="/checkout/:id" exact component={Checkout} />
       <Route path="/privacy" exact component={Privacy} />
       <Route path="/about" exact component={About} />
       <Route path="/faq" exact component={Faqs} />
-      <Route path="/ratementor" exact component={MentorRating} />
+      <Route path="/ratementor/:coursename" exact component={MentorRating} />
       <Route path="/terms-and-conditions" exact component={Terms} />
+      <Route path="/contactUs" exact component={ContactUs} />
       <Route path="/dashboard" exact component={StudentDashboard} />
+      <Route path="/contests" exact component={Contests} />
       <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
       <Route path="/job-openings" exact component={JobOpenings} />
+      <Route path="/statistics" exact component={Statistics} />
+      <Route path="/peer" exact component={PeerPage} />
+      <Route path="/peer/:id/comments" exact component={Comment} />
+      <Route path="/faq" exact component={Faqs} />
+      <Route path="/about" exact component={About} />
+      <Route path="/mentorPage" exact component={MentorPage} />
+      <Route path="/referralAndCoupons" exact component={ReferralAndCoupons} />
+      <Route path="/editprofile" exact component={EditProfile} />
       <MainLayout>
         <SwipeableRoutes replace>
-          <Route path="/faq" exact component={Faqs} />
-          <Route path="/about" exact component={About} />
           <Route path="/home" exact component={HomePage} />
           <Route path="/mycourses" exact component={MyCourses} />
           <Route path="/wishlist" exact component={WishlistPage} />
           <Route path="/profile" exact component={ProfilePage} />
-          <Route path="/peer" exact component={PeerPage} />
         </SwipeableRoutes>
       </MainLayout>
     </Switch>
