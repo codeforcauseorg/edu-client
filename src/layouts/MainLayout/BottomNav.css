@@ -1,5 +1,6 @@
 .MuiBottomNavigationAction-root.Mui-selected {
-  border-bottom: 2px solid #3949ab;
+  border-bottom: 2px solid #A70718;
+  /* border-radius : 10px; */
 }
 
 .Mui-selected {

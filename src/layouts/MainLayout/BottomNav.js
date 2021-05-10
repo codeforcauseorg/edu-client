@@ -18,6 +18,7 @@ const useStyles = makeStyles({
     bottom: 0,
     boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.9), 0 6px 20px 0 rgba(0, 0, 0, 0.25)",
     margin: "auto",
+    borderRadius : "15px 15px 0px 0px",
   },
   navItem: {
     "& .MuiBottomNavigationAction-label": {
