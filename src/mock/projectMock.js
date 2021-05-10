@@ -1,5 +1,5 @@
 import moment from "moment";
-import mock from "src/utils/mock";
+import mock from "../utils/mock";
 
 mock.onGet("/api/projects/account/statistics").reply(200, {
   statistics: {
