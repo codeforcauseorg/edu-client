@@ -1,5 +1,5 @@
-import AxiosMockAdapter from 'axios-mock-adapter';
-import axios from './mockaxios';
+import AxiosMockAdapter from "axios-mock-adapter";
+import axios from "./mockaxios";
 
 const instance = new AxiosMockAdapter(axios, { delayResponse: 0 });
 

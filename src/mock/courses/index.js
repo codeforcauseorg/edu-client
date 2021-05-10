@@ -1,5 +1,5 @@
-import foundation from './foundation';
-import advanced from './advanced';
+import foundation from "./foundation";
+import advanced from "./advanced";
 
 const coursesContent = { foundation, advanced };
 
