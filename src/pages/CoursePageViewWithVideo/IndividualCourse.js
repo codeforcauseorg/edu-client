@@ -144,36 +144,31 @@ export default function CoursePageViewWithVideo(props) {
     },
     {
       id: 3,
-      title: "Resources",
-      onPress: () => console.log("Resources"),
+      title: "Links & Resources",
+      onPress: () => history.push("/resources/:coursename"),
     },
     {
       id: 4,
-      title: "Links",
-      onPress: () => console.log("Links"),
-    },
-    {
-      id: 5,
       title: "About Course",
       onPress: () => console.log("About Course"),
       collapse: true,
     },
     {
-      id: 6,
+      id: 5,
       title: "About Mentor",
       onPress: () => {
         history.push("/mentorPage");
       },
     },
     {
-      id: 7,
+      id: 6,
       title: "Rate the Mentor",
       onPress: () => {
         history.push("/ratementor/:coursename");
       },
     },
     {
-      id: 8,
+      id: 7,
       title: "Share with friends",
       onPress: () => console.log("Share with friends"),
     },
