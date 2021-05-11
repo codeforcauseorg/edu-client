@@ -66,6 +66,13 @@ export default function ListComponent() {
       secondary: "Refer and Earn Discounts",
       onPress: () => history.push("/referralAndCoupons"),
     },
+    {
+      id: 7,
+      listItemIcon: "/assets/icon/hack.svg",
+      primary: "Hackathons and Events",
+      secondary: "Upcoming Hackathons and Coding Events",
+      onPress: () => history.push("/hackathonsAndEvents"),
+    },
   ];
   const SettingsItems = [
     {
