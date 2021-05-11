@@ -16,7 +16,7 @@ export default function Item(props) {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} elevation={18}>
       {/* <h2>{props.item.img}</h2> */}
       <img className={classes.img} src={props.item.img} alt="" />
     </Paper>

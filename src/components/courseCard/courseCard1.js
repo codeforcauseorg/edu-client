@@ -38,7 +38,7 @@ const CourseCard = () => {
 
   return (
     <Container className={classes.root}>
-      <Card style={{ margin: 0, padding: 0 }}>
+      <Card style={{ margin: 0, padding: 0 }} elevation={18}>
         <CardHeader
           style={{
             backgroundImage: "url(/assets/wishlist/1.png)",
