@@ -5,7 +5,6 @@ import Item from "./Item";
 
 const useStyles = makeStyles(() => ({
   root: {
-    // background: "linear-gradient(180deg, #17003C 0%, rgba(0, 0, 0, 0) 100%)",
     color: "#fff",
     paddingBottom: "120px",
   },
@@ -42,7 +41,6 @@ export default function Hero(props) {
       <Typography variant="h3" style={{ color: "#1C0540" }}>
         Know us connect with us on live!!
       </Typography>
-      {/* <img className={classes.img} src="/assets/img/home.png" alt="" /> */}
       <Carousel
         fullHeightHover={false}
         navButtonsProps={{
