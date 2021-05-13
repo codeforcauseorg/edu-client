@@ -63,7 +63,7 @@ const WishlistCardComponent = ({ props, onClick }) => {
   return (
     <Container className={classes.root}>
       <ListItem className={classes.listItem}>
-        <Card>
+        <Card variant="outlined">
           <CardHeader
             style={{
               backgroundImage: "url(/assets/wishlist/2.png)",
