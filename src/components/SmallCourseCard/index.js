@@ -26,7 +26,7 @@ export default function MediaCard(props) {
   const classes = useStyles();
   const history = useHistory();
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} variant="outlined">
       <CardActionArea className={classes.card} onClick={() => history.push(`/course/${props.id}`)}>
         <CardMedia
           className={classes.media}
