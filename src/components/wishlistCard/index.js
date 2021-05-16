@@ -7,10 +7,11 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-
+import { useRef } from "react";
 import ButtonComponent from "../Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
 import { useHistory } from "react-router";
+import "./wishListCard.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,12 +60,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WishlistCard = ({ id }) => {
+const WishlistCard = ({ id, deleteProps }) => {
   const classes = useStyles();
   const history = useHistory();
+  const deleteButton = useRef();
+
+  const handleDelete = () => {
+    deleteButton.current.classList.add("removed-item");
+  };
 
   return (
-    <Container className={classes.root}>
+    <Container className={classes.root} ref={deleteButton}>
       <Card>
         <CardHeader
           style={{
@@ -82,7 +88,7 @@ const WishlistCard = ({ id }) => {
             </Typography>
           }
           action={
-            <IconButton className={classes.icon}>
+            <IconButton className={classes.icon} onClick={handleDelete}>
               <DeleteOutline />
               {/* <IonIcon src={trashOutline} /> */}
             </IconButton>
