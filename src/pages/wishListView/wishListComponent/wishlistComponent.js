@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     borderRadius: "8px",
     "&.removedItem": {
-      animation: `$removed-item-animation .6s cubic-bezier(.55,-0.04,.91,.94) forwards`,
+      animation: `$removed-item-animation 0.4s cubic-bezier(.55,-0.04,.91,.94) forwards`,
     },
   },
   cardHeader: {
