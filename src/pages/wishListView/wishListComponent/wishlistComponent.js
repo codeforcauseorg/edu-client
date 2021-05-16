@@ -13,12 +13,15 @@ import { useRef } from "react";
 import ButtonComponent from "../../../components/Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
 import { useHistory } from "react-router";
-import "./wishListComponent.css";
+// import "./wishListComponent.css";
 const useStyles = makeStyles((theme) => ({
   root: {
     color: "#fff",
     margin: 0,
     borderRadius: "8px",
+    "&.removedItem": {
+      animation: `$removed-item-animation .6s cubic-bezier(.55,-0.04,.91,.94) forwards`,
+    },
   },
   cardHeader: {
     backgroundColor: "#A60000",
@@ -57,6 +60,17 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     transition: " all 0.4s ease-out",
   },
+  "@keyframes removed-item-animation": {
+    from: {
+      opacity: 1,
+      transform: "scale(1)",
+    },
+    to: {
+      opacity: 0,
+      height: "0px",
+      transform: "scale(0)",
+    },
+  },
 }));
 
 const WishlistCardComponent = ({ props, onClick }) => {
@@ -65,10 +79,13 @@ const WishlistCardComponent = ({ props, onClick }) => {
   const deleteButton = useRef();
 
   const handleDelete = () => {
-    deleteButton.current.classList.add("removed-item");
+    deleteButton.current.classList.add("removedItem");
   };
   return (
-    <Container className={classes.root} ref={deleteButton}>
+    <Container
+      classes={{ root: classes.root, removedItem: classes.removedItem }}
+      ref={deleteButton}
+    >
       <ListItem className={classes.listItem}>
         <Card variant="outlined">
           <CardHeader
