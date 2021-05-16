@@ -14,9 +14,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import ContestsList from "./ContestsList";
 import contests from "../../data/contestsDetails.json";
 const useStyle = makeStyles((theme) => ({
-  root: {
-    margin: "5px",
-  },
   buttoncontainer: {
     marginTop: theme.spacing(1),
   },
@@ -41,6 +38,16 @@ const useStyle = makeStyles((theme) => ({
     textAlign: "center",
     marginTop: theme.spacing(2),
   },
+  btn: {
+    width: "100%",
+    textTransform: "none",
+    borderRadius: 5,
+    color: "#fff",
+    marginRight: theme.spacing(1),
+    marginTop: theme.spacing(3),
+    paddingRight: theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+  },
   button: {
     textTransform: "none",
     borderRadius: 5,
@@ -54,7 +61,8 @@ const useStyle = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   assignmentContainer: {
-    marginTop: theme.spacing(2),
+    margin: "1rem 0",
+    width: "100%",
   },
 }));
 const ongoing = contests[0].ongoing;
@@ -103,7 +111,7 @@ function Contests() {
         <Box className={classes.buttoncontainer}>
           <div>
             <Link to="/statistics" style={{ textDecoration: "none" }}>
-              <Button className={classes.button} variant="outlined" style={{ color: "#160050" }}>
+              <Button className={classes.btn} variant="outlined" style={{ color: "#160050" }}>
                 My Past Performance Statistics &nbsp;{" "}
                 <span>
                   <img src="assets/icon/stats.png" className={classes.Icon} />
