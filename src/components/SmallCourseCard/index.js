@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import FavoriteIcon from "@material-ui/icons/Favorite";
-
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles({
   root: {
     marginLeft: "2rem",
@@ -24,10 +24,10 @@ const useStyles = makeStyles({
 
 export default function MediaCard(props) {
   const classes = useStyles();
-
+  const history = useHistory();
   return (
-    <Card className={classes.root}>
-      <CardActionArea className={classes.card}>
+    <Card className={classes.root} variant="outlined">
+      <CardActionArea className={classes.card} onClick={() => history.push(`/course/${props.id}`)}>
         <CardMedia
           className={classes.media}
           image={props.data.image}

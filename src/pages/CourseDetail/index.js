@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
   subTitle: {
     margin: "0 10px",
+    padding: "0 15px",
   },
   svg: {
     color: "white",
@@ -110,47 +111,45 @@ function CourseDetail(props) {
         <Typography className={classes.title} variant="subtitle2" color="primary">
           Beginner Courses
         </Typography>
-        <Typography className={classes.subTitle} variant="h2" component="h2">
-          Learn something New
-        </Typography>
-        <CardContainer>
-          {coursesData.map((course, index) => (
-            <SimpleCard
-              key={index}
-              width="240px"
-              image={course.image}
-              title={course.title}
-              subTitle={course.subTitle}
-              detail={course.detail}
-              price={course.price}
-              showIcon={true}
-            />
-          ))}
-        </CardContainer>
-        <Typography className={classes.subTitle} variant="h2" component="h2">
-          Top Picks
-        </Typography>
-        <CardContainer>
-          {coursesData.map((course, index) => (
-            <SimpleCard
-              key={index}
-              width="300px"
-              image={course.image}
-              title={course.title}
-              subTitle={course.subTitle}
-              detail={course.detail}
-              price={course.price}
-              showIcon={false}
-            />
-          ))}
-        </CardContainer>
-        <div className={classes.backtotop}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
-        </div>
+      </div>
+      <Typography className={classes.subTitle} variant="h2" component="h2">
+        Learn something New
+      </Typography>
+      <CardContainer>
+        {coursesData.map((course, index) => (
+          <SimpleCard
+            key={index}
+            image={course.image}
+            title={course.title}
+            subTitle={course.subTitle}
+            detail={course.detail}
+            price={course.price}
+            showIcon={true}
+          />
+        ))}
+      </CardContainer>
+      <Typography className={classes.subTitle} variant="h2" component="h2">
+        Top Picks
+      </Typography>
+      <CardContainer>
+        {coursesData.map((course, index) => (
+          <SimpleCard
+            key={index}
+            image={course.image}
+            title={course.title}
+            subTitle={course.subTitle}
+            detail={course.detail}
+            price={course.price}
+            showIcon={false}
+          />
+        ))}
+      </CardContainer>
+      <div className={classes.backtotop}>
+        <ScrollTop {...props}>
+          <Fab color="secondary" size="small" aria-label="scroll back to top">
+            <KeyboardArrowUpIcon />
+          </Fab>
+        </ScrollTop>
       </div>
     </>
   );

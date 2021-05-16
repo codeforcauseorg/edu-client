@@ -1,13 +1,13 @@
 import { makeStyles } from "@material-ui/core/styles";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { Button, Link, Typography } from "@material-ui/core";
+import { Button, IconButton, Link, Typography } from "@material-ui/core";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import CheckoutCard from "../../components/checkout/CheckoutCard";
 import clsx from "clsx";
 import DropdownList from "../../components/checkout/DropdownList";
 import data from "../../data/address.json";
-
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   navigation: {
     widht: "100%",
@@ -60,10 +60,13 @@ const { countries, districts, states } = data[0];
 
 const Checkout = () => {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <>
       <div className={clsx(classes.navigation, classes.flex)}>
-        <ArrowBackIcon color="secondary" />
+        <IconButton onClick={() => history.goBack()}>
+          <ArrowBackIcon color="secondary" />
+        </IconButton>
         <Typography variant="h3">Checkout</Typography>
         <MoreVertIcon style={{ color: "black" }} />
       </div>

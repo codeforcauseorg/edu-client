@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
 const data = Array(10).fill({
+  id: 1,
   image: "https://img.mobiscroll.com/demos/worms3.png",
   title: "Worms 3",
   level: "Beginner",

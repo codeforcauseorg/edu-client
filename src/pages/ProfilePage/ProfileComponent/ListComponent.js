@@ -1,59 +1,24 @@
 import React from "react";
-import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import { useHistory } from "react-router-dom";
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-  Switch as MuiSwitch,
-  makeStyles,
-} from "@material-ui/core";
+import { List, Typography, makeStyles } from "@material-ui/core";
+import ActivityList from "./ActivityList";
+import SettingList from "./SettingList";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTypography-h1": {
       marginLeft: theme.spacing(2),
       marginBottom: theme.spacing(2),
-      fontSize: "25px",
-      fontWeight: 600,
       color: "#0D0F44",
-    },
-    "& .MuiSvgIcon-root": {
-      fontSize: "0.8rem",
-      color: "#120A85",
-    },
-    "& .MuiTypography-body1": {
-      fontSize: "1rem",
-      marginBottom: "5px",
-      color: "#0D0F44",
-      fontWeight: 600,
-    },
-    "& .MuiTypography-body2": {
-      fontSize: "0.8rem",
-      color: "#42607D",
-      fontWeight: 500,
-    },
-    "& .MuiListItemIcon-root": {
-      height: "24px",
-      width: "24px",
-      margin: "0px 13px 0px 13px",
-    },
-    "& .MuiSwitch-root": {
-      overflow: "visible",
     },
   },
 }));
 export default function ListComponent() {
-  const [checked, setChecked] = React.useState(false);
-  const toggleChecked = () => {
-    setChecked((prev) => !prev);
-  };
   const classes = useStyles();
-
   const history = useHistory();
-
+  const openContests = () => {
+    history.push("/contests");
+  };
   const ActivityItems = [
     {
       id: 1,
@@ -73,17 +38,40 @@ export default function ListComponent() {
     },
     {
       id: 3,
-      listItemIcon: "/assets/icon/statsIcon.svg",
-      primary: "Contests and Statistics Dashboard",
-      secondary: "View contests and statistics dashboard",
-      onPress: () => console.log("Contests and Statistics Dashboard"),
+      listItemIcon: "/assets/icon/contest2.png",
+      primary: "View Contests",
+      secondary: "Explore ongoing and upcoming contest",
+      onPress: () => {
+        openContests();
+      },
     },
     {
       id: 4,
       listItemIcon: "/assets/icon/classroomIcon.svg",
       primary: "Classroom",
       secondary: "Manage your Classroom activities",
-      onPress: () => console.log("Classroom"),
+      collapse: true,
+    },
+    {
+      id: 5,
+      listItemIcon: "/assets/icon/achivements.png",
+      primary: "My Achivements",
+      secondary: "View your badges",
+      onPress: () => console.log("My Achivements"),
+    },
+    {
+      id: 6,
+      listItemIcon: "/assets/icon/discount.png",
+      primary: "Referral And Coupons",
+      secondary: "Refer and Earn Discounts",
+      onPress: () => history.push("/referralAndCoupons"),
+    },
+    {
+      id: 7,
+      listItemIcon: "/assets/icon/hack.svg",
+      primary: "Hackathons and Events",
+      secondary: "Upcoming Hackathons and Coding Events",
+      onPress: () => history.push("/hackathonsAndEvents"),
     },
   ];
   const SettingsItems = [
@@ -93,7 +81,7 @@ export default function ListComponent() {
       primary: "Dark Mode",
       secondary: "Switch between Dark & light Mode",
       onPress: () => console.log("Dark Mode"),
-      switch: true,
+      toggle: true,
     },
     {
       id: 2,
@@ -107,29 +95,27 @@ export default function ListComponent() {
   return (
     <div className={classes.root}>
       <List subheader={<Typography variant="h1">Activities</Typography>}>
-        {ActivityItems.map((items) => (
-          <ListItem button key={items.id} onClick={items.onPress}>
-            <ListItemIcon>
-              <img src={items.listItemIcon} />
-            </ListItemIcon>
-            <ListItemText primary={items.primary} secondary={items.secondary} />
-            <ArrowForwardIosIcon />
-          </ListItem>
+        {ActivityItems.map((items, index) => (
+          <ActivityList
+            key={items.id}
+            listItemIcon={items.listItemIcon}
+            primary={items.primary}
+            secondary={items.secondary}
+            onPress={items.onPress}
+            collapse={items.collapse}
+          />
         ))}
       </List>
       <List subheader={<Typography variant="h1">Settings</Typography>}>
         {SettingsItems.map((items) => (
-          <ListItem button key={items.id} onClick={items.onPress}>
-            <ListItemIcon>
-              <img src={items.listItemIcon} />
-            </ListItemIcon>
-            <ListItemText primary={items.primary} secondary={items.secondary} />
-            {items.switch ? (
-              <MuiSwitch checked={checked} onChange={toggleChecked} />
-            ) : (
-              <ArrowForwardIosIcon />
-            )}
-          </ListItem>
+          <SettingList
+            key={items.id}
+            listItemIcon={items.listItemIcon}
+            primary={items.primary}
+            secondary={items.secondary}
+            onPress={items.onPress}
+            toggle={items.toggle}
+          />
         ))}
       </List>
     </div>

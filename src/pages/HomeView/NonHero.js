@@ -1,7 +1,7 @@
 import { Container, makeStyles, List, ListItem, Typography } from "@material-ui/core";
 import CourseCard from "../../components/courseCard/courseCard1";
 import Recommended from "./Courses";
-import Search from "./Search";
+import Search from "../../components/Search/Search";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,11 +14,14 @@ const useStyles = makeStyles((theme) => ({
   list: {
     display: "flex",
     overflowX: "scroll",
+    scrollbarWidth: "none",
     "&::-webkit-scrollbar": {
       display: "none",
     },
   },
 }));
+
+const data = ["Web", "coding", "Programming", "Android", "Kotlin", "C/C++", "Python"];
 
 export default function NonHero(props) {
   const classes = useStyles();
@@ -36,7 +39,7 @@ export default function NonHero(props) {
             );
           })}
         </List>
-        <Search />
+        <Search data={data} placeholder="Search courses, categories or mentors" />
         <Recommended />
       </Container>
     </div>
