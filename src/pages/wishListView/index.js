@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { List, ListItem, makeStyles } from "@material-ui/core";
-=======
 import { List, makeStyles, AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
->>>>>>> 800c22028fe0957d0450afcbf2816ddd56d7e62a
 import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCardComponent from "./wishListComponent/wishlistComponent";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -50,17 +46,6 @@ const WishListView = ({ props, wishlist, wishlistDeleted }) => {
       </AppBar>
       <div id="back-to-top-anchor"></div>
       <ScrollToTop />
-<<<<<<< HEAD
-      <List>
-        {[1, 2, 3].map((item, index) => {
-          return (
-            <ListItem key={index} className={classes.li}>
-              <WishlistCard props={props} />
-            </ListItem>
-          );
-        })}
-      </List>
-=======
 
       {wishlist.length ? (
         <List>
@@ -77,7 +62,6 @@ const WishListView = ({ props, wishlist, wishlistDeleted }) => {
       ) : (
         <EmptyWishlist />
       )}
->>>>>>> 800c22028fe0957d0450afcbf2816ddd56d7e62a
       <div className={classes.backtotop}>
         <ScrollTop {...props}>
           <Fab color="secondary" size="small" aria-label="scroll back to top">
