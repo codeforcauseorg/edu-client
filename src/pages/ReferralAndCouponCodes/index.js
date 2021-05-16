@@ -69,7 +69,7 @@ function ReferralAndCoupons() {
       <Box className={classes.root}>
         <Typography variant="h2">Refer a friend</Typography>
         <Typography variant="body1" className={classes.subtitle}>
-          And you can both save 15% off on available courses.
+          And you both can save 15% off on available courses.
         </Typography>
         <Box className={classes.infoTitle}>
           <InfoIcon className={classes.InfoIcon} />
