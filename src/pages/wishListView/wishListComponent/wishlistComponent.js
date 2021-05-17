@@ -13,14 +13,14 @@ import { useRef } from "react";
 import ButtonComponent from "../../../components/Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
 import { useHistory } from "react-router";
-// import "./wishListComponent.css";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     color: "#fff",
     margin: 0,
     borderRadius: "8px",
     "&.removedItem": {
-      animation: `$removed-item-animation 0.4s cubic-bezier(.55,-0.04,.91,.94) forwards`,
+      animation: `$fadeOut 1.2s ease-out`,
     },
   },
   cardHeader: {
@@ -60,15 +60,13 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     transition: " all 0.4s ease-out",
   },
-  "@keyframes removed-item-animation": {
-    from: {
+  "@keyframes fadeOut": {
+    "0%": {
       opacity: 1,
-      transform: "scale(1)",
     },
-    to: {
+    "100%": {
       opacity: 0,
       height: "0px",
-      transform: "scale(0)",
     },
   },
 }));
@@ -80,6 +78,9 @@ const WishlistCardComponent = ({ props, onClick }) => {
 
   const handleDelete = () => {
     deleteButton.current.classList.add("removedItem");
+    setTimeout(() => {
+      onClick();
+    }, 1200);
   };
   return (
     <Container
