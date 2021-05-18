@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     borderRadius: "8px",
     "&.removedItem": {
-      animation: `$fadeOut 1.2s ease-out`,
+      animation: `$fadeOut 1.2s ease-in`,
     },
   },
   cardHeader: {
@@ -63,10 +63,12 @@ const useStyles = makeStyles((theme) => ({
   "@keyframes fadeOut": {
     "0%": {
       opacity: 1,
+      maxHeight: "396px",
     },
     "100%": {
       opacity: 0,
-      height: "0px",
+      maxHeight: "0px",
+      transition: "opacity maxHeight 1.4s ease-out",
     },
   },
 }));
@@ -76,11 +78,12 @@ const WishlistCardComponent = ({ props, onClick }) => {
   const history = useHistory();
   const deleteButton = useRef();
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
     deleteButton.current.classList.add("removedItem");
     setTimeout(() => {
       onClick();
-    }, 1200);
+      e.preventDefault();
+    }, 2000);
   };
   return (
     <Container
