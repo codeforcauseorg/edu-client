@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 0,
     borderRadius: "8px",
     "&.removedItem": {
-      animation: `$fadeOut 1.2s ease-in`,
+      animation: `$removed-item-animation 0.6s cubic-bezier(.55,-0.04,.91,.94) forwards`,
     },
   },
   cardHeader: {
@@ -60,15 +60,15 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     transition: " all 0.4s ease-out",
   },
-  "@keyframes fadeOut": {
+  "@keyframes removed-item-animation": {
     "0%": {
       opacity: 1,
-      maxHeight: "396px",
+      transform: "scale(1)",
     },
     "100%": {
       opacity: 0,
-      maxHeight: "0px",
-      transition: "opacity maxHeight 1.4s ease-out",
+      height: "0px",
+      transform: "scale(0)",
     },
   },
 }));
@@ -83,7 +83,7 @@ const WishlistCardComponent = ({ props, onClick }) => {
     setTimeout(() => {
       onClick();
       e.preventDefault();
-    }, 2000);
+    }, 700);
   };
   return (
     <Container
