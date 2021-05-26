@@ -1,30 +1,16 @@
-import {
-  AppBar,
-  IconButton,
-  Toolbar,
-  Box,
-  Button,
-  Container,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
-import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import ContestsList from "./ContestsList";
+import TopBar from "../../components/TopBar/TopBar";
 import contests from "../../data/contestsDetails.json";
+import { Box, Button, Container, makeStyles, Typography } from "@material-ui/core";
+
 const useStyle = makeStyles((theme) => ({
   buttoncontainer: {
     marginTop: theme.spacing(1),
   },
-  backButton: {
-    marginRight: theme.spacing(2),
-  },
   title: {
     flexGrow: 1,
-  },
-  appBar: {
-    background: "#160050",
   },
   Icon: {
     height: 25,
@@ -71,7 +57,6 @@ const completed = contests[0].completed;
 
 function Contests() {
   const classes = useStyle();
-  const history = useHistory();
   const buttonItems = [
     {
       status: "Ongoing",
@@ -89,21 +74,7 @@ function Contests() {
   };
   return (
     <>
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            onClick={() => history.goBack()}
-          >
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.title}>
-            Contests & Statistics
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <TopBar title="Discussion Forum" share={false} more={false} />
       <Container component="main" maxWidth="xs" className={classes.root}>
         <Box className={classes.titlecontainer}>
           <Typography variant="h1">

@@ -6,6 +6,7 @@ import FooterComponent from "./ProfileComponent/FooterComponent";
 import ScoreBoardComponent from "./ProfileComponent/ScoreBoardComponent";
 import ListComponent from "./ProfileComponent/ListComponent";
 import HeaderComponent from "./ProfileComponent/HeaderComponent";
+import TopBar from "../../components/TopBar/TopBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,8 +33,10 @@ const useStyles = makeStyles((theme) => ({
 function ProfilePage() {
   const dispatch = useDispatch();
   const classes = useStyles();
+
   return (
     <Container component="main" maxWidth="xs" className={classes.root}>
+      <TopBar title="Profile" share={true} more={false} />
       <HeaderComponent />
       <ScoreBoardComponent />
       <ListComponent />

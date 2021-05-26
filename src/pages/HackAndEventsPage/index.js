@@ -1,11 +1,10 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { AppBar, IconButton, Toolbar, makeStyles, Typography, Box, Grid } from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import HackCard from "./HackCard.js";
 import UpcomingEve from "./UpcomingCard";
 import PreviousCard from "./previousCard";
+import TopBar from "../../components/TopBar/TopBar.js";
+import { makeStyles, Typography, Box, Grid } from "@material-ui/core";
+
 <link
   href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
   rel="stylesheet"
@@ -19,9 +18,6 @@ const useStyles = makeStyles((theme) => ({
   },
   head: {
     flexGrow: 1,
-  },
-  backButton: {
-    marginRight: theme.spacing(2),
   },
   aboutText: {
     color: "#555",
@@ -163,28 +159,10 @@ const PreviousData = [
 
 function HackathonsAndEvents() {
   const classes = useStyles();
-  const history = useHistory();
 
   return (
     <>
-      <AppBar position="static">
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            onClick={() => history.goBack()}
-          >
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.head}>
-            Hackathons And Events
-          </Typography>
-          <IconButton edge="end" className={classes.menuButton} color="inherit">
-            <MoreVertIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+      <TopBar title="Discussion Forum" share={false} more={false} />
       <Grid className={classes.root}>
         <Typography className={classes.mainTitles} variant="h5">
           Hackathons

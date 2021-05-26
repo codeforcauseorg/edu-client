@@ -1,28 +1,16 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import {
-  AppBar,
-  Container,
-  IconButton,
-  Toolbar,
-  makeStyles,
-  Box,
-  Typography,
-} from "@material-ui/core";
-import FilterListIcon from "@material-ui/icons/FilterList";
+import { useState } from "react";
+import { Container, makeStyles, Box, Typography } from "@material-ui/core";
 import PostCard from "./PostCard";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Fab from "@material-ui/core/Fab";
 import ScrollTop from "../../components/backTop/index";
 import ScrollToTop from "../../utils/ScrollToTop";
 import Search from "../../components/Search/Search";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import Modal from "@material-ui/core/Modal";
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import TopBar from "../../components/TopBar/TopBar";
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -79,12 +67,6 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
-  appBar: {
-    background: "#160050",
-  },
-  backButton: {
-    marginRight: theme.spacing(2),
-  },
   aboutText: {
     color: "#555",
   },
@@ -133,10 +115,8 @@ const data = [
 
 function PeerPage(props) {
   const classes = useStyles();
-  const history = useHistory();
-  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [file, setFile] = useState(null);
 
   const handlemodalOpen = () => {
@@ -148,13 +128,6 @@ function PeerPage(props) {
 
   const handlemodalClose = () => {
     setOpen(false);
-  };
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
   };
 
   const Discussion = [
@@ -201,45 +174,28 @@ function PeerPage(props) {
       date: "3 Jan",
     },
   ];
+
+  const moreOptions = [
+    {
+      name: "Filter by Hastags",
+      link: "link",
+      function: "",
+    },
+    {
+      name: "Sort By Time",
+      link: "link",
+      function: "",
+    },
+    {
+      name: "Sort By Name",
+      link: "link",
+      function: "",
+    },
+  ];
+
   return (
     <>
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.backButton}
-            color="inherit"
-            onClick={() => history.goBack()}
-          >
-            <ArrowBackIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit" className={classes.head}>
-            Discussion Forum
-          </Typography>
-          <div>
-            <Menu
-              id="simple-menu"
-              anchorEl={anchorEl}
-              keepMounted
-              open={Boolean(anchorEl)}
-              onClose={handleClose}
-            >
-              <MenuItem onClick={handleClose}>Filter by Hastags</MenuItem>
-              <MenuItem onClick={handleClose}>Sort By Time</MenuItem>
-              <MenuItem onClick={handleClose}>Sort By Name</MenuItem>
-            </Menu>
-          </div>
-          <IconButton
-            onClick={handleClick}
-            edge="end"
-            className={classes.menuButton}
-            color="inherit"
-          >
-            <FilterListIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-
+      <TopBar title="Discussion Forum" share={false} more={true} moreOptions={moreOptions} />
       <Search data={data} placeholder="Search by Topic or keywords" />
       <Container>
         <div id="back-to-top-anchor"></div>
