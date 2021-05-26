@@ -53,8 +53,8 @@ const themeConfig = {
       main: "#3740A1", // for header and loader
     },
     secondary: {
-      default: "#900A0A",
-      main: "#51BFA5",
+      default: "#51BFA5",
+      main: "#900A0A",
     },
     error: {
       main: "#FF9D9D",
