@@ -10,20 +10,12 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import CourseCard from "../../components/courseCard/courseCard1";
-import ScrollTop from "../../components/backTop/index";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 const useStyles = makeStyles((theme) => ({
   root: { borderRadius: "10px", color: "#000" },
   link: {
     textDecoration: "none",
-  },
-  backtotop: {
-    minWidth: "100%",
-    display: "flex",
-    justifyContent: "center",
   },
   backButton: {
     marginRight: theme.spacing(2),
@@ -57,7 +49,6 @@ export default function MyCourses(props) {
         </Toolbar>
       </AppBar>
       <Container className={classes.root}>
-        <ScrollTop />
         <List>
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => {
             return (
@@ -69,13 +60,6 @@ export default function MyCourses(props) {
             );
           })}
         </List>
-        <div className={classes.backtotop}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
-        </div>
       </Container>
     </>
   );

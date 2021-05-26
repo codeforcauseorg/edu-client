@@ -12,9 +12,6 @@ import {
 } from "@material-ui/core";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import PostCard from "./PostCard";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
 import ScrollToTop from "../../utils/ScrollToTop";
 import Search from "../../components/Search/Search";
 import Menu from "@material-ui/core/Menu";
@@ -34,10 +31,6 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: "rgb(138, 128, 168)",
     },
-  },
-  backtotop: {
-    display: "flex",
-    justifyContent: "center",
   },
   flex: {
     display: "flex",
@@ -335,13 +328,6 @@ function PeerPage(props) {
               return <PostCard data={data} key={index} />;
             })}
           </Box>
-        </div>
-        <div className={classes.backtotop}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
         </div>
       </Container>
     </>
