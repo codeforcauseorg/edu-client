@@ -1,4 +1,4 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 
 import Carousel from "react-material-ui-carousel";
 import Item from "./Item";
@@ -35,14 +35,13 @@ export default function Hero(props) {
   ];
 
   return (
-    <Container className={classes.root}>
+    <Box className={classes.root}>
       <Typography className={classes.heading} variant="h2">
         Learn from the experts how to expertise
       </Typography>
       <Typography variant="h3" style={{ color: "#FFB2B2" }}>
         Know us connect with us on live!!
       </Typography>
-      {/* <img className={classes.img} src="/assets/img/home.png" alt="" /> */}
       <Carousel
         fullHeightHover={false}
         navButtonsProps={{
@@ -61,6 +60,6 @@ export default function Hero(props) {
           <Item key={i} item={item} />
         ))}
       </Carousel>
-    </Container>
+    </Box>
   );
 }

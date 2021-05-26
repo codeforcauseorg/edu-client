@@ -1,4 +1,4 @@
-import { Container, makeStyles, List, ListItem, Typography } from "@material-ui/core";
+import { makeStyles, List, ListItem, Typography } from "@material-ui/core";
 import CourseCard from "../../components/courseCard/courseCard1";
 import Recommended from "./Courses";
 import Search from "../../components/Search/Search";
@@ -28,20 +28,18 @@ export default function NonHero(props) {
 
   return (
     <div className={classes.root}>
-      <Container>
-        <Typography variant="h3">Continue Learning</Typography>
-        <List className={classes.list}>
-          {[1].map((item, index) => {
-            return (
-              <ListItem key={index} className={classes.li}>
-                <CourseCard />
-              </ListItem>
-            );
-          })}
-        </List>
-        <Search data={data} placeholder="Search courses, categories or mentors" />
-        <Recommended />
-      </Container>
+      <Typography variant="h3">Continue Learning</Typography>
+      <List className={classes.list}>
+        {[1].map((item, index) => {
+          return (
+            <ListItem key={index} className={classes.li}>
+              <CourseCard />
+            </ListItem>
+          );
+        })}
+      </List>
+      <Search data={data} placeholder="Search courses, categories or mentors" />
+      <Recommended />
     </div>
   );
 }

@@ -7,7 +7,6 @@ import { wishlistDeleted } from "../../actions/wishlistActions";
 import EmptyWishlist from "./wishListComponent/emptyWishlist";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   li: {
     padding: "14px 0px",
   },

@@ -1,4 +1,4 @@
-import { Box, Button, Container, makeStyles } from "@material-ui/core";
+import { Box, Button, makeStyles } from "@material-ui/core";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../actions/accountActions";
@@ -33,7 +33,7 @@ function ProfilePage() {
   const dispatch = useDispatch();
   const classes = useStyles();
   return (
-    <Container component="main" maxWidth="xs" className={classes.root}>
+    <>
       <HeaderComponent />
       <ScoreBoardComponent />
       <ListComponent />
@@ -43,7 +43,7 @@ function ProfilePage() {
         </Button>
       </Box>
       <FooterComponent />
-    </Container>
+    </>
   );
 }
 
