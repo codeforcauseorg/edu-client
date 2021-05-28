@@ -1,11 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Container,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Box, Card, CardContent, CardHeader, makeStyles, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,7 +27,7 @@ const WishlistCard = () => {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root}>
+    <Box className={classes.root}>
       <Card>
         <CardHeader
           style={{
@@ -56,7 +49,7 @@ const WishlistCard = () => {
           </Typography>
         </CardContent>
       </Card>
-    </Container>
+    </Box>
   );
 };
 
