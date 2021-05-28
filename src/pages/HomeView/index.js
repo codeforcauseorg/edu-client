@@ -1,7 +1,8 @@
 import { useEffect } from "react";
-import Hero from "./Hero";
-import NonHero from "./NonHero";
 import { Plugins } from "@capacitor/core";
+import NavBar from "../../components/NavBar";
+import HeaderSection from "../../components/HomeViewComponents/HeaderSection";
+import FooterSection from "../../components/HomeViewComponents/FooterSection";
 const { SplashScreen } = Plugins;
 
 export default function HomeView(props) {
@@ -11,9 +12,9 @@ export default function HomeView(props) {
 
   return (
     <div>
-      <Hero />
-      <div id="back-to-top-anchor"></div>
-      <NonHero />
+      <NavBar />
+      <HeaderSection />
+      <FooterSection />
     </div>
   );
 }
