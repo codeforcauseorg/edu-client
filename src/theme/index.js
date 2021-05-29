@@ -51,6 +51,16 @@ const themeConfig = {
     },
     primary: {
       main: "#3740A1", // for header and loader
+      navBar: {
+        mobile: {
+          iconColor: "#ffffff",
+          searchIcon: "#2D303F",
+          searchBackground: "#ffffff",
+        },
+        desktop: {
+          searchBackground: "rgba(150, 150, 150, 0.14)",
+        },
+      },
     },
     secondary: {
       default: "#51BFA5",
@@ -69,7 +79,20 @@ const themeConfig = {
 };
 
 const createTheme = () => {
-  let theme = createMuiTheme(_.merge({}, baseConfig, themeConfig, { direction: "ltr" }));
+  let theme = createMuiTheme(
+    _.merge({}, baseConfig, themeConfig, {
+      direction: "ltr",
+      breakpoints: {
+        values: {
+          xs: 0,
+          sm: 450,
+          md: 624,
+          lg: 900,
+          xl: 1200,
+        },
+      },
+    })
+  );
 
   theme = responsiveFontSizes(theme);
 
