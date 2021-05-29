@@ -62,7 +62,7 @@ const renderRoutes = () => (
     <MainLayout>
       <SwipeableRoutes replace>
         <Route path="/home" exact component={HomePage} />
-        <Route path="/mycourses" exact component={MyCourses} />
+        <Route path="/my-course" exact component={MyCourses} />
         <Route path="/wishlist" exact component={WishlistPage} />
         <Route path="/profile" exact component={ProfilePage} />
       </SwipeableRoutes>

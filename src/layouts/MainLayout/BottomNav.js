@@ -50,7 +50,7 @@ export default function BottomNav(props) {
       <BottomNavigationAction
         className={classes.navItem}
         label="My Courses"
-        value="/mycourses"
+        value="/my-course"
         icon={<ImportContactsOutlined />}
       />
 

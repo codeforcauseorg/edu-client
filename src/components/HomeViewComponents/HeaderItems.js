@@ -1,4 +1,4 @@
-import { Paper, makeStyles, Container, Box, Typography, Button } from "@material-ui/core";
+import { Paper, makeStyles, Container, Box, Typography, Button, Hidden } from "@material-ui/core";
 import React from "react";
 
 function HeaderItems({ title, description }) {
@@ -13,12 +13,14 @@ function HeaderItems({ title, description }) {
             <Button className={classes.knowMoreButton}>Know more</Button>
           </Box>
         </Box>
-        <Box className={classes.imageBox}>
-          <img
-            className={classes.image}
-            src="https://cdn.pixabay.com/photo/2015/03/26/10/24/apple-691282__340.jpg"
-          />
-        </Box>
+        <Hidden mdDown>
+          <Box className={classes.imageBox}>
+            <img
+              className={classes.image}
+              src="https://cdn.pixabay.com/photo/2015/03/26/10/24/apple-691282__340.jpg"
+            />
+          </Box>
+        </Hidden>
       </Paper>
     </Container>
   );
@@ -33,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   wrapperContainer: {
     maxWidth: "100%",
+    marginTop: theme.spacing(7),
     [theme.breakpoints.down("md")]: {
       padding: 0,
     },
@@ -52,9 +55,6 @@ const useStyles = makeStyles((theme) => ({
     background: "#fff",
     minWidth: "50px",
     flex: "25%",
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
   },
   image: {
     position: "absolute",

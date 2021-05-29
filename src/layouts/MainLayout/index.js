@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { makeStyles } from "@material-ui/core";
+import { Hidden, makeStyles } from "@material-ui/core";
 // import TopBar from './TopBar';
 import BottomNav from "./BottomNav";
 
@@ -40,7 +40,9 @@ function MainLayout({ children }) {
           <div className={classes.content}>{children}</div>
         </div>
       </div>
-      <BottomNav />
+      <Hidden mdUp>
+        <BottomNav />
+      </Hidden>
     </div>
   );
 }

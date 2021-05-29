@@ -4,6 +4,7 @@ import Auth from "./components/auth/Auth";
 import { SnackbarProvider } from "notistack";
 import { createStyles, makeStyles, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "./theme/index";
+import NavBar from "./components/NavBar";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -42,6 +43,7 @@ function App() {
         <SnackbarProvider maxSnack={1}>
           <Router history={history}>
             <Auth>
+              <NavBar />
               <Routes />
             </Auth>
           </Router>
