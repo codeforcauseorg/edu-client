@@ -1,15 +1,54 @@
 import { Box, makeStyles } from "@material-ui/core";
 import React from "react";
+import Carousel from "react-material-ui-carousel";
+import HeaderItems from "./HeaderItems";
 
+const items = [
+  {
+    title: "Elastic Weekend Prizes worth 100K",
+    description:
+      "Learn about Building Search Engines, DevOps & Security, & Data Science 📈 ‼️ Prizes worth INR 1 lakh, including iPad, PS4, mobile phones, premium headphones, accessories, and more! 🤩",
+    img: "/assets/img/home.png",
+  },
+  {
+    title: "Elastic Weekend Prizes worth 100K",
+    description:
+      "Learn about Building Search Engines, DevOps & Security, & Data Science 📈 ‼️ Prizes worth INR 1 lakh, including iPad, PS4, mobile phones, premium headphones, accessories, and more! 🤩",
+
+    img: "/assets/img/home1.jpg",
+  },
+  {
+    title: "Elastic Weekend Prizes worth 100K",
+    description:
+      "Learn about Building Search Engines, DevOps & Security, & Data Science 📈 ‼️ Prizes worth INR 1 lakh, including iPad, PS4, mobile phones, premium headphones, accessories, and more! 🤩",
+
+    img: "/assets/img/learning.jpg",
+  },
+];
 function HeaderSection() {
   const classes = useStyles();
-  return <Box className={classes.root}></Box>;
+  return (
+    <Box className={classes.root}>
+      <Carousel
+        fullHeightHover={false}
+        className={classes.carousel}
+        navButtonsProps={{
+          style: {
+            backgroundColor: "transparent",
+          },
+        }}
+      >
+        {items.map((items, index) => (
+          <HeaderItems key={index} title={items.title} description={items.description} />
+        ))}
+      </Carousel>
+    </Box>
+  );
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    minHeight: 300,
-    background: theme.palette.primary.main,
+  carousel: {
+    boxShadow: "none",
   },
 }));
 export default HeaderSection;
