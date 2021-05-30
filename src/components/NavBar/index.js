@@ -74,7 +74,6 @@ function NavBar() {
           <SearchBar
             className={classes.search}
             placeholder="Search Course, Categories or mentors..."
-            autoFocus
           />
           <div className={classes.grow} />
           <Hidden lgDown>
@@ -83,7 +82,12 @@ function NavBar() {
                 return (
                   <Button key={index}>
                     <Link smooth to={item.link} variant="h5" className={classes.textStyle}>
-                      <Typography className={classes.listTitle} variant="h6" color="textPrimary">
+                      <Typography
+                        noWrap
+                        className={classes.listTitle}
+                        variant="h6"
+                        color="textPrimary"
+                      >
                         {item.title}
                       </Typography>
                     </Link>
@@ -96,10 +100,10 @@ function NavBar() {
           <div className={classes.sectionDesktop}>
             <Hidden mdDown>
               <Button className={classes.signIn}>
-                <Typography>Sign In</Typography>
+                <Typography noWrap>Sign In</Typography>
               </Button>
               <Button className={classes.signUp}>
-                <Typography>Sign Up</Typography>
+                <Typography noWrap>Sign Up</Typography>
               </Button>
             </Hidden>
           </div>
@@ -142,7 +146,9 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: " 38px",
     [theme.breakpoints.up("md")]: {
-      width: "auto",
+      width: theme.spacing(50),
+      height: " 48px",
+      marginLeft: theme.spacing(5),
     },
   },
   inputInput: {
