@@ -12,7 +12,6 @@ import {
 } from "@material-ui/core";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import PostCard from "./PostCard";
-import ScrollToTop from "../../utils/ScrollToTop";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Modal from "@material-ui/core/Modal";
@@ -220,8 +219,6 @@ function PeerPage(props) {
         </Toolbar>
       </AppBar>
       <Container>
-        <div id="back-to-top-anchor"></div>
-        <ScrollToTop />
         <Modal
           open={open}
           onClose={handlemodalClose}
