@@ -5,7 +5,8 @@ import FooterSection from "../../components/HomeViewComponents/FooterSection";
 import Tags from "../../components/HomeViewComponents/Tags";
 import ContinueLearningCard from "../../components/ContinueLearningCard";
 import CardContainer from "../../components/cardContainer/cardContainer";
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import { Box, Container, makeStyles, Typography } from "@material-ui/core";
+import BrowseAllButton from "../BrowseAllButton";
 const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [
@@ -53,6 +54,10 @@ export default function HomeView(props) {
             />
           ))}
         </CardContainer>
+        <Box className={classes.popularContainer}>
+          <Typography variant="h2">Popular Course</Typography>
+          <BrowseAllButton onClick={() => console.log("Popular Course")} />
+        </Box>
       </Container>
 
       <FooterSection />
@@ -67,5 +72,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       maxWidth: "100%",
     },
+  },
+  popularContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 }));
