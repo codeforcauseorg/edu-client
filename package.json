@@ -27,6 +27,7 @@
     "history": "^5.0.0",
     "immer": "^8.0.1",
     "jwt-decode": "^3.1.2",
+    "material-ui-search-bar": "^1.0.0",
     "moment": "^2.29.1",
     "notistack": "^1.0.5",
     "prop-types": "^15.7.2",

@@ -14,10 +14,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Typography } from "@material-ui/core";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-
 const useStyles = makeStyles((theme) => ({
   navigation: {
     widht: "100%",
@@ -144,13 +140,6 @@ function CourseDetail(props) {
           />
         ))}
       </CardContainer>
-      <div className={classes.backtotop}>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
-      </div>
     </>
   );
 }

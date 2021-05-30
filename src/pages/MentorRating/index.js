@@ -4,9 +4,6 @@ import ScrollToTop from "../../utils/ScrollToTop";
 import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Typography, TextField } from "@material-ui/core";
-import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Rating from "@material-ui/lab/Rating";
 import Box from "@material-ui/core/Box";
 import ButtonComponent from "../../components/Button/ButtonComponent";
@@ -69,12 +66,6 @@ const useStyles = makeStyles((theme) => ({
   svg: {
     color: "white",
     cursor: "pointer",
-  },
-  backtotop: {
-    minWidth: "100%",
-    display: "flex",
-    justifyContent: "center",
-    paddingBottom: "24px",
   },
 }));
 
@@ -149,13 +140,6 @@ function CourseDetail(props) {
             title="Submit Feedback"
           />
         </Grid>
-        <div className={classes.backtotop}>
-          <ScrollTop {...props}>
-            <Fab color="secondary" size="small" aria-label="scroll back to top">
-              <KeyboardArrowUpIcon />
-            </Fab>
-          </ScrollTop>
-        </div>
       </div>
     </>
   );

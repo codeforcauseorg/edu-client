@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { MDXProvider } from "@mdx-js/react";
-import { Container, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import BottomNav from "../MainLayout/BottomNav";
 import components from "./mdx";
 
@@ -39,9 +39,7 @@ function DocsLayout({ children }) {
     <>
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>
-          <Container maxWidth="lg" className={classes.content}>
-            <MDXProvider components={components}>{children}</MDXProvider>
-          </Container>
+          <MDXProvider components={components}>{children}</MDXProvider>
         </div>
       </div>
       <BottomNav />
