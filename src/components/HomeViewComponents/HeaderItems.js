@@ -32,12 +32,17 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     background: theme.palette.primary.main,
     boxShadow: "none",
+    borderRadius: "10px",
+    [theme.breakpoints.down("md")]: {
+      borderRadius: "0px",
+    },
   },
   wrapperContainer: {
     maxWidth: "100%",
-    marginTop: theme.spacing(7),
+    marginTop: theme.spacing(10),
     [theme.breakpoints.down("md")]: {
       padding: 0,
+      marginTop: theme.spacing(7),
     },
   },
   infoContainer: {
@@ -46,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     flex: "50%",
     color: "#fff",
     padding: theme.spacing(8),
+    borderRadius: "10px",
   },
   description: {
     maxWidth: "30rem",
@@ -61,6 +67,8 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     objectFit: "containe",
+    borderTopRightRadius: "10px",
+    borderBottomRightRadius: "10px",
   },
   knowMoreButton: {
     position: "absolute",

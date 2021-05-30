@@ -30,7 +30,8 @@ function HeaderSection() {
   return (
     <Box className={classes.root}>
       <Carousel
-        fullHeightHover={false}
+        fullHeightHover={true}
+        timeout={600}
         className={classes.carousel}
         navButtonsProps={{
           style: {

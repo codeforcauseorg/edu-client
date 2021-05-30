@@ -32,6 +32,7 @@ function NavBar() {
       });
     });
   };
+
   const calculateScrollDistance = () => {
     const scrollTop = window.pageYOffset;
     const windowHeight = window.innerHeight;
@@ -40,6 +41,7 @@ function NavBar() {
     const scrollPostion = Math.floor((scrollTop / totalDocScrollLength) * 100);
     setscrollPositions(scrollPostion);
   };
+
   const getDocHeight = () => {
     return Math.max(
       document.body.scrollHeight,
@@ -50,9 +52,11 @@ function NavBar() {
       document.documentElement.clientHeight
     );
   };
+
   useEffect(() => {
     listenToScrollEvent();
   });
+
   return (
     <div className={classes.grow}>
       <AppBar position="fixed">
@@ -99,10 +103,10 @@ function NavBar() {
 
           <div className={classes.sectionDesktop}>
             <Hidden mdDown>
-              <Button className={classes.signIn}>
+              <Button className={classes.signInButton}>
                 <Typography noWrap>Sign In</Typography>
               </Button>
-              <Button className={classes.signUp}>
+              <Button className={classes.signUpButton}>
                 <Typography noWrap>Sign Up</Typography>
               </Button>
             </Hidden>
@@ -163,7 +167,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginRight: theme.spacing(5),
   },
-  signIn: {
+  signInButton: {
     border: " 1px solid #3740A1",
     boxSizing: "border-box",
     borderRadius: "5px",
@@ -172,7 +176,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     padding: theme.spacing(1, 2, 1, 2),
   },
-  signUp: {
+  signUpButton: {
     background: theme.palette.primary.main,
     "&:hover": {
       background: theme.palette.primary.main,

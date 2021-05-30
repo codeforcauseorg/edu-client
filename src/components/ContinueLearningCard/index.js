@@ -55,19 +55,22 @@ function ContinueLearningCard({
 }
 const useStyles = makeStyles((theme) => ({
   root: {
-    boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.05)",
-    transition: "1s",
+    position: "relative",
+    top: 0,
+    boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.10)",
+    transition: "0.5s",
     cursor: "pointer",
     marginTop: theme.spacing(3),
-    minWidth: 350,
+    maxWidth: 370,
     marginRight: "25px",
-    borderRadius: "10px",
+    borderRadius: "5px",
+    flex: "0 0 auto",
     "&:hover": {
-      boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.10)",
-      transform: "scale(1.035, 1.035)",
+      boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.25)",
+      top: "-10px",
     },
     [theme.breakpoints.down("md")]: {
-      minWidth: 320,
+      maxWidth: 325,
       marginRight: "10px",
     },
   },
@@ -77,13 +80,14 @@ const useStyles = makeStyles((theme) => ({
   cardActions: {
     display: "flex",
     alignItems: "center",
+    paddingBottom: theme.spacing(2),
   },
   media: {
     height: 100,
-    transition: "1s",
+    transition: "0.5s",
     cursor: "pointer",
     "&:hover": {
-      transform: "scale(1.020)",
+      transform: "scale(1.02)",
     },
   },
   chapter: {

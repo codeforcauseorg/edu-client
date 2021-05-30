@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     backgroundColor: "#fff",
     textTransform: "none",
+    cursor: "pointer",
     [theme.breakpoints.down("md")]: {
       marginRight: ".5rem",
     },
