@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Plugins } from "@capacitor/core";
 import HeaderSection from "../../components/HomeViewComponents/HeaderSection";
-import FooterSection from "../../components/HomeViewComponents/FooterSection";
 import Tags from "../../components/HomeViewComponents/Tags";
 import ContinueLearningCard from "../../components/ContinueLearningCard";
 import CardContainer from "../../components/cardContainer/cardContainer";
@@ -136,7 +135,6 @@ export default function HomeView(props) {
           ))}
         </CardContainer>
       </Container>
-      <FooterSection />
     </div>
   );
 }

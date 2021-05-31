@@ -5,6 +5,7 @@ import { SnackbarProvider } from "notistack";
 import { createStyles, makeStyles, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "./theme/index";
 import NavBar from "./components/NavBar";
+import FooterSection from "./components/HomeViewComponents/FooterSection";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -45,6 +46,7 @@ function App() {
             <Auth>
               <NavBar />
               <Routes />
+              <FooterSection />
             </Auth>
           </Router>
         </SnackbarProvider>
