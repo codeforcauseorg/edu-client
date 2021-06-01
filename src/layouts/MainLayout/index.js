@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
 import { Hidden, makeStyles } from "@material-ui/core";
-// import TopBar from './TopBar';
+import NavBar from "../../components/NavBar/index";
 import BottomNav from "./BottomNav";
-
+import FooterSection from "../../components/HomeViewComponents/FooterSection";
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,
-    display: "flex",
     height: "100%",
     overflow: "hidden",
     width: "100%",
@@ -23,7 +22,13 @@ function MainLayout({ children }) {
 
   return (
     <div className={classes.root}>
-      <div className={classes.content}>{children}</div>
+      <NavBar />
+      <div className={classes.wrapper}>
+        <div className={classes.contentContainer}>
+          <div className={classes.content}>{children}</div>
+        </div>
+      </div>
+      <FooterSection />
       <Hidden mdUp>
         <BottomNav />
       </Hidden>

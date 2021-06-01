@@ -4,9 +4,6 @@ import Auth from "./components/auth/Auth";
 import { SnackbarProvider } from "notistack";
 import { createStyles, makeStyles, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "./theme/index";
-import NavBar from "./components/NavBar";
-import FooterSection from "./components/HomeViewComponents/FooterSection";
-
 const useStyles = makeStyles(() =>
   createStyles({
     "@global": {
@@ -44,9 +41,7 @@ function App() {
         <SnackbarProvider maxSnack={1}>
           <Router history={history}>
             <Auth>
-              <NavBar />
               <Routes />
-              <FooterSection />
             </Auth>
           </Router>
         </SnackbarProvider>
