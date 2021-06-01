@@ -47,7 +47,6 @@
     "react-router-hash-link": "^2.4.0",
     "react-scripts": "^4.0.3",
     "react-share": "^4.4.0",
-    "react-swipeable-routes": "^0.8.0",
     "recharts": "^2.0.9",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",

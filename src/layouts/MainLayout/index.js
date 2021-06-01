@@ -11,17 +11,6 @@ const useStyles = makeStyles((theme) => ({
     overflow: "hidden",
     width: "100%",
   },
-  wrapper: {
-    display: "flex",
-    flex: "1 1 auto",
-    overflow: "hidden",
-    paddingBottom: 64,
-  },
-  contentContainer: {
-    display: "flex",
-    flex: "1 1 auto",
-    overflow: "hidden",
-  },
   content: {
     flex: "1 1 auto",
     height: "100%",
@@ -34,12 +23,7 @@ function MainLayout({ children }) {
 
   return (
     <div className={classes.root}>
-      {/* <TopBar /> */}
-      <div className={classes.wrapper}>
-        <div className={classes.contentContainer}>
-          <div className={classes.content}>{children}</div>
-        </div>
-      </div>
+      <div className={classes.content}>{children}</div>
       <Hidden mdUp>
         <BottomNav />
       </Hidden>
