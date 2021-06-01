@@ -4,7 +4,6 @@ import Auth from "./components/auth/Auth";
 import { SnackbarProvider } from "notistack";
 import { createStyles, makeStyles, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "./theme/index";
-
 const useStyles = makeStyles(() =>
   createStyles({
     "@global": {

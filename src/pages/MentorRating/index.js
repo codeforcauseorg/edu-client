@@ -1,6 +1,5 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import ScrollToTop from "../../utils/ScrollToTop";
 import { makeStyles } from "@material-ui/core/styles";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Typography, TextField } from "@material-ui/core";
@@ -77,8 +76,6 @@ function CourseDetail(props) {
 
   return (
     <>
-      <div id="back-to-top-anchor"></div>
-      <ScrollToTop />
       <div className={classes.navigation}>
         <ArrowBackIcon className={classes.svg} onClick={() => history.goBack()} />
       </div>

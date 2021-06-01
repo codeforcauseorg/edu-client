@@ -3,16 +3,17 @@ import {
   Avatar,
   Box,
   Button,
+  Hidden,
   IconButton,
   makeStyles,
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
-// import LinearProgress from "@material-ui/core/LinearProgress";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -22,10 +23,44 @@ const navItemsLists = [
 ];
 function NavBar() {
   const classes = useStyles();
+  const [scrollPositions, setscrollPositions] = useState(0);
+
+  const listenToScrollEvent = () => {
+    document.addEventListener("scroll", () => {
+      requestAnimationFrame(() => {
+        calculateScrollDistance();
+      });
+    });
+  };
+
+  const calculateScrollDistance = () => {
+    const scrollTop = window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = getDocHeight();
+    const totalDocScrollLength = docHeight - windowHeight;
+    const scrollPostion = Math.floor((scrollTop / totalDocScrollLength) * 100);
+    setscrollPositions(scrollPostion);
+  };
+
+  const getDocHeight = () => {
+    return Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight,
+      document.body.offsetHeight,
+      document.documentElement.offsetHeight,
+      document.body.clientHeight,
+      document.documentElement.clientHeight
+    );
+  };
+
+  useEffect(() => {
+    listenToScrollEvent();
+  });
+
   return (
     <div className={classes.grow}>
-      {/* <LinearProgress /> */}
-      <AppBar position="static">
+      <AppBar position="fixed">
+        <LinearProgress variant="determinate" value={scrollPositions} />
         <Toolbar className={classes.appBar}>
           <IconButton
             edge="start"
@@ -35,38 +70,46 @@ function NavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h3" noWrap>
-            Code for Cause
-          </Typography>
+          <Hidden mdDown>
+            <Typography className={classes.title} variant="h3" noWrap>
+              Code for Cause
+            </Typography>
+          </Hidden>
           <SearchBar
             className={classes.search}
             placeholder="Search Course, Categories or mentors..."
-            autoFocus
           />
           <div className={classes.grow} />
-          <Box className={classes.listContainer}>
-            {navItemsLists.map((item, index) => {
-              return (
-                <Button key={index}>
-                  <Link smooth to={item.link} variant="h5" className={classes.textStyle}>
-                    <Typography className={classes.listTitle} variant="h6" color="textPrimary">
-                      {item.title}
-                    </Typography>
-                  </Link>
-                </Button>
-              );
-            })}
-          </Box>
+          <Hidden lgDown>
+            <Box className={classes.listContainer}>
+              {navItemsLists.map((item, index) => {
+                return (
+                  <Button key={index}>
+                    <Link smooth to={item.link} variant="h5" className={classes.textStyle}>
+                      <Typography
+                        noWrap
+                        className={classes.listTitle}
+                        variant="h6"
+                        color="textPrimary"
+                      >
+                        {item.title}
+                      </Typography>
+                    </Link>
+                  </Button>
+                );
+              })}
+            </Box>
+          </Hidden>
 
           <div className={classes.sectionDesktop}>
-            <Box className={classes.accountActions}>
-              <Button className={classes.signIn}>
-                <Typography>Sign In</Typography>
+            <Hidden mdDown>
+              <Button className={classes.signInButton}>
+                <Typography noWrap>Sign In</Typography>
               </Button>
-              <Button className={classes.signUp}>
-                <Typography>Sign Up</Typography>
+              <Button className={classes.signUpButton}>
+                <Typography noWrap>Sign Up</Typography>
               </Button>
-            </Box>
+            </Hidden>
           </div>
           <Avatar
             className={classes.avatar}
@@ -85,10 +128,6 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.primary.main,
     },
   },
-  searchButton: {
-    marginRight: theme.spacing(2),
-    padding: 0,
-  },
   grow: {
     flexGrow: 1,
   },
@@ -96,26 +135,24 @@ const useStyles = makeStyles((theme) => ({
     display: "none",
     [theme.breakpoints.down("md")]: {
       marginRight: theme.spacing(2),
-      display: "block",
+      display: "flex",
     },
   },
   title: {
     display: "block",
     color: "#000",
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
   },
   search: {
     position: "relative",
     borderRadius: "5px",
     boxShadow: "none",
     marginRight: theme.spacing(2),
-    marginLeft: 0,
     width: "100%",
     height: " 38px",
     [theme.breakpoints.up("md")]: {
-      width: "auto",
+      width: theme.spacing(50),
+      height: " 48px",
+      marginLeft: theme.spacing(5),
     },
   },
   inputInput: {
@@ -125,18 +162,12 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionDesktop: {
     display: "flex",
-    [theme.breakpoints.down("md")]: {
-      display: "none",
-    },
   },
   listContainer: {
     display: "flex",
     marginRight: theme.spacing(5),
-    [theme.breakpoints.down("lg")]: {
-      display: "none",
-    },
   },
-  signIn: {
+  signInButton: {
     border: " 1px solid #3740A1",
     boxSizing: "border-box",
     borderRadius: "5px",
@@ -145,7 +176,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     padding: theme.spacing(1, 2, 1, 2),
   },
-  signUp: {
+  signUpButton: {
     background: theme.palette.primary.main,
     "&:hover": {
       background: theme.palette.primary.main,
@@ -157,11 +188,6 @@ const useStyles = makeStyles((theme) => ({
   },
   textStyle: {
     textDecoration: "none",
-  },
-  accountActions: {
-    [theme.breakpoints.down("sm")]: {
-      display: "none",
-    },
   },
   avatar: {
     display: "none",

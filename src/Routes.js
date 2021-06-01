@@ -1,7 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import SwipeableRoutes from "react-swipeable-routes";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomeView";
 import CoursePage from "./pages/CoursePageViewWithVideo/IndividualCourse";
@@ -60,12 +59,10 @@ const renderRoutes = () => (
     <Route path="/editprofile" exact component={EditProfile} />
     <Route path="/hackathonsAndEvents" exact component={HackathonsAndEvents} />
     <MainLayout>
-      <SwipeableRoutes replace>
-        <Route path="/home" exact component={HomePage} />
-        <Route path="/mycourses" exact component={MyCourses} />
-        <Route path="/wishlist" exact component={WishlistPage} />
-        <Route path="/profile" exact component={ProfilePage} />
-      </SwipeableRoutes>
+      <Route path="/home" exact component={HomePage} />
+      <Route path="/my-course" exact component={MyCourses} />
+      <Route path="/wishlist" exact component={WishlistPage} />
+      <Route path="/profile" exact component={ProfilePage} />
     </MainLayout>
   </Switch>
 );
