@@ -1,7 +1,7 @@
 import { Box, makeStyles } from "@material-ui/core";
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import HeaderItems from "./HeaderItems";
+import Hero from "./Hero";
 
 const items = [
   {
@@ -40,7 +40,7 @@ function HeaderSection() {
         }}
       >
         {items.map((items, index) => (
-          <HeaderItems key={index} title={items.title} description={items.description} />
+          <Hero key={index} title={items.title} description={items.description} />
         ))}
       </Carousel>
     </Box>

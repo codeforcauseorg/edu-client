@@ -1,7 +1,7 @@
 import { Paper, makeStyles, Container, Box, Typography, Button, Hidden } from "@material-ui/core";
 import React from "react";
 
-function HeaderItems({ title, description }) {
+function Hero({ title, description }) {
   const classes = useStyles();
   return (
     <Container className={classes.wrapperContainer}>
@@ -85,4 +85,4 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export default HeaderItems;
+export default Hero;
