@@ -30,7 +30,7 @@ function ReviewCard() {
             <ListItemAvatar>
               <Avatar src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHByb2ZpbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
             </ListItemAvatar>
-            <ListItemText primary="Adarsg Kumar Singh" secondary="Student" />
+            <ListItemText primary="Adarsh Kumar Singh" secondary="Student" />
           </ListItem>
         </CardActionArea>
       </CardContent>
@@ -43,11 +43,15 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 350,
     marginRight: "25px",
     borderRadius: "5px",
+    marginLeft: "10px",
     flex: "0 0 auto",
     boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.25)",
     "&:hover": {
       transition: "all 0.2s ease-out",
       boxShadow: "0px 4px 8px rgba(55, 64, 161, 0.2)",
+    },
+    [theme.breakpoints.down("md")]: {
+      maxWidth: 300,
     },
   },
 }));

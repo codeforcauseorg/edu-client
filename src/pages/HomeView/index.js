@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Plugins } from "@capacitor/core";
+// import { useEffect } from "react";
+// import { Plugins } from "@capacitor/core";
 import HeaderSection from "../../components/HomeViewComponents/HeaderSection";
 import Tags from "../../components/HomeViewComponents/Tags";
 import ContinueLearningCard from "../../components/ContinueLearningCard";
@@ -9,7 +9,7 @@ import BrowseAllButton from "../../components/BrowseAllButton";
 import MediaCardWeb from "../../CourseMediaCard/Web";
 import StudentReviewSection from "../../components/HomeViewComponents/StudentReviewSection";
 // import MentorSection from "../../components/HomeViewComponents/MentorSection";
-const { SplashScreen } = Plugins;
+// const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [
   {
@@ -74,9 +74,9 @@ const courseList = [
   },
 ];
 export default function HomeView(props) {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+  // useEffect(() => {
+  //   SplashScreen.hide();
+  // }, []);
   const classes = useStyles();
   return (
     <div>
