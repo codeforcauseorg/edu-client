@@ -28,24 +28,26 @@ function Login() {
   };
 
   return (
-    <Button
-      fullWidth
-      variant="contained"
-      color="secondary"
-      className={classes.button}
-      onClick={handleLoginOpen}
-      style={{
-        textTransform: "capitalize",
-      }}
-    >
-      {user ? (
-        <CircularProgress size="24px" color="inherit" />
-      ) : (
-        <Typography component="h1" variant="subtitle1">
-          Google
-        </Typography>
-      )}
-    </Button>
+    <div>
+      <Button
+        fullWidth
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+        onClick={handleLoginOpen}
+        style={{
+          textTransform: "capitalize",
+        }}
+      >
+        {user ? (
+          <CircularProgress size="24px" color="inherit" />
+        ) : (
+          <Typography component="h1" variant="subtitle1">
+            Google
+          </Typography>
+        )}
+      </Button>
+    </div>
   );
 }
 

@@ -1,5 +1,4 @@
 import { List, makeStyles, AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
-import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCardComponent from "./wishListComponent/wishlistComponent";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { connect } from "react-redux";
@@ -35,8 +34,6 @@ const WishListView = ({ props, wishlist, wishlistDeleted }) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <div id="back-to-top-anchor"></div>
-      <ScrollToTop />
 
       {wishlist.length ? (
         <List>

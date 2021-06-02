@@ -12,8 +12,6 @@ import {
 } from "@material-ui/core";
 import FilterListIcon from "@material-ui/icons/FilterList";
 import PostCard from "./PostCard";
-import ScrollToTop from "../../utils/ScrollToTop";
-import Search from "../../components/Search/Search";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Modal from "@material-ui/core/Modal";
@@ -111,18 +109,6 @@ const useStyles = makeStyles((theme) => ({
     padding: "15px",
   },
 }));
-
-const data = [
-  "ML",
-  "NextJS",
-  "React",
-  "Programming",
-  "Android",
-  "Kotlin",
-  "C/C++",
-  "Web",
-  "Python",
-];
 
 function PeerPage(props) {
   const classes = useStyles();
@@ -232,11 +218,7 @@ function PeerPage(props) {
           </IconButton>
         </Toolbar>
       </AppBar>
-
-      <Search data={data} placeholder="Search by Topic or keywords" />
       <Container>
-        <div id="back-to-top-anchor"></div>
-        <ScrollToTop />
         <Modal
           open={open}
           onClose={handlemodalClose}
