@@ -7,6 +7,8 @@ import CardContainer from "../../components/cardContainer/cardContainer";
 import { Box, Container, makeStyles, Typography } from "@material-ui/core";
 import BrowseAllButton from "../../components/BrowseAllButton";
 import MediaCardWeb from "../../CourseMediaCard/Web";
+import StudentReviewSection from "../../components/HomeViewComponents/StudentReviewSection";
+// import MentorSection from "../../components/HomeViewComponents/MentorSection";
 const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [
@@ -135,6 +137,8 @@ export default function HomeView(props) {
           ))}
         </CardContainer>
       </Container>
+      {/* <MentorSection /> */}
+      <StudentReviewSection />
     </div>
   );
 }

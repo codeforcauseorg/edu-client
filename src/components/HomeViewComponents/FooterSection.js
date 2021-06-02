@@ -35,7 +35,7 @@ function FooterSection() {
   return (
     <Box className={classes.root}>
       <Container className={classes.footerContainer}>
-        <Box mt={5} className={classes.darkModeSwitcher}>
+        <Box pt={5} className={classes.darkModeSwitcher}>
           <Switch onChange={handleChange} />
           <img className={classes.darkModeIcon} src="assets/icon/darkmodeIcon.svg" />
         </Box>
@@ -85,7 +85,10 @@ function FooterSection() {
                 <Typography gutterBottom variant="h5">
                   Terms & Conditions
                 </Typography>
-                <Typography variant="h5">Support</Typography>
+                <Typography gutterBottom variant="h5">
+                  Support
+                </Typography>
+                <Typography variant="h5">Career</Typography>
               </Box>
             </Box>
           </Grid>
@@ -129,7 +132,8 @@ function FooterSection() {
 }
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: 500,
+    minHeight: 550,
+    background: theme.palette.primary.footer.background,
   },
   footerContainer: {
     maxWidth: "85%",

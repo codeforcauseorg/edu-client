@@ -61,6 +61,9 @@ const themeConfig = {
           searchBackground: "rgba(150, 150, 150, 0.14)",
         },
       },
+      footer: {
+        background: "#F9FCFF",
+      },
     },
     secondary: {
       default: "#51BFA5",
