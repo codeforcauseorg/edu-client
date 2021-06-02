@@ -1,23 +1,13 @@
 import { List, makeStyles, AppBar, IconButton, Toolbar, Typography } from "@material-ui/core";
-import ScrollToTop from "../../utils/ScrollToTop";
 import WishlistCardComponent from "./wishListComponent/wishlistComponent";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import { connect } from "react-redux";
 import { wishlistDeleted } from "../../actions/wishlistActions";
 import EmptyWishlist from "./wishListComponent/emptyWishlist";
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   li: {
     padding: "14px 0px",
-  },
-  backtotop: {
-    minWidth: "100%",
-    display: "flex",
-    justifyContent: "center",
   },
   backButton: {
     marginRight: theme.spacing(2),
@@ -44,8 +34,6 @@ const WishListView = ({ props, wishlist, wishlistDeleted }) => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <div id="back-to-top-anchor"></div>
-      <ScrollToTop />
 
       {wishlist.length ? (
         <List>
@@ -62,13 +50,6 @@ const WishListView = ({ props, wishlist, wishlistDeleted }) => {
       ) : (
         <EmptyWishlist />
       )}
-      <div className={classes.backtotop}>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
-      </div>
     </>
   );
 };

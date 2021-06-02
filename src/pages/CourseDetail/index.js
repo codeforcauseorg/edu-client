@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Description from "../../components/courseDetails/description";
-import ScrollToTop from "../../utils/ScrollToTop";
 import Hero from "../../components/courseDetails/Hero";
 import CardContainer from "../../components/cardContainer/cardContainer";
 import SimpleCard from "../../components/simpleCard/simpleCard";
@@ -14,10 +13,6 @@ import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Typography } from "@material-ui/core";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import Fab from "@material-ui/core/Fab";
-import ScrollTop from "../../components/backTop/index";
-import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
-
 const useStyles = makeStyles((theme) => ({
   navigation: {
     widht: "100%",
@@ -73,8 +68,6 @@ function CourseDetail(props) {
 
   return (
     <>
-      <div id="back-to-top-anchor"></div>
-      <ScrollToTop />
       <div className={classes.navigation}>
         <ArrowBackIcon className={classes.svg} onClick={() => history.goBack()} />
         <MoreVertIcon className={classes.svg} onClick={handleClick} />
@@ -144,13 +137,6 @@ function CourseDetail(props) {
           />
         ))}
       </CardContainer>
-      <div className={classes.backtotop}>
-        <ScrollTop {...props}>
-          <Fab color="secondary" size="small" aria-label="scroll back to top">
-            <KeyboardArrowUpIcon />
-          </Fab>
-        </ScrollTop>
-      </div>
     </>
   );
 }

@@ -9,8 +9,8 @@ const useStyle = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   image: {
-    height: "40%",
-    width: "40%",
+    height: 200,
+    width: 200,
   },
 }));
 function EmptyWishlist() {

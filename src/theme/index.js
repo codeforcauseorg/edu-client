@@ -41,7 +41,8 @@ const themeConfig = {
   palette: {
     type: "light",
     action: {
-      active: colors.blueGrey[600], // small icons
+      active: "#5C6C8D", // small icons
+      hover: "#F8F8F8",
     },
     background: {
       default: colors.common.white,
@@ -49,22 +50,49 @@ const themeConfig = {
       paper: colors.common.white, // background
     },
     primary: {
-      main: colors.indigo[600], // for header and loader
+      main: "#3740A1", // for header and loader
+      navBar: {
+        mobile: {
+          iconColor: "#ffffff",
+          searchIcon: "#2D303F",
+          searchBackground: "#ffffff",
+        },
+        desktop: {
+          searchBackground: "rgba(150, 150, 150, 0.14)",
+        },
+      },
     },
     secondary: {
-      main: "#A60000", // for button and selected
+      default: "#51BFA5",
+      main: "#900A0A",
+    },
+    error: {
+      main: "#FF9D9D",
     },
     text: {
       // for text classes
-      primary: colors.blueGrey[900],
-      secondary: colors.blueGrey[600],
+      primary: "#2D303F",
+      secondary: "#5C6C8D",
     },
   },
   shadows: softShadows,
 };
 
 const createTheme = () => {
-  let theme = createMuiTheme(_.merge({}, baseConfig, themeConfig, { direction: "ltr" }));
+  let theme = createMuiTheme(
+    _.merge({}, baseConfig, themeConfig, {
+      direction: "ltr",
+      breakpoints: {
+        values: {
+          xs: 0,
+          sm: 450,
+          md: 624,
+          lg: 900,
+          xl: 1200,
+        },
+      },
+    })
+  );
 
   theme = responsiveFontSizes(theme);
 
