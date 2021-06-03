@@ -3,16 +3,18 @@ import React from "react";
 import Carousel from "react-material-ui-carousel";
 import CardContainer from "../cardContainer/cardContainer";
 import ReviewCard from "../ReviewCard/ReviewCard";
-
+import FadeReveal from "../Animation/index";
 function StudentReviewSection() {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <Container className={classes.titleContainer}>
-        <Typography variant="h2" component="span">
-          What people say
-        </Typography>
-      </Container>
+      <FadeReveal>
+        <Container className={classes.titleContainer}>
+          <Typography variant="h2" component="span">
+            What people say
+          </Typography>
+        </Container>
+      </FadeReveal>
       <Container className={classes.carouselContainer}>
         <CardContainer>
           <Carousel
@@ -33,6 +35,7 @@ function StudentReviewSection() {
           </Carousel>
         </CardContainer>
       </Container>
+
       <img className={classes.vecImage_1} src="assets/VectorGraphics/Dot_Ornament.svg" />
       <img className={classes.vecImage_2} src="assets/VectorGraphics/Dot_Ornament.svg" />
     </Box>
