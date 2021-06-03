@@ -48,34 +48,42 @@
     "scheduleSection": [
       {
         "chapter": 1,
-        "duration": "1 hr 10 min",
-        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "date": "Jan 1",
+        "duration": "5 PM",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit, quae tempora veniam est.",
         "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
-        "premier": "Priemere TBD",
         "panel": "panel1"
       },
       {
         "chapter": 2,
-        "duration": "1 hr 10 min",
-        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "date": "Jan 1",
+        "duration": "5 PM",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit, quae tempora veniam est.",
         "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
-        "premier": "Priemere TBD",
         "panel": "panel1"
       },
       {
         "chapter": 3,
-        "duration": "1 hr 10 min",
-        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "date": "Jan 1",
+        "duration": "5 PM",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit, quae tempora veniam est.",
         "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
-        "premier": "Priemere TBD",
         "panel": "panel1"
       },
       {
         "chapter": 4,
-        "duration": "1 hr 10 min",
-        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
+        "date": "Jan 1",
+        "duration": "5 PM",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit, quae tempora veniam est.",
         "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
-        "premier": "Priemere TBD",
+        "panel": "panel1"
+      },
+      {
+        "chapter": 5,
+        "date": "Jan 1",
+        "duration": "5 PM",
+        "heading": "Lorem, ipsum dolor sit amet consectetur adipisicing elit, quae tempora veniam est.",
+        "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi labore harum amet doloremque unde aperiam qui, quae tempora veniam est.",
         "panel": "panel1"
       }
     ],
