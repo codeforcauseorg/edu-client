@@ -1,58 +1,69 @@
-import {
-  Avatar,
-  Box,
-  Card,
-  CardActionArea,
-  CardContent,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Box, Card, CardContent, ListItemText, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import Rating from "@material-ui/lab/Rating";
 
 function ReviewCard() {
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography variant="h5">“Greate Mentor. Absolutely brilliant.”</Typography>
-        <Box mt={4}>
-          <Typography>
-            have learn a lot in the bootcamp , the mentors were extremely helpful and dedicated , it
-            was the great learning. each and every concept so clearly and you can ask as many doubts
-            as you have.
+    <Box className={classes.root}>
+      <Box className={classes.imageFrame}>
+        <img
+          className={classes.profileImage}
+          src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHByb2ZpbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+        />
+      </Box>
+      <Card className={classes.cardContainer}>
+        <CardContent>
+          <ListItemText className={classes.listItemText}>
+            <Typography variant="h5">Adarsh Kumar Singh</Typography>
+            <Typography variant="body1">Student</Typography>
+            <Rating defaultValue={4} precision={4} readOnly className={classes.rating} />
+          </ListItemText>
+          <Typography variant="h4">“Greate Mentor. Absolutely brilliant.”</Typography>
+          <Typography className={classes.description}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim
           </Typography>
-        </Box>
-        <CardActionArea className={classes.cardFooter}>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fHByb2ZpbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" />
-            </ListItemAvatar>
-            <ListItemText primary="Adarsh Kumar Singh" secondary="Student" />
-          </ListItem>
-        </CardActionArea>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </Box>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 350,
-    marginRight: "25px",
-    borderRadius: "5px",
-    marginLeft: "10px",
-    flex: "0 0 auto",
+    display: "flex",
+    width: 800,
+  },
+  profileImage: {
+    height: 300,
+    width: 250,
+  },
+  imageFrame: {
+    backgroundColor: theme.palette.primary.main,
+    padding: theme.spacing(1),
+  },
+  cardContainer: {
+    bottom: 20,
+    left: 250,
+    position: "absolute",
+    maxWidth: 500,
     boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.25)",
+    cursor: "pointer",
+    transition: "0.5s",
     "&:hover": {
-      transition: "all 0.2s ease-out",
-      boxShadow: "0px 4px 8px rgba(55, 64, 161, 0.2)",
+      boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.1)",
     },
-    [theme.breakpoints.down("md")]: {
-      maxWidth: 300,
-    },
+    border: "2px solid #000",
+  },
+  description: {
+    marginTop: theme.spacing(2),
+  },
+  listItemText: {
+    marginBottom: theme.spacing(2),
+  },
+  rating: {
+    marginTop: theme.spacing(1),
   },
 }));
 
