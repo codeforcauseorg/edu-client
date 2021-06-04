@@ -44,7 +44,7 @@ function StudentReviewSection() {
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
-    minHeight: 400,
+    minHeight: 650,
   },
   titleContainer: {
     position: "absolute",

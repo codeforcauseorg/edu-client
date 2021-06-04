@@ -94,7 +94,7 @@ function StatisticFigures() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: 600,
+    minHeight: 650,
     background: "#FCFCFC",
   },
   container: {

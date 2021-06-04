@@ -6,10 +6,11 @@ import ContinueLearningCard from "../../components/ContinueLearningCard";
 import CardContainer from "../../components/cardContainer/cardContainer";
 import { Box, Container, makeStyles, Typography } from "@material-ui/core";
 import BrowseAllButton from "../../components/BrowseAllButton";
-import MediaCardWeb from "../../CourseMediaCard/Web";
 import StudentReviewSection from "../../components/HomeViewComponents/StudentReviewSection";
 import MentorSection from "../../components/HomeViewComponents/MentorSection";
 import StatisticFigures from "../../components/HomeViewComponents/StatisticFigures";
+import ExploreCourseSection from "../../components/HomeViewComponents/ExploreCourseSection";
+import MediaCardWeb from "../../CourseMediaCard/Web/MediaCard";
 // const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [
@@ -138,6 +139,7 @@ export default function HomeView(props) {
           ))}
         </CardContainer>
       </Container>
+      <ExploreCourseSection />
       <StatisticFigures />
       <MentorSection />
       <StudentReviewSection />
