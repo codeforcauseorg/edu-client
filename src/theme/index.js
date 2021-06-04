@@ -68,6 +68,7 @@ const themeConfig = {
     secondary: {
       default: "#51BFA5",
       main: "#900A0A",
+      iconColor: "#DADEEB",
     },
     error: {
       main: "#FF9D9D",

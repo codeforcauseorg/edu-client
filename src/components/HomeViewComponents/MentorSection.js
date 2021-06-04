@@ -63,7 +63,6 @@ function MentorSection() {
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: 750,
-    clipPath: "polygon(0 12%, 100% 0, 100% 100%, 0% 100%)",
     backgroundColor: "#F6F7F8",
   },
   titleContainer: {

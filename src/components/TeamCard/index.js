@@ -4,7 +4,7 @@ import React from "react";
 function TeamCard({ image }) {
   const classes = useStyles();
   return (
-    <Grid item spacing={2} xs={6} sm={4} md={2} lg={2}>
+    <Grid item xs={6} sm={5} md={3} lg={2}>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={image} />
         <CardContent></CardContent>
