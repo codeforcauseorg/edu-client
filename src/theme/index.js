@@ -61,10 +61,14 @@ const themeConfig = {
           searchBackground: "rgba(150, 150, 150, 0.14)",
         },
       },
+      footer: {
+        background: "#F9FCFF",
+      },
     },
     secondary: {
       default: "#51BFA5",
       main: "#900A0A",
+      iconColor: "#DADEEB",
     },
     error: {
       main: "#FF9D9D",
@@ -87,7 +91,7 @@ const createTheme = () => {
           xs: 0,
           sm: 450,
           md: 624,
-          lg: 900,
+          lg: 1024,
           xl: 1200,
         },
       },

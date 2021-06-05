@@ -1,13 +1,17 @@
-import { useEffect } from "react";
-import { Plugins } from "@capacitor/core";
+// import { useEffect } from "react";
+// import { Plugins } from "@capacitor/core";
 import HeaderSection from "../../components/HomeViewComponents/HeaderSection";
 import Tags from "../../components/HomeViewComponents/Tags";
 import ContinueLearningCard from "../../components/ContinueLearningCard";
 import CardContainer from "../../components/cardContainer/cardContainer";
 import { Box, Container, makeStyles, Typography } from "@material-ui/core";
 import BrowseAllButton from "../../components/BrowseAllButton";
-import MediaCardWeb from "../../CourseMediaCard/Web";
-const { SplashScreen } = Plugins;
+import StudentReviewSection from "../../components/HomeViewComponents/StudentReviewSection";
+import MentorSection from "../../components/HomeViewComponents/MentorSection";
+import OurImpactSection from "../../components/HomeViewComponents/OurImpactSection";
+import ExploreCourseSection from "../../components/HomeViewComponents/ExploreCourseSection";
+import MediaCardWeb from "../../CourseMediaCard/MediaCard";
+// const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [
   {
@@ -72,9 +76,9 @@ const courseList = [
   },
 ];
 export default function HomeView(props) {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+  // useEffect(() => {
+  //   SplashScreen.hide();
+  // }, []);
   const classes = useStyles();
   return (
     <div>
@@ -135,6 +139,10 @@ export default function HomeView(props) {
           ))}
         </CardContainer>
       </Container>
+      <ExploreCourseSection />
+      <OurImpactSection />
+      <MentorSection />
+      <StudentReviewSection />
     </div>
   );
 }

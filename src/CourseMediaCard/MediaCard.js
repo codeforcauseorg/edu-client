@@ -14,7 +14,7 @@ import StarIcon from "@material-ui/icons/Star";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import React from "react";
 
-function MediaCardWeb({
+function MediaCard({
   title,
   description,
   ratings,
@@ -134,4 +134,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default MediaCardWeb;
+export default MediaCard;
