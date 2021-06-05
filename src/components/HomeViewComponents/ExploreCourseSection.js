@@ -143,7 +143,7 @@ function ExploreCourseSection() {
               aria-label="scrollable auto tabs example"
             >
               {courseLabel.map((items, index) => (
-                <Tab key={index} label={items.title} />
+                <Tab key={index} label={items.title} className={classes.tab} />
               ))}
             </Tabs>
           </AppBar>
@@ -226,6 +226,12 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     marginTop: theme.spacing(5),
     background: "#fff",
+  },
+  tab: {
+    background: "#E7EDF7",
+    margin: 10,
+    borderRadius: "5px",
+    textTransform: "none",
   },
 }));
 

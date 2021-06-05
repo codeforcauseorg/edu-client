@@ -1,13 +1,15 @@
-import { Card, CardContent, CardMedia, Grid, makeStyles } from "@material-ui/core";
+import { Card, CardContent, CardMedia, Grid, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 
-function TeamCard({ image }) {
+function TeamCard({ image, name }) {
   const classes = useStyles();
   return (
     <Grid item xs={6} sm={5} md={3} lg={2}>
       <Card className={classes.card}>
         <CardMedia className={classes.media} image={image} />
-        <CardContent></CardContent>
+        <CardContent className={classes.cardContent}>
+          <Typography align="center">{name}</Typography>
+        </CardContent>
       </Card>
     </Grid>
   );
@@ -15,17 +17,24 @@ function TeamCard({ image }) {
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.08)",
+    boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.0)",
     transition: "1s",
     "&:hover": {
       boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.25)",
     },
-    borderRadius: "10px",
+    borderRadius: "5px",
+    [theme.breakpoints.down("md")]: {
+      width: 150,
+    },
+    [theme.breakpoints.down("lg")]: {
+      width: 160,
+    },
   },
   media: {
     height: 150,
-    // width: 180,
-    margin: theme.spacing(1),
+  },
+  cardContent: {
+    minheight: 50,
   },
 }));
 
