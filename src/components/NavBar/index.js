@@ -14,6 +14,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { useSelector } from "react-redux";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -56,7 +57,7 @@ function NavBar() {
   useEffect(() => {
     listenToScrollEvent();
   });
-
+  const user = useSelector((state) => state.account.user);
   return (
     <div className={classes.grow}>
       <AppBar position="fixed">
@@ -103,18 +104,31 @@ function NavBar() {
 
           <div className={classes.sectionDesktop}>
             <Hidden mdDown>
-              <Button className={classes.signInButton}>
-                <Typography noWrap>Sign In</Typography>
-              </Button>
-              <Button className={classes.signUpButton}>
-                <Typography noWrap>Sign Up</Typography>
-              </Button>
+              {((user === "Undefined") && (user === "null")) ? (
+                <div>
+                  <Button className={classes.signInButton}>
+                    <Typography noWrap>Sign In</Typography>
+                  </Button>
+                  <Button className={classes.signUpButton}>
+                    <Typography noWrap>Sign Up</Typography>
+                  </Button>
+                </div>) : (
+                <Typography className={classes.title} variant="h6" noWrap>
+                  Hi, {user.displayName}
+                </Typography>
+              )}
             </Hidden>
           </div>
-          <Avatar
-            className={classes.avatar}
-            src="https://media-exp1.licdn.com/dms/image/C560BAQHSXxzxdL45FA/company-logo_200_200/0/1588676153700?e=2159024400&v=beta&t=PEiMBARAmeCUpRrAuJZWev-F_oCZac_OunmUXcLuY5U"
-          />
+          {((user === "Undefined") && (user === "null")) ? (
+            <Avatar
+              className={classes.avatar}
+              src="https://media-exp1.licdn.com/dms/image/C560BAQHSXxzxdL45FA/company-logo_200_200/0/1588676153700?e=2159024400&v=beta&t=PEiMBARAmeCUpRrAuJZWev-F_oCZac_OunmUXcLuY5U"
+            />) : (
+            <Avatar
+              className={classes.avatar}
+              src={`${user.photoURL}`}
+            />
+          )}
         </Toolbar>
       </AppBar>
     </div>
@@ -141,6 +155,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: "block",
     color: "#000",
+    marginRight: "10px"
   },
   search: {
     position: "relative",
@@ -190,10 +205,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   avatar: {
-    display: "none",
-    [theme.breakpoints.down("md")]: {
-      display: "flex",
-    },
+    display: "flex",
   },
 }));
 
