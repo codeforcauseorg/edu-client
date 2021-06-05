@@ -1,6 +1,6 @@
 import { AppBar, Box, Container, makeStyles, Tab, Tabs, Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import ExploreMediaCard from "../../CourseMediaCard/Web/ExploreMediaCard";
+import ExploreMediaCard from "../../CourseMediaCard/ExploreMediaCard";
 import CardContainer from "../cardContainer/cardContainer";
 
 const courseList = [
@@ -128,7 +128,7 @@ function ExploreCourseSection() {
   });
 
   return (
-    <Box pt={15} className={classes.root}>
+    <Box className={classes.root}>
       <Container className={classes.container}>
         <Box className={classes.tabContainer}>
           <Typography variant="h2">Explore All Course</Typography>
@@ -173,9 +173,16 @@ function ExploreCourseSection() {
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: 600,
+    paddingTop: theme.spacing(15),
+    [theme.breakpoints.down("md")]: {
+      paddingTop: theme.spacing(2),
+    },
   },
   container: {
     maxWidth: "90%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+    },
   },
   card: {
     position: "relative",

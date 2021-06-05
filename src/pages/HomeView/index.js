@@ -8,9 +8,9 @@ import { Box, Container, makeStyles, Typography } from "@material-ui/core";
 import BrowseAllButton from "../../components/BrowseAllButton";
 import StudentReviewSection from "../../components/HomeViewComponents/StudentReviewSection";
 import MentorSection from "../../components/HomeViewComponents/MentorSection";
-import StatisticFigures from "../../components/HomeViewComponents/StatisticFigures";
+import OurImpactSection from "../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../components/HomeViewComponents/ExploreCourseSection";
-import MediaCardWeb from "../../CourseMediaCard/Web/MediaCard";
+import MediaCardWeb from "../../CourseMediaCard/MediaCard";
 // const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [
@@ -140,7 +140,7 @@ export default function HomeView(props) {
         </CardContainer>
       </Container>
       <ExploreCourseSection />
-      <StatisticFigures />
+      <OurImpactSection />
       <MentorSection />
       <StudentReviewSection />
     </div>

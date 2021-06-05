@@ -38,31 +38,29 @@ const listItems = [
     image: "assets/VectorGraphics/youtube.svg",
   },
 ];
-function StatisticFigures() {
+function OurImpactSection() {
   const classes = useStyles();
   return (
-    <Box pt={15} className={classes.root}>
+    <Box className={classes.root}>
       <Container className={classes.container}>
         <Box className={classes.textContainer}>
-          <Fade bottom>
-            <Typography variant="h1" className={classes.title}>
-              Our Impact
+          <Typography variant="h1" className={classes.title}>
+            Our Impact
+          </Typography>
+          <Box mt={5}>
+            <Typography variant="h5" className={classes.description}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor
+              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.
             </Typography>
-            <Box mt={5}>
-              <Typography variant="h5" className={classes.description}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum
-                dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua.
-              </Typography>
-            </Box>
-          </Fade>
-          <Button className={classes.learnButton}>
+          </Box>
+          <Button className={classes.learningButton}>
             <Typography variant="h4"> Start Learning</Typography>
           </Button>
         </Box>
         <Fade bottom>
-          <Box className={classes.statsContainer}>
+          <Box className={classes.cardContainer}>
             <Grid spacing={5} align="center" container justify="center">
               {listItems.map((items, index) => (
                 <Grid key={index} lg={4}>
@@ -96,28 +94,49 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: 650,
     background: "#FCFCFC",
+    paddingTop: theme.spacing(15),
+    [theme.breakpoints.down("md")]: {
+      paddingTop: theme.spacing(5),
+      paddingBottom: theme.spacing(5),
+    },
   },
   container: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     maxWidth: "85%",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+      maxWidth: "90%",
+    },
+  },
+  cardContainer: {
+    [theme.breakpoints.down("md")]: {
+      marginTop: theme.spacing(8),
+    },
   },
   card: {
     position: "relative",
-    marginRight: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    margin: theme.spacing(1),
     boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.08)",
     minHeight: 150,
-    minWidth: 100,
+    minWidth: 120,
+    [theme.breakpoints.down("md")]: {
+      margin: 5,
+      maxHeight: 150,
+      maxWidth: 175,
+    },
   },
   textContainer: {
     maxWidth: "38%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+    },
   },
   title: {
     color: theme.palette.primary.main,
   },
-  learnButton: {
+  learningButton: {
     marginTop: theme.spacing(8),
     color: "#fff",
     textTransform: "none",
@@ -125,6 +144,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     "&:hover": {
       background: theme.palette.primary.main,
+    },
+    [theme.breakpoints.down("md")]: {
+      marginTop: theme.spacing(4),
+      padding: theme.spacing(1),
     },
   },
   description: {
@@ -135,6 +158,12 @@ const useStyles = makeStyles((theme) => ({
     height: 70,
     right: 20,
     bottom: 10,
+    [theme.breakpoints.down("md")]: {
+      height: 50,
+    },
+    [theme.breakpoints.down("lg")]: {
+      height: 50,
+    },
   },
   cardItems: {
     textAlign: "left",
@@ -144,4 +173,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default StatisticFigures;
+export default OurImpactSection;

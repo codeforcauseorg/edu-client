@@ -39,8 +39,8 @@ function ExploreMediaCard({
             <Typography variant="h6" className={classes.title}>
               {title}
             </Typography>
-            <Box mt={1} className={classes.courseStats}>
-              <Box className={classes.ratings}>
+            <Box mt={1} className={classes.courseStatsContainer}>
+              <Box className={classes.flexBox}>
                 <Typography noWrap className={classes.ratingNumber}>
                   4.4
                 </Typography>
@@ -49,7 +49,7 @@ function ExploreMediaCard({
                   (8,200)
                 </Typography>
               </Box>
-              <Box className={classes.enrollStudents}>
+              <Box className={classes.studentsContainer}>
                 <Typography variant="body2" noWrap className={classes.totalStudent}>
                   8,547
                 </Typography>
@@ -57,15 +57,15 @@ function ExploreMediaCard({
               </Box>
             </Box>
             <Box mt={2} className={classes.detailSection}>
-              <Box className={classes.ratings}>
+              <Box className={classes.flexBox}>
                 <AccessTimeIcon className={classes.accessTimeIcon} />
                 <Typography noWrap>05 hr 02 min</Typography>
               </Box>
-              <Box className={classes.ratings}>
+              <Box className={classes.flexBox}>
                 <MovieCreationIcon className={classes.movieCreationIcon} />
                 <Typography noWrap>16 lectures</Typography>
               </Box>
-              <Box className={classes.ratings}>
+              <Box className={classes.flexBox}>
                 <SignalCellularAltIcon className={classes.signalCellularIcon} />
                 <Typography noWrap>Training</Typography>
               </Box>
@@ -107,15 +107,12 @@ const useStyles = makeStyles((theme) => ({
       top: "-10px",
     },
     [theme.breakpoints.down("md")]: {
-      maxWidth: 320,
+      maxWidth: 330,
       marginRight: "10px",
     },
   },
   title: {
     marginTop: theme.spacing(2),
-  },
-  cardActions: {
-    height: 110,
   },
   media: {
     height: 150,
@@ -126,14 +123,8 @@ const useStyles = makeStyles((theme) => ({
       transform: "scale(1.02)",
     },
   },
-  ratings: {
-    display: "flex",
-    alignItems: "center",
-  },
-  avatarContainer: {
-    display: "flex",
-    color: theme.palette.primary.main,
-    paddingLeft: theme.spacing(2),
+  cardActions: {
+    height: 110,
   },
   tag: {
     borderRadius: "10px",
@@ -142,6 +133,27 @@ const useStyles = makeStyles((theme) => ({
     color: "#648BCF",
     border: "none",
   },
+  courseStatsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  flexBox: {
+    display: "flex",
+    alignItems: "center",
+  },
+  totalRating: {
+    marginLeft: theme.spacing(0.2),
+  },
+  totalStudent: {
+    marginRight: theme.spacing(1),
+  },
+  avatarContainer: {
+    display: "flex",
+    color: theme.palette.primary.main,
+    paddingLeft: theme.spacing(2),
+  },
+
   price: {
     background: theme.palette.primary.main,
     borderRadius: "5px",
@@ -150,30 +162,28 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     marginLeft: theme.spacing(0.8),
   },
-  courseStats: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  enrollStudents: {
+
+  studentsContainer: {
     display: "flex",
   },
   detailSection: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    [theme.breakpoints.down("md")]: {
+      marginRight: theme.spacing(1),
+    },
   },
-  totalRating: {
-    marginLeft: theme.spacing(0.2),
-  },
-  totalStudent: {
-    marginRight: theme.spacing(1),
-  },
+
   ratingNumber: {
     color: "#E4943F",
   },
-  /* All card icons */
-
+  cardFooter: {
+    [theme.breakpoints.down("md")]: {
+      marginTop: theme.spacing(0.5),
+      marginBottom: theme.spacing(1),
+    },
+  },
   starIcon: {
     height: 15,
     color: "#E4943F",
@@ -185,10 +195,16 @@ const useStyles = makeStyles((theme) => ({
   movieCreationIcon: {
     height: 15,
     color: "#EEB983",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(0.5),
+    },
   },
   signalCellularIcon: {
     height: 15,
     color: "#66AF78",
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(0.5),
+    },
   },
 }));
 
