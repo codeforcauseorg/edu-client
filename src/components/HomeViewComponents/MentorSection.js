@@ -54,7 +54,7 @@ function MentorSection() {
           </Typography>
           <Box mt={3}>
             <Typography variant="h5">
-              These are the people who worke every day to create great learning content that will
+              These are the people who work every day to create great learning content that will
               help you in growing your skills .
             </Typography>
           </Box>
