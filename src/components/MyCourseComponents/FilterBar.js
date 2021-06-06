@@ -1,5 +1,6 @@
 import React from "react";
 import { AppBar, FormControl, makeStyles, NativeSelect } from "@material-ui/core";
+import FilterListIcon from "@material-ui/icons/FilterList";
 
 const filterList = [
   "Web Development",
@@ -18,7 +19,7 @@ const filterList = [
 
 function FilterBar() {
   const classes = useStyles();
-  const [state, setState] = React.useState("hai");
+  const [state, setState] = React.useState("all");
 
   const handleChange = (event) => {
     setState(event.target.value);
@@ -28,7 +29,8 @@ function FilterBar() {
   return (
     <AppBar position="static" className={classes.container}>
       <FormControl className={classes.formControl}>
-        <NativeSelect className={classes.dropdown} value={state.age} onChange={handleChange}>
+        <FilterListIcon className={classes.filterIcon} />
+        <NativeSelect className={classes.dropdown} value={state} onChange={handleChange}>
           <option value="" disabled>
             Filter
           </option>
@@ -53,7 +55,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
   },
   dropdown: {
-    background: "#fff",
     margin: theme.spacing(1),
     textTransform: "none",
     padding: theme.spacing(1),
@@ -64,6 +65,19 @@ const useStyles = makeStyles((theme) => ({
     "&.MuiInput-underline:after": {
       display: "none",
     },
+  },
+  filterIcon: {
+    color: "#333",
+    marginLeft: theme.spacing(2),
+  },
+  formControl: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    background: "#fff",
+    margin: 8,
+    borderRadius: "5px",
+    height: 50,
   },
 }));
 export default FilterBar;
