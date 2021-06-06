@@ -2,6 +2,7 @@ import { Container, makeStyles } from "@material-ui/core";
 import FilterBar from "../../components/MyCourseComponents/FilterBar";
 import MyCourseCard from "../../components/MyCourseComponents/MyCourseCard";
 import MyCourseHero from "../../components/MyCourseComponents/MyCourseHero";
+import TagSection from "../../components/TagSection";
 
 function MyCourses(props) {
   const classes = useStyles();
@@ -10,14 +11,16 @@ function MyCourses(props) {
     <Container className={classes.wrapperContainer}>
       <MyCourseHero />
       <FilterBar />
-      {/* <TagSection/> */}
+      <TagSection />
       <MyCourseCard />
     </Container>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: { borderRadius: "10px", color: "#000" },
+  wrapperContainer: {
+    minWidth: "90%",
+  },
 }));
 
 export default MyCourses;

@@ -1,9 +1,9 @@
 import React from "react";
-import { Container, makeStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 
 function MyCourseHero() {
   const classes = useStyles();
-  return <Container className={classes.heroSection}></Container>;
+  return <Box className={classes.heroSection}></Box>;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 200,
     backgroundColor: theme.palette.primary.main,
     marginTop: theme.spacing(10),
+    borderRadius: "5px",
   },
 }));
 
