@@ -1,20 +1,16 @@
 import { useState } from "react";
 import { Chip, Typography } from "@material-ui/core";
 import MuiAccordion from "@material-ui/core/Accordion";
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import MuiAccordionSummary from "@material-ui/core/AccordionSummary";
 import MuiAccordionDetails from "@material-ui/core/AccordionDetails";
-import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import courseDetail from "../../data/courseDetail.json";
 
 const scheduleData = courseDetail[0].scheduleSection;
 
-const tagList = [
-  "HTML",
-  "CSS",
-  "Javascript",
-];
+const tagList = ["HTML", "CSS", "Javascript"];
 
 const ScheduleDetails = ({ date, chapter, duration, heading, details, premier, panel }) => {
   const classes = useStyles();
@@ -36,9 +32,7 @@ const ScheduleDetails = ({ date, chapter, duration, heading, details, premier, p
             <Typography align="left" variant="h3">
               {date}
             </Typography>
-            <Typography variant="body1">
-              {duration}
-            </Typography>
+            <Typography variant="body1">{duration}</Typography>
           </div>
           <div className={classes.detail}>
             <Typography className={classes.heading} align="left" variant="h3">
@@ -50,32 +44,29 @@ const ScheduleDetails = ({ date, chapter, duration, heading, details, premier, p
           </div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography variant="body1">
-            {details}
-          </Typography>
+          <Typography variant="body1">{details}</Typography>
         </AccordionDetails>
       </Accordion>
     </div>
   );
 };
 
-
-
 const Details = (props) => {
-  
-  console.log(props);
-
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      
-      <div className={classes.description}>
-        <Typography variant="h2" align="left" className={classes.heading}>Course Description</Typography>
-        <Typography variant="body1" className={classes.descriptionText}>{props.description}</Typography>
-      </div>
-      
       <div>
-        <Typography variant="h2" align="left" className={classes.heading}>Course Schedule</Typography>
+        <div className={classes.description}>
+          <Typography variant="h2" align="left" className={classes.heading}>
+            Course Description
+          </Typography>
+          <Typography variant="body1" className={classes.descriptionText}>
+            {props.description}
+          </Typography>
+        </div>
+        <Typography variant="h2" align="left" className={classes.heading}>
+          Course Schedule
+        </Typography>
         <div>
           {scheduleData.map((chapter) => (
             <ScheduleDetails
@@ -91,22 +82,24 @@ const Details = (props) => {
           ))}
         </div>
       </div>
-
       <div className={classes.description}>
-        <Typography variant="h2" align="left" className={classes.heading}>Prerequisites</Typography>
+        <Typography variant="h2" align="left" className={classes.heading}>
+          Prerequisites
+        </Typography>
         <div className={classes.tagContainer}>
-        {tagList.map((item, index) => (
-          <Chip
-            key={index}
-            className={classes.tag}
-            label={(<div style={{display: "flex"}}>
-              <CheckCircleIcon style={{marginRight: ".5rem", fontSize: "1.2rem"}}/>
-              <Typography variant="body1">{item}</Typography>
-              </div>
-            )}
-          ></Chip>
-        ))}
-      </div>
+          {tagList.map((item, index) => (
+            <Chip
+              key={index}
+              className={classes.tag}
+              label={
+                <div style={{ display: "flex" }}>
+                  <CheckCircleIcon style={{ marginRight: ".5rem", fontSize: "1.2rem" }} />
+                  <Typography variant="body1">{item}</Typography>
+                </div>
+              }
+            ></Chip>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -124,7 +117,7 @@ const useStyles = makeStyles((theme) => ({
   },
   descriptionText: {
     margin: "2rem 0",
-    fontSize: "1.15rem"
+    fontSize: "1.15rem",
   },
   container: {
     width: "100%",

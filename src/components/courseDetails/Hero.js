@@ -1,77 +1,114 @@
-import ButtonComponent from "../Button/ButtonComponent";
-
-import { Grid, Typography, makeStyles } from "@material-ui/core";
-import LanguageIcon from "@material-ui/icons/Language";
-import ReactPlayer from "react-player/lazy";
 import { connect } from "react-redux";
-import { wishlistAdded } from "../../actions/wishlistActions";
+import Card from "@material-ui/core/Card";
+import ReactPlayer from "react-player/lazy";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CardContent from "@material-ui/core/CardContent";
+import DateRangeIcon from "@material-ui/icons/DateRange";
+// import LanguageIcon from "@material-ui/icons/Language";
+// import { wishlistAdded } from "../../actions/wishlistActions";
+import { Chip, Grid, Typography, makeStyles } from "@material-ui/core";
+
 const useStyles = makeStyles((theme) => ({
-  hero: {},
-
-  heroHeading: {
-    fontWeight: "700",
-    [theme.breakpoints.up("md")]: {
-      fontSize: "32px",
-    },
-  },
-
-  heroBody: {
-    margin: "1em 0",
-    [theme.breakpoints.up("md")]: {
-      fontSize: "16px",
-    },
-  },
-
-  details: {
-    marginBottom: "16px",
-    fontStyle: "italic",
-    fontWeight: 600,
-  },
-
-  accentText: {
-    color: "#3949ab",
-  },
-
-  language: {
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-    margin: "16px 0",
-    fontStyle: "italic",
-  },
-
   playerWrapper: {
+    margin: "0 0 0 3rem",
     position: "relative",
     paddingTop: "56.25%" /* Player ratio: 100 / (1280 / 720) */,
   },
-
   reactPlayer: {
     position: "absolute",
     top: "0",
     left: "0",
   },
-
-  price: {
-    margin: "16px 0",
-    fontWeight: "700",
-  },
-
-  button: {
-    marginBottom: "16px",
-    [theme.breakpoints.up("md")]: {
-      marginRight: "16px",
-    },
-  },
-
-  buttonGroup: {
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      flexDirection: "row",
-    },
+  headContainer: {
+    padding: "4rem 3rem",
+    background: "#3740A1",
+    color: "#fff",
+    border: "1px solid #000",
   },
 }));
+
+const Header = () => {
+  const classes = useStyles();
+  return (
+    <div className={classes.headContainer}>
+      <Typography variant="h1" component="h4">
+        Title
+      </Typography>
+      <div style={{ display: "flex" }}>
+        <Typography variant="body1">35 Lessons</Typography>
+        <Typography variant="body1">5 hrs</Typography>
+      </div>
+      <Typography variant="body1">4.5 Rating</Typography>
+    </div>
+  );
+};
+
+const ReactPlayerDiv = ({ thumbnail, videoUrl }) => {
+  const classes = useStyles();
+  return (
+    <div className={classes.playerWrapper}>
+      <ReactPlayer
+        className={classes.reactPlayer}
+        controls={true}
+        light={thumbnail}
+        url={videoUrl}
+        volume={1}
+        width="100%"
+        height="100%"
+      />
+    </div>
+  );
+};
+
+const Tags = () => {
+  const classes = useStyles();
+  const tagsName = ["English", "Training"];
+  return (
+    <>
+      {tagsName.map((item, index) => (
+        <Chip
+          key={index}
+          className={classes.tag}
+          label={<Typography variant="body1">{item}</Typography>}
+        ></Chip>
+      ))}
+
+      <div style={{ display: "flex" }}>
+        <DateRangeIcon style={{ fontSize: "2.5rem" }} />
+        <div>
+          <Typography>Starts on Dec 25</Typography>
+          <Typography>Dec 25 - Dec 31</Typography>
+        </div>
+      </div>
+      <Chip
+        className={classes.priceTag}
+        label={<Typography variant="body1">&#8377; 1200</Typography>}
+      ></Chip>
+    </>
+  );
+};
+
+const MentorList = ({ mentorList }) => {
+  const classes = useStyles();
+  return (
+    <>
+      <Button variant="contained" color="primary">
+        Primary
+      </Button>
+      {mentorList.map((i) => {
+        return (
+          <Card className={classes.root} key={i.id}>
+            <CardContent style={{ display: "flex" }}>
+              <Avatar alt={i.title} src={i.image} />
+              <Typography variant="body2">{i.name}</Typography>
+            </CardContent>
+          </Card>
+        );
+      })}
+    </>
+  );
+};
 
 function Hero({
   title,
@@ -83,69 +120,32 @@ function Hero({
   videoUrl,
   price,
   dispatch,
+  mentorList,
 }) {
   const classes = useStyles();
-  const handleAddWishlist = () => {
-    dispatch(
-      wishlistAdded({
-        title: title,
-        startDate: startDate,
-        duration: duration,
-        price: price,
-        description: description,
-      })
-    );
-  };
+
+  // const handleAddWishlist = () => {
+  //   dispatch(
+  //     wishlistAdded({
+  //       title: title,
+  //       startDate: startDate,
+  //       duration: duration,
+  //       price: price,
+  //       description: description,
+  //     })
+  //   );
+  // };
+
   return (
     <>
       <Grid className={classes.hero} container justify="space-between">
-        <Grid item xs={12} md={5}>
-          <Typography className={classes.heroHeading} variant="h1" color="secondary" component="h4">
-            {title}
-          </Typography>
-          <Typography className={classes.heroBody} variant="subtitle2" component="p">
-            {description}
-          </Typography>
-          <Typography className={classes.details} variant="subtitle2" component="p">
-            Classes Starting <span style={{ color: "#4C0098" }}>{startDate} Onwards</span>
-          </Typography>
-          <Typography className={classes.details} variant="subtitle2" component="p">
-            Course Duration {duration} hrs
-          </Typography>
-          <Typography className={classes.language} variant="subtitle2" component="p">
-            <LanguageIcon /> {languages}
-          </Typography>
+        <Grid item xs={12} md={8}>
+          <Header />
+          <Tags />
         </Grid>
-        <Grid item xs={12} md={6}>
-          <div className={classes.playerWrapper}>
-            <ReactPlayer
-              className={classes.reactPlayer}
-              controls={true}
-              light={thumbnail}
-              url={videoUrl}
-              volume={1}
-              width="100%"
-              height="100%"
-            />
-          </div>
-          <Typography className={classes.price} variant="subtitle1" component="p" color="secondary">
-            ₹ {price} /-
-          </Typography>
-          <div className={classes.buttonGroup}>
-            <ButtonComponent
-              className={classes.button}
-              variant="contained"
-              color="secondary"
-              title="Buy Now"
-            />
-            <ButtonComponent
-              className={classes.button}
-              variant="outlined"
-              color="secondary"
-              title="Add to wishlist"
-              onClick={() => handleAddWishlist()}
-            />
-          </div>
+        <Grid item xs={12} md={4}>
+          <ReactPlayerDiv thumbnail={thumbnail} videoUrl={videoUrl} />
+          <MentorList mentorList={mentorList} />
         </Grid>
       </Grid>
     </>
