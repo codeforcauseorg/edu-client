@@ -10,7 +10,7 @@ import {
 } from "@material-ui/core";
 
 import { useRef } from "react";
-import ButtonComponent from "../../../components/Button/ButtonComponent";
+import ButtonComponent from "../Button/ButtonComponent";
 import { DeleteOutline } from "@material-ui/icons";
 import { useHistory } from "react-router";
 
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WishlistCardComponent = ({ props, onClick }) => {
+const WishlistCard = ({ props, onClick }) => {
   const classes = useStyles();
   const history = useHistory();
   const deleteButton = useRef();
@@ -138,4 +138,4 @@ const WishlistCardComponent = ({ props, onClick }) => {
   );
 };
 
-export default WishlistCardComponent;
+export default WishlistCard;
