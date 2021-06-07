@@ -1,21 +1,18 @@
 import React from "react";
 import { Avatar, Box, makeStyles, Typography } from "@material-ui/core";
 
-function MyCourseHero() {
+function HeroSection({ title, description, borderColor, gradientColor, otherDetails }) {
   const classes = useStyles();
   return (
-    <Box className={classes.heroSection}>
-      <Avatar className={classes.avatar} />
+    <Box className={classes.heroSection} style={{ borderTop: borderColor }}>
+      <Avatar className={classes.avatar} style={{ background: gradientColor }} />
       <Box className={classes.infoContainer}>
-        <Typography variant="h2">Enrolled Courses</Typography>
+        <Typography variant="h2">{title}</Typography>
         <Box mt={2} className={classes.description}>
-          <Typography variant="body1">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-            has been the standard dummy text ever since the.
-          </Typography>
+          <Typography variant="body1">{description}</Typography>
         </Box>
         <Box mt={5}>
-          <Typography variant="body2">5 Enrolled Courses</Typography>
+          <Typography variant="body2">{otherDetails}</Typography>
         </Box>
       </Box>
     </Box>
@@ -28,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     marginTop: theme.spacing(10),
     borderRadius: "5px",
-    borderTop: "4px solid #00BFFF",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -40,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     height: 120,
     width: 120,
-    background: "linear-gradient(180deg, #00BFFF 0%, #3740A1 100%)",
   },
   infoContainer: {
     color: "#fff",
@@ -56,4 +51,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default MyCourseHero;
+export default HeroSection;

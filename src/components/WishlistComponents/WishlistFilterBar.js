@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Box, FormControl, IconButton, makeStyles, NativeSelect } from "@material-ui/core";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import GridOnIcon from "@material-ui/icons/GridOn";
 
 const filterList = [
   "Web Development",
@@ -20,11 +19,17 @@ const filterList = [
 
 function WishlistFilterBar() {
   const classes = useStyles();
-  const [state, setState] = React.useState("all");
+  const [state, setState] = useState("all");
+  const [list, setlist] = useState(0);
+
+  const iconList = ["assets/icon/grid.svg", "assets/icon/list.svg"];
 
   const handleChange = (event) => {
     setState(event.target.value);
-    console.log(event.target.value);
+  };
+
+  const handleClick = (index) => {
+    setlist(index);
   };
 
   return (
@@ -43,10 +48,14 @@ function WishlistFilterBar() {
         </NativeSelect>
       </FormControl>
       <Box flexGrow={1} />
-      {[1, 2].map((items, index) => (
-        <Box key={index}>
-          <IconButton>
-            <GridOnIcon />
+      {iconList.map((items, index) => (
+        <Box
+          key={index}
+          className={classes.iconBox}
+          style={{ background: list === index ? "#fff" : "#F8F8F8" }}
+        >
+          <IconButton onClick={() => handleClick(index)}>
+            <img src={items} />
           </IconButton>
         </Box>
       ))}
@@ -89,5 +98,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
     height: 50,
   },
+  iconBox: {
+    margin: theme.spacing(1),
+    borderRadius: "10px",
+  },
 }));
+
 export default WishlistFilterBar;
