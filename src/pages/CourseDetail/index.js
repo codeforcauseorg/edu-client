@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/core";
-import Hero from "../../components/courseDetails/Hero";
+import Hero from "../../components/courseDetails/CourseDetailHead";
 import courseDetail from "../../data/courseDetail.json";
 import Details from "../../components/courseDetails/CourseDetailBody";
 

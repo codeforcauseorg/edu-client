@@ -3,33 +3,39 @@ import Card from "@material-ui/core/Card";
 import ReactPlayer from "react-player/lazy";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
-import StarIcon from '@material-ui/icons/Star';
+import StarIcon from "@material-ui/icons/Star";
 import CardContent from "@material-ui/core/CardContent";
 import DateRangeIcon from "@material-ui/icons/DateRange";
-import QueryBuilderIcon from '@material-ui/icons/QueryBuilder';
+import QueryBuilderIcon from "@material-ui/icons/QueryBuilder";
 import { Chip, Grid, Typography, makeStyles } from "@material-ui/core";
-import PlayCircleFilledWhiteIcon from '@material-ui/icons/PlayCircleFilledWhite';
+import PlayCircleFilledWhiteIcon from "@material-ui/icons/PlayCircleFilledWhite";
 
 const Header = () => {
   const classes = useStyles();
   return (
     <div className={classes.headContainer}>
       <Typography className={classes.title} variant="h1" component="h4">
-      Full Stack Development Course By Code For Cause
+        Full Stack Development Course By Code For Cause
       </Typography>
       <div style={{ display: "flex" }}>
         <div className={classes.divFlex}>
-          <PlayCircleFilledWhiteIcon style={{ marginRight:".5rem" }} />
-          <Typography style={{ fontSize: "1rem" }} variant="body1">35 Lessons</Typography>
+          <PlayCircleFilledWhiteIcon style={{ marginRight: ".5rem" }} />
+          <Typography style={{ fontSize: "1rem" }} variant="body1">
+            35 Lessons
+          </Typography>
         </div>
         <div className={classes.divFlex}>
-          <QueryBuilderIcon style={{ marginRight:".5rem" }} />
-          <Typography style={{ fontSize: "1rem" }} variant="body1">5 hrs</Typography>
+          <QueryBuilderIcon style={{ marginRight: ".5rem" }} />
+          <Typography style={{ fontSize: "1rem" }} variant="body1">
+            5 hrs
+          </Typography>
         </div>
       </div>
 
       <div className={classes.divFlex}>
-        <Typography style={{ marginRight:".5rem", fontSize: "1rem" }} variant="body1">4.5</Typography>
+        <Typography style={{ marginRight: ".5rem", fontSize: "1rem" }} variant="body1">
+          4.5
+        </Typography>
         <StarIcon />
         <StarIcon />
         <StarIcon />
@@ -77,7 +83,9 @@ const Tags = () => {
       <div style={{ margin: ".75rem 0", display: "flex" }}>
         <DateRangeIcon style={{ marginRight: "1rem", fontSize: "3rem" }} />
         <div>
-          <Typography style={{ fontSize: "1rem" }} variant="body2">Starts on Dec 25</Typography>
+          <Typography style={{ fontSize: "1rem" }} variant="body2">
+            Starts on Dec 25
+          </Typography>
           <Typography variant="body1">Dec 25 - Dec 31</Typography>
         </div>
       </div>
@@ -100,7 +108,7 @@ const MentorList = ({ mentorList }) => {
         return (
           <Card key={i.id}>
             <CardContent className={classes.mentor}>
-              <Avatar alt={i.title} src={i.image} style={{ marginRight:".5rem" }}/>
+              <Avatar alt={i.title} src={i.image} style={{ marginRight: ".5rem" }} />
               <Typography variant="body2">{i.name}</Typography>
             </CardContent>
           </Card>
@@ -137,7 +145,7 @@ function Hero({
 
   return (
     <>
-      <Grid  container spacing={5} justify="space-between">
+      <Grid container spacing={5} justify="space-between">
         <Grid item xs={12} md={8}>
           <Header />
           <Tags />
@@ -159,7 +167,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     border: "1px solid #000",
     [theme.breakpoints.down("sm")]: {
-      padding:"2rem 1rem",
+      padding: "2rem 1rem",
     },
   },
   title: {
@@ -168,7 +176,7 @@ const useStyles = makeStyles((theme) => ({
   divFlex: {
     margin: "1rem 1rem 1rem 0",
     display: "flex",
-    alignItems: 'center',
+    alignItems: "center",
   },
   topic: {
     margin: "2rem 0 0 0",
@@ -219,6 +227,6 @@ const useStyles = makeStyles((theme) => ({
   },
   mentor: {
     display: "flex",
-    alignItems: 'center',
+    alignItems: "center",
   },
 }));
