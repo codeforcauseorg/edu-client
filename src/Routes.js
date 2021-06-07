@@ -3,8 +3,7 @@ import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import HomePage from "./pages/HomeView";
-import CoursePage from "./pages/CoursePageViewWithVideo/IndividualCourse";
-import MyCourses from "./pages/CoursePageViewWithVideo/index";
+import MyCourses from "./pages/MyCourseSection/index";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage/index";
 import CourseDetail from "./pages/CourseDetail";
@@ -36,7 +35,6 @@ const renderRoutes = () => (
     </Route>
     <Route path="/terms-and-conditions" exact component={Terms} />
     <Route path="/course/:id" exact component={CourseDetail} />
-    <Route path="/mycourses/:coursename" exact component={CoursePage} />
     <Route path="/checkout/:id" exact component={Checkout} />
     <Route path="/privacy" exact component={Privacy} />
     <Route path="/about" exact component={About} />
