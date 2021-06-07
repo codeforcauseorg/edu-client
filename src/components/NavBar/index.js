@@ -104,7 +104,7 @@ function NavBar() {
 
           <div className={classes.sectionDesktop}>
             <Hidden mdDown>
-              {((user === "Undefined") && (user === "null")) ? (
+              {((user === undefined) && (user === null)) ? (
                 <div>
                   <Button className={classes.signInButton}>
                     <Typography noWrap>Sign In</Typography>
@@ -119,7 +119,7 @@ function NavBar() {
               )}
             </Hidden>
           </div>
-          {((user === "Undefined") && (user === "null")) ? (
+          {((user === undefined) && (user === null)) ? (
             <Avatar
               className={classes.avatar}
               src="https://media-exp1.licdn.com/dms/image/C560BAQHSXxzxdL45FA/company-logo_200_200/0/1588676153700?e=2159024400&v=beta&t=PEiMBARAmeCUpRrAuJZWev-F_oCZac_OunmUXcLuY5U"
@@ -155,7 +155,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: "block",
     color: "#000",
-    marginRight: "10px"
+    marginRight: "10px",
   },
   search: {
     position: "relative",
