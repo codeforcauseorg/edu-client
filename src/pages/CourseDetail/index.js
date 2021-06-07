@@ -5,17 +5,13 @@ import Details from "../../components/courseDetails/CourseDetailBody";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: "1rem auto",
     width: "100%",
   },
   container: {
     margin: "0 5rem",
-  },
-  headContainer: {
-    padding: "4rem 3rem",
-    background: "#3740A1",
-    color: "#fff",
-    border: "1px solid #000",
+    [theme.breakpoints.down("sm")]: {
+      margin: "0 auto",
+    },
   },
 }));
 

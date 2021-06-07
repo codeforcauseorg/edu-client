@@ -111,6 +111,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "60%",
     margin: "0 5rem",
+    [theme.breakpoints.down("sm")]: {
+      width: "90%",
+      margin: "0 auto",
+    },
   },
   description: {
     margin: "4rem 0",
@@ -133,6 +137,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
     borderRight: "2px dashed rgba(0, 0, 0, .25)",
+    [theme.breakpoints.down("sm")]: {
+      width: "25%",
+    },
   },
   detail: {
     paddingLeft: "1rem",
@@ -140,6 +147,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      width: "75%",
+    },
   },
   heading: {
     marginBottom: ".5rem",
