@@ -1,4 +1,4 @@
-import { List } from "@material-ui/core";
+import { Container, List, makeStyles } from "@material-ui/core";
 import { connect } from "react-redux";
 import { wishlistDeleted } from "../../actions/wishlistActions";
 import EmptyWishlist from "../../components/WishlistComponents/EmptyWishlist";
@@ -16,9 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const WishListView = ({ props, wishlist, wishlistDeleted }) => {
-  // const classes = useStyles();
+  const classes = useStyles();
   return (
-    <>
+    <Container className={classes.wrapperContainer}>
       <WishListHero />
       <WishlistFilterBar />
       <WishListTagSection />
@@ -37,23 +37,14 @@ const WishListView = ({ props, wishlist, wishlistDeleted }) => {
       ) : (
         <EmptyWishlist />
       )}
-    </>
+    </Container>
   );
 };
 
-// const useStyles = makeStyles((theme) => ({
-//   li: {
-//     padding: "14px 0px",
-//   },
-//   backButton: {
-//     marginRight: theme.spacing(2),
-//   },
-//   title: {
-//     flexGrow: 1,
-//   },
-//   appBar: {
-//     background: "#160050",
-//   },
-// }));
+const useStyles = makeStyles((theme) => ({
+  wrapperContainer: {
+    minWidth: "90%",
+  },
+}));
 
 export default connect(mapStateToProps, mapDispatchToProps)(WishListView);
