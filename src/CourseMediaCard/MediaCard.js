@@ -31,7 +31,13 @@ function MediaCard(props) {
   } = props;
   const classes = useStyles();
   return (
-    <Card className={classes.root}>
+    <Card
+      className={classes.root}
+      style={{
+        maxWidth: isDeleteButton ? "none" : 350,
+        marginRight: isDeleteButton ? "0px" : "25px",
+      }}
+    >
       <CardActionArea>
         <CardHeader
           className={classes.media}
@@ -92,8 +98,6 @@ const useStyles = makeStyles((theme) => ({
     transition: "0.5s",
     cursor: "pointer",
     marginTop: theme.spacing(3),
-    maxWidth: 350,
-    marginRight: "25px",
     borderRadius: "5px",
     flex: "0 0 auto",
     "&:hover": {

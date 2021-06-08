@@ -40,27 +40,23 @@ const WishListView = ({ wishlist, wishlistDeleted }) => {
       <WishListTagSection />
       <Box mt={10} mb={5}>
         {wishlist.length ? (
-          <Grid container spacing={4}>
+          <Grid container spacing={8} justify="center">
             {wishlist.map((items) => {
               return (
-                <MediaCard
-                  key={items.id}
-                  title={items.title}
-                  description={items.description}
-                  ratings={items.ratings}
-                  lessonsNumbers={items.lessonsNumbers}
-                  courseImage={items.courseImage}
-                  tag={items.tag}
-                  price={items.price}
-                  mentors={items.mentors}
-                  onClick={() => wishlistDeleted({ id: items.id })}
-                  isDeleteButton={true}
-                />
-                // <WishlistCard
-                //   key={item.id}
-                // props={item}
-                // onClick={() => wishlistDeleted({ id: item.id })}
-                // />
+                <Grid key={items.id} item xs={12} sm={6} md={6} lg={4}>
+                  <MediaCard
+                    title={items.title}
+                    description={items.description}
+                    ratings={items.ratings}
+                    lessonsNumbers={items.lessonsNumbers}
+                    courseImage={items.courseImage}
+                    tag={items.tag}
+                    price={items.price}
+                    mentors={items.mentors}
+                    onClick={() => wishlistDeleted({ id: items.id })}
+                    isDeleteButton={true}
+                  />
+                </Grid>
               );
             })}
           </Grid>
