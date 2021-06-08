@@ -5,30 +5,50 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia,
+  CardHeader,
   Chip,
+  IconButton,
   makeStyles,
   Typography,
 } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import React from "react";
 
-function MediaCard({
-  title,
-  description,
-  ratings,
-  lessonsNumbers,
-  courseImage,
-  tag,
-  price,
-  mentors,
-}) {
+function MediaCard(props) {
+  const {
+    title,
+    price,
+    description,
+    ratings,
+    lessonsNumbers,
+    courseImage,
+    tag,
+    mentors,
+    onClick,
+    isDeleteButton,
+  } = props;
   const classes = useStyles();
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia className={classes.media} title={title} image={courseImage} />
+        <CardHeader
+          className={classes.media}
+          style={{
+            backgroundImage: `url(${courseImage})`,
+            backgroundSize: "cover",
+          }}
+          action={
+            isDeleteButton ? (
+              <IconButton className={classes.deleteButton} onClick={() => onClick()}>
+                <DeleteOutlineIcon />
+              </IconButton>
+            ) : (
+              <Box />
+            )
+          }
+        />
         <CardContent className={classes.cardContent}>
           <Box classes={classes.tagSection}>
             <Chip variant="outlined" size="small" className={classes.tag} label={tag} />
@@ -131,6 +151,13 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     marginLeft: theme.spacing(0.8),
+  },
+  deleteButton: {
+    background: " rgba(0, 0, 0, 0.5)",
+    color: "#fff",
+    height: 35,
+    width: 35,
+    margin: 5,
   },
 }));
 

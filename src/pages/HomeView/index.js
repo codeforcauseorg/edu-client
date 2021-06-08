@@ -10,7 +10,7 @@ import StudentReviewSection from "../../components/HomeViewComponents/StudentRev
 import MentorSection from "../../components/HomeViewComponents/MentorSection";
 import OurImpactSection from "../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../components/HomeViewComponents/ExploreCourseSection";
-import MediaCardWeb from "../../CourseMediaCard/MediaCard";
+import MediaCard from "../../CourseMediaCard/MediaCard";
 // const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [
@@ -106,7 +106,7 @@ export default function HomeView(props) {
         </Box>
         <CardContainer>
           {courseList.map((items, index) => (
-            <MediaCardWeb
+            <MediaCard
               key={index}
               title={items.title}
               description={items.description}
@@ -125,7 +125,7 @@ export default function HomeView(props) {
         </Box>
         <CardContainer>
           {courseList.map((items, index) => (
-            <MediaCardWeb
+            <MediaCard
               key={index}
               title={items.title}
               description={items.description}

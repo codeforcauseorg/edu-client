@@ -16,12 +16,14 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import ShareIcon from "@material-ui/icons/Share";
+import { useHistory } from "react-router";
 
 function MyCourseMediaCard() {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <Grid item xs={12} sm={6} md={6} lg={4}>
-      <Card className={classes.root}>
+      <Card className={classes.root} onClick={() => history.push("/course/:id")}>
         <CardActionArea>
           <CardMedia className={classes.media} title="Android" image="assets/img/img3.PNG" />
           <CardContent className={classes.cardContent}>
