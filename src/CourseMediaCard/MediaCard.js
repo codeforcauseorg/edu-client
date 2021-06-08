@@ -14,7 +14,7 @@ import {
 import StarIcon from "@material-ui/icons/Star";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-import React from "react";
+import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
 function MediaCard(props) {
@@ -32,10 +32,19 @@ function MediaCard(props) {
   } = props;
   const classes = useStyles();
   const history = useHistory();
+  const deleteButton = useRef();
+
+  const handleDelete = (e) => {
+    deleteButton.current.classList.add("removedItem");
+    setTimeout(() => {
+      onClick();
+    }, 700);
+  };
 
   return (
     <Card
-      className={classes.root}
+      classes={{ root: classes.root, removedItem: classes.removedItem }}
+      ref={deleteButton}
       style={{
         maxWidth: isDeleteButton ? "none" : 350,
         marginRight: isDeleteButton ? "0px" : "25px",
@@ -49,7 +58,7 @@ function MediaCard(props) {
         }}
         action={
           isDeleteButton ? (
-            <IconButton className={classes.deleteButton} onClick={() => onClick()}>
+            <IconButton className={classes.deleteButton} onClick={() => handleDelete()}>
               <DeleteOutlineIcon />
             </IconButton>
           ) : (
@@ -111,6 +120,9 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: 320,
       marginRight: "10px",
     },
+    "&.removedItem": {
+      animation: `$removed-item-animation 0.6s cubic-bezier(.55,-0.04,.91,.94) forwards`,
+    },
   },
   title: {
     marginTop: theme.spacing(2),
@@ -167,6 +179,17 @@ const useStyles = makeStyles((theme) => ({
     margin: 5,
     "&:hover": {
       background: " rgba(0, 0, 0, 0.5)",
+    },
+  },
+  "@keyframes removed-item-animation": {
+    "0%": {
+      opacity: 1,
+      transform: "scale(1)",
+    },
+    "100%": {
+      opacity: 0,
+      height: "0px",
+      transform: "scale(0)",
     },
   },
 }));
