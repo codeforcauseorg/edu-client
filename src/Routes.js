@@ -6,7 +6,7 @@ import HomePage from "./pages/HomeView";
 import MyCourses from "./pages/MyCourseSection/index";
 import WishlistPage from "./pages/wishListView";
 import ProfilePage from "./pages/ProfilePage/index";
-import CourseDetail from "./pages/CourseDetail";
+import CourseDetail from "./pages/CourseDetailSection";
 import Privacy from "./pages/Info/Privacy";
 import Terms from "./pages/Info/Terms";
 import Faqs from "./pages/Info/Faqs";
