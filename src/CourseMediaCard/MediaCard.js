@@ -162,6 +162,9 @@ const useStyles = makeStyles((theme) => ({
     height: 35,
     width: 35,
     margin: 5,
+    "&:hover": {
+      background: " rgba(0, 0, 0, 0.5)",
+    },
   },
 }));
 

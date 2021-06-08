@@ -40,7 +40,7 @@ const WishListView = ({ wishlist, wishlistDeleted }) => {
       <WishListTagSection />
       <Box mt={10} mb={5}>
         {wishlist.length ? (
-          <Grid container spacing={8} justify="center">
+          <Grid container spacing={2}>
             {wishlist.map((items) => {
               return (
                 <Grid key={items.id} item xs={12} sm={6} md={6} lg={4}>
