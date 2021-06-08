@@ -15,6 +15,7 @@ import StarIcon from "@material-ui/icons/Star";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import React from "react";
+import { useHistory } from "react-router";
 
 function MediaCard(props) {
   const {
@@ -30,6 +31,8 @@ function MediaCard(props) {
     isDeleteButton,
   } = props;
   const classes = useStyles();
+  const history = useHistory();
+
   return (
     <Card
       className={classes.root}
@@ -38,24 +41,24 @@ function MediaCard(props) {
         marginRight: isDeleteButton ? "0px" : "25px",
       }}
     >
+      <CardHeader
+        className={classes.media}
+        style={{
+          backgroundImage: `url(${courseImage})`,
+          backgroundSize: "cover",
+        }}
+        action={
+          isDeleteButton ? (
+            <IconButton className={classes.deleteButton} onClick={() => onClick()}>
+              <DeleteOutlineIcon />
+            </IconButton>
+          ) : (
+            <Box />
+          )
+        }
+      />
       <CardActionArea>
-        <CardHeader
-          className={classes.media}
-          style={{
-            backgroundImage: `url(${courseImage})`,
-            backgroundSize: "cover",
-          }}
-          action={
-            isDeleteButton ? (
-              <IconButton className={classes.deleteButton} onClick={() => onClick()}>
-                <DeleteOutlineIcon />
-              </IconButton>
-            ) : (
-              <Box />
-            )
-          }
-        />
-        <CardContent className={classes.cardContent}>
+        <CardContent className={classes.cardContent} onClick={() => history.push("/course/:id")}>
           <Box classes={classes.tagSection}>
             <Chip variant="outlined" size="small" className={classes.tag} label={tag} />
             <Chip size="small" className={classes.price} label={price} />

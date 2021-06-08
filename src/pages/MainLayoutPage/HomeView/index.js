@@ -1,16 +1,16 @@
 // import { useEffect } from "react";
 // import { Plugins } from "@capacitor/core";
-import HeaderSection from "../../components/HomeViewComponents/HeaderSection";
-import Tags from "../../components/HomeViewComponents/Tags";
-import ContinueLearningCard from "../../components/ContinueLearningCard";
-import CardContainer from "../../components/cardContainer/cardContainer";
+import HeaderSection from "../../../components/HomeViewComponents/HeaderSection";
+import Tags from "../../../components/HomeViewComponents/Tags";
+import ContinueLearningCard from "../../../components/ContinueLearningCard";
+import CardContainer from "../../../components/cardContainer/cardContainer";
 import { Box, Container, makeStyles, Typography } from "@material-ui/core";
-import BrowseAllButton from "../../components/BrowseAllButton";
-import StudentReviewSection from "../../components/HomeViewComponents/StudentReviewSection";
-import MentorSection from "../../components/HomeViewComponents/MentorSection";
-import OurImpactSection from "../../components/HomeViewComponents/OurImpactSection";
-import ExploreCourseSection from "../../components/HomeViewComponents/ExploreCourseSection";
-import MediaCard from "../../CourseMediaCard/MediaCard";
+import BrowseAllButton from "../../../components/BrowseAllButton";
+import StudentReviewSection from "../../../components/HomeViewComponents/StudentReviewSection";
+import MentorSection from "../../../components/HomeViewComponents/MentorSection";
+import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
+import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
+import MediaCard from "../../../CourseMediaCard/MediaCard";
 // const { SplashScreen } = Plugins;
 
 const ContinueLearningList = [

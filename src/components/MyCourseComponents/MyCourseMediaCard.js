@@ -23,7 +23,7 @@ function MyCourseMediaCard() {
   const history = useHistory();
   return (
     <Grid item xs={12} sm={6} md={6} lg={4}>
-      <Card className={classes.root} onClick={() => history.push("/course/:id")}>
+      <Card className={classes.root}>
         <CardActionArea>
           <CardMedia className={classes.media} title="Android" image="assets/img/img3.PNG" />
           <CardContent className={classes.cardContent}>
@@ -55,7 +55,7 @@ function MyCourseMediaCard() {
           <IconButton>
             <ShareIcon />
           </IconButton>
-          <Button className={classes.detailsButton}>
+          <Button className={classes.detailsButton} onClick={() => history.push("/course/:id")}>
             <Typography noWrap>Course Details</Typography>
           </Button>
           <Box style={{ flexGrow: 1 }} />
