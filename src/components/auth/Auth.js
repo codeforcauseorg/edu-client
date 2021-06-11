@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import { logout, setUserData } from "../../actions/accountActions";
 import authService from "../../services/authService";
-import LoginScreen from "../../pages/LoginPage/index";
+import LoginScreen from "../../pages/AuthPage/index";
 
 function Auth({ children }) {
   const dispatch = useDispatch();
