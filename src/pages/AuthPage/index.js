@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, Box, Button, Hidden, Toolbar, Typography } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import OnboardingSection from "../../components/AuthComponent/OnboardingSection";
@@ -13,7 +13,7 @@ const LandingPage = (props) => {
         <Box className={classes.boxContainer}>
           <AppBar className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
-              <Container className={classes.wrapper}>
+              <Container className={classes.wrapper} disableGutters>
                 <Typography variant="h3" color="textPrimary">
                   Logo
                 </Typography>
@@ -30,9 +30,11 @@ const LandingPage = (props) => {
               <SignupSection />
             </Container>
           </Box>
-          <Box className={classes.onboarding}>
-            <OnboardingSection />
-          </Box>
+          <Hidden mdDown>
+            <Box className={classes.onboarding}>
+              <OnboardingSection />
+            </Box>
+          </Hidden>
         </Box>
       </Container>
     </>
@@ -50,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     maxWidth: "80%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+    },
   },
   appBar: {
     backgroundColor: "rgba(255,255,255,0)",
@@ -67,12 +72,18 @@ const useStyles = makeStyles((theme) => ({
     flex: 5,
     backgroundColor: "#fff",
     height: "100%",
+    [theme.breakpoints.down("lg")]: {
+      flex: 7,
+    },
   },
   onboarding: {
     flex: 8,
     clipPath: "polygon(20% 0%, 100% 0, 100% 100%, 0% 100%)",
     backgroundColor: "#F2F7FA",
     height: "100%",
+    [theme.breakpoints.down("lg")]: {
+      clipPath: "none",
+    },
   },
   explorebutton: {
     color: "#fff",
@@ -83,6 +94,10 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       background: theme.palette.primary.main,
     },
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(0, 1),
+      padding: theme.spacing(0.6, 1),
+    },
   },
   authbutton: {
     border: `1px solid ${theme.palette.primary.main}`,
@@ -90,6 +105,10 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     margin: theme.spacing(0, 1),
     padding: theme.spacing(1, 3),
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(0, 1),
+      padding: theme.spacing(0.5, 1),
+    },
   },
 }));
 

@@ -1,8 +1,20 @@
 import React from "react";
 import { Box, Button, TextField, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { useDispatch } from "react-redux";
+import { login } from "../../actions/accountActions";
 
 function SignupSection() {
+  const dispatch = useDispatch();
+
+  const handleLoginAction = () => {
+    try {
+      dispatch(login());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const classes = useStyles();
   return (
     <div>
@@ -18,7 +30,7 @@ function SignupSection() {
         <Button fullWidth className={classes.signupButton}>
           <Typography variant="body2">Sign up</Typography>
         </Button>
-        <Button fullWidth className={classes.loginButton}>
+        <Button fullWidth className={classes.loginButton} onClick={() => handleLoginAction()}>
           <img className={classes.googleIcon} src="assets/icon/social icons/google_icon.svg" />
           <Typography variant="body2"> Sign up with google</Typography>
         </Button>

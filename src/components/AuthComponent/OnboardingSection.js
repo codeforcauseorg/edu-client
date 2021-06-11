@@ -87,6 +87,9 @@ const useStyles = makeStyles((theme) => ({
       display: "none" /* Safari and Chrome browsers */,
     },
     overflow: "hidden",
+    [theme.breakpoints.down("lg")]: {
+      width: 550,
+    },
   },
   image: {
     maxheight: 550,
@@ -98,6 +101,15 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     marginTop: theme.spacing(3),
+    [theme.breakpoints.down("lg")]: {
+      textAlign: "center",
+      margin: theme.spacing(2, 2),
+    },
+  },
+  subtitle: {
+    [theme.breakpoints.down("lg")]: {
+      textAlign: "center",
+    },
   },
   arrowButton: {
     border: `1px solid ${theme.palette.primary.main}`,
