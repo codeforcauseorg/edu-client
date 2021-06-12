@@ -104,28 +104,27 @@ function NavBar() {
           </Hidden>
 
           <div className={classes.sectionDesktop}>
-          <Hidden mdDown>
-          {((user === undefined) && (user === null)) ? (
+            <Hidden mdDown>
+              {user === undefined && user === null ? (
                 <div>
-              <Button className={classes.signInButton}>
-                <Typography noWrap>Sign In</Typography>
-              </Button>
-              <Button className={classes.signUpButton}>
-                <Typography noWrap>Sign Up</Typography>
-              </Button>
-              </div>) : (
+                  <Button className={classes.signInButton}>
+                    <Typography noWrap>Sign In</Typography>
+                  </Button>
+                  <Button className={classes.signUpButton}>
+                    <Typography noWrap>Sign Up</Typography>
+                  </Button>
+                </div>
+              ) : (
                 <Typography className={classes.title} variant="h6" noWrap>
                   Hi, {user.displayName}
                 </Typography>
               )}
-
             </Hidden>
           </div>
-         {(user)?
-          (<Avatar
-            className={classes.avatar}
-            src={`${user.photoURL}`}
-          />):(null)}
+          {
+            /* eslint-disable-next-line no-extra-boolean-cast */
+            !!user ? <Avatar className={classes.avatar} src={`${user.photoURL}`} /> : null
+          }
         </Toolbar>
       </AppBar>
     </div>
@@ -203,7 +202,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     display: "flex",
-    },
+  },
 }));
 
 export default NavBar;
