@@ -121,10 +121,11 @@ function NavBar() {
 
             </Hidden>
           </div>
-          <Avatar
+         {(user)?
+          (<Avatar
             className={classes.avatar}
             src={`${user.photoURL}`}
-          />
+          />):(null)}
         </Toolbar>
       </AppBar>
     </div>
