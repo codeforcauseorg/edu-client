@@ -5,9 +5,99 @@ import LanguageIcon from "@material-ui/icons/Language";
 import ReactPlayer from "react-player/lazy";
 import { connect } from "react-redux";
 import { wishlistAdded } from "../../actions/wishlistActions";
-const useStyles = makeStyles((theme) => ({
-  hero: {},
 
+function Hero({
+  title,
+  description,
+  startDate,
+  duration,
+  languages,
+  thumbnail,
+  videoUrl,
+  price,
+  dispatch,
+}) {
+  const classes = useStyles();
+  const handleAddWishlist = () => {
+    dispatch(
+      wishlistAdded({
+        title: title,
+        price: price,
+        description: description,
+        ratings: "4.5",
+        lessonsNumbers: "35",
+        courseImage: "assets/img/home1.jpg",
+        tag: "Web Development",
+        mentors: [
+          {
+            id: "1",
+            image: "assets/members/anuj.png",
+          },
+          {
+            id: "2",
+            image: "assets/members/ganga.png",
+          },
+        ],
+      })
+    );
+  };
+  return (
+    <>
+      <Grid className={classes.hero} container justify="space-between">
+        <Grid item xs={12} md={5}>
+          <Typography className={classes.heroHeading} variant="h1" color="secondary" component="h4">
+            {title}
+          </Typography>
+          <Typography className={classes.heroBody} variant="subtitle2" component="p">
+            {description}
+          </Typography>
+          <Typography className={classes.details} variant="subtitle2" component="p">
+            Classes Starting <span style={{ color: "#4C0098" }}>{startDate} Onwards</span>
+          </Typography>
+          <Typography className={classes.details} variant="subtitle2" component="p">
+            Course Duration {duration} hrs
+          </Typography>
+          <Typography className={classes.language} variant="subtitle2" component="p">
+            <LanguageIcon /> {languages}
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <div className={classes.playerWrapper}>
+            <ReactPlayer
+              className={classes.reactPlayer}
+              controls={true}
+              light={thumbnail}
+              url={videoUrl}
+              volume={1}
+              width="100%"
+              height="100%"
+            />
+          </div>
+          <Typography className={classes.price} variant="subtitle1" component="p" color="secondary">
+            ₹ {price} /-
+          </Typography>
+          <div className={classes.buttonGroup}>
+            <ButtonComponent
+              className={classes.button}
+              variant="contained"
+              color="secondary"
+              title="Buy Now"
+            />
+            <ButtonComponent
+              className={classes.button}
+              variant="outlined"
+              color="secondary"
+              title="Add to wishlist"
+              onClick={() => handleAddWishlist()}
+            />
+          </div>
+        </Grid>
+      </Grid>
+    </>
+  );
+}
+
+const useStyles = makeStyles((theme) => ({
   heroHeading: {
     fontWeight: "700",
     [theme.breakpoints.up("md")]: {
@@ -73,82 +163,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Hero({
-  title,
-  description,
-  startDate,
-  duration,
-  languages,
-  thumbnail,
-  videoUrl,
-  price,
-  dispatch,
-}) {
-  const classes = useStyles();
-  const handleAddWishlist = () => {
-    dispatch(
-      wishlistAdded({
-        title: title,
-        startDate: startDate,
-        duration: duration,
-        price: price,
-        description: description,
-      })
-    );
-  };
-  return (
-    <>
-      <Grid className={classes.hero} container justify="space-between">
-        <Grid item xs={12} md={5}>
-          <Typography className={classes.heroHeading} variant="h1" color="secondary" component="h4">
-            {title}
-          </Typography>
-          <Typography className={classes.heroBody} variant="subtitle2" component="p">
-            {description}
-          </Typography>
-          <Typography className={classes.details} variant="subtitle2" component="p">
-            Classes Starting <span style={{ color: "#4C0098" }}>{startDate} Onwards</span>
-          </Typography>
-          <Typography className={classes.details} variant="subtitle2" component="p">
-            Course Duration {duration} hrs
-          </Typography>
-          <Typography className={classes.language} variant="subtitle2" component="p">
-            <LanguageIcon /> {languages}
-          </Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <div className={classes.playerWrapper}>
-            <ReactPlayer
-              className={classes.reactPlayer}
-              controls={true}
-              light={thumbnail}
-              url={videoUrl}
-              volume={1}
-              width="100%"
-              height="100%"
-            />
-          </div>
-          <Typography className={classes.price} variant="subtitle1" component="p" color="secondary">
-            ₹ {price} /-
-          </Typography>
-          <div className={classes.buttonGroup}>
-            <ButtonComponent
-              className={classes.button}
-              variant="contained"
-              color="secondary"
-              title="Buy Now"
-            />
-            <ButtonComponent
-              className={classes.button}
-              variant="outlined"
-              color="secondary"
-              title="Add to wishlist"
-              onClick={() => handleAddWishlist()}
-            />
-          </div>
-        </Grid>
-      </Grid>
-    </>
-  );
-}
 export default connect()(Hero);

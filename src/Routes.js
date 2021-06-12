@@ -2,9 +2,9 @@
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
-import HomePage from "./pages/HomeView";
-import MyCourses from "./pages/MyCourseSection/index";
-import WishlistPage from "./pages/wishListView";
+import HomePage from "./pages/MainLayoutPage/HomeView/index";
+import MyCourses from "./pages/MainLayoutPage/MyCourseSection/index";
+import WishlistPage from "./pages/MainLayoutPage/WishListView/index";
 import ProfilePage from "./pages/ProfilePage/index";
 import CourseDetail from "./pages/CourseDetail";
 import Privacy from "./pages/Info/Privacy";
