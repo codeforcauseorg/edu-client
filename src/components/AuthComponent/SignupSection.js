@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, TextField, Typography } from "@material-ui/core";
+import { Box, Button, Grid, TextField, Typography, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import { login } from "../../actions/accountActions";
@@ -17,7 +17,7 @@ function SignupSection() {
 
   const classes = useStyles();
   return (
-    <div>
+    <>
       <Box my={18}>
         <Typography variant="subtitle2" color="textPrimary" className={classes.subtitle}>
           Start Learning
@@ -25,17 +25,27 @@ function SignupSection() {
         <Typography color="textPrimary" className={classes.title}>
           Create an account
         </Typography>
+        <TextField fullWidth margin="normal" label="First & Last name" variant="outlined" />
         <TextField fullWidth margin="normal" label="Email" variant="outlined" />
         <TextField fullWidth margin="normal" label="Password" variant="outlined" />
         <Button fullWidth className={classes.signupButton}>
           <Typography variant="body2">Sign up</Typography>
         </Button>
-        <Button fullWidth className={classes.loginButton} onClick={() => handleLoginAction()}>
+        <Button fullWidth className={classes.googleSignup} onClick={() => handleLoginAction()}>
           <img className={classes.googleIcon} src="assets/icon/social icons/google_icon.svg" />
           <Typography variant="body2"> Sign up with google</Typography>
         </Button>
+        <Box my={6}>
+          <Grid container justify="center">
+            <Grid item>
+              <Link href="#" variant="body2">
+                {"Already have an account? Log In"}
+              </Link>
+            </Grid>
+          </Grid>
+        </Box>
       </Box>
-    </div>
+    </>
   );
 }
 
@@ -58,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 0),
     marginTop: theme.spacing(3),
   },
-  loginButton: {
+  googleSignup: {
     color: theme.palette.primary.main,
     textTransform: "none",
     padding: theme.spacing(1.5, 0),
