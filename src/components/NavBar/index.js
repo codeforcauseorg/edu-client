@@ -130,6 +130,9 @@ const useStyles = makeStyles((theme) => ({
   },
   grow: {
     flexGrow: 1,
+    "& .MuiLinearProgress-colorPrimary": {
+      backgroundColor: "rgb(255, 255, 255)",
+    },
   },
   menuButton: {
     display: "none",
