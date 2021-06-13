@@ -6,7 +6,7 @@
   "webDir": "build",
   "plugins": {
     "SplashScreen": {
-      "launchAutoHide": false,
+      "launchAutoHide": true,
       "androidSplashResourceName": "splash",
       "androidScaleType": "CENTER_CROP",
       "androidSpinnerStyle": "horizontal",
@@ -17,14 +17,18 @@
       "splashImmersive": true
     },
     "CapacitorFirebaseAuth": {
-      "providers": ["google.com"],
+      "providers": [
+        "google.com"
+      ],
       "languageCode": "en",
       "nativeAuth": true,
       "properties": {
         "google": {}
       },
       "permissions": {
-        "google": ["profile"]
+        "google": [
+          "profile"
+        ]
       }
     }
   },

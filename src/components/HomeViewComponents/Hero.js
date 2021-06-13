@@ -1,5 +1,6 @@
 import { makeStyles, Box, Typography, Button } from "@material-ui/core";
 import React from "react";
+import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 
 function Hero() {
   const classes = useStyles();
@@ -18,7 +19,10 @@ function Hero() {
           professionals.
         </Typography>
         <Box className={classes.buttonContainer}>
-          <Button className={classes.liveCoursesButton}>Our Live Courses</Button>
+          <Button className={classes.liveCoursesButton}>
+            <PlayCircleOutlineIcon className={classes.playIcon} />
+            Our Live Courses
+          </Button>
           <Button className={classes.newCoursesButton}>New Courses</Button>
         </Box>
       </Box>
@@ -28,12 +32,21 @@ function Hero() {
     </Box>
   );
 }
+
 const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     height: "90vh",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+      height: "100%",
+    },
+    [theme.breakpoints.down("lg")]: {
+      display: "block",
+      height: "100%",
+    },
   },
   infoContainer: {
     display: "flex",
@@ -42,6 +55,14 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     flex: 5,
     margin: theme.spacing(15),
+    [theme.breakpoints.down("lg")]: {
+      margin: theme.spacing(8),
+      marginTop: theme.spacing(12),
+    },
+    [theme.breakpoints.down("sm")]: {
+      margin: theme.spacing(4),
+      marginTop: theme.spacing(10),
+    },
   },
   imageContainer: {
     display: "flex",
@@ -51,6 +72,13 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     height: "90%",
+    width: "90%",
+    [theme.breakpoints.down("lg")]: {
+      height: "500px",
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "300px",
+    },
   },
   liveCoursesButton: {
     marginRight: theme.spacing(3),
@@ -64,21 +92,29 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.primary.main,
       boxShadow: `0px 4px 10px 1px ${theme.palette.primary.main}`,
     },
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: theme.spacing(2),
+      marginRight: theme.spacing(0),
+    },
   },
   newCoursesButton: {
-    background: "#51BFA5",
+    background: theme.palette.secondary.default,
     borderRadius: "5px",
     padding: theme.spacing(1.5),
     transition: "0.5s",
     color: "#fff",
     textTransform: "none",
     "&:hover": {
-      background: "#51BFA5",
-      boxShadow: "0px 4px 10px 1px #51BFA5",
+      background: theme.palette.secondary.default,
+      boxShadow: `0px 4px 10px 1px ${theme.palette.secondary.default}`,
     },
   },
   buttonContainer: {
     marginTop: theme.spacing(5),
+    [theme.breakpoints.down("sm")]: {
+      display: "flex",
+      flexDirection: "column",
+    },
   },
   paragraph: {
     marginTop: theme.spacing(2),
@@ -87,5 +123,9 @@ const useStyles = makeStyles((theme) => ({
   topTitle: {
     color: theme.palette.primary.main,
   },
+  playIcon: {
+    marginRight: theme.spacing(1),
+  },
 }));
+
 export default Hero;
