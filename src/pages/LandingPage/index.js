@@ -1,93 +1,115 @@
+import { AppBar, Box, Button, Hidden, Toolbar, Typography } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
-import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core/styles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Login from "../../components/auth/Login";
-import { Typography } from "@material-ui/core";
-
-const useStyles = makeStyles((theme) => ({
-  container: {
-    backgroundColor: "rgba(227, 236, 246,1)",
-    width: "100vw",
-    height: "100vh",
-    display: "flex",
-    flexDirection: "column",
-    position: "relative",
-    alignItems: "center",
-  },
-  topWave: {
-    position: "absolute",
-    top: "0",
-  },
-  graphics: {
-    position: "absolute",
-    top: "auto",
-    bottom: 0,
-    width: "100%",
-  },
-  card: {
-    backgroundColor: "rgba(227, 236, 246,1)",
-    position: "relative",
-    overflow: "visible",
-    top: "30%",
-    width: "80%",
-    height: "35%",
-    display: "flex",
-    borderRadius: "15px",
-    flexDirection: "column",
-    alignItems: "center",
-    boxShadow: "-5px -5px 10px rgba(255,255,255,1),5px 5px 10px rgba(0,0,0,0.2)",
-  },
-  logoDiv: {
-    position: "absolute",
-    overflow: "visible",
-    top: "-50%",
-    transform: "translate(0%,40%)",
-    width: "10rem",
-    height: "10rem",
-    borderRadius: "50%",
-    boxShadow: "-5px -5px 10px rgba(255,255,255,1),5px 5px 10px rgba(0,0,0,0.2)",
-  },
-  logo: {
-    width: "100%",
-    height: "100%",
-    borderRadius: "50%",
-  },
-  subtitle: {
-    position: "relative",
-    top: "50%",
-    fontSize: "1rem",
-    color: theme.palette.primary.main,
-  },
-  loginButton: {
-    position: "absolute",
-    top: "auto",
-    bottom: 20,
-    width: "50%",
-  },
-}));
+import OnboardingSection from "../../components/AuthComponent/OnboardingSection";
+import SignupSection from "../../components/AuthComponent/SignupSection";
 
 const LandingPage = (props) => {
   const classes = useStyles(props);
 
   return (
-    <Container className={classes.container} component="main" maxWidth="xs">
-      <CssBaseline />
-      <img className={classes.topWave} src="/assets/img/LandingPageWave.svg" alt="top-wave" />
-      <Card className={classes.card}>
-        <Card className={classes.logoDiv}>
-          <img className={classes.logo} src="/assets/img/codeForCause.jpg" alt="logo" />
-        </Card>
-        <Typography variant="h3" className={classes.subtitle}>
-          LOGIN WITH
-        </Typography>
-        <div className={classes.loginButton}>
-          <Login />
-        </div>
-      </Card>
-      <img className={classes.graphics} src="/assets/img/LandingPageGraphics.svg" alt="graphics" />
-    </Container>
+    <>
+      <Container className={classes.container} disableGutters>
+        <Box className={classes.boxContainer}>
+          <AppBar className={classes.appBar}>
+            <Toolbar className={classes.toolbar}>
+              <Container className={classes.wrapper} disableGutters>
+                <Typography variant="h3" color="textPrimary">
+                  Logo
+                </Typography>
+                <Box flexGrow={1} />
+                <Button outline className={classes.authbutton}>
+                  Sign In
+                </Button>
+                <Button className={classes.explorebutton}>Explore</Button>
+              </Container>
+            </Toolbar>
+          </AppBar>
+          <Box className={classes.loginContainer}>
+            <Container maxWidth="xs">
+              <SignupSection />
+            </Container>
+          </Box>
+          <Hidden mdDown>
+            <Box className={classes.onboarding}>
+              <OnboardingSection />
+            </Box>
+          </Hidden>
+        </Box>
+      </Container>
+    </>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    maxWidth: "100%",
+    backgroundColor: "#fff",
+    width: "100vw",
+    height: "100vh",
+  },
+  wrapper: {
+    display: "flex",
+    alignItems: "center",
+    maxWidth: "80%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+    },
+  },
+  appBar: {
+    backgroundColor: "rgba(255,255,255,0)",
+  },
+
+  boxContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    content: "center",
+    height: "100%",
+    width: "auto",
+  },
+  loginContainer: {
+    flex: 5,
+    backgroundColor: "#fff",
+    height: "100%",
+    [theme.breakpoints.down("lg")]: {
+      flex: 7,
+    },
+  },
+  onboarding: {
+    flex: 8,
+    clipPath: "polygon(20% 0%, 100% 0, 100% 100%, 0% 100%)",
+    backgroundColor: "#F2F7FA",
+    height: "100%",
+    [theme.breakpoints.down("lg")]: {
+      clipPath: "none",
+    },
+  },
+  explorebutton: {
+    color: "#fff",
+    textTransform: "none",
+    margin: theme.spacing(0, 1),
+    padding: theme.spacing(1, 3),
+    background: theme.palette.primary.main,
+    "&:hover": {
+      background: theme.palette.primary.main,
+    },
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(0, 1),
+      padding: theme.spacing(0.6, 1),
+    },
+  },
+  authbutton: {
+    border: `1px solid ${theme.palette.primary.main}`,
+    color: theme.palette.primary.main,
+    textTransform: "none",
+    margin: theme.spacing(0, 1),
+    padding: theme.spacing(1, 3),
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(0, 1),
+      padding: theme.spacing(0.5, 1),
+    },
+  },
+}));
 
 export default LandingPage;

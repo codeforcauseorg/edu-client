@@ -5,31 +5,69 @@ import {
   CardActionArea,
   CardActions,
   CardContent,
-  CardMedia,
+  CardHeader,
   Chip,
+  IconButton,
   makeStyles,
   Typography,
 } from "@material-ui/core";
 import StarIcon from "@material-ui/icons/Star";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
-import React from "react";
+import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
+import React, { useRef } from "react";
+import { useHistory } from "react-router";
 
-function MediaCard({
-  title,
-  description,
-  ratings,
-  lessonsNumbers,
-  courseImage,
-  tag,
-  price,
-  mentors,
-}) {
+function MediaCard(props) {
+  const {
+    title,
+    price,
+    description,
+    ratings,
+    lessonsNumbers,
+    courseImage,
+    tag,
+    mentors,
+    onClick,
+    isDeleteButton,
+  } = props;
   const classes = useStyles();
+  const history = useHistory();
+  const deleteButton = useRef();
+
+  const handleDelete = (e) => {
+    deleteButton.current.classList.add("removedItem");
+    setTimeout(() => {
+      onClick();
+    }, 700);
+  };
+
   return (
-    <Card className={classes.root}>
+    <Card
+      classes={{ root: classes.root, removedItem: classes.removedItem }}
+      ref={deleteButton}
+      style={{
+        maxWidth: isDeleteButton ? "none" : 350,
+        marginRight: isDeleteButton ? "0px" : "25px",
+      }}
+    >
+      <CardHeader
+        className={classes.media}
+        style={{
+          backgroundImage: `url(${courseImage})`,
+          backgroundSize: "cover",
+        }}
+        action={
+          isDeleteButton ? (
+            <IconButton className={classes.deleteButton} onClick={() => handleDelete()}>
+              <DeleteOutlineIcon />
+            </IconButton>
+          ) : (
+            <Box />
+          )
+        }
+      />
       <CardActionArea>
-        <CardMedia className={classes.media} title={title} image={courseImage} />
-        <CardContent className={classes.cardContent}>
+        <CardContent className={classes.cardContent} onClick={() => history.push("/course/:id")}>
           <Box classes={classes.tagSection}>
             <Chip variant="outlined" size="small" className={classes.tag} label={tag} />
             <Chip size="small" className={classes.price} label={price} />
@@ -72,8 +110,6 @@ const useStyles = makeStyles((theme) => ({
     transition: "0.5s",
     cursor: "pointer",
     marginTop: theme.spacing(3),
-    maxWidth: 350,
-    marginRight: "25px",
     borderRadius: "5px",
     flex: "0 0 auto",
     "&:hover": {
@@ -83,6 +119,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       maxWidth: 320,
       marginRight: "10px",
+    },
+    "&.removedItem": {
+      animation: `$removed-item-animation 0.6s cubic-bezier(.55,-0.04,.91,.94) forwards`,
     },
   },
   title: {
@@ -131,6 +170,27 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     marginLeft: theme.spacing(0.8),
+  },
+  deleteButton: {
+    background: " rgba(0, 0, 0, 0.5)",
+    color: "#fff",
+    height: 35,
+    width: 35,
+    margin: 5,
+    "&:hover": {
+      background: " rgba(0, 0, 0, 0.5)",
+    },
+  },
+  "@keyframes removed-item-animation": {
+    "0%": {
+      opacity: 1,
+      transform: "scale(1)",
+    },
+    "100%": {
+      opacity: 0,
+      height: "0px",
+      transform: "scale(0)",
+    },
   },
 }));
 

@@ -16,9 +16,11 @@ import {
 } from "@material-ui/core";
 import React from "react";
 import ShareIcon from "@material-ui/icons/Share";
+import { useHistory } from "react-router";
 
 function MyCourseMediaCard() {
   const classes = useStyles();
+  const history = useHistory();
   return (
     <Grid item xs={12} sm={6} md={6} lg={4}>
       <Card className={classes.root}>
@@ -53,7 +55,7 @@ function MyCourseMediaCard() {
           <IconButton>
             <ShareIcon />
           </IconButton>
-          <Button className={classes.detailsButton}>
+          <Button className={classes.detailsButton} onClick={() => history.push("/course/:id")}>
             <Typography noWrap>Course Details</Typography>
           </Button>
           <Box style={{ flexGrow: 1 }} />

@@ -9,10 +9,13 @@ export default function wishlistReducer(initialState = [], action) {
         wishlist.push({
           id: ++lastId,
           title: action.payload.title,
-          startDate: action.payload.startDate,
-          duration: action.payload.duration,
           price: action.payload.price,
           description: action.payload.description,
+          ratings: action.payload.ratings,
+          lessonsNumbers: action.payload.lessonsNumbers,
+          courseImage: action.payload.courseImage,
+          tag: action.payload.tag,
+          mentors: action.payload.mentors,
         });
       });
     case WISHLIST_DELETED:

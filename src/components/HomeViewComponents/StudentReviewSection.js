@@ -1,4 +1,4 @@
-import { Box, Container, makeStyles, Typography } from "@material-ui/core";
+import { Box, Grid, Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import CardContainer from "../cardContainer/cardContainer";
 import ReviewCard from "../ReviewCard/ReviewCard";
@@ -14,11 +14,15 @@ function StudentReviewSection() {
           </Typography>
         </Container>
       </FadeReveal>
-      <CardContainer>
-        {[1, 2, 3, 4, 5, 6].map((items, index) => (
-          <ReviewCard key={index} />
-        ))}
-      </CardContainer>
+      <Grid className={classes.gridScroll}>
+        <div className={classes.reviewSlide}>
+          <CardContainer>
+            {[1, 2, 3, 4, 5, 6].map((items, index) => (
+              <ReviewCard key={index} />
+            ))}
+          </CardContainer>
+        </div>
+      </Grid>
       <img className={classes.vecImage_1} src="assets/VectorGraphics/Dot_Ornament.svg" />
       <img className={classes.vecImage_2} src="assets/VectorGraphics/Dot_Ornament.svg" />
     </Box>
@@ -43,6 +47,33 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     left: 30,
     top: 20,
+  },
+
+  "@keyframes slideshow": {
+    "0%": {
+      left: "10%",
+    },
+    "100%": {
+      left: "-140%",
+    },
+  },
+  reviewSlide: {
+    position: "inherit",
+    left: 0,
+    top: 0,
+    overflow: "hidden",
+    height: "100%",
+    width: "250%",
+    animation: "$slideshow 140s linear infinite",
+  },
+  gridScroll: {
+    flexWrap: "nowrap",
+    transform: "translateZ(0)",
+    position: "relative",
+    overflow: "hidden",
+    [theme.breakpoints.down("sm")]: {
+      overflow: "scroll",
+    },
   },
 }));
 export default StudentReviewSection;
