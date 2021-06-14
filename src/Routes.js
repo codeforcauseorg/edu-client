@@ -6,7 +6,7 @@ import HomePage from "./pages/MainLayoutPage/HomeView/index";
 import MyCourses from "./pages/MainLayoutPage/MyCourseSection/index";
 import WishlistPage from "./pages/MainLayoutPage/WishListView/index";
 import ProfilePage from "./pages/ProfilePage/index";
-import CourseDetail from "./pages/CourseDetailSection";
+import CourseDetails from "./pages/CourseDetailSection";
 import Privacy from "./pages/Info/Privacy";
 import Terms from "./pages/Info/Terms";
 import Faqs from "./pages/Info/Faqs";
@@ -34,7 +34,7 @@ const renderRoutes = () => (
       <Redirect to="/home" />
     </Route>
     <Route path="/terms-and-conditions" exact component={Terms} />
-    <Route path="/course/:id" exact component={CourseDetail} />
+    <Route path="/course/:id" exact component={CourseDetails} />
     <Route path="/checkout/:id" exact component={Checkout} />
     <Route path="/privacy" exact component={Privacy} />
     <Route path="/about" exact component={About} />
