@@ -8,7 +8,7 @@ import StudentReviewSection from "../../../components/HomeViewComponents/Student
 import MentorSection from "../../../components/HomeViewComponents/MentorSection";
 import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
-import MediaCard from "../../../CourseMediaCard/MediaCard";
+import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 
 const ContinueLearningList = [
   {

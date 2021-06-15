@@ -1,6 +1,6 @@
 import { AppBar, Box, Container, makeStyles, Tab, Tabs, Typography } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
-import ExploreMediaCard from "../../CourseMediaCard/ExploreMediaCard";
+import ExploreMediaCard from "../../components/CourseMediaCard/ExploreMediaCard";
 import CardContainer from "../cardContainer/cardContainer";
 
 const courseList = [

@@ -5,7 +5,7 @@ import HeroSection from "../../../components/HeroSection";
 import EmptyWishlist from "../../../components/WishlistComponents/EmptyWishlist";
 import WishlistFilterBar from "../../../components/WishlistComponents/WishlistFilterBar";
 import WishListTagSection from "../../../components/WishlistComponents/WishListTagSection";
-import MediaCard from "../../../CourseMediaCard/MediaCard";
+import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 
 const mapStateToProps = (state) => ({
   wishlist: state.wishlist,
