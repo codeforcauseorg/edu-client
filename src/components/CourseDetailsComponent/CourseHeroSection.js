@@ -6,6 +6,7 @@ import VideoCard from "./SubComponents/HeroElements/VideoCard";
 import CoursePath from "./SubComponents/HeroElements/CoursePath";
 import ShareAndWishlistButton from "./SubComponents/HeroElements/ShareAndWishlistButton";
 import Instructors from "./SubComponents/HeroElements/Instructors";
+
 function CourseHeroSection() {
   const classes = useStyles();
 
@@ -41,7 +42,7 @@ function CourseHeroSection() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "585px",
+    height: "85vh",
     color: theme.palette.text.main,
     display: "flex",
     paddingLeft: theme.spacing(10),
