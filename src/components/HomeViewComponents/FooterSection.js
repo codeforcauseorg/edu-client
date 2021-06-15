@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -22,6 +23,33 @@ const iconList = [
   "assets/icon/social icons/linkedIn.svg",
   "assets/icon/social icons/github.svg",
   "assets/icon/social icons/youtube_icon.svg",
+];
+
+const aboutItems = [
+  {
+    link: "/privacy",
+    title: "Privacy Policy",
+  },
+  {
+    link: "/terms-and-conditions",
+    title: "Terms & Conditions",
+  },
+  {
+    link: "/ContactUs",
+    title: "Support",
+  },
+  {
+    link: "/job-openings",
+    title: "Career",
+  },
+  {
+    link: "/faq",
+    title: "FAQs",
+  },
+  {
+    link: "/about",
+    title: "About Us",
+  },
 ];
 
 function FooterSection() {
@@ -78,17 +106,14 @@ function FooterSection() {
           <Grid item xs={12} md={2}>
             <Box>
               <Typography variant="h4">About</Typography>
-              <Box mt={3} className={classes.AboutLinks}>
-                <Typography gutterBottom variant="h5">
-                  Privacy & Policy
-                </Typography>
-                <Typography gutterBottom variant="h5">
-                  Terms & Conditions
-                </Typography>
-                <Typography gutterBottom variant="h5">
-                  Support
-                </Typography>
-                <Typography variant="h5">Career</Typography>
+              <Box mt={3}>
+                {aboutItems.map((items, i) => (
+                  <Link to={items.link} key={i} className={classes.AboutLinks}>
+                    <Typography gutterBottom variant="h5">
+                      {items.title}
+                    </Typography>
+                  </Link>
+                ))}
               </Box>
             </Box>
           </Grid>
@@ -171,6 +196,10 @@ const useStyles = makeStyles((theme) => ({
   darkModeIcon: {
     maxHeight: 35,
     maxWidth: 35,
+  },
+  AboutLinks: {
+    textDecoration: "none",
+    color: "#000",
   },
 }));
 

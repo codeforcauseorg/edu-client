@@ -23,7 +23,7 @@ import Statistics from "./pages/Statistics";
 import ContactUs from "./pages/ContactUs";
 import MentorPage from "./pages/MentorPage";
 import ReferralAndCoupons from "./pages/ReferralAndCouponCodes";
-import EditProfile from "./pages/ProfilePage/ProfileComponent/EditProfile";
+import EditProfile from "./components/ProfilePageComponents/EditProfile.js";
 import Resources from "./pages/Resources";
 import HackathonsAndEvents from "./pages/HackAndEventsPage";
 

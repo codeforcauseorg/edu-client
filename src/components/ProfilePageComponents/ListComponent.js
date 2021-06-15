@@ -77,14 +77,6 @@ export default function ListComponent() {
   const SettingsItems = [
     {
       id: 1,
-      listItemIcon: "/assets/icon/darkmodeIcon.svg",
-      primary: "Dark Mode",
-      secondary: "Switch between Dark & light Mode",
-      onPress: () => console.log("Dark Mode"),
-      toggle: true,
-    },
-    {
-      id: 2,
       listItemIcon: "/assets/icon/languageIcon.svg",
       primary: "Language preference",
       secondary: "Select language of your choice",

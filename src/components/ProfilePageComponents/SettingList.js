@@ -4,7 +4,6 @@ import {
   ListItemIcon,
   ListItemText,
   makeStyles,
-  Switch as MuiSwitch,
   Typography,
 } from "@material-ui/core";
 import React from "react";
@@ -24,11 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function SettingList({ listItemIcon, primary, secondary, onPress, toggle }) {
-  const [checked, setChecked] = React.useState(false);
-  const toggleChecked = () => {
-    setChecked((prev) => !prev);
-  };
+function SettingList({ listItemIcon, primary, secondary, onPress }) {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
@@ -42,11 +37,7 @@ function SettingList({ listItemIcon, primary, secondary, onPress, toggle }) {
           </Typography>
           <Typography variant="body1">{secondary}</Typography>
         </ListItemText>
-        {toggle ? (
-          <MuiSwitch checked={checked} onChange={toggleChecked} />
-        ) : (
-          <KeyboardArrowRightIcon />
-        )}
+        <KeyboardArrowRightIcon />
       </ListItem>
     </Box>
   );
