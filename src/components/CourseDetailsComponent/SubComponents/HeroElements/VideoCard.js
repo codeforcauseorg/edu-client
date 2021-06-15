@@ -1,4 +1,4 @@
-import { Box, Button, makeStyles } from "@material-ui/core";
+import { Box, Button, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import ReactPlayer from "react-player/lazy";
 
@@ -17,6 +17,14 @@ function VideoCard() {
       />
       <Box mt={2} className={classes.container}>
         <Button className={classes.button}>Buy Now</Button>
+      </Box>
+      <Box mt={2} className={classes.priceContainer}>
+        <Typography variant="h2" className={classes.price}>
+          ₹1200
+        </Typography>
+        <Typography variant="h4" className={classes.originalPrice}>
+          ₹6000
+        </Typography>
       </Box>
     </Box>
   );
@@ -42,6 +50,19 @@ const useStyles = makeStyles((theme) => ({
   container: {
     display: "flex",
     flexDirection: "column",
+  },
+  priceContainer: {
+    display: "flex",
+    flexDirection: "row-reverse",
+    alignItems: "center",
+  },
+  price: {
+    color: theme.palette.primary.main,
+    marginLeft: theme.spacing(2),
+  },
+  originalPrice: {
+    textDecoration: " line-through",
+    color: theme.palette.text.secondary,
   },
 }));
 export default VideoCard;

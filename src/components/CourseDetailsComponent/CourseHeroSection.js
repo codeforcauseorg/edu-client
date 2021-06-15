@@ -5,6 +5,7 @@ import Rating from "@material-ui/lab/Rating";
 import VideoCard from "./SubComponents/HeroElements/VideoCard";
 import CoursePath from "./SubComponents/HeroElements/CoursePath";
 import ShareAndWishlistButton from "./SubComponents/HeroElements/ShareAndWishlistButton";
+import Instructors from "./SubComponents/HeroElements/Instructors";
 function CourseHeroSection() {
   const classes = useStyles();
 
@@ -29,6 +30,7 @@ function CourseHeroSection() {
               <Typography className={classes.numberOfStudents}> 148,806 students </Typography>
             </Box>
           </Box>
+          <Instructors />
           <ShareAndWishlistButton /> {/* Share and add wishlist button component */}
         </Container>
         <VideoCard /> {/* video card component */}
