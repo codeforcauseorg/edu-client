@@ -1,9 +1,12 @@
 import React from "react";
 import { Box, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 
 function DescriptionContainer() {
+  const classes = useStyles();
+
   return (
-    <Box mt={8}>
+    <Box mt={8} className={classes.descriptionContainer}>
       <Typography variant="h2" gutterBottom>
         Description
       </Typography>
@@ -18,5 +21,11 @@ function DescriptionContainer() {
     </Box>
   );
 }
+
+const useStyles = makeStyles((theme) => ({
+  descriptionContainer: {
+    width: "80%",
+  },
+}));
 
 export default DescriptionContainer;
