@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
+    background: "linear-gradient(to right, #E9F8FF, #90B2D8, #C1E3FF);",
   },
   ratingContainer: {
     display: "flex",
