@@ -7,7 +7,7 @@ function DescriptionContainer() {
 
   return (
     <Box mt={8} className={classes.descriptionContainer}>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" className={classes.title}>
         Description
       </Typography>
       <Typography variant="subtitle1" color="textSecondary" component="p" gutterBottom>
@@ -25,6 +25,9 @@ function DescriptionContainer() {
 const useStyles = makeStyles((theme) => ({
   descriptionContainer: {
     width: "80%",
+  },
+  title: {
+    marginBottom: theme.spacing(5),
   },
 }));
 

@@ -4,6 +4,7 @@ import LearningInfo from "./SubComponents/AboutElements/LearningInfo";
 import CourseIncludes from "./SubComponents/AboutElements/CourseIncludes";
 import DescriptionContainer from "./SubComponents/AboutElements/DescriptionContainer";
 import CourseSchedule from "./SubComponents/AboutElements/CourseSchedule";
+import SkillsSection from "./SubComponents/AboutElements/SkillsSection";
 
 function AboutCourse() {
   const classes = useStyles();
@@ -12,6 +13,7 @@ function AboutCourse() {
       <Box className={classes.outterContainer}>
         <Container className={classes.innerContainer}>
           <LearningInfo />
+          <SkillsSection />
           <DescriptionContainer />
           <CourseSchedule />
         </Container>

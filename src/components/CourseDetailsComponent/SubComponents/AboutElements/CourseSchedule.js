@@ -8,7 +8,7 @@ function CourseSchedule() {
 
   return (
     <Box mt={8}>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" className={classes.title}>
         Course Schedule
       </Typography>
       <Typography variant="subtitle1">12 sections • 111 lectures • 14h 25m total length</Typography>
@@ -30,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     border: `2px dotted ${theme.palette.text.secondary}`,
     marginBottom: theme.spacing(2),
+  },
+  title: {
+    marginBottom: theme.spacing(5),
   },
 }));
 
