@@ -10,7 +10,7 @@ function SkillsSection() {
         Skills you will gain
       </Typography>
       <Box className={classes.container}>
-        {[1, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3].map((items, index) => (
+        {[1, 2, 3, 4, 5].map((items, index) => (
           <Chip key={index} className={classes.chip} label="Cloud Databases" />
         ))}
       </Box>

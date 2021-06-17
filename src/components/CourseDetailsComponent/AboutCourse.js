@@ -5,6 +5,7 @@ import CourseIncludes from "./SubComponents/AboutElements/CourseIncludes";
 import DescriptionContainer from "./SubComponents/AboutElements/DescriptionContainer";
 import CourseSchedule from "./SubComponents/AboutElements/CourseSchedule";
 import SkillsSection from "./SubComponents/AboutElements/SkillsSection";
+import Prerequisites from "./SubComponents/AboutElements/Prerequisites";
 
 function AboutCourse() {
   const classes = useStyles();
@@ -16,6 +17,7 @@ function AboutCourse() {
           <SkillsSection />
           <DescriptionContainer />
           <CourseSchedule />
+          <Prerequisites />
         </Container>
         <Box className={classes.container}>
           <CourseIncludes />
@@ -24,6 +26,7 @@ function AboutCourse() {
     </Box>
   );
 }
+
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: "100%",
@@ -36,4 +39,5 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
 }));
+
 export default AboutCourse;
