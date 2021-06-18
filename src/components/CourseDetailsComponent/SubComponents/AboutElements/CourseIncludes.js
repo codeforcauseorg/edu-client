@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  ListItem,
-  ListItemAvatar,
-  Avatar,
-  ListItemText,
-  List,
-} from "@material-ui/core";
+import { Box, Typography, ListItem, ListItemAvatar, Avatar, ListItemText } from "@material-ui/core";
 
 const listElement = [
   {
@@ -39,21 +31,19 @@ const listElement = [
 function CourseIncludes() {
   return (
     <Box>
-      <List>
-        {listElement.map((items, index) => (
-          <ListItem key={index}>
-            <ListItemAvatar>
-              <Avatar></Avatar>
-            </ListItemAvatar>
-            <ListItemText>
-              <Typography variant="h4">{items.title}</Typography>
-              <Typography color="textSecondary" variant="subtitle1">
-                {items.subtitle}
-              </Typography>
-            </ListItemText>
-          </ListItem>
-        ))}
-      </List>
+      {listElement.map((items, index) => (
+        <ListItem key={index}>
+          <ListItemAvatar>
+            <Avatar></Avatar>
+          </ListItemAvatar>
+          <ListItemText>
+            <Typography variant="h4">{items.title}</Typography>
+            <Typography color="textSecondary" variant="subtitle1">
+              {items.subtitle}
+            </Typography>
+          </ListItemText>
+        </ListItem>
+      ))}
     </Box>
   );
 }

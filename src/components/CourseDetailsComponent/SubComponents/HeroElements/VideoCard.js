@@ -41,15 +41,17 @@ const useStyles = makeStyles((theme) => ({
   },
   videoContainer: {
     flex: 1.5,
-    marginLeft: theme.spacing(10),
-    marginRight: theme.spacing(5),
-    marginBottom: theme.spacing(5),
     borderRadius: "5px",
-    margin: theme.spacing(4),
     boxShadow: "none",
     [theme.breakpoints.down("sm")]: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+      marginTop: theme.spacing(5),
+    },
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+      marginTop: theme.spacing(5),
     },
   },
   container: {
