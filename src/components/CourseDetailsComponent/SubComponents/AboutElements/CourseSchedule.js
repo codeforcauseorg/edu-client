@@ -26,6 +26,9 @@ function CourseSchedule() {
 const useStyles = makeStyles((theme) => ({
   scheduleContainer: {
     width: "80%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   listItem: {
     border: `2px dotted ${theme.palette.text.secondary}`,

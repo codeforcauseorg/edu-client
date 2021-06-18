@@ -10,7 +10,7 @@ import {
   ListItemSecondaryAction,
   IconButton,
   Avatar,
-  Box,
+  Paper,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
@@ -29,8 +29,8 @@ function ScheduleList() {
   };
 
   return (
-    <Box className={classes.listItem} component="div" onClick={() => handleClick()}>
-      <ListItem>
+    <Paper className={classes.listItem} component="div">
+      <ListItem onClick={() => handleClick()}>
         <ListItemAvatar>
           <Avatar className={classes.avatar}>
             <DateRangeIcon />
@@ -49,7 +49,7 @@ function ScheduleList() {
           <CollapseList key={index} />
         ))}
       </Collapse>
-    </Box>
+    </Paper>
   );
 }
 
@@ -72,8 +72,9 @@ function CollapseList() {
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
-    border: `2px dotted ${theme.palette.text.secondary}`,
+    boxShadow: "0px 4px 20px 2px rgba(145, 180, 248, 0.15)",
     cursor: "pointer",
+    marginBottom: theme.spacing(1),
   },
   avatar: {
     borderRadius: "5px",

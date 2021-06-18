@@ -6,18 +6,19 @@ import DescriptionContainer from "./SubComponents/AboutElements/DescriptionConta
 import CourseSchedule from "./SubComponents/AboutElements/CourseSchedule";
 import SkillsSection from "./SubComponents/AboutElements/SkillsSection";
 import Prerequisites from "./SubComponents/AboutElements/Prerequisites";
-
+import StudentCourseReview from "./SubComponents/AboutElements/StudentCourseReview";
 function AboutCourse() {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
       <Box className={classes.outterContainer}>
-        <Container className={classes.innerContainer}>
+        <Container className={classes.innerContainer} disableGutters>
           <LearningInfo />
           <SkillsSection />
           <DescriptionContainer />
           <CourseSchedule />
           <Prerequisites />
+          <StudentCourseReview />
         </Container>
         <Box className={classes.container}>
           <CourseIncludes />
@@ -34,9 +35,21 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: theme.spacing(4),
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: theme.spacing(5),
+      paddingRight: theme.spacing(5),
+    },
   },
   outterContainer: {
     display: "flex",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
+  },
+  innerContainer: {
+    [theme.breakpoints.down("md")]: {
+      padding: 0,
+    },
   },
 }));
 

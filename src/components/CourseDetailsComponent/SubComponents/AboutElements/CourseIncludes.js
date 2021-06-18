@@ -62,10 +62,10 @@ function CourseIncludes() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: 500,
-    width: 435,
-  },
+  // root: {
+  //   height: 500,
+  //   width: 435,
+  // },
 }));
 
 export default CourseIncludes;

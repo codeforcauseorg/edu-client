@@ -52,7 +52,7 @@ const courseList = [
 function CourseDetail(props) {
   const classes = useStyles();
   return (
-    <Box className={classes.root}>
+    <Box>
       <CourseHeroSection />
       <AboutCourse />
       <Box className={classes.courseContainer}>
@@ -109,6 +109,10 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(10),
     marginRight: theme.spacing(10),
     marginTop: theme.spacing(10),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(5),
+      marginRight: theme.spacing(5),
+    },
   },
 }));
 

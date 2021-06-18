@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.primary.main,
     textTransform: "none",
     marginRight: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      marginRight: theme.spacing(1),
+    },
   },
   icon: {
     marginLeft: theme.spacing(1),

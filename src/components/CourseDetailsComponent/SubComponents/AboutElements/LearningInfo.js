@@ -27,24 +27,22 @@ function LearningInfo() {
         <Typography variant="h4" color="textSecondary" gutterBottom>
           What you will learn
         </Typography>
-        <Box>
-          <Grid container spacing={1}>
-            <Grid container item xs={12} spacing={2}>
-              {listElement.map((items, index) => (
-                <Grid key={index} item xs={6}>
-                  <ListItem>
-                    <ListItemAvatar className={classes.listItemAvatar}>
-                      <Avatar className={classes.avatar}>
-                        <CheckIcon />
-                      </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText>
-                      <Typography variant="subtitle1">{items}</Typography>
-                    </ListItemText>
-                  </ListItem>
-                </Grid>
-              ))}
-            </Grid>
+        <Box mt={2} mb={2}>
+          <Grid container item xs={12} spacing={2}>
+            {listElement.map((items, index) => (
+              <>
+                <ListItem>
+                  <ListItemAvatar className={classes.listItemAvatar}>
+                    <Avatar className={classes.avatar}>
+                      <CheckIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText>
+                    <Typography variant="subtitle1">{items}</Typography>
+                  </ListItemText>
+                </ListItem>
+              </>
+            ))}
           </Grid>
         </Box>
       </Box>
@@ -58,6 +56,9 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
     marginRight: theme.spacing(2),
     background: "#fff",
+    [theme.breakpoints.down("md")]: {
+      marginRight: theme.spacing(0),
+    },
   },
   container: {
     padding: theme.spacing(2),

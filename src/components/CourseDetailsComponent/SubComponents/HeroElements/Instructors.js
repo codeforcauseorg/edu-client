@@ -1,5 +1,13 @@
 import React from "react";
-import { Box, makeStyles, Avatar, Typography } from "@material-ui/core";
+import {
+  Box,
+  Avatar,
+  Typography,
+  Grid,
+  ListItem,
+  ListItemAvatar,
+  ListItemText,
+} from "@material-ui/core";
 
 const instructorList = [
   {
@@ -13,36 +21,25 @@ const instructorList = [
 ];
 
 function Instructors() {
-  const classes = useStyles();
-
   return (
-    <Box mt={4} className={classes.root}>
-      {instructorList.map((items, index) => (
-        <>
-          <Avatar key={index} className={classes.avatar} src={items.image} />
-          <Box className={classes.textContainer}>
-            <Typography className={classes.name}>{items.name}</Typography>
-            <Typography className={classes.name}>Instructor</Typography>
+    <Box mt={4}>
+      <Grid container item xs={12} spacing={2}>
+        {instructorList.map((items, index) => (
+          <Box key={index}>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar src={items.image} />
+              </ListItemAvatar>
+              <ListItemText>
+                <Typography>{items.name}</Typography>
+                <Typography>Instructor</Typography>
+              </ListItemText>
+            </ListItem>
           </Box>
-        </>
-      ))}
+        ))}
+      </Grid>
     </Box>
   );
 }
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    alignItems: "center",
-  },
-  textContainer: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(5),
-  },
-  avatar: {
-    height: 50,
-    width: 50,
-  },
-}));
 
 export default Instructors;

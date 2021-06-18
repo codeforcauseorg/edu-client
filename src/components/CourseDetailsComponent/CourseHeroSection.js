@@ -1,4 +1,4 @@
-import { makeStyles, Box, Typography, Container } from "@material-ui/core";
+import { makeStyles, Box, Typography, Container, Hidden } from "@material-ui/core";
 import React from "react";
 import NavBar from "../../components/NavBar/index";
 import Rating from "@material-ui/lab/Rating";
@@ -13,9 +13,11 @@ function CourseHeroSection() {
   return (
     <>
       <NavBar />
-      <Box pt={14} className={classes.root}>
+      <Box className={classes.root}>
         <Container className={classes.innerContainer}>
-          <CoursePath /> {/* course path component */}
+          <Hidden mdDown>
+            <CoursePath /> {/* course path component */}
+          </Hidden>
           <Box mt={4}>
             <Typography gutterBottom className={classes.title}>
               Machine Learning, Data Science and Deep Learning with Python
@@ -26,9 +28,11 @@ function CourseHeroSection() {
             </Typography>
             <Box className={classes.ratingContainer}>
               {" "}
-              <Rating value={4.5} precision={0.5} className={classes.ratingStar} />
-              <Typography className={classes.numberOfRatings}> (25,179 ratings)</Typography>
-              <Typography className={classes.numberOfStudents}> 148,806 students </Typography>
+              <Rating value={4.5} precision={0.5} readOnly className={classes.ratingStar} />
+              <Hidden smDown>
+                <Typography className={classes.numberOfRatings}> (25,179 ratings)</Typography>
+                <Typography className={classes.numberOfStudents}> 148,806 students </Typography>
+              </Hidden>
             </Box>
           </Box>
           <Instructors />
@@ -42,12 +46,23 @@ function CourseHeroSection() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "85vh",
+    height: "100%",
     color: theme.palette.text.main,
     display: "flex",
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
-    background: "linear-gradient(to right, #E9F8FF, #90B2D8, #C1E3FF);",
+    paddingTop: theme.spacing(14),
+    paddingBottom: theme.spacing(5),
+    background: "#e8f0f8",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+      paddingTop: theme.spacing(8),
+    },
   },
   ratingContainer: {
     display: "flex",

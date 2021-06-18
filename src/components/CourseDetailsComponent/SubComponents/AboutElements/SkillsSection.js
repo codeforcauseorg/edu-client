@@ -21,6 +21,9 @@ function SkillsSection() {
 const useStyles = makeStyles((theme) => ({
   descriptionContainer: {
     width: "80%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   title: {
     marginBottom: theme.spacing(5),
@@ -31,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     borderRadius: "5px",
     background: "#D4F1FF",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: theme.spacing(1),
+      marginBottom: theme.spacing(1),
+    },
   },
 }));
 

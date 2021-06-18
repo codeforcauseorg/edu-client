@@ -25,6 +25,9 @@ function DescriptionContainer() {
 const useStyles = makeStyles((theme) => ({
   descriptionContainer: {
     width: "80%",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   title: {
     marginBottom: theme.spacing(5),
