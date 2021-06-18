@@ -12,7 +12,7 @@ function VideoCard() {
         light="https://images.unsplash.com/photo-1423530990185-af7dde1155fb?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
         url="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/360/Big_Buck_Bunny_360_10s_1MB.mp4"
         volume={1}
-        height="70%"
+        height={200}
         width="100%"
       />
       <Box mt={2} className={classes.container}>
@@ -43,13 +43,12 @@ const useStyles = makeStyles((theme) => ({
     flex: 1.5,
     marginLeft: theme.spacing(10),
     marginRight: theme.spacing(5),
-    marginBottom: theme.spacing(5),
     borderRadius: "5px",
-    margin: theme.spacing(4),
     boxShadow: "none",
-    [theme.breakpoints.down("sm")]: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
+      marginTop: theme.spacing(5),
     },
   },
   container: {
