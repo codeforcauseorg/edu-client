@@ -5,11 +5,11 @@ function SkillsSection() {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Box>
       <Typography variant="h2" className={classes.title}>
         Skills you will gain
       </Typography>
-      <Box className={classes.container}>
+      <Box>
         {[1, 2, 3, 4, 5].map((items, index) => (
           <Chip key={index} className={classes.chip} label="Cloud Databases" />
         ))}
@@ -19,12 +19,6 @@ function SkillsSection() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  descriptionContainer: {
-    width: "80%",
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-    },
-  },
   title: {
     marginBottom: theme.spacing(5),
     marginTop: theme.spacing(5),

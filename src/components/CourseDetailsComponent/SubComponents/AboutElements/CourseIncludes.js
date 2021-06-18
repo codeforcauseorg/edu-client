@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Box,
-  makeStyles,
   Typography,
   ListItem,
   ListItemAvatar,
@@ -38,15 +37,13 @@ const listElement = [
 ];
 
 function CourseIncludes() {
-  const classes = useStyles();
-
   return (
-    <Box className={classes.root}>
+    <Box>
       <List>
         {listElement.map((items, index) => (
           <ListItem key={index}>
-            <ListItemAvatar className={classes.listItemAvatar}>
-              <Avatar className={classes.avatar}></Avatar>
+            <ListItemAvatar>
+              <Avatar></Avatar>
             </ListItemAvatar>
             <ListItemText>
               <Typography variant="h4">{items.title}</Typography>
@@ -60,12 +57,5 @@ function CourseIncludes() {
     </Box>
   );
 }
-
-const useStyles = makeStyles((theme) => ({
-  // root: {
-  //   height: 500,
-  //   width: 435,
-  // },
-}));
 
 export default CourseIncludes;

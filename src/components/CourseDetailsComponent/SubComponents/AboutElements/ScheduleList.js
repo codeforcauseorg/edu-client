@@ -1,5 +1,5 @@
 import {
-  //   Box,
+  Hidden,
   Typography,
   List,
   ListItem,
@@ -38,7 +38,9 @@ function ScheduleList() {
         </ListItemAvatar>
         <ListItemText primary="Chapter 1" secondary="Lorem ipsum dolor sit amet, consectetur" />
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
-          <Typography className={classes.lectureInfo}>11 lectures • 1h 25m</Typography>
+          <Hidden smDown>
+            <Typography className={classes.lectureInfo}>11 lectures • 1h 25m</Typography>
+          </Hidden>
           <IconButton edge="end" onClick={() => handleClick()}>
             {open ? <ExpandMoreIcon /> : <NavigateNextIcon />}
           </IconButton>
@@ -57,7 +59,7 @@ function CollapseList() {
   const classes = useStyles();
   return (
     <List component="div">
-      <ListItem button className={classes.nested}>
+      <ListItem button>
         <ListItemIcon>
           <PlayCircleOutlineIcon />
         </ListItemIcon>

@@ -7,7 +7,7 @@ function StudentCourseReview() {
   return (
     <Box className={classes.root}>
       <Typography variant="h2">Reviews</Typography>
-      <Box className={classes.container}>
+      <Box>
         {[1, 2, 3].map((items, index) => (
           <Paper key={index} className={classes.paper}>
             <Typography variant="subtitle1" component="p" gutterBottom>
@@ -24,13 +24,7 @@ function StudentCourseReview() {
                 <Typography variant="h5">Student</Typography>
               </Box>
               <Box className={classes.ratingContainer}>
-                <Rating
-                  value={4.5}
-                  precision={0.5}
-                  readOnly
-                  size="large"
-                  className={classes.ratingStar}
-                />
+                <Rating value={4.5} precision={0.5} readOnly />
                 <Typography variant="h5">1 year ago</Typography>
               </Box>
             </Box>
@@ -53,7 +47,7 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 250,
     marginTop: theme.spacing(4),
     [theme.breakpoints.down("sm")]: {
-      padding: theme.spacing(4),
+      padding: theme.spacing(3),
     },
   },
   flexBox: {

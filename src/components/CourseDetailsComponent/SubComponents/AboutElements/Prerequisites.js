@@ -9,7 +9,7 @@ function Prerequisites() {
       <Typography variant="h2" className={classes.title}>
         Prerequisites
       </Typography>
-      <Box className={classes.container}>
+      <Box>
         {[1, 2, 3].map((items, index) => (
           <Chip
             className={classes.chip}
@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     [theme.breakpoints.down("sm")]: {
       marginLeft: theme.spacing(1),
+      marginBottom: theme.spacing(1),
     },
   },
   icon: {

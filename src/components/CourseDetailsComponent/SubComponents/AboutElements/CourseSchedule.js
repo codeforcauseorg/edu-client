@@ -11,8 +11,10 @@ function CourseSchedule() {
       <Typography variant="h2" className={classes.title}>
         Course Schedule
       </Typography>
-      <Typography variant="subtitle1">12 sections • 111 lectures • 14h 25m total length</Typography>
-      <Box className={classes.scheduleContainer}>
+      <Typography variant="subtitle1" gutterBottom>
+        12 sections • 111 lectures • 14h 25m total length
+      </Typography>
+      <Box>
         <List>
           {[1, 2, 3].map((items, index) => (
             <ScheduleList key={index} props={items} />
@@ -24,16 +26,6 @@ function CourseSchedule() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  scheduleContainer: {
-    width: "80%",
-    [theme.breakpoints.down("sm")]: {
-      width: "100%",
-    },
-  },
-  listItem: {
-    border: `2px dotted ${theme.palette.text.secondary}`,
-    marginBottom: theme.spacing(2),
-  },
   title: {
     marginBottom: theme.spacing(5),
   },

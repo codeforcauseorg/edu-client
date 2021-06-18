@@ -32,7 +32,7 @@ function LearningInfo() {
             {listElement.map((items, index) => (
               <>
                 <ListItem>
-                  <ListItemAvatar className={classes.listItemAvatar}>
+                  <ListItemAvatar>
                     <Avatar className={classes.avatar}>
                       <CheckIcon />
                     </Avatar>
