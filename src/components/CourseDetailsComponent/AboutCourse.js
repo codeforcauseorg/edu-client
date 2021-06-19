@@ -7,6 +7,7 @@ import CourseSchedule from "./SubComponents/AboutElements/CourseSchedule";
 import SkillsSection from "./SubComponents/AboutElements/SkillsSection";
 import Prerequisites from "./SubComponents/AboutElements/Prerequisites";
 import StudentCourseReview from "./SubComponents/AboutElements/StudentCourseReview";
+
 function AboutCourse() {
   const classes = useStyles();
   return (

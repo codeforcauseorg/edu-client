@@ -75,9 +75,15 @@ const useStyles = makeStyles((theme) => ({
     width: "90%",
     [theme.breakpoints.down("lg")]: {
       height: "500px",
+      width: "100%",
+    },
+    [theme.breakpoints.down("md")]: {
+      height: "300px",
+      width: "100%",
     },
     [theme.breakpoints.down("sm")]: {
       height: "300px",
+      width: "100%",
     },
   },
   liveCoursesButton: {

@@ -9,7 +9,6 @@ import {
   Avatar,
   ListItemText,
 } from "@material-ui/core";
-
 import CheckIcon from "@material-ui/icons/Check";
 
 const listElement = [
@@ -30,7 +29,7 @@ function LearningInfo() {
         <Box mt={2} mb={2}>
           <Grid container item xs={12} spacing={2}>
             {listElement.map((items, index) => (
-              <>
+              <Box key={index} component="div">
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar className={classes.avatar}>
@@ -41,7 +40,7 @@ function LearningInfo() {
                     <Typography variant="subtitle1">{items}</Typography>
                   </ListItemText>
                 </ListItem>
-              </>
+              </Box>
             ))}
           </Grid>
         </Box>
