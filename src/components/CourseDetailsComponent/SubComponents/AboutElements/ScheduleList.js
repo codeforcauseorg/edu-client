@@ -39,7 +39,7 @@ function ScheduleList() {
         <ListItemText primary="Chapter 1" secondary="Lorem ipsum dolor sit amet, consectetur" />
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
           <Hidden smDown>
-            <Typography className={classes.lectureInfo}>11 lectures • 1h 25m</Typography>
+            <Typography>11 lectures • 1h 25m</Typography>
           </Hidden>
           <IconButton edge="end" onClick={() => handleClick()}>
             {open ? <ExpandMoreIcon /> : <NavigateNextIcon />}
@@ -86,9 +86,6 @@ const useStyles = makeStyles((theme) => ({
   listItemSecondaryAction: {
     display: "flex",
     alignItems: "center",
-  },
-  lectureInfo: {
-    marginRight: theme.spacing(2),
   },
 }));
 
