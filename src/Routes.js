@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
@@ -26,8 +25,9 @@ import ReferralAndCoupons from "./pages/ReferralAndCouponCodes";
 import EditProfile from "./pages/ProfilePage/ProfileComponent/EditProfile";
 import Resources from "./pages/Resources";
 import HackathonsAndEvents from "./pages/HackAndEventsPage";
+import LandingPage from "./pages/LandingPage/index";
+import ProtectedRoute from "./components/auth/ProtectedRoute/index";
 
-// IMPORTANT - Don't add any route inside the scope of <SwipeableRoutes> </SwipeableRoutes> unless it is a page which can be navigated using the bottom navigation.
 const renderRoutes = () => (
   <Switch>
     <Route path="/" exact>
@@ -35,32 +35,33 @@ const renderRoutes = () => (
     </Route>
     <Route path="/terms-and-conditions" exact component={Terms} />
     <Route path="/course/:id" exact component={CourseDetails} />
-    <Route path="/checkout/:id" exact component={Checkout} />
+    <ProtectedRoute path="/checkout/:id" exact component={Checkout} />
     <Route path="/privacy" exact component={Privacy} />
     <Route path="/about" exact component={About} />
     <Route path="/faq" exact component={Faqs} />
-    <Route path="/ratementor/:coursename" exact component={MentorRating} />
+    <ProtectedRoute path="/ratementor/:coursename" exact component={MentorRating} />
     <Route path="/terms-and-conditions" exact component={Terms} />
-    <Route path="/resources/:coursename" exact component={Resources} />
+    <ProtectedRoute path="/resources/:coursename" exact component={Resources} />
     <Route path="/contactUs" exact component={ContactUs} />
-    <Route path="/dashboard" exact component={StudentDashboard} />
+    <ProtectedRoute path="/dashboard" exact component={StudentDashboard} />
     <Route path="/contests" exact component={Contests} />
-    <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
+    <ProtectedRoute path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
     <Route path="/job-openings" exact component={JobOpenings} />
-    <Route path="/statistics" exact component={Statistics} />
-    <Route path="/peer" exact component={PeerPage} />
-    <Route path="/peer/:id/comments" exact component={Comment} />
+    <ProtectedRoute path="/statistics" exact component={Statistics} />
+    <ProtectedRoute path="/peer" exact component={PeerPage} />
+    <ProtectedRoute path="/peer/:id/comments" exact component={Comment} />
     <Route path="/faq" exact component={Faqs} />
     <Route path="/about" exact component={About} />
     <Route path="/mentorPage" exact component={MentorPage} />
-    <Route path="/referralAndCoupons" exact component={ReferralAndCoupons} />
-    <Route path="/editprofile" exact component={EditProfile} />
+    <ProtectedRoute path="/referralAndCoupons" exact component={ReferralAndCoupons} />
+    <ProtectedRoute path="/editprofile" exact component={EditProfile} />
     <Route path="/hackathonsAndEvents" exact component={HackathonsAndEvents} />
+    <Route path="/signup" exact component={LandingPage} />
     <MainLayout>
-      <Route path="/home" exact component={HomePage} />
-      <Route path="/my-course" exact component={MyCourses} />
-      <Route path="/wishlist" exact component={WishlistPage} />
-      <Route path="/profile" exact component={ProfilePage} />
+      <ProtectedRoute path="/home" exact component={HomePage} />
+      <ProtectedRoute path="/my-course" exact component={MyCourses} />
+      <ProtectedRoute path="/wishlist" exact component={WishlistPage} />
+      <ProtectedRoute path="/profile" exact component={ProfilePage} />
     </MainLayout>
   </Switch>
 );

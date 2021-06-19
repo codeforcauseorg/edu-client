@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import { logout, setUserData } from "../../actions/accountActions";
 import authService from "../../services/authService";
-import LandingPage from "../../pages/LandingPage";
+import { useHistory } from "react-router";
 
 function Auth({ children }) {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.account.user);
+  const history = useHistory();
 
   useEffect(() => {
     const initAuth = async () => {
@@ -23,17 +22,14 @@ function Auth({ children }) {
           user.getIdToken().then((token) => {
             authService.setSession(token);
           });
+          history.push("/home");
         }
       });
     };
     initAuth();
   }, [dispatch]);
 
-  return user ? children : <LandingPage />;
+  return children;
 }
-
-Auth.propTypes = {
-  children: PropTypes.any,
-};
 
 export default Auth;
