@@ -1,35 +1,11 @@
-import HeaderSection from "../../../components/HomeViewComponents/HeaderSection";
-import Tags from "../../../components/HomeViewComponents/Tags";
-import ContinueLearningCard from "../../../components/ContinueLearningCard";
-import CardContainer from "../../../components/cardContainer/cardContainer";
-import { Box, Container, makeStyles, Typography } from "@material-ui/core";
-import BrowseAllButton from "../../../components/BrowseAllButton";
-import StudentReviewSection from "../../../components/HomeViewComponents/StudentReviewSection";
-import MentorSection from "../../../components/HomeViewComponents/MentorSection";
-import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
-import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
-import MediaCard from "../../../components/CourseMediaCard/MediaCard";
+import { makeStyles } from "@material-ui/core/styles";
+import { Box, Typography } from "@material-ui/core";
+import CourseHeroSection from "../../components/CourseDetailsComponent/CourseHeroSection";
+import AboutCourse from "../../components/CourseDetailsComponent/AboutCourse";
+import CardContainer from "../../components/cardContainer/cardContainer";
+import BrowseAllButton from "../../components/BrowseAllButton/index";
+import MediaCard from "../../components/CourseMediaCard/MediaCard";
 
-const ContinueLearningList = [
-  {
-    title: "Introduction to machine learning",
-    image: "assets/img/img3.PNG",
-    chapterTitle: " Chapter 1 : Full Stack Web Development Course",
-    courseTitle: " Full Stack Web Development Course",
-    completedLessons: "12",
-    totalLessons: "35",
-    completedPercentage: 75,
-  },
-  {
-    title: "Introduction to machine learning",
-    image: "assets/img/img3.PNG",
-    chapterTitle: " Chapter 1 : Full Stack Web Development Course",
-    courseTitle: " Full Stack Web Development Course",
-    completedLessons: "12",
-    totalLessons: "35",
-    completedPercentage: 45,
-  },
-];
 const courseList = [
   {
     title: " Full stack Web application Development Course By Code for Cause",
@@ -72,30 +48,16 @@ const courseList = [
     ],
   },
 ];
-export default function HomeView(props) {
+
+function CourseDetail(props) {
   const classes = useStyles();
   return (
-    <div>
-      <HeaderSection />
-      <Tags />
-      <Container className={classes.wrapperContainer}>
-        <Typography variant="h2">Continue Learning</Typography>
-        <CardContainer>
-          {ContinueLearningList.map((items, index) => (
-            <ContinueLearningCard
-              key={index}
-              title={items.title}
-              image={items.image}
-              chapterTitle={items.chapterTitle}
-              courseTitle={items.courseTitle}
-              completedLessons={items.completedLessons}
-              totalLessons={items.totalLessons}
-              completedPercentage={items.completedPercentage}
-            />
-          ))}
-        </CardContainer>
+    <Box>
+      <CourseHeroSection />
+      <AboutCourse />
+      <Box className={classes.courseContainer}>
         <Box className={classes.popularContainer}>
-          <Typography variant="h2">Popular Course</Typography>
+          <Typography variant="h2">Similar Courses</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
@@ -132,26 +94,26 @@ export default function HomeView(props) {
             />
           ))}
         </CardContainer>
-      </Container>
-      <ExploreCourseSection />
-      <OurImpactSection />
-      <MentorSection />
-      <StudentReviewSection />
-    </div>
+      </Box>
+    </Box>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
-  wrapperContainer: {
-    maxWidth: "90%",
-    marginTop: theme.spacing(5),
-    [theme.breakpoints.down("md")]: {
-      maxWidth: "100%",
-    },
-  },
   popularContainer: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  courseContainer: {
+    marginLeft: theme.spacing(10),
+    marginRight: theme.spacing(10),
+    marginTop: theme.spacing(10),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
+    },
+  },
 }));
+
+export default CourseDetail;

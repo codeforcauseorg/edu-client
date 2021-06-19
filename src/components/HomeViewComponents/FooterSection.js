@@ -13,7 +13,7 @@ import React, { useState } from "react";
 function Copyright() {
   return (
     <Typography variant="body1" align="center">
-      All Rights Reserved by Code for Cause {new Date().getFullYear()}
+      Copyright &#169; {new Date().getFullYear()} Code For Cause
     </Typography>
   );
 }
@@ -40,7 +40,7 @@ function FooterSection() {
           <img className={classes.darkModeIcon} src="assets/icon/darkmodeIcon.svg" />
         </Box>
         <Grid container spacing={5}>
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} lg={4} md={12}>
             <Box>
               <Typography variant="h4">Code For Cause</Typography>
               <Typography variant="h5" className={classes.description}>
@@ -134,6 +134,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: 550,
     background: theme.palette.primary.footer.background,
+    [theme.breakpoints.down("md")]: {
+      "& .MuiGrid-grid-md-2": {
+        maxWidth: "none",
+      },
+      "& .MuiBox-root-207": {
+        width: "max-content",
+      },
+    },
+    paddingBottom: theme.spacing(12),
   },
   footerContainer: {
     maxWidth: "85%",
