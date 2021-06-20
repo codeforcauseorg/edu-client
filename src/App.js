@@ -1,4 +1,4 @@
-import Routes from "./Routes";
+import Routes from "./Routes/index";
 import { Router, useHistory } from "react-router-dom";
 import Auth from "./components/auth/Auth";
 import { SnackbarProvider } from "notistack";
