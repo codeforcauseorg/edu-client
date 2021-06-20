@@ -27,14 +27,16 @@ import Resources from "./pages/Resources";
 import HackathonsAndEvents from "./pages/HackAndEventsPage";
 import LandingPage from "./pages/LandingPage/index";
 import ProtectedRoute from "./components/auth/ProtectedRoute/index";
+import PageNotFound from "./pages/PageNotFound";
+import * as ROUTES from "./constants/ConstRoutes";
 
 const renderRoutes = () => (
   <Switch>
     <Route path="/" exact>
-      <Redirect to="/home" />
+      <Redirect to={ROUTES.HOME} />
     </Route>
     <Route path="/terms-and-conditions" exact component={Terms} />
-    <Route path="/course/:id" exact component={CourseDetails} />
+    <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
     <ProtectedRoute path="/checkout/:id" exact component={Checkout} />
     <Route path="/privacy" exact component={Privacy} />
     <Route path="/about" exact component={About} />
@@ -56,13 +58,14 @@ const renderRoutes = () => (
     <ProtectedRoute path="/referralAndCoupons" exact component={ReferralAndCoupons} />
     <ProtectedRoute path="/editprofile" exact component={EditProfile} />
     <Route path="/hackathonsAndEvents" exact component={HackathonsAndEvents} />
-    <Route path="/signup" exact component={LandingPage} />
+    <Route path={ROUTES.SIGNUP} exact component={LandingPage} />
     <MainLayout>
-      <ProtectedRoute path="/home" exact component={HomePage} />
-      <ProtectedRoute path="/my-course" exact component={MyCourses} />
-      <ProtectedRoute path="/wishlist" exact component={WishlistPage} />
-      <ProtectedRoute path="/profile" exact component={ProfilePage} />
+      <ProtectedRoute path={ROUTES.HOME} exact component={HomePage} />
+      <ProtectedRoute path={ROUTES.MYCOURSE} exact component={MyCourses} />
+      <ProtectedRoute path={ROUTES.WISHLIST} exact component={WishlistPage} />
+      <ProtectedRoute path={ROUTES.PROFILE} exact component={ProfilePage} />
     </MainLayout>
+    <Route component={PageNotFound} />
   </Switch>
 );
 
