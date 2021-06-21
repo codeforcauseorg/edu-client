@@ -37,29 +37,26 @@ const Routes = () => (
       <Route path="/" exact>
         <Redirect to={ROUTES.HOME} />
       </Route>
-      <Route path="/terms-and-conditions" exact component={Terms} />
+      <Route path={ROUTES.TERMS_AND_CONDITION} exact component={Terms} />
       <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
-      <Route path="/checkout/:id" exact component={Checkout} />
-      <Route path="/privacy" exact component={Privacy} />
-      <Route path="/about" exact component={About} />
-      <Route path="/faq" exact component={Faqs} />
-      <Route path="/ratementor/:coursename" exact component={MentorRating} />
-      <Route path="/terms-and-conditions" exact component={Terms} />
-      <Route path="/resources/:coursename" exact component={Resources} />
-      <Route path="/contactUs" exact component={ContactUs} />
-      <Route path="/dashboard" exact component={StudentDashboard} />
-      <Route path="/contests" exact component={Contests} />
-      <Route path="/dashboard/assignment/:id" exact component={AssignmentSubmission} />
-      <Route path="/job-openings" exact component={JobOpenings} />
-      <Route path="/statistics" exact component={Statistics} />
-      <Route path="/peer" exact component={PeerPage} />
-      <Route path="/peer/:id/comments" exact component={Comment} />
-      <Route path="/faq" exact component={Faqs} />
-      <Route path="/about" exact component={About} />
-      <Route path="/mentorPage" exact component={MentorPage} />
-      <Route path="/referralAndCoupons" exact component={ReferralAndCoupons} />
-      <Route path="/editprofile" exact component={EditProfile} />
-      <Route path="/hackathonsAndEvents" exact component={HackathonsAndEvents} />
+      <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
+      <Route path={ROUTES.PRIVACY} exact component={Privacy} />
+      <Route path={ROUTES.ABOUT} exact component={About} />
+      <Route path={ROUTES.FAQ} exact component={Faqs} />
+      <Route path={ROUTES.MENTOR_RATING} exact component={MentorRating} />
+      <Route path={ROUTES.COURSE_RESOURSE} exact component={Resources} />
+      <Route path={ROUTES.CONTACTUS} exact component={ContactUs} />
+      <Route path={ROUTES.DASHBOARD} exact component={StudentDashboard} />
+      <Route path={ROUTES.CONTEST} exact component={Contests} />
+      <Route path={ROUTES.DASHBOARD_ASSIGNMENT} exact component={AssignmentSubmission} />
+      <Route path={ROUTES.JOB_OPENING} exact component={JobOpenings} />
+      <Route path={ROUTES.STATISTICS} exact component={Statistics} />
+      <Route path={ROUTES.PEER} exact component={PeerPage} />
+      <Route path={ROUTES.COMMENT} exact component={Comment} />
+      <Route path={ROUTES.MENTOR_PAGE} exact component={MentorPage} />
+      <Route path={ROUTES.REFERRAL} exact component={ReferralAndCoupons} />
+      <Route path={ROUTES.EDITPROFILE} exact component={EditProfile} />
+      <Route path={ROUTES.HACKATHON_AND_ENENTS} exact component={HackathonsAndEvents} />
 
       <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
         <LandingPage />

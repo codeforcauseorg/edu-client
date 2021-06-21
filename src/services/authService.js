@@ -2,9 +2,9 @@ import axios from "../utils/axios";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
-import React from "react";
 
-class AuthService extends React.Component{
+
+class AuthService{
   
   firebase = firebase;
   user = {};
