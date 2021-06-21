@@ -105,7 +105,7 @@ function NavBar() {
 
           <div className={classes.sectionDesktop}>
             <Hidden mdDown>
-              {user === undefined && user === null ? (
+              {!user ? (
                 <div>
                   <Button className={classes.signInButton}>
                     <Typography noWrap>Sign In</Typography>
@@ -123,7 +123,7 @@ function NavBar() {
           </div>
           {
             /* eslint-disable-next-line no-extra-boolean-cast */
-            !!user ? <Avatar className={classes.avatar} src={`${user.photoURL}`} /> : null
+            !!user ? <Avatar className={classes.avatar} src={`${user.photoURL}`} /> : ''
           }
         </Toolbar>
       </AppBar>
