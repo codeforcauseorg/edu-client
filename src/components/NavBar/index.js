@@ -123,7 +123,7 @@ function NavBar() {
           </div>
           {
             /* eslint-disable-next-line no-extra-boolean-cast */
-            !!user ? <Avatar className={classes.avatar} src={`${user.photoURL}`} /> : ''
+            !!user ? <Avatar className={classes.avatar} src={`${user.photoURL}`} /> : ""
           }
         </Toolbar>
       </AppBar>
