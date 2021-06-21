@@ -26,7 +26,7 @@ import EditProfile from "../pages/ProfilePage/ProfileComponent/EditProfile";
 import Resources from "../pages/Resources";
 import HackathonsAndEvents from "../pages/HackAndEventsPage";
 import LandingPage from "../pages/LandingPage/index";
-import ProtectedRoute from "../components/auth/ProtectedRoute/index";
+import AuthRoute from "../components/auth/AuthRoute/index";
 import PageNotFound from "../pages/PageNotFound";
 import * as ROUTES from "../constants/ConstRoutes";
 import LoadingScreen from "../pages/LoadingScreen";
@@ -60,27 +60,30 @@ const Routes = () => (
       <Route path="/referralAndCoupons" exact component={ReferralAndCoupons} />
       <Route path="/editprofile" exact component={EditProfile} />
       <Route path="/hackathonsAndEvents" exact component={HackathonsAndEvents} />
-      <Route path={ROUTES.SIGNUP} exact component={LandingPage} />
-      <ProtectedRoute exact path={ROUTES.HOME}>
+
+      <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
+        <LandingPage />
+      </AuthRoute>
+      <AuthRoute exact path={ROUTES.HOME} type="private">
         <MainLayout>
           <HomePage />
         </MainLayout>
-      </ProtectedRoute>
-      <ProtectedRoute path={ROUTES.MYCOURSE} exact>
+      </AuthRoute>
+      <AuthRoute path={ROUTES.MYCOURSE} exact type="private">
         <MainLayout>
           <MyCourses />
         </MainLayout>
-      </ProtectedRoute>
-      <ProtectedRoute path={ROUTES.WISHLIST} exact>
+      </AuthRoute>
+      <AuthRoute path={ROUTES.WISHLIST} exact type="private">
         <MainLayout>
           <WishlistPage />
         </MainLayout>
-      </ProtectedRoute>
-      <ProtectedRoute path={ROUTES.PROFILE} exact>
+      </AuthRoute>
+      <AuthRoute path={ROUTES.PROFILE} exact type="private">
         <MainLayout>
           <ProfilePage />
         </MainLayout>
-      </ProtectedRoute>
+      </AuthRoute>
       <Route component={PageNotFound} />
     </Switch>
   </Suspense>
