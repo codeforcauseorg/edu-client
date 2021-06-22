@@ -2,24 +2,14 @@ import authService from "../services/authService";
 
 // Action types
 export const LOGIN_REQUEST = "@account/login-request";
-export const DISMISS_LOGIN = "@account/dismiss-login";
-export const LOGIN_SUCCESS = "@account/login-success";
-export const LOGIN_FAILURE = "@account/login-failure";
 export const SILENT_LOGIN = "@account/silent-login";
 export const LOGOUT = "@account/logout";
-export const REGISTER = "@account/register";
 
 // Action creators
 export function login() {
   authService.login();
   return async (dispatch) => {
     dispatch({ type: LOGIN_REQUEST });
-  };
-}
-
-export function dismissLogin() {
-  return async (dispatch) => {
-    dispatch({ type: DISMISS_LOGIN });
   };
 }
 
@@ -40,8 +30,4 @@ export function logout() {
       type: LOGOUT,
     });
   };
-}
-
-export function register() {
-  return true;
 }

@@ -1,13 +1,10 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
 import { logout, setUserData } from "../../actions/accountActions";
 import authService from "../../services/authService";
-import LandingPage from "../../pages/LandingPage";
 
 function Auth({ children }) {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.account.user);
 
   useEffect(() => {
     const initAuth = async () => {
@@ -17,23 +14,18 @@ function Auth({ children }) {
 
       authService.handleAuthentication();
 
-      authService.firebase.auth().onAuthStateChanged((user) => {
+      authService.firebase.auth().onAuthStateChanged(async (user) => {
         dispatch(setUserData(user));
         if (user) {
-          user.getIdToken().then((token) => {
-            authService.setSession(token);
-          });
+          const accessToken = await user.getIdToken();
+          authService.setSession(accessToken);
         }
       });
     };
     initAuth();
   }, [dispatch]);
 
-  return user ? children : <LandingPage />;
+  return children;
 }
-
-Auth.propTypes = {
-  children: PropTypes.any,
-};
 
 export default Auth;
