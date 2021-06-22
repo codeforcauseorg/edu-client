@@ -1,5 +1,4 @@
-/* eslint-disable import/prefer-default-export */
-export const ConstantThemes = {
+export const Themes = {
   LIGHT: "LIGHT",
   ONE_DARK: "ONE_DARK",
   UNICORN: "UNICORN",

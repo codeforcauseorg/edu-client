@@ -28,7 +28,7 @@ import HackathonsAndEvents from "../pages/HackAndEventsPage";
 import LandingPage from "../pages/LandingPage/index";
 import AuthRoute from "../components/auth/AuthRoute/index";
 import PageNotFound from "../pages/PageNotFound";
-import * as ROUTES from "../constants/ConstRoutes";
+import * as ROUTES from "../constants/routes";
 
 const Routes = () => (
   <Switch>
