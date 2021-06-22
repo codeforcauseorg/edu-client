@@ -1,28 +1,25 @@
-import jwtDecode from "jwt-decode";
 import axios from "../utils/axios";
-
 import firebase from "firebase/app";
 import "firebase/auth";
 import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
 
-class AuthService {
-  // Configure Firebase.
+
+class AuthService{
+  
+  firebase = firebase;
+  user = {};
+
   config = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "AIzaSyAbqqXtHNIuNrsamkCxRk9sOuMO-ZWDiEk",
     authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "codeforcauseorg.firebaseapp.com",
-    // ...
   };
-
-  firebase = firebase;
-
-  user = {};
 
   setAxiosInterceptors = ({ onLogout }) => {
     axios.interceptors.response.use(
       (response) => response,
       (error) => {
         if (error.response && error.response.status === 401) {
-          this.setSession(null);
+          this.removeSession();
 
           if (onLogout) {
             onLogout();
@@ -38,52 +35,44 @@ class AuthService {
     this.firebase.initializeApp(this.config);
   }
 
-  loadUserProfile() {
-    return new Promise((resolve) => {
-      this.keycloak
-        .loadUserProfile()
-        .then((profile) => {
-          resolve(profile);
-        })
-        .catch(function () {
-          alert("Failed to load user profile");
-        });
-    });
-  }
-
   login = () => {
-    cfaSignIn("google.com").subscribe();
+    cfaSignIn("google.com").subscribe((user)=>{
+     this.setuserData(user.displayName,user.email,user.photoURL);
+    });
   };
 
   logout = () => {
-    cfaSignOut().subscribe();
-    this.setSession(null);
+    cfaSignOut().subscribe(()=>{
+     this.removeSession();
+    });
+    
   };
-
-  setSession = (accessToken) => {
-    if (accessToken) {
-      localStorage.setItem("accessToken", accessToken);
-      axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
-    } else {
-      localStorage.removeItem("accessToken");
+  
+  
+  removeSession(){
+      localStorage.removeItem("cfcAccessToken");
+      localStorage.removeItem("userDataKey");
       delete axios.defaults.headers.common.Authorization;
-    }
-  };
+      window.location.reload();
+  }
 
-  getAccessToken = () => localStorage.getItem("accessToken");
+  setuserData(displayName,email,photoURL){
+      localStorage.setItem("userDataKey", JSON.stringify({displayName,email,photoURL}));
+      window.location.reload();
+  }
 
-  isValidToken = (accessToken) => {
-    if (!accessToken) {
-      return false;
-    }
+  setSession(accessToken){
+    localStorage.setItem("cfcAccessToken",accessToken);
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  }
 
-    const decoded = jwtDecode(accessToken);
-    const currentTime = Date.now() / 1000;
+  getAccessToken = () => localStorage.getItem("cfcAccessToken");
+  getUserData =()=> localStorage.getItem("userDataKey");
 
-    return decoded.exp > currentTime;
-  };
 }
 
 const authService = new AuthService();
 
 export default authService;
+
+
