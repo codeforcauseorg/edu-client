@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/MainLayoutPage/HomeView/index";
@@ -29,61 +29,58 @@ import LandingPage from "../pages/LandingPage/index";
 import AuthRoute from "../components/auth/AuthRoute/index";
 import PageNotFound from "../pages/PageNotFound";
 import * as ROUTES from "../constants/ConstRoutes";
-import LoadingScreen from "../pages/LoadingScreen";
 
 const Routes = () => (
-  <Suspense fallback={<LoadingScreen />}>
-    <Switch>
-      <Route path="/" exact>
-        <Redirect to={ROUTES.HOME} />
-      </Route>
-      <Route path={ROUTES.TERMS_AND_CONDITION} exact component={Terms} />
-      <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
-      <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
-      <Route path={ROUTES.PRIVACY} exact component={Privacy} />
-      <Route path={ROUTES.ABOUT} exact component={About} />
-      <Route path={ROUTES.FAQ} exact component={Faqs} />
-      <Route path={ROUTES.MENTOR_RATING} exact component={MentorRating} />
-      <Route path={ROUTES.COURSE_RESOURSE} exact component={Resources} />
-      <Route path={ROUTES.CONTACTUS} exact component={ContactUs} />
-      <Route path={ROUTES.DASHBOARD} exact component={StudentDashboard} />
-      <Route path={ROUTES.CONTEST} exact component={Contests} />
-      <Route path={ROUTES.DASHBOARD_ASSIGNMENT} exact component={AssignmentSubmission} />
-      <Route path={ROUTES.JOB_OPENING} exact component={JobOpenings} />
-      <Route path={ROUTES.STATISTICS} exact component={Statistics} />
-      <Route path={ROUTES.PEER} exact component={PeerPage} />
-      <Route path={ROUTES.COMMENT} exact component={Comment} />
-      <Route path={ROUTES.MENTOR_PAGE} exact component={MentorPage} />
-      <Route path={ROUTES.REFERRAL} exact component={ReferralAndCoupons} />
-      <Route path={ROUTES.EDITPROFILE} exact component={EditProfile} />
-      <Route path={ROUTES.HACKATHON_AND_ENENTS} exact component={HackathonsAndEvents} />
+  <Switch>
+    <Route path="/" exact>
+      <Redirect to={ROUTES.HOME} />
+    </Route>
+    <Route path={ROUTES.TERMS_AND_CONDITION} exact component={Terms} />
+    <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
+    <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
+    <Route path={ROUTES.PRIVACY} exact component={Privacy} />
+    <Route path={ROUTES.ABOUT} exact component={About} />
+    <Route path={ROUTES.FAQ} exact component={Faqs} />
+    <Route path={ROUTES.MENTOR_RATING} exact component={MentorRating} />
+    <Route path={ROUTES.COURSE_RESOURSE} exact component={Resources} />
+    <Route path={ROUTES.CONTACTUS} exact component={ContactUs} />
+    <Route path={ROUTES.DASHBOARD} exact component={StudentDashboard} />
+    <Route path={ROUTES.CONTEST} exact component={Contests} />
+    <Route path={ROUTES.DASHBOARD_ASSIGNMENT} exact component={AssignmentSubmission} />
+    <Route path={ROUTES.JOB_OPENING} exact component={JobOpenings} />
+    <Route path={ROUTES.STATISTICS} exact component={Statistics} />
+    <Route path={ROUTES.PEER} exact component={PeerPage} />
+    <Route path={ROUTES.COMMENT} exact component={Comment} />
+    <Route path={ROUTES.MENTOR_PAGE} exact component={MentorPage} />
+    <Route path={ROUTES.REFERRAL} exact component={ReferralAndCoupons} />
+    <Route path={ROUTES.EDITPROFILE} exact component={EditProfile} />
+    <Route path={ROUTES.HACKATHON_AND_ENENTS} exact component={HackathonsAndEvents} />
 
-      <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
-        <LandingPage />
-      </AuthRoute>
-      <AuthRoute exact path={ROUTES.HOME} type="private">
-        <MainLayout>
-          <HomePage />
-        </MainLayout>
-      </AuthRoute>
-      <AuthRoute path={ROUTES.MYCOURSE} exact type="private">
-        <MainLayout>
-          <MyCourses />
-        </MainLayout>
-      </AuthRoute>
-      <AuthRoute path={ROUTES.WISHLIST} exact type="private">
-        <MainLayout>
-          <WishlistPage />
-        </MainLayout>
-      </AuthRoute>
-      <AuthRoute path={ROUTES.PROFILE} exact type="private">
-        <MainLayout>
-          <ProfilePage />
-        </MainLayout>
-      </AuthRoute>
-      <Route component={PageNotFound} />
-    </Switch>
-  </Suspense>
+    <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
+      <LandingPage />
+    </AuthRoute>
+    <AuthRoute exact path={ROUTES.HOME} type="private">
+      <MainLayout>
+        <HomePage />
+      </MainLayout>
+    </AuthRoute>
+    <AuthRoute path={ROUTES.MYCOURSE} exact type="private">
+      <MainLayout>
+        <MyCourses />
+      </MainLayout>
+    </AuthRoute>
+    <AuthRoute path={ROUTES.WISHLIST} exact type="private">
+      <MainLayout>
+        <WishlistPage />
+      </MainLayout>
+    </AuthRoute>
+    <AuthRoute path={ROUTES.PROFILE} exact type="private">
+      <MainLayout>
+        <ProfilePage />
+      </MainLayout>
+    </AuthRoute>
+    <Route component={PageNotFound} />
+  </Switch>
 );
 
 export default Routes;
