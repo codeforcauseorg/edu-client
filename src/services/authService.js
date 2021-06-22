@@ -37,7 +37,7 @@ class AuthService{
 
   login = () => {
     cfaSignIn("google.com").subscribe((user)=>{
-     this.setSession(user);
+     this.setuserData(user);
     });
   };
 
@@ -50,22 +50,23 @@ class AuthService{
   
   
   removeSession(){
-      localStorage.removeItem("accessToken");
+      localStorage.removeItem("cfcAccessToken");
       localStorage.removeItem("userDataKey");
       delete axios.defaults.headers.common.Authorization;
       window.location.reload();
   }
 
-  setSession(user){
-    if (user) {
-      localStorage.setItem("accessToken", user.accessToken);
+  setuserData(user){
       localStorage.setItem("userDataKey", JSON.stringify(user.displayName,user.photoURL,user.email));
-      axios.defaults.headers.common.Authorization = `Bearer ${user.accessToken}`;
       window.location.reload();
-    } 
   }
 
-  getAccessToken = () => localStorage.getItem("accessToken");
+  setSession(accessToken){
+    localStorage.setItem("cfcAccessToken",accessToken);
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  }
+
+  getAccessToken = () => localStorage.getItem("cfcAccessToken");
   getUserData =()=> localStorage.getItem("userDataKey");
 
 }

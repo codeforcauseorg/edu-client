@@ -14,8 +14,12 @@ function Auth({ children }) {
 
       authService.handleAuthentication();
 
-      authService.firebase.auth().onAuthStateChanged((user) => {
+      authService.firebase.auth().onAuthStateChanged(async (user) => {
         dispatch(setUserData(user));
+        if (user) {
+          const accessToken = await user.getIdToken();
+          authService.setSession(accessToken);
+        }
       });
     };
     initAuth();
