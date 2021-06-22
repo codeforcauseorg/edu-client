@@ -37,7 +37,7 @@ class AuthService{
 
   login = () => {
     cfaSignIn("google.com").subscribe((user)=>{
-     this.setuserData(user);
+     this.setuserData(user.displayName,user.email,user.photoURL);
     });
   };
 
@@ -56,8 +56,8 @@ class AuthService{
       window.location.reload();
   }
 
-  setuserData(user){
-      localStorage.setItem("userDataKey", JSON.stringify(user.displayName,user.photoURL,user.email));
+  setuserData(displayName,email,photoURL){
+      localStorage.setItem("userDataKey", JSON.stringify({displayName,email,photoURL}));
       window.location.reload();
   }
 
