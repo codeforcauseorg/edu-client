@@ -6,26 +6,39 @@ function CourseLessonList() {
   const classes = useStyles();
 
   return (
-    <Box className={classes.ListContainer}>
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>
-          <Typography variant="h5">Course content</Typography>
-        </Toolbar>
-      </AppBar>
-      <List>
-        {[1, 2, 3, 4].map((items, index) => (
-          <VideoContentList key={index} props={items} />
-        ))}
-      </List>
+    <Box className={classes.wrapperContainer}>
+      <Box className={classes.ListContainer}>
+        <AppBar position="sticky" className={classes.appBar}>
+          <Toolbar className={classes.toolbar}>
+            <Typography variant="h5">Course Content</Typography>
+          </Toolbar>
+        </AppBar>
+        <List>
+          {[1, 2, 3, 4].map((items, index) => (
+            <VideoContentList key={index} props={items} index={index + 1} />
+          ))}
+        </List>
+      </Box>
     </Box>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
+  wrapperContainer: {
+    flex: 2,
+    height: "90vh",
+    marginLeft: theme.spacing(3),
+  },
   ListContainer: {
     flex: 2,
-    height: 800,
+    height: "90vh",
     marginLeft: theme.spacing(3),
+    position: "fixed",
+    overflowX: "scroll",
+    scrollbarWidth: "none" /* mozilla */,
+    "&::-webkit-scrollbar": {
+      display: "none" /* Safari and Chrome browsers */,
+    },
   },
   appBar: {
     backgroundColor: theme.palette.text.primary,
@@ -37,10 +50,6 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     marginBottom: theme.spacing(2),
     borderRadius: "5px",
-    "&:hover": {
-      background: "linear-gradient(90.28deg, #2A5EDA -20.31%, #4379FE 104.28%)",
-      color: "#fff",
-    },
   },
 }));
 
