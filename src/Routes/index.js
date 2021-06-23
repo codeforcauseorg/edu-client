@@ -29,6 +29,7 @@ import LandingPage from "../pages/LandingPage/index";
 import AuthRoute from "../components/auth/AuthRoute/index";
 import PageNotFound from "../pages/PageNotFound";
 import * as ROUTES from "../constants/routes";
+import LessonsPlayer from "../pages/LessonsPlayer/index";
 
 const Routes = () => (
   <Switch>
@@ -55,7 +56,7 @@ const Routes = () => (
     <Route path={ROUTES.REFERRAL} exact component={ReferralAndCoupons} />
     <Route path={ROUTES.EDITPROFILE} exact component={EditProfile} />
     <Route path={ROUTES.HACKATHON_AND_ENENTS} exact component={HackathonsAndEvents} />
-
+    <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
     <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
       <LandingPage />
     </AuthRoute>
