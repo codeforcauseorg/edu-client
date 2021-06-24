@@ -64,7 +64,7 @@ function OurImpactSection() {
           <Box className={classes.cardContainer}>
             <Grid spacing={5} align="center" container justify="center">
               {listItems.map((items, index) => (
-                <Grid key={index} xs={6} sm={4} lg={4}>
+                <Grid item key={index} xs={6} sm={4} lg={4}>
                   <Card className={classes.card}>
                     <CardContent>
                       <Box className={classes.cardItems}>
