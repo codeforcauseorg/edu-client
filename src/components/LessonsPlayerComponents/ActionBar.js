@@ -24,7 +24,7 @@ function ActionBar() {
     <Box className={classes.container}>
       <Box>
         <Button className={classes.notesButton}>
-          Save Notes
+          Add Notes
           <NoteAddIcon className={classes.icon} />
         </Button>
       </Box>
@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
   },
   actionButton: {
     textTransform: "none",
+    border: `2px solid ${theme.palette.primary.main}`,
+    marginRight: theme.spacing(1),
+    color: theme.palette.primary.main,
   },
   icon: {
     height: 20,
