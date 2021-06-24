@@ -53,6 +53,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
     flex: "0 0 auto",
     boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.25)",
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: "none",
+      marginBottom: theme.spacing(2),
+      marginRight: theme.spacing(0),
+    },
   },
   chip: {
     border: `1px solid ${theme.palette.primary.main}`,

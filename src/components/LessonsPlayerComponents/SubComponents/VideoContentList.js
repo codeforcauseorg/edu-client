@@ -71,8 +71,6 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     marginBottom: theme.spacing(2),
     borderRadius: "5px",
-    // background: "linear-gradient(90.28deg, #2A5EDA -20.31%, #4379FE 104.28%)",
-    // color: "#fff",
   },
   subsection: {
     display: "flex",

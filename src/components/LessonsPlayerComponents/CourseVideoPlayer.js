@@ -1,8 +1,7 @@
 import React from "react";
 import { makeStyles, Box } from "@material-ui/core";
-import ActionBar from "./ActionBar";
 import { Player } from "video-react";
-import NotesSection from "./NotesSection";
+import TabComponents from "./TabComponents";
 
 function CourseVideoPlayer() {
   const classes = useStyles();
@@ -12,8 +11,7 @@ function CourseVideoPlayer() {
       <Player className={classes.player}>
         <source src="https://firebasestorage.googleapis.com/v0/b/codeforcauseorg.appspot.com/o/course%2Fzoom_0.mp4?alt=media&token=01f3ed1e-8d39-4fde-b945-f3bfe677b6df" />
       </Player>
-      <ActionBar />
-      <NotesSection />
+      <TabComponents />
     </Box>
   );
 }
@@ -30,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
       border: "none",
       height: 60,
       width: 60,
-      left: "48%",
+      left: "40%",
       lineHeight: "60px",
       top: "42%",
     },
