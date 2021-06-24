@@ -24,6 +24,17 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
     height: "100%",
   },
+  player: {
+    "& .video-react-big-play-button": {
+      borderRadius: "30px",
+      border: "none",
+      height: 60,
+      width: 60,
+      left: "48%",
+      lineHeight: "60px",
+      top: "42%",
+    },
+  },
 }));
 
 export default CourseVideoPlayer;
