@@ -2,6 +2,9 @@ import React from "react";
 import { makeStyles, AppBar, Tabs, Tab, Box, Hidden } from "@material-ui/core";
 import NotesSection from "./NotesSection";
 import CourseLessonList from "./CourseLessonList";
+import Announcements from "./Announcements";
+import Overview from "./Overview";
+import QuestionAndAnswer from "./QuestionAndAnswer";
 
 function TabComponents() {
   const classes = useStyles();
@@ -29,10 +32,13 @@ function TabComponents() {
           <Tab label="Overview" />
           <Tab label="Course Content" className={classes.courseContentTab} />
           <Tab label="Notes" />
-          <Tab label="More" />
+          <Tab label="Q&A" />
+          <Tab label="Announcements" />
         </Tabs>
       </AppBar>
-      <TabPanel value={value} index={0}></TabPanel>
+      <TabPanel value={value} index={0}>
+        <Overview />
+      </TabPanel>
       <Hidden xlUp>
         <TabPanel value={value} index={1}>
           <CourseLessonList />
@@ -41,7 +47,12 @@ function TabComponents() {
       <TabPanel value={value} index={2}>
         <NotesSection />
       </TabPanel>
-      <TabPanel value={value} index={3}></TabPanel>
+      <TabPanel value={value} index={3}>
+        <QuestionAndAnswer />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <Announcements />
+      </TabPanel>
     </Box>
   );
 }
@@ -51,6 +62,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xl")]: {
       display: "none",
     },
+  },
+  appBar: {
+    backgroundColor: "#fff",
+    color: theme.palette.text.primary,
+    borderBottom: "1px solid #333",
+    borderRadius: "5px",
   },
 }));
 
