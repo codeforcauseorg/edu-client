@@ -16,7 +16,12 @@ function CourseVideoPlayer() {
         <Typography variant="h3" color="textPrimary" gutterBottom>
           Flull Stack Development Course by code for Cause
         </Typography>
-        <Typography variant="subtitle1" color="textSecondary" gutterBottom>
+        <Typography
+          variant="subtitle1"
+          color="textSecondary"
+          gutterBottom
+          className={classes.mentorNames}
+        >
           Anuj Garg & Ganga Chaturvedi{" "}
         </Typography>
         <Box className={classes.lessons}>
@@ -55,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
   lessons: {
     display: "flex",
     alignItems: "center",
+    marginTop: theme.spacing(2),
   },
   playIcon: {
     marginRight: theme.spacing(2),
@@ -67,6 +73,9 @@ const useStyles = makeStyles((theme) => ({
       marginRight: theme.spacing(2),
       marginTop: theme.spacing(2),
     },
+  },
+  mentorNames: {
+    marginTop: theme.spacing(2),
   },
 }));
 

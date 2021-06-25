@@ -8,6 +8,7 @@ import {
   ListItemText,
   Typography,
   Button,
+  Hidden,
 } from "@material-ui/core";
 import React from "react";
 
@@ -29,12 +30,14 @@ function QuestionAndAnswer() {
       <List>
         {[1, 2, 3, 4, 5, 6].map((item, index) => (
           <ListItem key={index} className={classes.listItem}>
-            <ListItemAvatar>
-              <Avatar
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMHBpY3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                className={classes.avatar}
-              />
-            </ListItemAvatar>
+            <Hidden smDown>
+              <ListItemAvatar>
+                <Avatar
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZSUyMHBpY3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                  className={classes.avatar}
+                />
+              </ListItemAvatar>
+            </Hidden>
             <ListItemText>
               <Typography color="textSecondary" variant="subtitle2" className={classes.askedDate}>
                 Asked: March 14 ,2020

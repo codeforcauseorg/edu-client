@@ -10,7 +10,7 @@ function Overview() {
       <Typography variant="h2" className={classes.title} gutterBottom>
         About this class
       </Typography>
-      <Typography variant="h5" gutterBottom className={classes.description}>
+      <Typography variant="subtitle1" gutterBottom className={classes.description}>
         Learn how to build full-stack mobile apps using React Native, Redux, React Navigation with
         Node.js on the backend.
       </Typography>
@@ -31,6 +31,9 @@ function Overview() {
 const useStyles = makeStyles((theme) => ({
   container: {
     marginTop: theme.spacing(4),
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(3),
+    },
   },
   attachementsTitle: {
     marginTop: theme.spacing(4),

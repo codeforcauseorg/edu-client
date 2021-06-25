@@ -50,7 +50,7 @@ function TabComponents() {
       <TabPanel value={value} index={3}>
         <QuestionAndAnswer />
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={4}>
         <Announcements />
       </TabPanel>
     </Box>
