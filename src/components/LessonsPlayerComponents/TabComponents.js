@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     color: theme.palette.text.primary,
     borderBottom: "1px solid #333",
-    borderRadius: "5px",
   },
 }));
 

@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
       left: "40%",
       lineHeight: "60px",
       top: "42%",
+      backgroundColor: "rgba(255, 255, 255, .15)",
+      backdropFilter: "blur(5px)",
       [theme.breakpoints.up("lg")]: {
         left: "45%",
       },
