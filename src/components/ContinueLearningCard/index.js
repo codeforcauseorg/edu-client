@@ -26,13 +26,7 @@ function ContinueLearningCard({
       <CardActionArea>
         <CardMedia className={classes.media} title={title} image={image} />
         <CardContent className={classes.cardContent}>
-          <Typography
-            gutterBottom
-            variant="subtitle"
-            noWrap
-            component="h4"
-            className={classes.chapter}
-          >
+          <Typography gutterBottom variant="h6" noWrap component="h4" className={classes.chapter}>
             {chapterTitle}
           </Typography>
           <LinearProgress variant="determinate" value={completedPercentage} />
