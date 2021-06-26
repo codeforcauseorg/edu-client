@@ -21,5 +21,4 @@ export const PEER = "/peer";
 export const COMMENT = "/peer/:id/comments";
 export const MENTOR_PAGE = "/mentorPage";
 export const REFERRAL = "/referralAndCoupons";
-export const EDITPROFILE = "/editprofile";
 export const HACKATHON_AND_ENENTS = "/hackathonsAndEvents";
