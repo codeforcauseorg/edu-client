@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     padding: 35,
-    borderTop: `4px solid #333`,
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
     },

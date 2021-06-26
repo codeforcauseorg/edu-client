@@ -29,6 +29,7 @@ function ProfileTabComponent() {
       </div>
     );
   }
+
   const tabElements = [
     {
       title: "Activity",
@@ -39,17 +40,11 @@ function ProfileTabComponent() {
       component: Achevement,
     },
   ];
+
   return (
     <Box className={classes.root}>
-      <AppBar position="static" color="default">
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          indicatorColor="primary"
-          textColor="primary"
-          variant="scrollable"
-          scrollButtons="auto"
-        >
+      <AppBar position="static" color="default" className={classes.appBar}>
+        <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto">
           {tabElements.map((items, index) => (
             <Tab key={index} label={items.title} />
           ))}
@@ -57,7 +52,7 @@ function ProfileTabComponent() {
       </AppBar>
       {tabElements.map((items, index) => (
         <TabPanel key={index} value={value} index={index}>
-          {items.component}
+          <items.component />
         </TabPanel>
       ))}
     </Box>
@@ -67,6 +62,11 @@ function ProfileTabComponent() {
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(4),
+  },
+  appBar: {
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: theme.spacing(0.4),
+    color: "#fff",
   },
 }));
 
