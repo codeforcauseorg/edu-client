@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { logout, setUserData } from "../../actions/accountActions";
+import { logout, setUserData } from "../../store/actions/accountActions";
 import authService from "../../services/authService";
 
 function Auth({ children }) {

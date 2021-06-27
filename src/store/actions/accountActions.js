@@ -1,4 +1,4 @@
-import authService from "../services/authService";
+import authService from "../../services/authService";
 
 // Action types
 export const LOGIN_REQUEST = "@account/login-request";

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Button, Grid, TextField, Typography, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
-import { login } from "../../actions/accountActions";
+import { login } from "../../store/actions/accountActions";
 
 function SignupSection() {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import { Box, Button, makeStyles } from "@material-ui/core";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { logout } from "../../actions/accountActions";
+import { logout } from "../../store/actions/accountActions";
 import FooterComponent from "./ProfileComponent/FooterComponent";
 import ScoreBoardComponent from "./ProfileComponent/ScoreBoardComponent";
 import ListComponent from "./ProfileComponent/ListComponent";
