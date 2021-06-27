@@ -22,7 +22,7 @@ function VideoContentList({ props, index }) {
   };
 
   return (
-    <Box className={classes.container}>
+    <Box>
       <ListItem button className={classes.listItem} onClick={() => handleChange()}>
         <ListItemAvatar>
           <Avatar className={classes.avatar}>
@@ -42,7 +42,7 @@ function VideoContentList({ props, index }) {
             </Typography>
           </Box>
         </ListItemText>
-        <IconButton edge="end" className={classes.expandIcon}>
+        <IconButton edge="end">
           {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
         </IconButton>
       </ListItem>
@@ -56,11 +56,6 @@ function VideoContentList({ props, index }) {
 }
 
 const useStyles = makeStyles((theme) => ({
-  ListContainer: {
-    flex: 2,
-    height: 800,
-    marginLeft: theme.spacing(3),
-  },
   appBar: {
     backgroundColor: theme.palette.text.primary,
     borderRadius: "5px",

@@ -26,7 +26,7 @@ const buttonElements = [
 function QuestionAndAnswer() {
   const classes = useStyles();
   return (
-    <Box className={classes.container}>
+    <Box>
       <List>
         {[1, 2, 3, 4, 5, 6].map((item, index) => (
           <ListItem key={index} className={classes.listItem}>

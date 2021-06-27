@@ -18,9 +18,9 @@ function Announcements() {
       <List>
         {[1, 2].map((item, index) => (
           <Box key={index} className={classes.container}>
-            <ListItem className={classes.listItem}>
+            <ListItem>
               <ListItemAvatar>
-                <Avatar src="assets/members/anuj.png" className={classes.avatar} />
+                <Avatar src="assets/members/anuj.png" />
               </ListItemAvatar>
               <ListItemText>
                 <Typography color="textPrimary" variant="subtitle2">

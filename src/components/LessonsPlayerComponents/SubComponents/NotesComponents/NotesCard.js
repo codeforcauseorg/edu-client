@@ -35,7 +35,7 @@ function NotesCard() {
         subheader={<Typography className={classes.timeStamp}>September 14, 2016</Typography>}
       />
       <CardContent>
-        <Typography className={classes.title} variant="body2" color="textSecondary" gutterBottom>
+        <Typography variant="body2" color="textSecondary" gutterBottom>
           Your Thoughts
         </Typography>
         <Typography variant="body1" component="p">

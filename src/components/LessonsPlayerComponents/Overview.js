@@ -7,10 +7,10 @@ function Overview() {
 
   return (
     <Box className={classes.container}>
-      <Typography variant="h2" className={classes.title} gutterBottom>
+      <Typography variant="h2" gutterBottom>
         About this class
       </Typography>
-      <Typography variant="subtitle1" gutterBottom className={classes.description}>
+      <Typography variant="subtitle1" gutterBottom>
         Learn how to build full-stack mobile apps using React Native, Redux, React Navigation with
         Node.js on the backend.
       </Typography>

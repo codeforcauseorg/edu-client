@@ -36,11 +36,6 @@ function VideoSubSectionList() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  ListContainer: {
-    flex: 2,
-    height: 800,
-    marginLeft: theme.spacing(3),
-  },
   appBar: {
     backgroundColor: theme.palette.text.primary,
     borderRadius: "5px",

@@ -7,10 +7,10 @@ function CourseLessonList() {
 
   return (
     <Box className={classes.wrapperContainer}>
-      <Box className={classes.ListContainer}>
+      <Box className={classes.listContainer}>
         <Hidden lgDown>
           <AppBar position="sticky" className={classes.appBar}>
-            <Toolbar className={classes.toolbar}>
+            <Toolbar>
               <Typography variant="h5">Course Content</Typography>
             </Toolbar>
           </AppBar>
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
       height: "100%",
     },
   },
-  ListContainer: {
+  listContainer: {
     flex: 2,
     height: "90vh",
     marginLeft: theme.spacing(3),
@@ -59,13 +59,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("lg")]: {
       borderRadius: "0px",
     },
-  },
-  courseTitle: {
-    fontWeight: 600,
-  },
-  listItem: {
-    marginBottom: theme.spacing(2),
-    borderRadius: "5px",
   },
 }));
 

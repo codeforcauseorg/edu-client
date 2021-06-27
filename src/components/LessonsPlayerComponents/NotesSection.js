@@ -8,12 +8,10 @@ function NotesSection() {
   return (
     <Box className={classes.container}>
       <Box className={classes.titleContainer}>
-        <Typography variant="h4" className={classes.title}>
-          Notes(4)
-        </Typography>
+        <Typography variant="h4">Notes(4)</Typography>
         <Button className={classes.notesButton}>
           Add Notes
-          <NoteAddIcon className={classes.icon} />
+          <NoteAddIcon />
         </Button>
       </Box>
       <Box className={classes.cardContainer}>
