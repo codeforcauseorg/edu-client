@@ -20,9 +20,17 @@ function ProfilePage() {
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: "90%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+      padding: "0",
+    },
   },
   title: {
     marginTop: theme.spacing(8),
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "20px",
+      marginRight: "20px",
+    },
   },
 }));
 

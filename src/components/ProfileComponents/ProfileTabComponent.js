@@ -67,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.main,
     borderRadius: theme.spacing(0.4),
     color: "#fff",
+    [theme.breakpoints.down("sm")]: {
+      borderRadius: theme.spacing(0),
+    },
   },
 }));
 

@@ -48,10 +48,27 @@ const useStyles = makeStyles((theme) => ({
     height: 170,
     width: "100%",
     borderRadius: "15px",
+    [theme.breakpoints.down("lg")]: {
+      marginTop: theme.spacing(0),
+    },
+    [theme.breakpoints.down("md")]: {
+      marginTop: theme.spacing(4),
+    },
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(0),
+    },
   },
   image: {
     position: "absolute",
     top: -55,
+    [theme.breakpoints.down("lg")]: {
+      height: "100%",
+      top: 0,
+    },
+    [theme.breakpoints.down("sm")]: {
+      height: "80%",
+      top: 25,
+    },
   },
   wrapper: {
     padding: theme.spacing(4),

@@ -64,7 +64,7 @@ function Activity() {
 
   return (
     <Box className={classes.root}>
-      <Grid container spacing={4} justify="center">
+      <Grid container spacing={4} align="center">
         {activityCardElements.map((items, index) => (
           <ActivityCard key={index} props={items} />
         ))}
@@ -89,14 +89,25 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginTop: theme.spacing(25),
     marginBottom: theme.spacing(4),
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+      marginTop: theme.spacing(10),
+    },
   },
   certificates: {
     marginRight: theme.spacing(4),
     flex: 5,
+    [theme.breakpoints.down("md")]: {
+      marginRight: theme.spacing(0),
+      marginBottom: theme.spacing(2),
+    },
   },
   askDoubts: {
     marginLeft: theme.spacing(4),
     flex: 5,
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(0),
+    },
   },
 }));
 

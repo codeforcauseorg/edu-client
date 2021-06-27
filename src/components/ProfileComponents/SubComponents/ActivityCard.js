@@ -1,4 +1,4 @@
-import { makeStyles, Grid, Card, CardContent, Typography, Link } from "@material-ui/core";
+import { makeStyles, Grid, Card, CardContent, Typography, Link, Hidden } from "@material-ui/core";
 import React from "react";
 
 function ActivityCard({ props }) {
@@ -16,9 +16,11 @@ function ActivityCard({ props }) {
           <Typography variant="h4" className={classes.margin} gutterBottom>
             {subtitle}
           </Typography>
-          <Typography variant="subtitle1" className={classes.margin} gutterBottom>
-            {description}
-          </Typography>
+          <Hidden smDown>
+            <Typography variant="subtitle1" className={classes.margin} gutterBottom>
+              {description}
+            </Typography>
+          </Hidden>
           <Typography variant="body2" className={classes.margin} gutterBottom>
             <Link>View</Link>
           </Typography>
@@ -32,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   card: {
     maxWidth: 400,
     boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.25)",
+    textAlign: "left",
   },
   title: {
     textTransform: "uppercase",
@@ -49,6 +52,9 @@ const useStyles = makeStyles((theme) => ({
     right: -20,
     bottom: 0,
     height: 120,
+    [theme.breakpoints.down("sm")]: {
+      height: 100,
+    },
   },
 }));
 
