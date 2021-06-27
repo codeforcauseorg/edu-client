@@ -1,6 +1,7 @@
 import { makeStyles, Box, Grid } from "@material-ui/core";
 import ActivityCard from "./SubComponents/ActivityCard";
 import React from "react";
+import SecondaryActivityCard from "./SubComponents/SecondaryActivityCard";
 
 const activityCardElements = [
   {
@@ -41,6 +42,23 @@ const activityCardElements = [
   },
 ];
 
+const listItems = [
+  {
+    title: "Certificates    ",
+    subtitle: "View all your certificates",
+    image: "illustrations/Character Boy 1 1.svg",
+    isButton: false,
+    onClick: () => console.log(""),
+  },
+  {
+    title: "Ask Doubts",
+    subtitle: "Clear all your doubts",
+    image: "illustrations/Thinking 1 1.svg",
+    isButton: true,
+    onClick: () => console.log(""),
+  },
+];
+
 function Activity() {
   const classes = useStyles();
 
@@ -51,6 +69,14 @@ function Activity() {
           <ActivityCard key={index} props={items} />
         ))}
       </Grid>
+      <Box className={classes.container}>
+        <Box className={classes.certificates}>
+          <SecondaryActivityCard props={listItems[0]} />
+        </Box>
+        <Box className={classes.askDoubts}>
+          <SecondaryActivityCard props={listItems[1]} />
+        </Box>
+      </Box>
     </Box>
   );
 }
@@ -58,6 +84,19 @@ function Activity() {
 const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: theme.spacing(4),
+  },
+  container: {
+    display: "flex",
+    marginTop: theme.spacing(25),
+    marginBottom: theme.spacing(4),
+  },
+  certificates: {
+    marginRight: theme.spacing(4),
+    flex: 5,
+  },
+  askDoubts: {
+    marginLeft: theme.spacing(4),
+    flex: 5,
   },
 }));
 
