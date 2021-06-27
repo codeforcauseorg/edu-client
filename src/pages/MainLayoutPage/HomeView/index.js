@@ -9,6 +9,9 @@ import MentorSection from "../../../components/HomeViewComponents/MentorSection"
 import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
+// import { useEffect } from "react";
+import { fetchCourseData } from "../../../services/courseServices";
+import { connect } from "react-redux";
 
 const ContinueLearningList = [
   {
@@ -72,8 +75,14 @@ const courseList = [
     ],
   },
 ];
-export default function HomeView(props) {
+
+function HomeView({ courseData, featchData }) {
   const classes = useStyles();
+
+  // useEffect(() => {
+  //   featchData();
+  // }, []);
+
   return (
     <div>
       <HeaderSection />
@@ -155,3 +164,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
 }));
+
+const mapStateToProps = (state) => {
+  return {
+    courseData: state.course,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    featchData: () => dispatch(fetchCourseData()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
