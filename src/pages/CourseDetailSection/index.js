@@ -5,6 +5,9 @@ import AboutCourse from "../../components/CourseDetailsComponent/AboutCourse";
 import CardContainer from "../../components/cardContainer/cardContainer";
 import BrowseAllButton from "../../components/BrowseAllButton/index";
 import MediaCard from "../../components/CourseMediaCard/MediaCard";
+import { fetchCourseDetailsData } from "../../services/courseServices";
+import { connect } from "react-redux";
+import { useEffect } from "react";
 
 const courseList = [
   {
@@ -49,8 +52,12 @@ const courseList = [
   },
 ];
 
-function CourseDetail(props) {
+function CourseDetail({ courseData, featchData }) {
   const classes = useStyles();
+  useEffect(() => {
+    featchData();
+  }, []);
+
   return (
     <Box>
       <CourseHeroSection />
@@ -116,4 +123,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default CourseDetail;
+const mapStateToProps = (state) => {
+  return {
+    courseData: state.course,
+  };
+};
+const mapDispatchToProps = (dispatch, props) => {
+  const id = props.match.params.id;
+
+  return {
+    featchData: () => dispatch(fetchCourseDetailsData(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseDetail);

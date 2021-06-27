@@ -67,7 +67,7 @@ function MediaCard(props) {
         }
       />
       <CardActionArea>
-        <CardContent className={classes.cardContent} onClick={() => history.push("/course/:id")}>
+        <CardContent className={classes.cardContent} onClick={() => history.push(`/course/${1}`)}>
           <Box className={classes.tagSection}>
             <Chip variant="outlined" size="small" className={classes.tag} label={tag} />
             <Chip size="small" className={classes.price} label={price} />

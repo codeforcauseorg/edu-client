@@ -22,6 +22,8 @@ export default function courseReducer(state = initialState, action) {
     case FETCH_COURSE_REQUEST:
       return produce(state, (draft) => {
         draft.loading = true;
+        draft.course = [];
+        draft.error = "";
       });
     case FETCH_COURSE_FAILURE:
       return produce(state, (draft) => {

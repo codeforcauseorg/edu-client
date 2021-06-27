@@ -9,7 +9,7 @@ import MentorSection from "../../../components/HomeViewComponents/MentorSection"
 import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
-// import { useEffect } from "react";
+import { useEffect } from "react";
 import { fetchCourseData } from "../../../services/courseServices";
 import { connect } from "react-redux";
 
@@ -79,9 +79,9 @@ const courseList = [
 function HomeView({ courseData, featchData }) {
   const classes = useStyles();
 
-  // useEffect(() => {
-  //   featchData();
-  // }, []);
+  useEffect(() => {
+    featchData();
+  }, []);
 
   return (
     <div>
