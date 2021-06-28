@@ -8,7 +8,7 @@ function AchievementCard({ props }) {
   const { status, courseName, type, content, duration, badgeIcon } = props;
 
   return (
-    <Grid item xs={12} sm={6} md={6} lg={6}>
+    <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
       <Card className={classes.card}>
         <CardContent className={classes.cardContent}>
           <img src={badgeIcon} className={classes.image} />
