@@ -22,3 +22,4 @@ export const COMMENT = "/peer/:id/comments";
 export const MENTOR_PAGE = "/mentorPage";
 export const REFERRAL = "/referralAndCoupons";
 export const HACKATHON_AND_ENENTS = "/hackathonsAndEvents";
+export const LESSONS_PLAYER = "/course/:courseName/lecture/:videoSectionId:videoSectionName";
