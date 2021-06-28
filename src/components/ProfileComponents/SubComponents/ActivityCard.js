@@ -1,5 +1,5 @@
 import React from "react";
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import { makeStyles, Grid, Card, CardContent, Typography, Link, Hidden } from "@material-ui/core";
 
 function ActivityCard({ props }) {
@@ -15,8 +15,10 @@ function ActivityCard({ props }) {
             <Typography variant="h6" color="textSecondary" gutterBottom className={classes.title}>
               {title}
             </Typography>
-            <Typography variant="body2"  gutterBottom>
-              <Link><KeyboardArrowRightIcon style={{marginLeft: ".05rem"}} /></Link>
+            <Typography variant="body2" gutterBottom>
+              <Link>
+                <KeyboardArrowRightIcon style={{marginLeft: ".05rem"}} />
+              </Link>
             </Typography>
           </div>
           <Typography variant="h4" className={classes.margin} gutterBottom>
