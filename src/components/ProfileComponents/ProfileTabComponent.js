@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Typography, Tab, Tabs, Box, AppBar } from "@material-ui/core";
 import Activity from "../../components/ProfileComponents/Activity";
-import Achevement from "../../components/ProfileComponents/Achevement";
+import Achievement from "../../components/ProfileComponents/Achievement";
 
 function ProfileTabComponent() {
   const classes = useStyles();
@@ -36,8 +36,12 @@ function ProfileTabComponent() {
       component: Activity,
     },
     {
-      title: "Achevement",
-      component: Achevement,
+      title: "Achievement",
+      component: Achievement,
+    },
+    {
+      title: "Badges",
+      component: Achievement,
     },
   ];
 
