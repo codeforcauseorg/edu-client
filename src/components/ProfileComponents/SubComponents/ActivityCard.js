@@ -17,7 +17,7 @@ function ActivityCard({ props }) {
             </Typography>
             <Typography variant="body2" gutterBottom>
               <Link>
-                <KeyboardArrowRightIcon style={{marginLeft: ".05rem"}} />
+                <KeyboardArrowRightIcon style={{ marginLeft: ".05rem" }} />
               </Link>
             </Typography>
           </div>
