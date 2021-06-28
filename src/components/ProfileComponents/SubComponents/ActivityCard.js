@@ -1,5 +1,6 @@
-import { makeStyles, Grid, Card, CardContent, Typography, Link, Hidden } from "@material-ui/core";
 import React from "react";
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import { makeStyles, Grid, Card, CardContent, Typography, Link, Hidden } from "@material-ui/core";
 
 function ActivityCard({ props }) {
   const classes = useStyles();
@@ -10,9 +11,14 @@ function ActivityCard({ props }) {
       <Card className={classes.card}>
         <CardContent className={classes.cardContent}>
           <img src={icon} className={classes.image} />
-          <Typography variant="h6" color="textSecondary" gutterBottom className={classes.title}>
-            {title}
-          </Typography>
+          <div className={classes.titleCont}>
+            <Typography variant="h6" color="textSecondary" gutterBottom className={classes.title}>
+              {title}
+            </Typography>
+            <Typography variant="body2"  gutterBottom>
+              <Link><KeyboardArrowRightIcon style={{marginLeft: ".05rem"}} /></Link>
+            </Typography>
+          </div>
           <Typography variant="h4" className={classes.margin} gutterBottom>
             {subtitle}
           </Typography>
@@ -21,9 +27,6 @@ function ActivityCard({ props }) {
               {description}
             </Typography>
           </Hidden>
-          <Typography variant="body2" className={classes.margin} gutterBottom>
-            <Link>View</Link>
-          </Typography>
         </CardContent>
       </Card>
     </Grid>
@@ -35,6 +38,12 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
     boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.25)",
     textAlign: "left",
+    [theme.breakpoints.down("sm")]: {
+      height: 70,
+    },
+  },
+  titleCont: {
+    display: "flex",
   },
   title: {
     textTransform: "uppercase",

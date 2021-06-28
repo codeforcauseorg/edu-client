@@ -50,7 +50,7 @@ function ProfileTabComponent() {
       <AppBar position="static" color="default" className={classes.appBar}>
         <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto">
           {tabElements.map((items, index) => (
-            <Tab key={index} label={items.title} />
+            <Tab className={classes.bar} key={index} label={items.title} />
           ))}
         </Tabs>
       </AppBar>
@@ -74,6 +74,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       borderRadius: theme.spacing(0),
     },
+  },
+  bar: {
+    width: "33%",
   },
 }));
 
