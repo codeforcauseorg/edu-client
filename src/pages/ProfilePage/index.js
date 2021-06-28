@@ -1,50 +1,37 @@
-import { Box, Button, makeStyles } from "@material-ui/core";
+import { Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../store/actions/accountActions";
-import FooterComponent from "./ProfileComponent/FooterComponent";
-import ScoreBoardComponent from "./ProfileComponent/ScoreBoardComponent";
-import ListComponent from "./ProfileComponent/ListComponent";
-import HeaderComponent from "./ProfileComponent/HeaderComponent";
+import ProfileHero from "../../components/ProfileComponents/ProfileHero";
+import ProfileTabComponent from "../../components/ProfileComponents/ProfileTabComponent";
+
+function ProfilePage() {
+  const classes = useStyles();
+
+  return (
+    <Container className={classes.root}>
+      <ProfileHero />
+      <Typography className={classes.title} variant="h2" color="textPrimary">
+        Profile & settings
+      </Typography>
+      <ProfileTabComponent />
+    </Container>
+  );
+}
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: 0,
-    overflow: "hidden",
-    "&::-webkit-scrollbar": {
-      display: "none",
+    maxWidth: "90%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+      padding: "0",
     },
   },
-  buttonwrapper: {
-    display: "flex",
-    flexDirection: "column",
-    margin: "10px 30px 0px 30px",
-    padding: "8px",
-  },
-  button: {
-    color: "#9B0000",
-    fontWeight: 600,
-    textTransform: "none",
-    border: "2px solid rgb(155,0,0,0.7)",
-    borderRadius: "10px",
+  title: {
+    marginTop: theme.spacing(8),
+    [theme.breakpoints.down("md")]: {
+      marginLeft: "20px",
+      marginRight: "20px",
+    },
   },
 }));
-function ProfilePage() {
-  const dispatch = useDispatch();
-  const classes = useStyles();
-  return (
-    <>
-      <HeaderComponent />
-      <ScoreBoardComponent />
-      <ListComponent />
-      <Box className={classes.buttonwrapper}>
-        <Button className={classes.button} variant="outlined" onClick={() => dispatch(logout)}>
-          Log out
-        </Button>
-      </Box>
-      <FooterComponent />
-    </>
-  );
-}
 
 export default ProfilePage;

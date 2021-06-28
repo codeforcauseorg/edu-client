@@ -1,7 +1,7 @@
 import React from "react";
 import Skeleton from "@material-ui/lab/Skeleton";
 
-function SkeletonElement({ rest }) {
+function SkeletonElement({ ...rest }) {
   return <Skeleton animation="wave" {...rest} />;
 }
 
