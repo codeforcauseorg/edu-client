@@ -1,16 +1,17 @@
-import axios from "../utils/axios";
-import { featchCourseRequest, featchCourseSuccess } from "../store/actions/courseActions";
+import axios from "../utils/mockaxios";
+import { fetchCourseRequest, fetchCourseSuccess } from "../store/actions/courseActions";
 import errorHandler from "./errorHandler";
-
-const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 export const fetchCourseData = () => {
   return async (dispatch) => {
     try {
-      dispatch(featchCourseRequest());
-      const response = await axios.get(`${BASE_URL}/posts`); // dummy URL for testing API call
-      const data = await response.data;
-      dispatch(featchCourseSuccess(data));
+      dispatch(fetchCourseRequest());
+      const response = await axios.get("/api/courses/all"); // mock URL for testing
+      if (response.status === 200) {
+        const data = await response.data;
+        console.log(data);
+        dispatch(fetchCourseSuccess(data));
+      }
     } catch (error) {
       errorHandler(error, dispatch);
     }
@@ -20,10 +21,13 @@ export const fetchCourseData = () => {
 export const fetchCourseDetailsData = (id) => {
   return async (dispatch) => {
     try {
-      dispatch(featchCourseRequest());
-      const response = await axios.get(`${BASE_URL}/posts/${id}`); // dummy URL for testing API call
-      const data = await response.data;
-      dispatch(featchCourseSuccess(data));
+      dispatch(fetchCourseRequest());
+      const response = await axios.get(`/api/courses/${id}`); // mock URL for testing
+      if (response.status === 200) {
+        const data = await response.data;
+        console.log(data);
+        dispatch(fetchCourseSuccess(data));
+      }
     } catch (error) {
       errorHandler(error, dispatch);
     }

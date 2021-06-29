@@ -1,12 +1,12 @@
-import { featchCourseFailure } from "../store/actions/courseActions";
+import { fetchCourseFailure } from "../store/actions/courseActions";
 
 function errorHandler(erros, dispatch) {
   if (erros.response) {
-    dispatch(featchCourseFailure(erros.response));
+    dispatch(fetchCourseFailure(erros.response));
   } else if (erros.request) {
-    dispatch(featchCourseFailure(erros.request));
+    dispatch(fetchCourseFailure(erros.request));
   } else {
-    dispatch(featchCourseFailure(erros.message));
+    dispatch(fetchCourseFailure(erros.message));
   }
 }
 
