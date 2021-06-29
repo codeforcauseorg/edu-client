@@ -45,7 +45,7 @@ function MediaCard({ props, isDeleteButton, onClick }) {
       classes={{ root: classes.root, removedItem: classes.removedItem }}
       ref={deleteButton}
       style={{
-        maxWidth: isDeleteButton ? "none" : 350,
+        // maxWidth: isDeleteButton ? "none" : 350,
         marginRight: isDeleteButton ? "0px" : "25px",
       }}
     >
@@ -111,6 +111,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.05)",
     transition: "0.5s",
     cursor: "pointer",
+    maxWidth: 350,
     marginTop: theme.spacing(3),
     borderRadius: "5px",
     flex: "0 0 auto",
