@@ -1,14 +1,14 @@
 import axios from "../utils/mockaxios";
-import { fetchCourseSuccess } from "../store/actions/courseActions";
+import { fetchCourseDetailsData, fetchCourseData } from "../store/actions/courseActions";
 import errorHandler from "./errorHandler";
 
-export const fetchCourseData = () => {
+export const setCourseData = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get("/api/courses/all"); // mock URL for testing
       if (response.status === 200) {
         const data = await response.data;
-        dispatch(fetchCourseSuccess(data));
+        dispatch(fetchCourseData(data));
       }
     } catch (error) {
       errorHandler(error, dispatch);
@@ -16,14 +16,14 @@ export const fetchCourseData = () => {
   };
 };
 
-export const fetchCourseDetailsData = (id) => {
+export const setCourseDetailsData = (id) => {
+  console.log(id);
   return async (dispatch) => {
     try {
-      const response = await axios.get(`/api/courses/${id}`); // mock URL for testing
+      const response = await axios.get("/api/courses/details"); // mock URL for testing
       if (response.status === 200) {
         const data = await response.data;
-        console.log(data);
-        dispatch(fetchCourseSuccess(data));
+        dispatch(fetchCourseDetailsData(data));
       }
     } catch (error) {
       errorHandler(error, dispatch);

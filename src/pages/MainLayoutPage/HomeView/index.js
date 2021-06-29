@@ -10,7 +10,7 @@ import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSe
 import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 import { useEffect } from "react";
-import { fetchCourseData } from "../../../services/courseServices";
+import { setCourseData } from "../../../services/courseServices";
 import { connect } from "react-redux";
 import SkeletonMediaCard from "../../../components/skeleton/SkeletonMediaCard";
 
@@ -116,7 +116,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchData: () => dispatch(fetchCourseData()),
+    fetchData: () => dispatch(setCourseData()),
   };
 };
 

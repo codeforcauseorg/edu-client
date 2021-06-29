@@ -7,7 +7,7 @@ import CoursePath from "./SubComponents/HeroElements/CoursePath";
 import ShareAndWishlistButton from "./SubComponents/HeroElements/ShareAndWishlistButton";
 import Instructors from "./SubComponents/HeroElements/Instructors";
 
-function CourseHeroSection() {
+function CourseHeroSection({ props }) {
   const classes = useStyles();
 
   return (

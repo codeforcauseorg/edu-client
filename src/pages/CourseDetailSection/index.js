@@ -9,16 +9,17 @@ import { setCourseDetailsData } from "../../services/courseServices";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 
-function CourseDetail({ courseDetailsData, fetchData }) {
+function CourseDetail({ courseData, fetchData }) {
   const classes = useStyles();
-  console.log(courseDetailsData);
+  console.log(courseData.courseDetails);
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
     <Box>
-      <CourseHeroSection />
+      {courseData.courseDetails === null ? "Loading...." : <CourseHeroSection />}
+
       <AboutCourse />
       <Box className={classes.courseContainer}>
         <Box className={classes.popularContainer}>
@@ -44,6 +45,7 @@ function CourseDetail({ courseDetailsData, fetchData }) {
           <Typography variant="h2">Upcoming Course</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
+
         {/* <CardContainer>
           {courseList.map((items, index) => (
             <MediaCard
@@ -83,13 +85,11 @@ const useStyles = makeStyles((theme) => ({
 
 const mapStateToProps = (state) => {
   return {
-    courseDetailsData: state.courseDetails,
+    courseData: state.course,
   };
 };
 const mapDispatchToProps = (dispatch, props) => {
   const id = props.match.params.id;
-  console.log(id);
-
   return {
     fetchData: () => dispatch(setCourseDetailsData(id)),
   };
