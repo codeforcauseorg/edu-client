@@ -33,51 +33,10 @@ const ContinueLearningList = [
     completedPercentage: 45,
   },
 ];
-const courseList = [
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-];
 
 function HomeView({ courseData, fetchData }) {
   const classes = useStyles();
+  // const exploreCourse =courseData.course.explore;
 
   useEffect(() => {
     fetchData();
@@ -108,38 +67,24 @@ function HomeView({ courseData, fetchData }) {
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
+          {courseData.course === null ? (
+            <Typography>Loading.......</Typography>
+          ) : (
+            courseData.course.popular.map((items, index) => <MediaCard key={index} props={items} />)
+          )}
         </CardContainer>
         <Box className={classes.popularContainer}>
           <Typography variant="h2">Upcoming Course</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
+          {courseData.course === null ? (
+            <Typography>Loading.......</Typography>
+          ) : (
+            courseData.course.upcoming.map((items, index) => (
+              <MediaCard key={index} props={items} />
+            ))
+          )}
         </CardContainer>
       </Container>
       <ExploreCourseSection />

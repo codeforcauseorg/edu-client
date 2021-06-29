@@ -17,19 +17,18 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
-function MediaCard(props) {
+function MediaCard({ props, isDeleteButton, onClick }) {
+  const { courseID, tag, courseDetails } = props;
   const {
-    title,
-    price,
-    description,
-    ratings,
-    lessonsNumbers,
-    courseImage,
-    tag,
-    mentors,
-    onClick,
-    isDeleteButton,
-  } = props;
+    courseTitle,
+    courseThumbnail,
+    courseShortDescription,
+    originalPrice,
+    raiting,
+    totalNumberOfLectures,
+    mentorList,
+  } = courseDetails;
+
   const classes = useStyles();
   const history = useHistory();
   const deleteButton = useRef();
@@ -53,7 +52,7 @@ function MediaCard(props) {
       <CardHeader
         className={classes.media}
         style={{
-          backgroundImage: `url(${courseImage})`,
+          backgroundImage: `url(${courseThumbnail})`,
           backgroundSize: "cover",
         }}
         action={
@@ -67,32 +66,35 @@ function MediaCard(props) {
         }
       />
       <CardActionArea>
-        <CardContent className={classes.cardContent} onClick={() => history.push(`/course/${1}`)}>
+        <CardContent
+          className={classes.cardContent}
+          onClick={() => history.push(`/course/${courseID}`)}
+        >
           <Box className={classes.tagSection}>
-            <Chip variant="outlined" size="small" className={classes.tag} label={tag} />
-            <Chip size="small" className={classes.price} label={price} />
+            <Chip variant="outlined" size="small" className={classes.tag} label={tag.tagName} />
+            <Chip size="small" className={classes.price} label={originalPrice} />
           </Box>
           <Box className={classes.cardActions}>
             <Typography variant="h6" className={classes.title}>
-              {title}
+              {courseTitle}
             </Typography>
             <Box className={classes.description}>
-              <Typography variant="subtitle2">{description} </Typography>
+              <Typography variant="subtitle2">{courseShortDescription} </Typography>
             </Box>
           </Box>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardFooter}>
         <StarIcon className={classes.starIcon} />
-        <Typography>{ratings}</Typography>
+        <Typography>{raiting}</Typography>
         <PlayCircleOutlineIcon />
-        <Typography> {lessonsNumbers} Lessons</Typography>
+        <Typography> {totalNumberOfLectures} lectures</Typography>
         <Box style={{ flexGrow: 1 }} />
         <Box className={classes.lessons}>
-          {mentors.map((items, index) => (
+          {mentorList.map((items, index) => (
             <Avatar
               key={index}
-              src={items.image}
+              src={items.mentorPicture}
               className={classes.avatar}
               onClick={() => console.log("mentors")}
             />
