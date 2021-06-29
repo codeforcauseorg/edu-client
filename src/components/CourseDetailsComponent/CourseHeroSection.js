@@ -1,18 +1,17 @@
 import { makeStyles, Box, Typography, Container, Hidden } from "@material-ui/core";
 import React from "react";
-import NavBar from "../../components/NavBar/index";
 import Rating from "@material-ui/lab/Rating";
 import VideoCard from "./SubComponents/HeroElements/VideoCard";
 import CoursePath from "./SubComponents/HeroElements/CoursePath";
 import ShareAndWishlistButton from "./SubComponents/HeroElements/ShareAndWishlistButton";
 import Instructors from "./SubComponents/HeroElements/Instructors";
 
-function CourseHeroSection({ props }) {
+function CourseHeroSection(props) {
   const classes = useStyles();
-
+  const { courseDetails } = props.details;
+  const { courseTitle } = courseDetails;
   return (
     <>
-      <NavBar />
       <Box className={classes.root}>
         <Container className={classes.innerContainer}>
           <Hidden mdDown>
@@ -20,7 +19,7 @@ function CourseHeroSection({ props }) {
           </Hidden>
           <Box mt={4}>
             <Typography gutterBottom className={classes.title}>
-              Machine Learning, Data Science and Deep Learning with Python
+              {courseTitle}
             </Typography>
             <Typography variant="h5" component="p">
               Complete hands-on machine learning tutorial with data science, Tensorflow, artificial
