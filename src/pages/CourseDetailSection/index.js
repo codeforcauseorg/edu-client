@@ -52,10 +52,10 @@ const courseList = [
   },
 ];
 
-function CourseDetail({ courseData, featchData }) {
+function CourseDetail({ courseData, fetchData }) {
   const classes = useStyles();
   useEffect(() => {
-    featchData();
+    fetchData();
   }, []);
 
   return (
@@ -132,7 +132,7 @@ const mapDispatchToProps = (dispatch, props) => {
   const id = props.match.params.id;
 
   return {
-    featchData: () => dispatch(fetchCourseDetailsData(id)),
+    fetchData: () => dispatch(fetchCourseDetailsData(id)),
   };
 };
 

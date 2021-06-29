@@ -76,11 +76,11 @@ const courseList = [
   },
 ];
 
-function HomeView({ courseData, featchData }) {
+function HomeView({ courseData, fetchData }) {
   const classes = useStyles();
 
   useEffect(() => {
-    featchData();
+    fetchData();
   }, []);
 
   return (
@@ -172,7 +172,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    featchData: () => dispatch(fetchCourseData()),
+    fetchData: () => dispatch(fetchCourseData()),
   };
 };
 
