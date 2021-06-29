@@ -17,7 +17,7 @@ export const courseDetail = {
       "https://firebasestorage.googleapis.com/v0/b/codeforcauseorg.appspot.com/o/course%2Fzoom_0.mp4?alt=media&token=01f3ed1e-8d39-4fde-b945-f3bfe677b6df",
     courseDuration: "05 hr 02 min",
     courseSections: "12 sections",
-    totalNumberOfLectures: "111 lectures",
+    totalNumberOfLectures: "111",
     crossPrice: "₹5000",
     originalPrice: "₹1200",
     raiting: "4.5",
@@ -27,14 +27,12 @@ export const courseDetail = {
       {
         mentorID: "001",
         mentorName: "Anuj Garg",
-        mentorPicture:
-          "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        mentorPicture: "assets/members/anuj.png",
       },
       {
         mentorID: "002",
         mentorName: "Ganga Chaturvedi",
-        mentorPicture:
-          "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
+        mentorPicture: "assets/members/ganga.png",
       },
     ],
     whatYouWillLearn: [
