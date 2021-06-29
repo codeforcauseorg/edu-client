@@ -12,6 +12,7 @@ import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 import { useEffect } from "react";
 import { fetchCourseData } from "../../../services/courseServices";
 import { connect } from "react-redux";
+import SkeletonMediaCard from "../../../components/skeleton/SkeletonMediaCard";
 
 const ContinueLearningList = [
   {
@@ -67,24 +68,22 @@ function HomeView({ courseData, fetchData }) {
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseData.course === null ? (
-            <Typography>Loading.......</Typography>
-          ) : (
-            courseData.course.popular.map((items, index) => <MediaCard key={index} props={items} />)
-          )}
+          {courseData.course === null
+            ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+            : courseData.course.popular.map((items, index) => (
+                <MediaCard key={index} props={items} />
+              ))}
         </CardContainer>
         <Box className={classes.popularContainer}>
           <Typography variant="h2">Upcoming Course</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseData.course === null ? (
-            <Typography>Loading.......</Typography>
-          ) : (
-            courseData.course.upcoming.map((items, index) => (
-              <MediaCard key={index} props={items} />
-            ))
-          )}
+          {courseData.course === null
+            ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+            : courseData.course.upcoming.map((items, index) => (
+                <MediaCard key={index} props={items} />
+              ))}
         </CardContainer>
       </Container>
       <ExploreCourseSection />
