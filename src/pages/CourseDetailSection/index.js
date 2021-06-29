@@ -2,58 +2,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
 import CourseHeroSection from "../../components/CourseDetailsComponent/CourseHeroSection";
 import AboutCourse from "../../components/CourseDetailsComponent/AboutCourse";
-import CardContainer from "../../components/cardContainer/cardContainer";
+// import CardContainer from "../../components/cardContainer/cardContainer";
 import BrowseAllButton from "../../components/BrowseAllButton/index";
-import MediaCard from "../../components/CourseMediaCard/MediaCard";
-import { fetchCourseDetailsData } from "../../services/courseServices";
+// import MediaCard from "../../components/CourseMediaCard/MediaCard";
+import { setCourseDetailsData } from "../../services/courseServices";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 
-const courseList = [
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-];
-
-function CourseDetail({ courseData, fetchData }) {
+function CourseDetail({ courseDetailsData, fetchData }) {
   const classes = useStyles();
+  console.log(courseDetailsData);
   useEffect(() => {
     fetchData();
   }, []);
@@ -67,7 +25,7 @@ function CourseDetail({ courseData, fetchData }) {
           <Typography variant="h2">Similar Courses</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
-        <CardContainer>
+        {/* <CardContainer>
           {courseList.map((items, index) => (
             <MediaCard
               key={index}
@@ -81,12 +39,12 @@ function CourseDetail({ courseData, fetchData }) {
               mentors={items.mentors}
             />
           ))}
-        </CardContainer>
+        </CardContainer> */}
         <Box className={classes.popularContainer}>
           <Typography variant="h2">Upcoming Course</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
-        <CardContainer>
+        {/* <CardContainer>
           {courseList.map((items, index) => (
             <MediaCard
               key={index}
@@ -100,7 +58,7 @@ function CourseDetail({ courseData, fetchData }) {
               mentors={items.mentors}
             />
           ))}
-        </CardContainer>
+        </CardContainer> */}
       </Box>
     </Box>
   );
@@ -125,14 +83,15 @@ const useStyles = makeStyles((theme) => ({
 
 const mapStateToProps = (state) => {
   return {
-    courseData: state.course,
+    courseDetailsData: state.courseDetails,
   };
 };
 const mapDispatchToProps = (dispatch, props) => {
   const id = props.match.params.id;
+  console.log(id);
 
   return {
-    fetchData: () => dispatch(fetchCourseDetailsData(id)),
+    fetchData: () => dispatch(setCourseDetailsData(id)),
   };
 };
 

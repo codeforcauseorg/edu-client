@@ -5,4 +5,4 @@ import { explore } from "./courses/explore/index";
 import { courseDetail } from "./courses/courseDetail/index";
 
 mock.onGet("/api/courses/all").reply(200, { popular, upcoming, explore });
-mock.onGet("/api/courses/:courseid").reply(200, courseDetail);
+mock.onGet("/api/courses/details").reply(200, courseDetail);
