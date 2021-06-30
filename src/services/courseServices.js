@@ -17,7 +17,6 @@ export const setCourseData = () => {
 };
 
 export const setCourseDetailsData = (id) => {
-  console.log(id);
   return async (dispatch) => {
     try {
       const response = await axios.get("/api/courses/details"); // mock URL for testing

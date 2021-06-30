@@ -8,25 +8,31 @@ import BrowseAllButton from "../../components/BrowseAllButton/index";
 import { setCourseDetailsData } from "../../services/courseServices";
 import { connect } from "react-redux";
 import { useEffect } from "react";
+import HeroSkeleton from "../../components/skeleton/SkeletonCourseDetails/HeroSkeleton";
+import NavBar from "../../components/NavBar/index";
 
 function CourseDetail({ courseData, fetchData }) {
   const classes = useStyles();
-  console.log(courseData.courseDetails);
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
-    <Box>
-      {courseData.courseDetails === null ? "Loading...." : <CourseHeroSection />}
-
-      <AboutCourse />
-      <Box className={classes.courseContainer}>
-        <Box className={classes.popularContainer}>
-          <Typography variant="h2">Similar Courses</Typography>
-          <BrowseAllButton onClick={() => console.log("Popular Course")} />
-        </Box>
-        {/* <CardContainer>
+    <>
+      <NavBar />
+      <Box>
+        {courseData.courseDetails === null ? (
+          <HeroSkeleton />
+        ) : (
+          <CourseHeroSection details={courseData.courseDetails} />
+        )}
+        <AboutCourse porps={courseData.courseDetails} />
+        <Box className={classes.courseContainer}>
+          <Box className={classes.popularContainer}>
+            <Typography variant="h2">Similar Courses</Typography>
+            <BrowseAllButton onClick={() => console.log("Popular Course")} />
+          </Box>
+          {/* <CardContainer>
           {courseList.map((items, index) => (
             <MediaCard
               key={index}
@@ -41,12 +47,12 @@ function CourseDetail({ courseData, fetchData }) {
             />
           ))}
         </CardContainer> */}
-        <Box className={classes.popularContainer}>
-          <Typography variant="h2">Upcoming Course</Typography>
-          <BrowseAllButton onClick={() => console.log("Popular Course")} />
-        </Box>
+          <Box className={classes.popularContainer}>
+            <Typography variant="h2">Upcoming Course</Typography>
+            <BrowseAllButton onClick={() => console.log("Popular Course")} />
+          </Box>
 
-        {/* <CardContainer>
+          {/* <CardContainer>
           {courseList.map((items, index) => (
             <MediaCard
               key={index}
@@ -61,8 +67,9 @@ function CourseDetail({ courseData, fetchData }) {
             />
           ))}
         </CardContainer> */}
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 }
 
