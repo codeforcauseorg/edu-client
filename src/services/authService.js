@@ -53,12 +53,10 @@ class AuthService{
       localStorage.removeItem("cfcAccessToken");
       localStorage.removeItem("userDataKey");
       delete axios.defaults.headers.common.Authorization;
-      window.location.reload();
   }
 
   setuserData(displayName,email,photoURL){
       localStorage.setItem("userDataKey", JSON.stringify({displayName,email,photoURL}));
-      window.location.reload();
   }
 
   setSession(accessToken){
@@ -67,8 +65,10 @@ class AuthService{
   }
 
   getAccessToken = () => localStorage.getItem("cfcAccessToken");
-  getUserData =()=> localStorage.getItem("userDataKey");
-
+  getUserData (){
+     const data =  localStorage.getItem("userDataKey");
+    return JSON.parse(data);
+  } 
 }
 
 const authService = new AuthService();

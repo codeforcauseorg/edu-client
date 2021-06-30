@@ -14,7 +14,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import authService from "../../services/authService";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../store/actions/accountActions";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -25,6 +26,8 @@ const navItemsLists = [
 
 function NavBar() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.account.user);
   const [scrollPositions, setscrollPositions] = useState(0);
 
   const listenToScrollEvent = () => {
@@ -58,8 +61,6 @@ function NavBar() {
   useEffect(() => {
     listenToScrollEvent();
   });
-
-  const user = JSON.parse(authService.getUserData());
 
   return (
     <div className={classes.grow}>
@@ -123,7 +124,15 @@ function NavBar() {
               )}
             </Hidden>
           </div>
-          {user ? <Avatar className={classes.avatar} src={`${user.photoURL}`} /> : ""}
+          {user ? (
+            <Avatar
+              className={classes.avatar}
+              src={`${user.photoURL}`}
+              onClick={() => dispatch(logout)}
+            />
+          ) : (
+            ""
+          )}
         </Toolbar>
       </AppBar>
     </div>
