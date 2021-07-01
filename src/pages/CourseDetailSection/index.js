@@ -2,19 +2,22 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Box, Typography } from "@material-ui/core";
 import CourseHeroSection from "../../components/CourseDetailsComponent/CourseHeroSection";
 import AboutCourse from "../../components/CourseDetailsComponent/AboutCourse";
-// import CardContainer from "../../components/cardContainer/cardContainer";
+import CardContainer from "../../components/cardContainer/cardContainer";
 import BrowseAllButton from "../../components/BrowseAllButton/index";
-// import MediaCard from "../../components/CourseMediaCard/MediaCard";
-import { setCourseDetailsData } from "../../services/courseServices";
+import MediaCard from "../../components/CourseMediaCard/MediaCard";
+import { setCourseData, setCourseDetailsData } from "../../services/courseServices";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import HeroSkeleton from "../../components/skeleton/SkeletonCourseDetails/HeroSkeleton";
 import NavBar from "../../components/NavBar/index";
+import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
 
-function CourseDetail({ courseData, fetchData }) {
+function CourseDetail({ courseData, fetchCourseDetails, fetchCourse }) {
   const classes = useStyles();
+
   useEffect(() => {
-    fetchData();
+    fetchCourseDetails();
+    fetchCourse();
   }, []);
 
   return (
@@ -35,41 +38,24 @@ function CourseDetail({ courseData, fetchData }) {
             <Typography variant="h2">Similar Courses</Typography>
             <BrowseAllButton onClick={() => console.log("Popular Course")} />
           </Box>
-          {/* <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
-        </CardContainer> */}
+          <CardContainer>
+            {courseData.course === null
+              ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+              : courseData.course.popular.map((items, index) => (
+                  <MediaCard key={index} props={items} />
+                ))}
+          </CardContainer>
           <Box className={classes.popularContainer}>
             <Typography variant="h2">Upcoming Course</Typography>
             <BrowseAllButton onClick={() => console.log("Popular Course")} />
           </Box>
-
-          {/* <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
-        </CardContainer> */}
+          <CardContainer>
+            {courseData.course === null
+              ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+              : courseData.course.upcoming.map((items, index) => (
+                  <MediaCard key={index} props={items} />
+                ))}
+          </CardContainer>
         </Box>
       </Box>
     </>
@@ -101,7 +87,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, props) => {
   const id = props.match.params.id;
   return {
-    fetchData: () => dispatch(setCourseDetailsData(id)),
+    fetchCourseDetails: () => dispatch(setCourseDetailsData(id)),
+    fetchCourse: () => dispatch(setCourseData()),
   };
 };
 

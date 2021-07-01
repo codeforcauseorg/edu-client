@@ -10,7 +10,7 @@ import StudentCourseReview from "./SubComponents/AboutElements/StudentCourseRevi
 
 function AboutCourse(props) {
   const classes = useStyles();
-  console.log(props);
+
   const { courseDetails } = props.about;
   const {
     whatYouWillLearn,
