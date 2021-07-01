@@ -39,8 +39,6 @@ function HomeView({ courseData, fetchData }) {
   const classes = useStyles();
   // const exploreCourse =courseData.course.explore;
 
-  console.log("Course Data", courseData);
-
   useEffect(() => {
     fetchData();
   }, []);

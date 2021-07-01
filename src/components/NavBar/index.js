@@ -15,7 +15,7 @@ import { Link, useHistory } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../store/actions/accountActions";
+import authService from "../../services/authService";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -62,6 +62,14 @@ function NavBar() {
   useEffect(() => {
     listenToScrollEvent();
   });
+
+  const handleLogOutAction = () => {
+    try {
+      dispatch(authService.logout());
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={classes.grow}>
@@ -129,7 +137,7 @@ function NavBar() {
             <Avatar
               className={classes.avatar}
               src={`${user.photoURL}`}
-              onClick={() => dispatch(logout)}
+              onClick={() => handleLogOutAction()}
             />
           ) : (
             ""
