@@ -11,7 +11,7 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,6 +27,7 @@ const navItemsLists = [
 function NavBar() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector((state) => state.account.user);
   const [scrollPositions, setscrollPositions] = useState(0);
 
@@ -113,7 +114,7 @@ function NavBar() {
                   <Button className={classes.signInButton}>
                     <Typography noWrap>Sign In</Typography>
                   </Button>
-                  <Button className={classes.signUpButton}>
+                  <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
                     <Typography noWrap>Sign Up</Typography>
                   </Button>
                 </div>
