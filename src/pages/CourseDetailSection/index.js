@@ -24,9 +24,12 @@ function CourseDetail({ courseData, fetchData }) {
         {courseData.courseDetails === null ? (
           <HeroSkeleton />
         ) : (
-          <CourseHeroSection details={courseData.courseDetails} />
+          <Box>
+            <CourseHeroSection details={courseData.courseDetails} />
+            <AboutCourse about={courseData.courseDetails} />
+          </Box>
         )}
-        <AboutCourse porps={courseData.courseDetails} />
+
         <Box className={classes.courseContainer}>
           <Box className={classes.popularContainer}>
             <Typography variant="h2">Similar Courses</Typography>

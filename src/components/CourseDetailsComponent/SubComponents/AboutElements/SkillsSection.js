@@ -1,8 +1,9 @@
 import { makeStyles, Box, Typography, Chip } from "@material-ui/core";
 import React from "react";
 
-function SkillsSection() {
+function SkillsSection(props) {
   const classes = useStyles();
+  const { skillsInfo } = props;
 
   return (
     <Box>
@@ -10,8 +11,8 @@ function SkillsSection() {
         Skills you will gain
       </Typography>
       <Box>
-        {[1, 2, 3, 4, 5].map((items, index) => (
-          <Chip key={index} className={classes.chip} label="Cloud Databases" />
+        {skillsInfo.map((items, index) => (
+          <Chip key={index} className={classes.chip} label={items} />
         ))}
       </Box>
     </Box>

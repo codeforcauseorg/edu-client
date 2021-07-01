@@ -11,14 +11,9 @@ import {
 } from "@material-ui/core";
 import CheckIcon from "@material-ui/icons/Check";
 
-const listElement = [
-  "Gain skills required to succeed in an entry-level IT job",
-  "Learn to perform day-to-day IT support tasks including computer assembly, wireless networking, installing programs, and customer service",
-  "Learn how to provide end-to-end customer support, ranging from identifying problems to troubleshooting and debugging",
-  "Learn to use systems including Linux, Domain Name Systems, Command-Line Interface, and Binary Code",
-];
-function LearningInfo() {
+function LearningInfo(props) {
   const classes = useStyles();
+  const { info } = props;
 
   return (
     <Box className={classes.root}>
@@ -28,7 +23,7 @@ function LearningInfo() {
         </Typography>
         <Box mt={2} mb={2}>
           <Grid container item xs={12} spacing={2}>
-            {listElement.map((items, index) => (
+            {info.map((items, index) => (
               <Box key={index} component="div">
                 <ListItem>
                   <ListItemAvatar>

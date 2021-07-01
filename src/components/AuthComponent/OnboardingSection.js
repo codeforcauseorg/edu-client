@@ -28,7 +28,6 @@ function OnboardingSection() {
   const [x, setx] = useState(0);
 
   const handelNext = () => {
-    console.log(x);
     x === -100 * (onboardingItems.length - 1) ? setx(0) : setx(x - 100);
   };
 

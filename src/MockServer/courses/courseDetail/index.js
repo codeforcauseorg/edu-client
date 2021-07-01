@@ -104,7 +104,7 @@ export const courseDetail = {
         ],
       },
     ],
-    Prerequisites: ["Javascript", "Html", "Css"],
+    prerequisites: ["Javascript", "Html", "Css"],
     popularReviews: [
       {
         reviewID: "101",
@@ -112,7 +112,7 @@ export const courseDetail = {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         reviewerName: "Divyanshu Yadav",
         occupation: "Student",
-        raitedStars: "5",
+        raitedStars: 5,
         timeStamp: "1 year ago",
       },
       {
@@ -121,7 +121,7 @@ export const courseDetail = {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         reviewerName: "Divyanshu Yadav",
         occupation: "Student",
-        raitedStars: "5",
+        raitedStars: 4.5,
         timeStamp: "1 year ago",
       },
       {
@@ -130,7 +130,7 @@ export const courseDetail = {
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         reviewerName: "Divyanshu Yadav",
         occupation: "Student",
-        raitedStars: "5",
+        raitedStars: 5,
         timeStamp: "1 year ago",
       },
     ],

@@ -105,7 +105,7 @@ export const explore = [
           ],
         },
       ],
-      Prerequisites: ["Javascript", "Html", "Css"],
+      prerequisites: ["Javascript", "Html", "Css"],
       popularReviews: [
         {
           reviewID: "101",
@@ -243,7 +243,7 @@ export const explore = [
           ],
         },
       ],
-      Prerequisites: ["Javascript", "Html", "Css"],
+      prerequisites: ["Javascript", "Html", "Css"],
       popularReviews: [
         {
           reviewID: "101",
@@ -381,7 +381,7 @@ export const explore = [
           ],
         },
       ],
-      Prerequisites: ["Javascript", "Html", "Css"],
+      prerequisites: ["Javascript", "Html", "Css"],
       popularReviews: [
         {
           reviewID: "101",
@@ -519,7 +519,7 @@ export const explore = [
           ],
         },
       ],
-      Prerequisites: ["Javascript", "Html", "Css"],
+      prerequisites: ["Javascript", "Html", "Css"],
       popularReviews: [
         {
           reviewID: "101",
@@ -657,7 +657,7 @@ export const explore = [
           ],
         },
       ],
-      Prerequisites: ["Javascript", "Html", "Css"],
+      prerequisites: ["Javascript", "Html", "Css"],
       popularReviews: [
         {
           reviewID: "101",
@@ -795,7 +795,7 @@ export const explore = [
           ],
         },
       ],
-      Prerequisites: ["Javascript", "Html", "Css"],
+      prerequisites: ["Javascript", "Html", "Css"],
       popularReviews: [
         {
           reviewID: "101",
