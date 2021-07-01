@@ -20,7 +20,7 @@ export const courseDetail = {
     totalNumberOfLectures: "111",
     crossPrice: "₹5000",
     originalPrice: "₹1200",
-    raiting: "4.5",
+    raiting: 4.5,
     numberOfStudentsRaited: "25,179",
     numberOfStudentsEnrolled: "148,806",
     mentorList: [

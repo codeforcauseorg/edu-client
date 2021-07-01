@@ -9,7 +9,26 @@ import Instructors from "./SubComponents/HeroElements/Instructors";
 function CourseHeroSection(props) {
   const classes = useStyles();
   const { courseDetails } = props.details;
-  const { courseTitle } = courseDetails;
+  const {
+    courseTitle,
+    courseShortDescription,
+    raiting,
+    numberOfStudentsEnrolled,
+    numberOfStudentsRaited,
+    mentorList,
+    courseTrailerUrl,
+    crossPrice,
+    originalPrice,
+    courseThumbnail,
+  } = courseDetails;
+
+  const videoContent = {
+    courseTrailerUrl,
+    crossPrice,
+    originalPrice,
+    courseThumbnail,
+  };
+
   return (
     <>
       <Box className={classes.root}>
@@ -22,22 +41,24 @@ function CourseHeroSection(props) {
               {courseTitle}
             </Typography>
             <Typography variant="h5" component="p">
-              Complete hands-on machine learning tutorial with data science, Tensorflow, artificial
-              intelligence, and neural networks
+              {courseShortDescription}
             </Typography>
             <Box className={classes.ratingContainer}>
-              {" "}
-              <Rating value={4.5} precision={0.5} readOnly className={classes.ratingStar} />
+              <Rating value={raiting} precision={0.5} readOnly className={classes.ratingStar} />
               <Hidden smDown>
-                <Typography className={classes.numberOfRatings}> (25,179 ratings)</Typography>
-                <Typography className={classes.numberOfStudents}> 148,806 students </Typography>
+                <Typography className={classes.numberOfRatings}>
+                  ({numberOfStudentsRaited} ratings)
+                </Typography>
+                <Typography className={classes.numberOfStudents}>
+                  {numberOfStudentsEnrolled} students{" "}
+                </Typography>
               </Hidden>
             </Box>
           </Box>
-          <Instructors />
+          <Instructors mentors={mentorList} />
           <ShareAndWishlistButton /> {/* Share and add wishlist button component */}
         </Container>
-        <VideoCard /> {/* video card component */}
+        <VideoCard videoInfo={videoContent} /> {/* video card component */}
       </Box>
     </>
   );
