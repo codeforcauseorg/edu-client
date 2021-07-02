@@ -6,7 +6,7 @@ function ActivityCard({ props }) {
   const { title, icon, subtitle, description, onClick } = props;
 
   return (
-    <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
+    <Grid item xs={12} sm={6} md={6} lg={6} xl={4} className={classes.grid}>
       <Card className={classes.card} onClick={onClick}>
         <CardContent className={classes.cardContent}>
           <img src={icon} className={classes.image} />
@@ -17,7 +17,7 @@ function ActivityCard({ props }) {
             {subtitle}
           </Typography>
           <Hidden smDown>
-            <Typography variant="subtitle1" className={classes.margin} gutterBottom>
+            <Typography variant="subtitle1" className={classes.description} gutterBottom>
               {description}
             </Typography>
           </Hidden>
@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     padding: theme.spacing(4),
     position: "relative",
+    zIndex: 1,
   },
   margin: {
     marginTop: theme.spacing(2),
@@ -52,6 +53,7 @@ const useStyles = makeStyles((theme) => ({
     right: -20,
     bottom: 0,
     height: 120,
+    zIndex: -1,
     [theme.breakpoints.down("sm")]: {
       height: 100,
     },

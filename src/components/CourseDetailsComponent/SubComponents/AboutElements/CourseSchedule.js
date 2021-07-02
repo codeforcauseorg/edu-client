@@ -3,8 +3,10 @@ import { Box, Typography, List } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import ScheduleList from "./ScheduleList";
 
-function CourseSchedule() {
+function CourseSchedule(props) {
   const classes = useStyles();
+  const { schedule } = props;
+  const { courseSections, totalNumberOfLectures, courseDuration, courseScheduleList } = schedule;
 
   return (
     <Box mt={8}>
@@ -12,12 +14,12 @@ function CourseSchedule() {
         Course Schedule
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        12 sections • 111 lectures • 14h 25m total length
+        {courseSections} • {totalNumberOfLectures} lectures • {courseDuration} total length
       </Typography>
       <Box>
         <List>
-          {[1, 2, 3].map((items, index) => (
-            <ScheduleList key={index} props={items} />
+          {courseScheduleList.map((items, index) => (
+            <ScheduleList key={index} scheduleInfo={items} />
           ))}
         </List>
       </Box>

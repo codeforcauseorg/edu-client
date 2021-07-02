@@ -60,22 +60,22 @@ const Routes = () => (
     <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
       <LandingPage />
     </AuthRoute>
-    <AuthRoute exact path={ROUTES.HOME} type="private">
+    <AuthRoute exact path={ROUTES.HOME}>
       <MainLayout>
         <HomePage />
       </MainLayout>
     </AuthRoute>
-    <AuthRoute path={ROUTES.MYCOURSE} exact type="private">
+    <AuthRoute path={ROUTES.MYCOURSE} exact>
       <MainLayout>
         <MyCourses />
       </MainLayout>
     </AuthRoute>
-    <AuthRoute path={ROUTES.WISHLIST} exact type="private">
+    <AuthRoute path={ROUTES.WISHLIST} exact>
       <MainLayout>
         <WishlistPage />
       </MainLayout>
     </AuthRoute>
-    <AuthRoute path={ROUTES.PROFILE} exact type="private">
+    <AuthRoute path={ROUTES.PROFILE} exact>
       <MainLayout>
         <ProfilePage />
       </MainLayout>

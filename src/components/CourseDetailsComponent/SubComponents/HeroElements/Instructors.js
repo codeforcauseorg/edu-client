@@ -9,29 +9,20 @@ import {
   ListItemText,
 } from "@material-ui/core";
 
-const instructorList = [
-  {
-    name: "Anuj Garg",
-    image: "assets/members/anuj.png",
-  },
-  {
-    name: "Ganga Chaturvedi",
-    image: "assets/members/ganga.png",
-  },
-];
+function Instructors(props) {
+  const { mentors } = props;
 
-function Instructors() {
   return (
     <Box mt={4}>
       <Grid container item xs={12} spacing={2}>
-        {instructorList.map((items, index) => (
+        {mentors.map((items, index) => (
           <Box key={index}>
             <ListItem>
               <ListItemAvatar>
-                <Avatar src={items.image} />
+                <Avatar src={items.mentorPicture} alt={items.mentorName} />
               </ListItemAvatar>
               <ListItemText>
-                <Typography>{items.name}</Typography>
+                <Typography>{items.mentorName}</Typography>
                 <Typography>Instructor</Typography>
               </ListItemText>
             </ListItem>
