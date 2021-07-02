@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import produce from "immer";
 import { LOGIN_REQUEST, LOGOUT, SILENT_LOGIN } from "../actions/accountActions";
 
