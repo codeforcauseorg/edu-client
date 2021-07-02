@@ -3,11 +3,11 @@ import React from "react";
 
 function ActivityCard({ props }) {
   const classes = useStyles();
-  const { title, icon, subtitle, description } = props;
+  const { title, icon, subtitle, description, onClick } = props;
 
   return (
     <Grid item xs={12} sm={6} md={6} lg={6} xl={4}>
-      <Card className={classes.card}>
+      <Card className={classes.card} onClick={onClick}>
         <CardContent className={classes.cardContent}>
           <img src={icon} className={classes.image} />
           <Typography variant="h6" color="textSecondary" gutterBottom className={classes.title}>
@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
     boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.25)",
     textAlign: "left",
+    cursor: "pointer",
   },
   title: {
     textTransform: "uppercase",
@@ -45,7 +46,6 @@ const useStyles = makeStyles((theme) => ({
   },
   margin: {
     marginTop: theme.spacing(2),
-    cursor: "pointer",
   },
   image: {
     position: "absolute",

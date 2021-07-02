@@ -23,3 +23,4 @@ export const MENTOR_PAGE = "/mentorPage";
 export const REFERRAL = "/referralAndCoupons";
 export const HACKATHON_AND_ENENTS = "/hackathonsAndEvents";
 export const LESSONS_PLAYER = "/course/:courseName/lecture/:videoSectionId:videoSectionName";
+export const CLASSROOM = "/classroom";
