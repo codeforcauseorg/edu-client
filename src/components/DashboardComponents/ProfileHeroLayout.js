@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme) => ({
   heroSection: {
     minHeight: 200,
     background: "linear-gradient(269.98deg, #3740A1 -4.96%, #2ECDFF 203.33%)",
-    marginTop: theme.spacing(10),
     borderRadius: "5px",
     display: "flex",
     flexDirection: "row",

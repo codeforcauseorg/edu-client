@@ -15,7 +15,7 @@ function Dashboard() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: { display: "flex", maxWidth: "90%" },
+  root: { display: "flex", maxWidth: "90%", marginTop: theme.spacing(10) },
 }));
 
 export default Dashboard;

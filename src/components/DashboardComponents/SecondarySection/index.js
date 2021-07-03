@@ -10,27 +10,19 @@ function SecondarySection() {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <Box className={classes.container}>
-        <ScoreBoard />
-        <AssignmentsSection />
-        <PopularTopics />
-        <FactsSection />
-      </Box>
+      <ScoreBoard />
+      <AssignmentsSection />
+      <PopularTopics />
+      <FactsSection />
     </Box>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
-    background: "#000",
-    flex: 2,
-  },
-  container: {
-    margin: theme.spacing(5),
-    flex: 2,
-    background: "#F8F9FD",
-    borderRadius: "5px",
+    flex: 1.5,
+    height: "100%",
+    marginLeft: theme.spacing(5),
   },
 }));
 export default SecondarySection;
