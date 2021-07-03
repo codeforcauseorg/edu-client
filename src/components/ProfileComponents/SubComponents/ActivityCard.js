@@ -1,5 +1,5 @@
-import { makeStyles, Grid, Card, CardContent, Typography, Link, Hidden } from "@material-ui/core";
 import React from "react";
+import { makeStyles, Grid, Card, CardContent, Typography, Link, Hidden } from "@material-ui/core";
 
 function ActivityCard({ props }) {
   const classes = useStyles();
@@ -20,10 +20,10 @@ function ActivityCard({ props }) {
             <Typography variant="subtitle1" className={classes.description} gutterBottom>
               {description}
             </Typography>
+            <Typography variant="body2" className={classes.margin} gutterBottom>
+              <Link>View</Link>
+            </Typography>
           </Hidden>
-          <Typography variant="body2" className={classes.margin} gutterBottom>
-            <Link>View</Link>
-          </Typography>
         </CardContent>
       </Card>
     </Grid>

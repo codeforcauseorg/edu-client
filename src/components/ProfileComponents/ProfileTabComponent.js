@@ -48,7 +48,13 @@ function ProfileTabComponent() {
   return (
     <Box className={classes.root}>
       <AppBar position="static" color="default" className={classes.appBar}>
-        <Tabs value={value} onChange={handleChange} variant="scrollable" scrollButtons="auto">
+        <Tabs
+          className={classes.tabs}
+          value={value}
+          onChange={handleChange}
+          variant="scrollable"
+          scrollButtons="auto"
+        >
           {tabElements.map((items, index) => (
             <Tab key={index} label={items.title} />
           ))}
@@ -73,6 +79,11 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     [theme.breakpoints.down("sm")]: {
       borderRadius: theme.spacing(0),
+    },
+  },
+  tabs: {
+    [theme.breakpoints.down("md")]: {
+      margin: "0 auto",
     },
   },
 }));
