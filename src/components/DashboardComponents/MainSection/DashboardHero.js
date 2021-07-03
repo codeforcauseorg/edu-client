@@ -1,8 +1,8 @@
 import React from "react";
 import { Avatar, Box, makeStyles, Typography, Button } from "@material-ui/core";
 import { useSelector } from "react-redux";
-import ProfileHeroLayout from "./ProfileHeroLayout";
-import ProfileSkeleton from "../skeleton/ProfileSkeleton";
+import ProfileHeroLayout from "../ProfileHeroLayout";
+import ProfileSkeleton from "../../skeleton/ProfileSkeleton";
 
 function DashboardHero() {
   const classes = useStyles();
@@ -14,7 +14,12 @@ function DashboardHero() {
         <ProfileHeroLayout>
           <Avatar className={classes.avatar} src={user.photoURL} />
           <Box className={classes.infoContainer}>
-            <Typography variant="h2">{user.displayName}</Typography>
+            <Typography variant="h2" component="span" className={classes.span1}>
+              Hello
+            </Typography>
+            <Typography variant="h2" component="span">
+              {user.displayName}
+            </Typography>
             <Box mt={2}>
               <Typography variant="body1">{user.email}</Typography>
             </Box>
@@ -48,6 +53,13 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     border: "1px solid #fff",
     textTransform: "none",
+  },
+  span1: {
+    marginRight: theme.spacing(1),
+    fontWeight: 200,
+  },
+  vec1: {
+    position: "absolute",
   },
 }));
 
