@@ -1,9 +1,9 @@
 import React from "react";
 import { makeStyles, Typography, Tab, Tabs, Box, AppBar } from "@material-ui/core";
-import Activity from "../../components/ProfileComponents/Activity";
-import Achievement from "../../components/ProfileComponents/Achievement";
+import Activity from "./Activity";
+import Achievement from "./Achievement";
 
-function ProfileTabComponent() {
+function DashboardTabComponent() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -77,4 +77,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ProfileTabComponent;
+export default DashboardTabComponent;

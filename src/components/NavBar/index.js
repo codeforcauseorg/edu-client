@@ -21,7 +21,7 @@ const navItemsLists = [
   { title: "Home", link: "/" },
   { title: "My Course", link: "/my-course" },
   { title: "Wishlist", link: "/wishlist" },
-  { title: "Profile", link: "/profile" },
+  { title: "Dashboard", link: "/dashboard" },
 ];
 
 function NavBar() {

@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/MainLayoutPage/HomeView/index";
 import MyCourses from "../pages/MainLayoutPage/MyCourseSection/index";
 import WishlistPage from "../pages/MainLayoutPage/WishListView/index";
-import ProfilePage from "../pages/MainLayoutPage/ProfilePage/index";
+import Dashboard from "../pages/MainLayoutPage/Dashboard/index";
 import CourseDetails from "../pages/CourseDetailSection";
 import LandingPage from "../pages/LandingPage/index";
 import AuthRoute from "../components/auth/AuthRoute/index";
@@ -39,7 +39,7 @@ const Routes = () => (
     </AuthRoute>
     <AuthRoute path={ROUTES.PROFILE} exact>
       <MainLayout>
-        <ProfilePage />
+        <Dashboard />
       </MainLayout>
     </AuthRoute>
     <Route component={PageNotFound} />

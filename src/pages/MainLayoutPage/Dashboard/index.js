@@ -1,18 +1,18 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import ProfileHero from "../../../components/ProfileComponents/ProfileHero";
-import ProfileTabComponent from "../../../components/ProfileComponents/ProfileTabComponent";
+import DashboardHero from "../../../components/DashboardComponents/DashboardHero";
+import DashboardTabComponent from "../../../components/DashboardComponents/DashboardTabComponent";
 
-function ProfilePage() {
+function Dashboard() {
   const classes = useStyles();
 
   return (
     <Container className={classes.root}>
-      <ProfileHero />
+      <DashboardHero />
       <Typography className={classes.title} variant="h2" color="textPrimary">
         Profile & settings
       </Typography>
-      <ProfileTabComponent />
+      <DashboardTabComponent />
     </Container>
   );
 }
@@ -34,4 +34,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ProfilePage;
+export default Dashboard;

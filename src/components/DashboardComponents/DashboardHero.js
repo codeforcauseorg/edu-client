@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import ProfileHeroLayout from "./ProfileHeroLayout";
 import ProfileSkeleton from "../skeleton/ProfileSkeleton";
 
-function ProfileHero() {
+function DashboardHero() {
   const classes = useStyles();
   const user = useSelector((state) => state.account.user);
 
@@ -51,4 +51,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default ProfileHero;
+export default DashboardHero;
