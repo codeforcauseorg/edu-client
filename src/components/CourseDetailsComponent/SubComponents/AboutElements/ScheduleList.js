@@ -20,9 +20,17 @@ import DateRangeIcon from "@material-ui/icons/DateRange";
 
 import React from "react";
 
-function ScheduleList() {
+function ScheduleList(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const { scheduleInfo } = props;
+  const {
+    noOfLectures,
+    sectionName,
+    totalLectureDuration,
+    shortDescription,
+    lectureList,
+  } = scheduleInfo;
 
   const handleClick = () => {
     setOpen(!open);
@@ -36,10 +44,12 @@ function ScheduleList() {
             <DateRangeIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Chapter 1" secondary="Lorem ipsum dolor sit amet, consectetur" />
+        <ListItemText primary={sectionName} secondary={shortDescription} />
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
           <Hidden smDown>
-            <Typography>11 lectures • 1h 25m</Typography>
+            <Typography>
+              {noOfLectures} • {totalLectureDuration}
+            </Typography>
           </Hidden>
           <IconButton edge="end" onClick={() => handleClick()}>
             {open ? <ExpandMoreIcon /> : <NavigateNextIcon />}
@@ -47,25 +57,28 @@ function ScheduleList() {
         </ListItemSecondaryAction>
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        {[1, 2].map((items, index) => (
-          <CollapseList key={index} />
+        {lectureList.map((items, index) => (
+          <CollapseList key={index} lectureList={items} />
         ))}
       </Collapse>
     </Paper>
   );
 }
 
-function CollapseList() {
+function CollapseList(props) {
   const classes = useStyles();
+  const { lectureList } = props;
+  const { lectureTitle, lectureDuration } = lectureList;
+
   return (
     <List component="div">
       <ListItem button>
         <ListItemIcon>
           <PlayCircleOutlineIcon />
         </ListItemIcon>
-        <ListItemText primary="Introduction" />
+        <ListItemText primary={lectureTitle} />
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
-          <Typography className={classes.lectureInfo}> 12:25</Typography>
+          <Typography className={classes.lectureInfo}>{lectureDuration}</Typography>
         </ListItemSecondaryAction>
       </ListItem>
     </List>

@@ -2,7 +2,7 @@ import axios from "../utils/axios";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
-
+import {login,logout} from "../store/actions/accountActions"
 
 class AuthService{
   
@@ -36,15 +36,24 @@ class AuthService{
   }
 
   login = () => {
-    cfaSignIn("google.com").subscribe((user)=>{
-     this.setuserData(user.displayName,user.email,user.photoURL);
-    });
+    return  (dispatch)=>{
+      dispatch(login())
+      cfaSignIn("google.com").subscribe((user)=>{
+       this.setuserData(user.displayName,user.email,user.photoURL);
+       
+      });
+    }
+   
   };
 
   logout = () => {
-    cfaSignOut().subscribe(()=>{
-     this.removeSession();
-    });
+    return (dispatch)=>{
+      dispatch(logout())
+      cfaSignOut().subscribe(()=>{
+       this.removeSession();
+      });
+    }
+   
     
   };
   
@@ -53,12 +62,10 @@ class AuthService{
       localStorage.removeItem("cfcAccessToken");
       localStorage.removeItem("userDataKey");
       delete axios.defaults.headers.common.Authorization;
-      window.location.reload();
   }
 
   setuserData(displayName,email,photoURL){
       localStorage.setItem("userDataKey", JSON.stringify({displayName,email,photoURL}));
-      window.location.reload();
   }
 
   setSession(accessToken){
@@ -67,8 +74,10 @@ class AuthService{
   }
 
   getAccessToken = () => localStorage.getItem("cfcAccessToken");
-  getUserData =()=> localStorage.getItem("userDataKey");
-
+  getUserData (){
+     const data =  localStorage.getItem("userDataKey");
+    return JSON.parse(data);
+  } 
 }
 
 const authService = new AuthService();

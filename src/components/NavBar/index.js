@@ -11,9 +11,10 @@ import {
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
+import { useDispatch, useSelector } from "react-redux";
 import authService from "../../services/authService";
 
 const navItemsLists = [
@@ -25,6 +26,9 @@ const navItemsLists = [
 
 function NavBar() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const user = useSelector((state) => state.account.user);
   const [scrollPositions, setscrollPositions] = useState(0);
 
   const listenToScrollEvent = () => {
@@ -59,7 +63,13 @@ function NavBar() {
     listenToScrollEvent();
   });
 
-  const user = JSON.parse(authService.getUserData());
+  const handleLogOutAction = () => {
+    try {
+      dispatch(authService.logout());
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className={classes.grow}>
@@ -112,7 +122,7 @@ function NavBar() {
                   <Button className={classes.signInButton}>
                     <Typography noWrap>Sign In</Typography>
                   </Button>
-                  <Button className={classes.signUpButton}>
+                  <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
                     <Typography noWrap>Sign Up</Typography>
                   </Button>
                 </div>
@@ -123,7 +133,15 @@ function NavBar() {
               )}
             </Hidden>
           </div>
-          {user ? <Avatar className={classes.avatar} src={`${user.photoURL}`} /> : ""}
+          {user ? (
+            <Avatar
+              className={classes.avatar}
+              src={`${user.photoURL}`}
+              onClick={() => handleLogOutAction()}
+            />
+          ) : (
+            ""
+          )}
         </Toolbar>
       </AppBar>
     </div>

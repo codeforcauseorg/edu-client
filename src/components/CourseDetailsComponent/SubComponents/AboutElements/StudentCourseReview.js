@@ -2,30 +2,29 @@ import { makeStyles, Box, Typography, Paper } from "@material-ui/core";
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
 
-function StudentCourseReview() {
+function StudentCourseReview(props) {
   const classes = useStyles();
+  const { reviewInfo } = props;
+
   return (
     <Box className={classes.root}>
       <Typography variant="h2">Reviews</Typography>
       <Box>
-        {[1, 2, 3].map((items, index) => (
+        {reviewInfo.map((items, index) => (
           <Paper key={index} className={classes.paper}>
             <Typography variant="subtitle1" component="p" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor
-              sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua.
+              {items.reviewDescription}
             </Typography>
             <Box className={classes.flexBox}>
               <Box>
                 <Typography variant="h3" gutterBottom>
-                  Divyanshu Yadav
+                  {items.reviewerName}
                 </Typography>
-                <Typography variant="h5">Student</Typography>
+                <Typography variant="h5">{items.occupation}</Typography>
               </Box>
               <Box className={classes.ratingContainer}>
-                <Rating value={4.5} precision={0.5} readOnly />
-                <Typography variant="h5">1 year ago</Typography>
+                <Rating value={items.raitedStars} precision={0.5} readOnly />
+                <Typography variant="h5">{items.timeStamp}</Typography>
               </Box>
             </Box>
           </Paper>

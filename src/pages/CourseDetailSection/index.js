@@ -5,97 +5,60 @@ import AboutCourse from "../../components/CourseDetailsComponent/AboutCourse";
 import CardContainer from "../../components/cardContainer/cardContainer";
 import BrowseAllButton from "../../components/BrowseAllButton/index";
 import MediaCard from "../../components/CourseMediaCard/MediaCard";
+import { setCourseData, setCourseDetailsData } from "../../services/courseServices";
+import { connect } from "react-redux";
+import { useEffect } from "react";
+import HeroSkeleton from "../../components/skeleton/SkeletonCourseDetails/HeroSkeleton";
+import NavBar from "../../components/NavBar/index";
+import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
 
-const courseList = [
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-];
-
-function CourseDetail(props) {
+function CourseDetail({ courseData, fetchCourseDetails, fetchCourse }) {
   const classes = useStyles();
+
+  useEffect(() => {
+    fetchCourseDetails();
+    fetchCourse();
+  }, []);
+
   return (
-    <Box>
-      <CourseHeroSection />
-      <AboutCourse />
-      <Box className={classes.courseContainer}>
-        <Box className={classes.popularContainer}>
-          <Typography variant="h2">Similar Courses</Typography>
-          <BrowseAllButton onClick={() => console.log("Popular Course")} />
+    <>
+      <NavBar />
+      <Box>
+        {courseData.courseDetails === null ? (
+          <HeroSkeleton />
+        ) : (
+          <Box>
+            <CourseHeroSection details={courseData.courseDetails} />
+            <AboutCourse about={courseData.courseDetails} />
+          </Box>
+        )}
+
+        <Box className={classes.courseContainer}>
+          <Box className={classes.popularContainer}>
+            <Typography variant="h2">Similar Courses</Typography>
+            <BrowseAllButton onClick={() => console.log("Popular Course")} />
+          </Box>
+          <CardContainer>
+            {courseData.course === null
+              ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+              : courseData.course.popular.map((items, index) => (
+                  <MediaCard key={index} props={items} />
+                ))}
+          </CardContainer>
+          <Box className={classes.popularContainer}>
+            <Typography variant="h2">Upcoming Course</Typography>
+            <BrowseAllButton onClick={() => console.log("Popular Course")} />
+          </Box>
+          <CardContainer>
+            {courseData.course === null
+              ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+              : courseData.course.upcoming.map((items, index) => (
+                  <MediaCard key={index} props={items} />
+                ))}
+          </CardContainer>
         </Box>
-        <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
-        </CardContainer>
-        <Box className={classes.popularContainer}>
-          <Typography variant="h2">Upcoming Course</Typography>
-          <BrowseAllButton onClick={() => console.log("Popular Course")} />
-        </Box>
-        <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
-        </CardContainer>
       </Box>
-    </Box>
+    </>
   );
 }
 
@@ -116,4 +79,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default CourseDetail;
+const mapStateToProps = (state) => {
+  return {
+    courseData: state.course,
+  };
+};
+const mapDispatchToProps = (dispatch, props) => {
+  const id = props.match.params.id;
+  return {
+    fetchCourseDetails: () => dispatch(setCourseDetailsData(id)),
+    fetchCourse: () => dispatch(setCourseData()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CourseDetail);

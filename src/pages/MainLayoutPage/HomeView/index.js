@@ -9,6 +9,10 @@ import MentorSection from "../../../components/HomeViewComponents/MentorSection"
 import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
+import { useEffect } from "react";
+import { setCourseData } from "../../../services/courseServices";
+import { connect } from "react-redux";
+import SkeletonMediaCard from "../../../components/skeleton/SkeletonMediaCard";
 
 const ContinueLearningList = [
   {
@@ -30,50 +34,15 @@ const ContinueLearningList = [
     completedPercentage: 45,
   },
 ];
-const courseList = [
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-];
-export default function HomeView(props) {
+
+function HomeView({ courseData, fetchData }) {
   const classes = useStyles();
+  // const exploreCourse =courseData.course.explore;
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div>
       <HeaderSection />
@@ -99,38 +68,22 @@ export default function HomeView(props) {
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
+          {courseData.course === null
+            ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+            : courseData.course.popular.map((items, index) => (
+                <MediaCard key={index} props={items} />
+              ))}
         </CardContainer>
         <Box className={classes.popularContainer}>
           <Typography variant="h2">Upcoming Course</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseList.map((items, index) => (
-            <MediaCard
-              key={index}
-              title={items.title}
-              description={items.description}
-              ratings={items.ratings}
-              lessonsNumbers={items.lessonsNumbers}
-              courseImage={items.courseImage}
-              tag={items.tag}
-              price={items.price}
-              mentors={items.mentors}
-            />
-          ))}
+          {courseData.course === null
+            ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
+            : courseData.course.upcoming.map((items, index) => (
+                <MediaCard key={index} props={items} />
+              ))}
         </CardContainer>
       </Container>
       <ExploreCourseSection />
@@ -155,3 +108,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
 }));
+
+const mapStateToProps = (state) => {
+  return {
+    courseData: state.course,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchData: () => dispatch(setCourseData()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeView);

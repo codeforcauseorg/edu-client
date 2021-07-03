@@ -8,18 +8,39 @@ import SkillsSection from "./SubComponents/AboutElements/SkillsSection";
 import Prerequisites from "./SubComponents/AboutElements/Prerequisites";
 import StudentCourseReview from "./SubComponents/AboutElements/StudentCourseReview";
 
-function AboutCourse() {
+function AboutCourse(props) {
   const classes = useStyles();
+
+  const { courseDetails } = props.about;
+  const {
+    whatYouWillLearn,
+    skills,
+    courseLongDescription,
+    courseSections,
+    totalNumberOfLectures,
+    courseDuration,
+    courseScheduleList,
+    prerequisites,
+    popularReviews,
+  } = courseDetails;
+
+  const schedualInfo = {
+    courseScheduleList,
+    totalNumberOfLectures,
+    courseSections,
+    courseDuration,
+  };
+
   return (
     <Box className={classes.root}>
       <Box className={classes.outterContainer}>
         <Container className={classes.innerContainer} disableGutters>
-          <LearningInfo />
-          <SkillsSection />
-          <DescriptionContainer />
-          <CourseSchedule />
-          <Prerequisites />
-          <StudentCourseReview />
+          <LearningInfo info={whatYouWillLearn} />
+          <SkillsSection skillsInfo={skills} />
+          <DescriptionContainer description={courseLongDescription} />
+          <CourseSchedule schedule={schedualInfo} />
+          <Prerequisites prerequisitesInfo={prerequisites} />
+          <StudentCourseReview reviewInfo={popularReviews} />
         </Container>
         <Box className={classes.container}>
           <CourseIncludes />

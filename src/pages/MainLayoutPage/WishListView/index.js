@@ -1,6 +1,6 @@
 import { Box, Container, Grid, makeStyles } from "@material-ui/core";
 import { connect } from "react-redux";
-import { wishlistDeleted } from "../../../actions/wishlistActions";
+import { wishlistDeleted } from "../../../store/actions/wishlistActions";
 import HeroSection from "../../../components/HeroSection";
 import EmptyWishlist from "../../../components/WishlistComponents/EmptyWishlist";
 import WishlistFilterBar from "../../../components/WishlistComponents/WishlistFilterBar";

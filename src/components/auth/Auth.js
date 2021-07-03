@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { logout, setUserData } from "../../actions/accountActions";
+import { logout, setUserData } from "../../store/actions/accountActions";
 import authService from "../../services/authService";
 
 function Auth({ children }) {
@@ -11,12 +11,10 @@ function Auth({ children }) {
       authService.setAxiosInterceptors({
         onLogout: () => dispatch(logout()),
       });
-
       authService.handleAuthentication();
-
       authService.firebase.auth().onAuthStateChanged(async (user) => {
-        dispatch(setUserData(user));
         if (user) {
+          dispatch(setUserData(user));
           const accessToken = await user.getIdToken();
           authService.setSession(accessToken);
         }
