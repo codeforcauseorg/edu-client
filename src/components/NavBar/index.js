@@ -114,25 +114,7 @@ function NavBar() {
               })}
             </Box>
           </Hidden>
-
-          <div className={classes.sectionDesktop}>
-            <Hidden mdDown>
-              {!user ? (
-                <div>
-                  <Button className={classes.signInButton}>
-                    <Typography noWrap>Sign In</Typography>
-                  </Button>
-                  <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
-                    <Typography noWrap>Sign Up</Typography>
-                  </Button>
-                </div>
-              ) : (
-                <Typography className={classes.title} variant="h6" noWrap>
-                  Hi, {user.displayName}
-                </Typography>
-              )}
-            </Hidden>
-          </div>
+          <div className={classes.sectionDesktop}></div>
           {user ? (
             <Avatar
               className={classes.avatar}
@@ -140,7 +122,14 @@ function NavBar() {
               onClick={() => handleLogOutAction()}
             />
           ) : (
-            ""
+            <div>
+              <Button className={classes.signInButton}>
+                <Typography noWrap>Sign In</Typography>
+              </Button>
+              <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
+                <Typography noWrap>Sign Up</Typography>
+              </Button>
+            </div>
           )}
         </Toolbar>
       </AppBar>
