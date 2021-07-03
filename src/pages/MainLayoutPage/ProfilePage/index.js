@@ -1,7 +1,7 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
-import ProfileHero from "../../components/ProfileComponents/ProfileHero";
-import ProfileTabComponent from "../../components/ProfileComponents/ProfileTabComponent";
+import ProfileHero from "../../../components/ProfileComponents/ProfileHero";
+import ProfileTabComponent from "../../../components/ProfileComponents/ProfileTabComponent";
 
 function ProfilePage() {
   const classes = useStyles();
