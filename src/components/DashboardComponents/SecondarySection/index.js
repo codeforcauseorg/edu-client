@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1.5,
     height: "100%",
     marginLeft: theme.spacing(5),
+    marginBottom: theme.spacing(5),
   },
 }));
 export default SecondarySection;
