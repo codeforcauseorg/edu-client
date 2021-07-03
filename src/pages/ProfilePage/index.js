@@ -1,4 +1,4 @@
-import { Container, makeStyles } from "@material-ui/core";
+import { Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import ProfileHero from "../../components/ProfileComponents/ProfileHero";
 import ProfileTabComponent from "../../components/ProfileComponents/ProfileTabComponent";
@@ -9,9 +9,9 @@ function ProfilePage() {
   return (
     <Container className={classes.root}>
       <ProfileHero />
-      {/* <Typography className={classes.title} variant="h2" color="textPrimary">
+      <Typography className={classes.title} variant="h2" color="textPrimary">
         Profile & settings
-      </Typography> */}
+      </Typography>
       <ProfileTabComponent />
     </Container>
   );
