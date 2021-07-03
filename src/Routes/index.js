@@ -11,6 +11,7 @@ import AuthRoute from "../components/auth/AuthRoute/index";
 import PageNotFound from "../pages/PageNotFound";
 import * as ROUTES from "../constants/routes";
 import LessonsPlayer from "../pages/LessonsPlayer/index";
+import Classroom from "../pages/Classroom";
 
 const Routes = () => (
   <Switch>
@@ -19,6 +20,7 @@ const Routes = () => (
     </Route>
     <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
+    <Route path={ROUTES.CLASSROOM} exact component={Classroom} />
     <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
       <LandingPage />
     </AuthRoute>
