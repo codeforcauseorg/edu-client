@@ -1,5 +1,5 @@
 import { Container, makeStyles } from "@material-ui/core";
-import FilterBar from "../../../components/MyCourseComponents/FilterBar";
+import FilterBar from "../../../components/GamificationComponents/FilterBar";
 import TagSection from "../../../components/TagSection";
 import HeroSection from "../../../components/HeroSection/index";
 
@@ -7,23 +7,14 @@ function GamificationBoard(props) {
   const classes = useStyles();
 
   const heroElements = {
-    title: "Enrolled Courses",
+    title: "Gamefication Board",
     description:
       " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the.",
-    borderColor: "4px solid #00BFFF",
-    gradientColor: "linear-gradient(180deg, #00BFFF 0%, #3740A1 100%)",
-    otherDetails: "5 Enrolled Courses",
   };
 
   return (
     <Container className={classes.wrapperContainer}>
-      <HeroSection
-        title={heroElements.title}
-        description={heroElements.description}
-        borderColor={heroElements.borderColor}
-        gradientColor={heroElements.gradientColor}
-        otherDetails={heroElements.otherDetails}
-      />
+      <HeroSection title={heroElements.title} description={heroElements.description} />
       <FilterBar />
       <TagSection />
     </Container>

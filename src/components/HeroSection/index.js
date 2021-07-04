@@ -1,11 +1,11 @@
 import React from "react";
 import { Avatar, Box, makeStyles, Typography } from "@material-ui/core";
 
-function HeroSection({ title, description, borderColor, gradientColor, otherDetails }) {
+function HeroSection({ title, description, otherDetails }) {
   const classes = useStyles();
   return (
-    <Box className={classes.heroSection} style={{ borderTop: borderColor }}>
-      <Avatar className={classes.avatar} style={{ background: gradientColor }} />
+    <Box className={classes.heroSection}>
+      <Avatar className={classes.avatar} />
       <Box className={classes.infoContainer}>
         <Typography variant="h2">{title}</Typography>
         <Box mt={2} className={classes.description}>
@@ -22,7 +22,7 @@ function HeroSection({ title, description, borderColor, gradientColor, otherDeta
 const useStyles = makeStyles((theme) => ({
   heroSection: {
     minHeight: 200,
-    backgroundColor: theme.palette.primary.main,
+    background: "linear-gradient(269.98deg, #3740A1 -4.96%, #2ECDFF 203.33%)",
     marginTop: theme.spacing(10),
     borderRadius: "5px",
     display: "flex",

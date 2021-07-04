@@ -27,7 +27,7 @@ function CourseEnrolledCard() {
         <CardHeader
           className={classes.cardMedia}
           style={{
-            backgroundImage: `url(https://d2slcw3kip6qmk.cloudfront.net/marketing/techblog/how-to-plan-a-programming-competition-header@2x.png)`,
+            backgroundImage: `url(https://codeforcause.org/static/temp/rn.jpeg)`,
             backgroundSize: "cover",
           }}
         />
