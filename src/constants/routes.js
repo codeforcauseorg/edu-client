@@ -1,12 +1,12 @@
 export const HOME = "/home";
-export const MYCOURSE = "/my-course";
 export const WISHLIST = "/wishlist";
 export const DASHBOARD = "/dashboard";
 export const SIGNUP = "/signup";
 export const COURSE_DETAILS = "/course/:id";
 export const LESSONS_PLAYER = "/course/:courseName/lecture/:videoSectionId:videoSectionName";
-// **************************************************************************
 export const GAMIFICATION_BOARD = "/gamification-board";
+// **************************************************************************
+
 export const DOUBTFOURM = "/doubt-forum";
 export const DOUBT_QUESTIONS_DETAILS = "/doubt-forum/:id";
 export const CHALLENGES = "/challenges";

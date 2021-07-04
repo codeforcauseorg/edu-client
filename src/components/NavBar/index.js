@@ -21,8 +21,9 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
-  { title: "My Course", link: "/my-course" },
+  { title: "Forum", link: "/doubt-forum" },
   { title: "Wishlist", link: "/wishlist" },
+  { title: "Gamification", link: "/gamification-board" },
   { title: "Dashboard", link: "/dashboard" },
 ];
 

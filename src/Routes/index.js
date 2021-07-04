@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import HomePage from "../pages/MainLayoutPage/HomeView/index";
-import MyCourses from "../pages/MainLayoutPage/MyCourseSection/index";
+import GamificationBoard from "../pages/MainLayoutPage/GamificationBoard/index";
 import WishlistPage from "../pages/MainLayoutPage/WishListView/index";
 import Dashboard from "../pages/MainLayoutPage/Dashboard/index";
 import CourseDetails from "../pages/CourseDetailSection";
@@ -11,6 +11,7 @@ import AuthRoute from "../components/auth/AuthRoute/index";
 import PageNotFound from "../pages/PageNotFound";
 import * as ROUTES from "../constants/routes";
 import LessonsPlayer from "../pages/LessonsPlayer/index";
+import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
 
 const Routes = () => (
   <Switch>
@@ -27,9 +28,9 @@ const Routes = () => (
         <HomePage />
       </MainLayout>
     </AuthRoute>
-    <AuthRoute path={ROUTES.MYCOURSE} exact>
+    <AuthRoute path={ROUTES.GAMIFICATION_BOARD} exact>
       <MainLayout>
-        <MyCourses />
+        <GamificationBoard />
       </MainLayout>
     </AuthRoute>
     <AuthRoute path={ROUTES.WISHLIST} exact>
@@ -40,6 +41,11 @@ const Routes = () => (
     <AuthRoute path={ROUTES.DASHBOARD} exact>
       <MainLayout>
         <Dashboard />
+      </MainLayout>
+    </AuthRoute>
+    <AuthRoute path={ROUTES.DOUBTFOURM} exact>
+      <MainLayout>
+        <DoubtForum />
       </MainLayout>
     </AuthRoute>
     <Route component={PageNotFound} />

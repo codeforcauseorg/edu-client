@@ -2,7 +2,8 @@ import { Container, makeStyles } from "@material-ui/core";
 import FilterBar from "../../../components/MyCourseComponents/FilterBar";
 import TagSection from "../../../components/TagSection";
 import HeroSection from "../../../components/HeroSection/index";
-function MyCourses(props) {
+
+function GamificationBoard(props) {
   const classes = useStyles();
 
   const heroElements = {
@@ -35,4 +36,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default MyCourses;
+export default GamificationBoard;
