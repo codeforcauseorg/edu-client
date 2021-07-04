@@ -1,6 +1,5 @@
 import { Container, makeStyles } from "@material-ui/core";
 import FilterBar from "../../../components/MyCourseComponents/FilterBar";
-import MyCourseCard from "../../../components/MyCourseComponents/MyCourseCard";
 import TagSection from "../../../components/TagSection";
 import HeroSection from "../../../components/HeroSection/index";
 function MyCourses(props) {
@@ -26,7 +25,6 @@ function MyCourses(props) {
       />
       <FilterBar />
       <TagSection />
-      <MyCourseCard />
     </Container>
   );
 }
