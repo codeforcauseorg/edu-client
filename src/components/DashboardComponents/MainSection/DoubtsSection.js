@@ -1,6 +1,7 @@
-import { Box, Button, makeStyles, Typography } from "@material-ui/core";
+import { Box, Button, Grid, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import EditIcon from "@material-ui/icons/Edit";
+import AskedQuestion from "../SubComponents/AskedQuestion";
 
 function DoubtsSection() {
   const classes = useStyles();
@@ -12,7 +13,7 @@ function DoubtsSection() {
             Forum
           </Typography>
           <Typography variant="h5" className={classes.subtitle}>
-            Questions on forum
+            Your questions on forum
           </Typography>
         </Box>
         <Box>
@@ -24,6 +25,13 @@ function DoubtsSection() {
           </Button>
         </Box>
       </Box>
+      <Grid container className={classes.grid}>
+        {[1, 2, 3, 4, 5].map((items, index) => (
+          <Grid items key={index} xs={12} lg={4}>
+            <AskedQuestion />
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 }
@@ -31,7 +39,6 @@ function DoubtsSection() {
 const useStyles = makeStyles((theme) => ({
   root: {
     background: "#F5F8FB",
-    height: 150,
     borderRadius: "5px",
     padding: theme.spacing(4),
   },
@@ -51,6 +58,9 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     color: theme.palette.primary.main,
+  },
+  grid: {
+    marginTop: theme.spacing(5),
   },
 }));
 export default DoubtsSection;
