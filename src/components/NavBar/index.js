@@ -8,6 +8,7 @@ import {
   makeStyles,
   Toolbar,
   Typography,
+  Badge,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -16,6 +17,7 @@ import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useDispatch, useSelector } from "react-redux";
 import authService from "../../services/authService";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -114,7 +116,11 @@ function NavBar() {
               })}
             </Box>
           </Hidden>
-          <div className={classes.sectionDesktop}></div>
+          <IconButton className={classes.IconButton}>
+            <Badge color="secondary" variant="standard" badgeContent={1}>
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
           {user ? (
             <Avatar
               className={classes.avatar}
@@ -211,6 +217,9 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     display: "flex",
+  },
+  IconButton: {
+    marginRight: theme.spacing(4),
   },
 }));
 

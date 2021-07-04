@@ -37,7 +37,7 @@ const Routes = () => (
         <WishlistPage />
       </MainLayout>
     </AuthRoute>
-    <AuthRoute path={ROUTES.PROFILE} exact>
+    <AuthRoute path={ROUTES.DASHBOARD} exact>
       <MainLayout>
         <Dashboard />
       </MainLayout>
