@@ -5,12 +5,14 @@ import DashboardHero from "./DashboardHero";
 import EnrolledCourses from "./EnrolledCourses";
 import DoubtsSection from "./DoubtsSection";
 import ChallengesSection from "./ChallengesSection";
+import ProfileDetailsSection from "./ProfileDetailsSection";
 
 function MainSection() {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
       <DashboardHero />
+      <ProfileDetailsSection />
       <EnrolledCourses />
       <DoubtsSection />
       <ChallengesSection />

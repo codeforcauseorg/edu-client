@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Box, makeStyles, Typography, Button } from "@material-ui/core";
+import { Avatar, Box, makeStyles, Typography, Button, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import ProfileHeroLayout from "../ProfileHeroLayout";
 import ProfileSkeleton from "../../skeleton/ProfileSkeleton";
@@ -12,7 +12,15 @@ function DashboardHero() {
     <>
       {user ? (
         <ProfileHeroLayout>
-          <Avatar className={classes.avatar} src={user.photoURL} />
+          <Box className={classes.wrapper}>
+            <Avatar className={classes.avatar} src={user.photoURL} />
+            <CircularProgress
+              size={135}
+              variant="determinate"
+              className={classes.avatarProgress}
+              value={50}
+            />
+          </Box>
           <Box className={classes.infoContainer}>
             <Typography variant="h2" component="span" className={classes.span1}>
               Hello
@@ -39,7 +47,19 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     height: 120,
     width: 120,
+    zIndex: 2,
   },
+  avatarProgress: {
+    color: "#DAF1FF",
+    position: "absolute",
+    top: -7,
+    left: -7,
+    zIndex: 1,
+  },
+  wrapper: {
+    position: "relative",
+  },
+
   infoContainer: {
     color: "#fff",
     marginLeft: theme.spacing(3),
