@@ -1,6 +1,6 @@
-import { Container, makeStyles } from "@material-ui/core";
-import FilterBar from "../../../components/GamificationComponents/FilterBar";
-import TagSection from "../../../components/TagSection";
+import { Container, makeStyles, Box } from "@material-ui/core";
+import FilterSection from "../../../components/DoubtForumComponent/FilterSection";
+import QuestionSection from "../../../components/DoubtForumComponent/QuestionSection";
 import HeroSection from "../../../components/HeroSection/index";
 
 function DoubtForum(props) {
@@ -15,8 +15,10 @@ function DoubtForum(props) {
   return (
     <Container className={classes.wrapperContainer}>
       <HeroSection title={heroElements.title} description={heroElements.description} />
-      <FilterBar />
-      <TagSection />
+      <Box className={classes.container}>
+        <QuestionSection />
+        <FilterSection />
+      </Box>
     </Container>
   );
 }
@@ -24,6 +26,11 @@ function DoubtForum(props) {
 const useStyles = makeStyles((theme) => ({
   wrapperContainer: {
     minWidth: "90%",
+  },
+  container: {
+    display: "flex",
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
   },
 }));
 
