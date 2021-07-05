@@ -1,12 +1,10 @@
 import { makeStyles, Box, Typography, Chip, Button } from "@material-ui/core";
 import React from "react";
 import { useHistory } from "react-router";
-import authService from "../../services/authService";
 
 function PageNotFound() {
   const classes = useStyles();
   const history = useHistory();
-  const user = authService.getUserData();
 
   return (
     <Box className={classes.root}>
@@ -25,7 +23,7 @@ function PageNotFound() {
         </Typography>
         <Box className={classes.buttonContainer}>
           <Button className={classes.button} onClick={() => history.push("/home")}>
-            {user ? `Back to Homepage` : `Back to Signup Page`}
+            Back to Homepage
           </Button>
         </Box>
       </Box>
