@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import {
   Box,
   makeStyles,
@@ -25,6 +24,10 @@ const listItems = [
     title: "Discounted price:",
     value: "₹10000",
   },
+  {
+    title: "Coupon discounted:",
+    value: "₹100",
+  },
 ];
 
 function OrderSummary() {
@@ -34,11 +37,11 @@ function OrderSummary() {
   const steps = getSteps();
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    setActiveStep((activeStep) => activeStep + 1);
   };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  const handlePayment = () => {
+    setActiveStep(2);
   };
 
   return (
@@ -58,7 +61,9 @@ function OrderSummary() {
       <Box>
         <List>
           <ListItem className={classes.listItems}>
-            <ListItemText primary="Order Details" />
+            <ListItemText>
+              <Typography variant="h4">Order Details</Typography>
+            </ListItemText>
           </ListItem>
 
           <List>
@@ -69,8 +74,25 @@ function OrderSummary() {
               </ListItem>
             ))}
           </List>
+          <ListItem>
+            <ListItemText>
+              <Typography variant="h4">Total Amount</Typography>
+              <Typography variant="h4" component="h1" className={classes.priceValue}>
+                ₹1800
+              </Typography>
+            </ListItemText>
+          </ListItem>
         </List>
       </Box>
+      {activeStep === 0 ? (
+        <Button onClick={() => handleNext()} className={classes.paymentButton}>
+          Checkout
+        </Button>
+      ) : (
+        <Button onClick={() => handlePayment()} className={classes.paymentButton}>
+          Make Payment
+        </Button>
+      )}
     </Box>
   );
 }
@@ -91,6 +113,18 @@ const useStyles = makeStyles((theme) => ({
   },
   subListItem: {
     width: "50%",
+  },
+  paymentButton: {
+    color: "#fff",
+    background: theme.palette.primary.main,
+    textTransform: "none",
+    marginTop: theme.spacing(8),
+    "&:hover": {
+      background: theme.palette.primary.main,
+    },
+  },
+  priceValue: {
+    marginTop: theme.spacing(1),
   },
 }));
 export default OrderSummary;

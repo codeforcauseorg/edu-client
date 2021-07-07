@@ -8,7 +8,7 @@ function CheckoutCourse() {
     <Box className={classes.root}>
       <Typography variant="h4"> 2 Course in Cart</Typography>
       <Divider className={classes.divider} />
-      {[1].map((items, index) => (
+      {[1, 2, 3].map((items, index) => (
         <CheckoutCourseList key={index} />
       ))}
     </Box>
