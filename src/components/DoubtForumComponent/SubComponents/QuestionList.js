@@ -1,6 +1,5 @@
 import { Box, makeStyles, Paper, Avatar, Typography, Chip, Hidden } from "@material-ui/core";
 import React from "react";
-import AvatarGroup from "@material-ui/lab/AvatarGroup";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 
 function QuestionList() {
@@ -31,15 +30,6 @@ function QuestionList() {
           ))}
         </Box>
         <Box className={classes.actionContainer}>
-          <AvatarGroup max={4}>
-            {[1, 2, 3, 4, 5, 6].map((items, index) => (
-              <Avatar
-                key={index}
-                alt="Remy Sharp"
-                src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2ZpbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              />
-            ))}
-          </AvatarGroup>
           <Box className={classes.flex}>
             <ChatBubbleOutlineIcon className={classes.icons} />
             <Typography>6 Answers</Typography>

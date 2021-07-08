@@ -1,4 +1,4 @@
-import { Container, makeStyles } from "@material-ui/core";
+import { Container, makeStyles, Hidden } from "@material-ui/core";
 import React from "react";
 import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
@@ -9,7 +9,9 @@ function Dashboard() {
   return (
     <Container className={classes.root} disableGutters>
       <MainSection />
-      <SecondarySection />
+      <Hidden mdDown>
+        <SecondarySection />
+      </Hidden>
     </Container>
   );
 }

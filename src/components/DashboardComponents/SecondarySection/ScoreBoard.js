@@ -49,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   paper: {
-    minWidth: 150,
     boxShadow: "none",
     background: "#F8F9FD",
   },

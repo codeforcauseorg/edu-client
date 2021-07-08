@@ -20,7 +20,6 @@ function SecondarySection() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flex: 1.5,
     height: "100%",
     marginLeft: theme.spacing(5),
     marginBottom: theme.spacing(5),

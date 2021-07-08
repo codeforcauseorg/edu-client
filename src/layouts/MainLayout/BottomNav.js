@@ -49,8 +49,8 @@ export default function BottomNav(props) {
 
       <BottomNavigationAction
         className={classes.navItem}
-        label="My Courses"
-        value="/my-course"
+        label="Forum"
+        value="/doubt-forum"
         icon={<ImportContactsOutlined />}
       />
 
@@ -62,8 +62,14 @@ export default function BottomNav(props) {
       />
       <BottomNavigationAction
         className={classes.navItem}
-        label="Profile"
-        value="/profile"
+        label="Gamification"
+        value="/gamification-board"
+        icon={<AccountCircleOutlined />}
+      />
+      <BottomNavigationAction
+        className={classes.navItem}
+        label="Dashboard"
+        value="/dashboard"
         icon={<AccountCircleOutlined />}
       />
     </BottomNavigation>
