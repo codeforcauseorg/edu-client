@@ -6,7 +6,7 @@ function CheckoutCourse() {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
-      <Typography variant="h4"> 2 Course in Cart</Typography>
+      <Typography variant="h4">Course in Cart (2)</Typography>
       <Divider className={classes.divider} />
       {[1, 2, 3].map((items, index) => (
         <CheckoutCourseList key={index} />
@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4, 4),
     borderRadius: "5px",
     flex: 8,
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(0),
+      padding: theme.spacing(2, 2),
+    },
   },
   divider: {
     marginTop: theme.spacing(2),

@@ -22,7 +22,11 @@ function CourseEnrolledCard() {
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia component="img" className={classes.media} image="/assets/img/img3.PNG" />
+        <CardMedia
+          component="img"
+          className={classes.media}
+          image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+        />
         <CardContent className={classes.cardContent}>
           <Box classes={classes.tagSection}>
             <Chip variant="outlined" size="small" className={classes.tag} label="Web Development" />

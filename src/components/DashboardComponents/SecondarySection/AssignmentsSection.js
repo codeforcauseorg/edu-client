@@ -8,7 +8,7 @@ function AssignmentsSection() {
   return (
     <Box className={classes.container}>
       <Typography variant="h4" className={classes.heading}>
-        Assignments
+        Assignments (2)
       </Typography>
       <List container className={classes.grid} spacing={4}>
         {[1, 2].map((items, index) => (

@@ -99,20 +99,24 @@ function OrderSummary() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: 500,
+    height: "100%",
     flex: 5,
-    paddingRight: theme.spacing(12),
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
   },
   stepper: {
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      marginBottom: theme.spacing(0),
+    },
   },
   listItems: {
     background: "#fff",
     borderRadius: "10px",
   },
   subListItem: {
-    width: "50%",
+    width: "100%",
   },
   paymentButton: {
     color: "#fff",
@@ -121,6 +125,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(8),
     "&:hover": {
       background: theme.palette.primary.main,
+    },
+    [theme.breakpoints.down("md")]: {
+      marginTop: theme.spacing(4),
+      marginBottom: theme.spacing(4),
     },
   },
   priceValue: {

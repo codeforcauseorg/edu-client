@@ -23,7 +23,7 @@ function CheckoutCourseList() {
       />
       <Box>
         <CardContent>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4" gutterBottom>
             Data Structures and Algorithms with Python
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
@@ -45,14 +45,20 @@ function CheckoutCourseList() {
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    boxShadow: "0px 4px 20px rgb(55 64 161 /5%)",
+    boxShadow: "0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08)",
     borderRadius: "2px",
     marginTop: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      display: "block",
+    },
   },
   cover: {
     width: 160,
     height: 120,
-    margin: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+      height: 120,
+    },
   },
   actionTitle: {
     marginRight: theme.spacing(1),

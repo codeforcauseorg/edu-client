@@ -3,12 +3,13 @@ import BottomNavigation from "@material-ui/core/BottomNavigation";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import {
   HomeOutlined,
-  ImportContactsOutlined,
   AccountCircleOutlined,
   AddCircleOutlineOutlined,
+  EqualizerOutlined,
 } from "@material-ui/icons";
 import { useHistory, useLocation } from "react-router";
 import "./BottomNav.css";
+import HelpOutline from "@material-ui/icons/HelpOutline";
 
 const useStyles = makeStyles({
   root: {
@@ -40,35 +41,26 @@ export default function BottomNav(props) {
       showLabels
       className={classes.root}
     >
-      <BottomNavigationAction
-        className={classes.navItem}
-        label="Home"
-        value="/home"
-        icon={<HomeOutlined />}
-      />
+      <BottomNavigationAction className={classes.navItem} value="/home" icon={<HomeOutlined />} />
 
       <BottomNavigationAction
         className={classes.navItem}
-        label="Forum"
         value="/doubt-forum"
-        icon={<ImportContactsOutlined />}
+        icon={<HelpOutline />}
       />
 
       <BottomNavigationAction
         className={classes.navItem}
-        label="Wishlist"
         value="/wishlist"
         icon={<AddCircleOutlineOutlined />}
       />
       <BottomNavigationAction
         className={classes.navItem}
-        label="Gamification"
         value="/gamification-board"
-        icon={<AccountCircleOutlined />}
+        icon={<EqualizerOutlined />}
       />
       <BottomNavigationAction
         className={classes.navItem}
-        label="Dashboard"
         value="/dashboard"
         icon={<AccountCircleOutlined />}
       />

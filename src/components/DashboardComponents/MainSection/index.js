@@ -13,9 +13,7 @@ function MainSection() {
     <Container disableGutters>
       <DashboardHero />
       <Box className={classes.textBox}>
-        <Typography variant="h4" className={classes.title}>
-          Enrolled Courses
-        </Typography>
+        <Typography variant="h2">Enrolled Courses</Typography>
       </Box>
       <CardContainer>
         {[1, 2, 3, 4, 5, 6].map((items, index) => (
@@ -24,9 +22,7 @@ function MainSection() {
       </CardContainer>
       <DoubtsSection />
       <Box className={classes.textBox}>
-        <Typography variant="h4" className={classes.title}>
-          Challenges
-        </Typography>
+        <Typography variant="h2">Challenges</Typography>
       </Box>
       <CardContainer>
         {[1, 2, 3, 4, 5, 6].map((items, index) => (
@@ -38,9 +34,6 @@ function MainSection() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  title: {
-    textTransform: "uppercase",
-  },
   textBox: {
     marginTop: theme.spacing(6),
   },
