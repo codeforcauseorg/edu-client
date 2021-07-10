@@ -12,11 +12,10 @@ import {
 import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
-import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useSelector } from "react-redux";
-// import authService from "../../services/authService";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
 
 const navItemsLists = [
@@ -29,7 +28,6 @@ const navItemsLists = [
 
 function NavBar() {
   const classes = useStyles();
-  // const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.account.user);
   const [scrollPositions, setscrollPositions] = useState(0);
@@ -66,13 +64,13 @@ function NavBar() {
     listenToScrollEvent();
   });
 
-  // const handleLogOutAction = () => {
-  //   try {
-  //     dispatch(authService.logout());
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const loadOptions = (inputValue, callback) => {
+    const searchResult = [
+      { label: "Web Development", value: "web" },
+      { label: "React", value: "web" },
+    ];
+    callback(searchResult);
+  };
 
   return (
     <div className={classes.grow}>
@@ -87,9 +85,21 @@ function NavBar() {
               Code for Cause
             </Typography>
           </Hidden>
-          <SearchBar
+          <AsyncSelect
+            placeholder={<Typography>Search Course, Categories or mentors...</Typography>}
+            closeMenuOnSelect={false}
             className={classes.search}
-            placeholder="Search Course, Categories or mentors..."
+            loadOptions={loadOptions}
+            onChange={(opt) => console.log(opt.label, opt.value)}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 5,
+              colors: {
+                ...theme.colors,
+                primary25: "#2E3040",
+                primary: "#3B42A3",
+              },
+            })}
           />
           <div className={classes.grow} />
           <Hidden lgDown>
@@ -160,16 +170,8 @@ const useStyles = makeStyles((theme) => ({
     width: "15%",
   },
   search: {
-    position: "relative",
-    borderRadius: "5px",
-    boxShadow: "0 3px 10px rgb(0 0 0 / 0.1)",
     marginRight: theme.spacing(2),
     flex: 1,
-    height: "38px",
-    [theme.breakpoints.up("md")]: {
-      height: " 48px",
-      marginLeft: theme.spacing(0),
-    },
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 2),
