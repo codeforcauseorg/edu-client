@@ -2,13 +2,6 @@ import { makeStyles, Box, Typography, List } from "@material-ui/core";
 import React from "react";
 import AssignmentList from "../SubComponents/AssignmentList";
 
-const scoreBoardList = [
-  { title: "Score", value: "500", color: "#F0B1B6" },
-  { title: "Challenges", value: "4", color: "#6FE1E4" },
-  { title: "Recent rank", value: "1st", color: "#E6BFC4" },
-  { title: "Question Answred", value: "20", color: "#C379E6" },
-];
-
 function AssignmentsSection() {
   const classes = useStyles();
 
@@ -18,7 +11,7 @@ function AssignmentsSection() {
         Assignments
       </Typography>
       <List container className={classes.grid} spacing={4}>
-        {scoreBoardList.map((items, index) => (
+        {[1, 2].map((items, index) => (
           <AssignmentList key={index} />
         ))}
       </List>
