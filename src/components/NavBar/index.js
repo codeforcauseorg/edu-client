@@ -1,6 +1,5 @@
 import {
   AppBar,
-  // Avatar,
   Box,
   Button,
   Hidden,
@@ -14,11 +13,11 @@ import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
-import ShopIcon from "@material-ui/icons/Shop";
 import LinearProgress from "@material-ui/core/LinearProgress";
-// import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import authService from "../../services/authService";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import ShopIcon from "@material-ui/icons/Shop";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -32,7 +31,7 @@ function NavBar() {
   const classes = useStyles();
   // const dispatch = useDispatch();
   const history = useHistory();
-  // const user = useSelector((state) => state.account.user);
+  const user = useSelector((state) => state.account.user);
   const [scrollPositions, setscrollPositions] = useState(0);
 
   const listenToScrollEvent = () => {
@@ -113,16 +112,26 @@ function NavBar() {
               })}
             </Box>
           </Hidden>
-          <IconButton>
-            <Badge color="secondary" variant="dot" badgeContent={1}>
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-          <IconButton onClick={() => history.push("/checkout")}>
-            <Badge color="secondary" variant="standard" badgeContent={2}>
-              <ShopIcon />
-            </Badge>
-          </IconButton>
+          {user ? (
+            <>
+              <IconButton>
+                <Badge color="secondary" variant="dot">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton onClick={() => history.push("/checkout")}>
+                <Badge color="secondary" variant="standard" badgeContent={2}>
+                  <ShopIcon />
+                </Badge>
+              </IconButton>
+            </>
+          ) : (
+            <Box className={classes.buttonContainer}>
+              <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
+                <Typography noWrap>Sign Up</Typography>
+              </Button>
+            </Box>
+          )}
         </Toolbar>
       </AppBar>
     </div>

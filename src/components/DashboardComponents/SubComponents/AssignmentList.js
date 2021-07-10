@@ -23,25 +23,28 @@ function AssignmentList() {
     <Box>
       <ListItem item button className={classes.listItem} onClick={handleClick}>
         <ListItemAvatar>
-          <Avatar />
+          <Avatar className={classes.avatar} src="assets/icon/assignment.png" />
         </ListItemAvatar>
         <ListItemText primary="Web Development" secondary="Assignment (4)" />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         {[1, 2, 3].map((items, index) => (
-          <SubAssignmentList key={index} />
+          <SubAssignmentList key={index} index={index + 1} />
         ))}
       </Collapse>
     </Box>
   );
 }
 
-function SubAssignmentList() {
+function SubAssignmentList({ index }) {
+  const classes = useStyles();
   return (
     <ListItem>
       <ListItemAvatar>
-        <Avatar />
+        <Avatar className={classes.subListAvatar}>
+          <Typography>{index}</Typography>
+        </Avatar>
       </ListItemAvatar>
       <ListItemText>
         <Typography>Assignment (1)</Typography>
@@ -67,6 +70,19 @@ const useStyles = makeStyles((theme) => ({
     height: "5px",
     marginTop: theme.spacing(1),
     borderRadius: "5px",
+  },
+  avatar: {
+    borderRadius: "0px",
+  },
+  subListAvatar: {
+    background: "#fff",
+    color: theme.palette.text.primary,
+    border: "2px dotted #333",
+  },
+  listItem: {
+    "&:hover": {
+      background: "#fff",
+    },
   },
 }));
 
