@@ -16,12 +16,17 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SignalCellularAltIcon from "@material-ui/icons/SignalCellularAlt";
 import MovieCreationIcon from "@material-ui/icons/MovieCreation";
 import React from "react";
+import { useHistory } from "react-router";
 
 function CourseEnrolledCard() {
   const classes = useStyles();
+  const history = useHistory();
+
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea
+        onClick={() => history.push("/course/:courseName/lecture/:videoSectionId:videoSectionName")}
+      >
         <CardMedia
           component="img"
           className={classes.media}
@@ -54,7 +59,7 @@ function CourseEnrolledCard() {
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardFooter}>
-        <Button>Course Details</Button>
+        <Button onClick={() => history.push("/course/:id")}>Course Details</Button>
         <Box className={classes.avatarContainer}>
           {[1, 2].map((items, index) => (
             <Avatar

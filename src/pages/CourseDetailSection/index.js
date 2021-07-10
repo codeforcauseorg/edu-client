@@ -11,9 +11,15 @@ import { useEffect } from "react";
 import HeroSkeleton from "../../components/skeleton/SkeletonCourseDetails/HeroSkeleton";
 import NavBar from "../../components/NavBar/index";
 import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
+import { useParams } from "react-router";
 
 function CourseDetail({ courseData, fetchCourseDetails, fetchCourse }) {
   const classes = useStyles();
+  const { id } = useParams();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]);
 
   useEffect(() => {
     fetchCourseDetails();
@@ -86,6 +92,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch, props) => {
   const id = props.match.params.id;
+
   return {
     fetchCourseDetails: () => dispatch(setCourseDetailsData(id)),
     fetchCourse: () => dispatch(setCourseData()),
