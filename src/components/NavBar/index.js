@@ -64,13 +64,22 @@ function NavBar() {
     listenToScrollEvent();
   });
 
-  const loadOptions = (inputValue, callback) => {
-    const searchResult = [
-      { label: "Web Development", value: "web" },
-      { label: "React", value: "web" },
-    ];
-    callback(searchResult);
+  const searchResult = [
+    { label: "web Development", value: "web" },
+    { label: "react", value: "web" },
+    { label: "rust", value: "web" },
+  ];
+
+  const filterQuery = (inputValue) => {
+    return searchResult.filter((i) => i.label.toLowerCase().includes(inputValue.toLowerCase()));
   };
+
+  const promiseOptions = (inputValue) =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(filterQuery(inputValue));
+      }, 1000);
+    });
 
   return (
     <div className={classes.grow}>
@@ -86,18 +95,18 @@ function NavBar() {
             </Typography>
           </Hidden>
           <AsyncSelect
-            placeholder={<Typography>Search Course, Categories or mentors...</Typography>}
-            closeMenuOnSelect={false}
             className={classes.search}
-            loadOptions={loadOptions}
-            onChange={(opt) => history.push(`/search?q=${opt.label}`)}
+            placeholder={<Typography>Search Course, Categories or mentors...</Typography>}
+            cacheOptions
+            defaultOptions
+            loadOptions={promiseOptions}
+            onChange={(opt) => history.push(`/search?q=${opt.label}&`)}
             theme={(theme) => ({
               ...theme,
               borderRadius: 5,
               colors: {
                 ...theme.colors,
-                primary25: "#2E3040",
-                primary: "#3B42A3",
+                primary: "#3740A1",
               },
             })}
           />
@@ -172,6 +181,8 @@ const useStyles = makeStyles((theme) => ({
   search: {
     marginRight: theme.spacing(2),
     flex: 1,
+    color: theme.palette.text.primary,
+    fontFamily: "Montserrat, sans-serif",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 2),
