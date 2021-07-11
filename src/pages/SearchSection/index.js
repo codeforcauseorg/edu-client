@@ -30,7 +30,7 @@ function SearchSection() {
             </Typography>
           </Container>
         </Paper>
-        <Container className={classes.container}>
+        <Container className={classes.courseListContainer}>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((items, index) => (
             <CourseList key={index} />
           ))}
@@ -43,6 +43,15 @@ function SearchSection() {
 const useStyles = makeStyles((theme) => ({
   container: {
     maxWidth: "85%",
+  },
+  courseListContainer: {
+    maxWidth: "85%",
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(12),
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "95%",
+      marginTop: theme.spacing(6),
+    },
   },
   filterSection: {
     background: theme.palette.primary.main,
