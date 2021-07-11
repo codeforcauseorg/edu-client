@@ -7,6 +7,7 @@ export const LESSONS_PLAYER = "/course/:courseName/lecture/:videoSectionId:video
 export const GAMIFICATION_BOARD = "/gamification-board";
 export const DOUBTFOURM = "/doubt-forum";
 export const CHECKOUT = "/checkout";
+export const SEARCH_SECTION = "/search";
 
 // **************************************************************************
 export const DOUBT_QUESTIONS_DETAILS = "/doubt-forum/:id";
@@ -14,4 +15,3 @@ export const CHALLENGES = "/challenges";
 export const CHALLENGES_DETAILS = "/challenges/:id";
 export const NOTIFICATION = "/notification";
 export const ASSIGNMENTS_DETAILS = "/assignments/:id";
-export const SEARCH_SECTION = "/search/:query";

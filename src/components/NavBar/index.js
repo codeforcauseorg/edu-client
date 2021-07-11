@@ -90,7 +90,7 @@ function NavBar() {
             closeMenuOnSelect={false}
             className={classes.search}
             loadOptions={loadOptions}
-            onChange={(opt) => console.log(opt.label, opt.value)}
+            onChange={(opt) => history.push(`/search?q=${opt.label}`)}
             theme={(theme) => ({
               ...theme,
               borderRadius: 5,
