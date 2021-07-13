@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Divider,
   IconButton,
   makeStyles,
@@ -11,9 +12,20 @@ import {
 import React from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import PostDescriptionEditor from "./SubComponents/PostDescriptionEditor";
+import Select from "react-select";
+import makeAnimated from "react-select/animated";
 
 function PostDoubt({ open, onClose }) {
   const classes = useStyles();
+  const animatedComponents = makeAnimated();
+
+  const options = [
+    { value: "Web Development", label: "Web Development" },
+    { value: "Mobile Development", label: "Mobile Development" },
+    { value: "DSA", label: "DSA" },
+    { value: "DevOps", label: "DevOps" },
+    { value: "AI/ML", label: "AI/ML" },
+  ];
 
   return (
     <Modal open={open} onClose={onClose} className={classes.modal}>
@@ -33,6 +45,16 @@ function PostDoubt({ open, onClose }) {
           Elaborate your doubt
         </Typography>
         <PostDescriptionEditor />
+        <Select
+          placeholder="Add Tags"
+          closeMenuOnSelect={false}
+          components={animatedComponents}
+          isMulti
+          options={options}
+        />
+        <Button className={classes.postButton} onClick={onClose}>
+          Post doubt
+        </Button>
       </Paper>
     </Modal>
   );
@@ -65,6 +87,16 @@ const useStyles = makeStyles((theme) => ({
   titles: {
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
+  },
+  postButton: {
+    background: theme.palette.primary.main,
+    color: "#fff",
+    position: "absolute",
+    bottom: 50,
+    right: 50,
+    "&:hover": {
+      background: theme.palette.primary.main,
+    },
   },
 }));
 export default PostDoubt;
