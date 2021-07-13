@@ -10,21 +10,33 @@ import {
   Radio,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
+import PostDoubt from "./PostDoubt";
 
 const radioList = ["All", "Web Development", "Mobile Development", "DSA", "DevOps", "AI/ML"];
 
 function FilterSection() {
   const classes = useStyles();
-  const [value, setValue] = React.useState("All");
+  const [value, setValue] = useState("All");
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
     setValue(event.target.value);
   };
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Box className={classes.root}>
-      <Button className={classes.button}>Start new Discussion</Button>
+      <Button className={classes.button} onClick={() => handleOpen()}>
+        Start new Discussion
+      </Button>
       <Divider className={classes.divider} />
       <FormControl component="fieldset">
         <FormLabel component="legend">
@@ -38,6 +50,7 @@ function FilterSection() {
           ))}
         </RadioGroup>
       </FormControl>
+      <PostDoubt open={open} onClose={handleClose} />
     </Box>
   );
 }
@@ -60,4 +73,5 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
 }));
+
 export default FilterSection;
