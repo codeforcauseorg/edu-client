@@ -1,15 +1,18 @@
 import React from "react";
-import { makeStyles, Box } from "@material-ui/core";
+import { makeStyles, CardMedia } from "@material-ui/core";
 
 function ProfileHeroLayout({ children }) {
   const classes = useStyles();
-  return <Box className={classes.heroSection}>{children}</Box>;
+  return (
+    <CardMedia image="assets/img/profileBanner.svg" className={classes.heroSection}>
+      {children}
+    </CardMedia>
+  );
 }
 
 const useStyles = makeStyles((theme) => ({
   heroSection: {
     minHeight: 200,
-    background: "linear-gradient(269.98deg, #3740A1 -4.96%, #2ECDFF 203.33%)",
     borderRadius: "5px",
     display: "flex",
     flexDirection: "row",
