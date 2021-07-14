@@ -26,7 +26,7 @@ function DoubtsSection() {
       <Box className={classes.gridContainer}>
         <Grid container className={classes.grid}>
           {[1, 2, 3, 4, 5].map((items, index) => (
-            <Grid items key={index} xs={12} lg={4}>
+            <Grid items key={index} xs={12} md={6} lg={4}>
               <AskedQuestion />
             </Grid>
           ))}
