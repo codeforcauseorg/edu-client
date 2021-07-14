@@ -21,7 +21,6 @@ function AssignmentsSection() {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    background: "#F8F9FD",
     borderRadius: "5px",
     padding: theme.spacing(4),
   },

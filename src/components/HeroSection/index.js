@@ -1,10 +1,10 @@
 import React from "react";
-import { Avatar, Box, makeStyles, Typography } from "@material-ui/core";
+import { Avatar, Box, CardMedia, makeStyles, Typography } from "@material-ui/core";
 
-function HeroSection({ title, description, otherDetails }) {
+function HeroSection({ title, description, otherDetails, banner }) {
   const classes = useStyles();
   return (
-    <Box className={classes.heroSection}>
+    <CardMedia className={classes.heroSection} image={banner}>
       <Avatar className={classes.avatar} />
       <Box className={classes.infoContainer}>
         <Typography variant="h2">{title}</Typography>
@@ -15,14 +15,13 @@ function HeroSection({ title, description, otherDetails }) {
           <Typography variant="body2">{otherDetails}</Typography>
         </Box>
       </Box>
-    </Box>
+    </CardMedia>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   heroSection: {
     minHeight: 200,
-    background: "linear-gradient(269.98deg, #3740A1 -4.96%, #2ECDFF 203.33%)",
     marginTop: theme.spacing(10),
     borderRadius: "5px",
     display: "flex",
