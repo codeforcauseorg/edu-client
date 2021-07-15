@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Container, Grid, makeStyles } from "@material-ui/core";
+import { Box, Container, makeStyles } from "@material-ui/core";
 import DashboardHero from "./DashboardHero";
 import DoubtsSection from "./DoubtsSection";
 import CardSection from "./CardSection";
@@ -25,17 +25,24 @@ function MainSection() {
   return (
     <Container disableGutters>
       <DashboardHero />
-      <Grid container spacing={2} className={classes.grid}>
+      <Box className={classes.box}>
         {cardElements.map((items, index) => (
-          <CardSection key={index} props={items} />
+          <CardSection key={index} props={items} index={index} />
         ))}
-      </Grid>
+      </Box>
 
       <DoubtsSection />
     </Container>
   );
 }
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+  box: {
+    display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      flexWrap: "wrap",
+    },
+  },
+}));
 
 export default MainSection;
