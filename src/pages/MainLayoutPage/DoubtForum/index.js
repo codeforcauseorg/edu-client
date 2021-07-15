@@ -14,7 +14,11 @@ function DoubtForum(props) {
 
   return (
     <Container className={classes.wrapperContainer}>
-      <HeroSection title={heroElements.title} description={heroElements.description} />
+      <HeroSection
+        title={heroElements.title}
+        description={heroElements.description}
+        banner="assets/img/doubtBanner.svg"
+      />
       <Box className={classes.container}>
         <QuestionSection />
         <Hidden mdDown>

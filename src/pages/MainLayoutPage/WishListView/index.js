@@ -7,14 +7,6 @@ import WishlistFilterBar from "../../../components/WishlistComponents/WishlistFi
 import WishListTagSection from "../../../components/WishlistComponents/WishListTagSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 
-const mapStateToProps = (state) => ({
-  wishlist: state.wishlist,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  wishlistDeleted: (id) => dispatch(wishlistDeleted(id)),
-});
-
 const WishListView = ({ wishlist, wishlistDeleted }) => {
   const classes = useStyles();
 
@@ -30,7 +22,7 @@ const WishListView = ({ wishlist, wishlistDeleted }) => {
       <HeroSection
         title={heroElements.title}
         description={heroElements.description}
-        otherDetails={heroElements.otherDetails}
+        banner="assets/img/wishlistBanner.svg"
       />
       <WishlistFilterBar />
       <WishListTagSection />
@@ -69,5 +61,13 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "90%",
   },
 }));
+
+const mapStateToProps = (state) => ({
+  wishlist: state.wishlist,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  wishlistDeleted: (id) => dispatch(wishlistDeleted(id)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(WishListView);
