@@ -13,7 +13,6 @@ import {
 import React, { useState } from "react";
 import PostDoubt from "./PostDoubt";
 
-
 const radioList = ["All", "Web Development", "Mobile Development", "DSA", "DevOps", "AI/ML"];
 
 function FilterSection() {
@@ -24,7 +23,6 @@ function FilterSection() {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
 
   const handleOpen = () => {
     setOpen(true);
