@@ -11,7 +11,7 @@ function GamificationBoard(props) {
   };
 
   return (
-    <Container className={classes.wrapperContainer}>
+    <Container className={classes.wrapperContainer} disableGutters>
       <HeroSection
         title={heroElements.title}
         description={heroElements.description}

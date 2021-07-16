@@ -3,6 +3,8 @@ import { Hidden, makeStyles } from "@material-ui/core";
 import NavBar from "../../components/NavBar/index";
 import BottomNav from "./BottomNav";
 import FooterSection from "../../components/HomeViewComponents/FooterSection";
+import AdBanner from "../../components/AdBanner";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,9 +22,15 @@ const useStyles = makeStyles((theme) => ({
 
 function MainLayout({ children }) {
   const classes = useStyles();
+  const [show, setshow] = useState(true);
+
+  const handleClick = () => {
+    setshow(false);
+  };
 
   return (
     <div className={classes.root}>
+      {show ? <AdBanner handleClick={() => handleClick()} /> : ""}
       <NavBar />
       <div className={classes.wrapper}>
         <div className={classes.contentContainer}>
