@@ -24,7 +24,6 @@ function FilterSection() {
     setValue(event.target.value);
   };
 
-
   const handleOpen = () => {
     setOpen(true);
   };
