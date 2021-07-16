@@ -22,8 +22,6 @@ const WishListView = ({ wishlist, wishlistDeleted }) => {
     title: "Wishlist",
     description:
       " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the.",
-    borderColor: "4px solid #6593F5",
-    gradientColor: "linear-gradient(180deg, #6593F5 0%, #3740A1 100%)",
     otherDetails: "4 Wishlist Courses",
   };
 
@@ -32,8 +30,6 @@ const WishListView = ({ wishlist, wishlistDeleted }) => {
       <HeroSection
         title={heroElements.title}
         description={heroElements.description}
-        borderColor={heroElements.borderColor}
-        gradientColor={heroElements.gradientColor}
         otherDetails={heroElements.otherDetails}
       />
       <WishlistFilterBar />

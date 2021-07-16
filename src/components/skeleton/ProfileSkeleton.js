@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, makeStyles } from "@material-ui/core";
 import SkeletonElement from "./SkeletonElement";
-import ProfileHeroLayout from "../ProfileComponents/ProfileHeroLayout";
+import ProfileHeroLayout from "../DashboardComponents/ProfileHeroLayout";
 
 function ProfileSkeleton() {
   const classes = useStyles();

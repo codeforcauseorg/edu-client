@@ -8,6 +8,7 @@ import {
   makeStyles,
   Toolbar,
   Typography,
+  Badge,
 } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -16,12 +17,14 @@ import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useDispatch, useSelector } from "react-redux";
 import authService from "../../services/authService";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
-  { title: "My Course", link: "/my-course" },
+  { title: "Forum", link: "/doubt-forum" },
   { title: "Wishlist", link: "/wishlist" },
-  { title: "Profile", link: "/profile" },
+  { title: "Gamification", link: "/gamification-board" },
+  { title: "Dashboard", link: "/dashboard" },
 ];
 
 function NavBar() {
@@ -114,25 +117,11 @@ function NavBar() {
               })}
             </Box>
           </Hidden>
-
-          <div className={classes.sectionDesktop}>
-            <Hidden mdDown>
-              {!user ? (
-                <div>
-                  <Button className={classes.signInButton}>
-                    <Typography noWrap>Sign In</Typography>
-                  </Button>
-                  <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
-                    <Typography noWrap>Sign Up</Typography>
-                  </Button>
-                </div>
-              ) : (
-                <Typography className={classes.title} variant="h6" noWrap>
-                  Hi, {user.displayName}
-                </Typography>
-              )}
-            </Hidden>
-          </div>
+          <IconButton className={classes.IconButton}>
+            <Badge color="secondary" variant="standard" badgeContent={1}>
+              <NotificationsIcon />
+            </Badge>
+          </IconButton>
           {user ? (
             <Avatar
               className={classes.avatar}
@@ -140,7 +129,14 @@ function NavBar() {
               onClick={() => handleLogOutAction()}
             />
           ) : (
-            ""
+            <div>
+              <Button className={classes.signInButton}>
+                <Typography noWrap>Sign In</Typography>
+              </Button>
+              <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
+                <Typography noWrap>Sign Up</Typography>
+              </Button>
+            </div>
           )}
         </Toolbar>
       </AppBar>
@@ -222,6 +218,9 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     display: "flex",
+  },
+  IconButton: {
+    marginRight: theme.spacing(4),
   },
 }));
 
