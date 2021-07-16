@@ -147,9 +147,6 @@ function NavBar() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "#fff",
-    [theme.breakpoints.down("md")]: {
-      backgroundColor: theme.palette.primary.main,
-    },
   },
   grow: {
     flexGrow: 1,
