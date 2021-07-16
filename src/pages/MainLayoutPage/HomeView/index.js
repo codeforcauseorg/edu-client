@@ -37,7 +37,6 @@ const ContinueLearningList = [
 
 function HomeView({ courseData, fetchData }) {
   const classes = useStyles();
-  // const exploreCourse =courseData.course.explore;
 
   useEffect(() => {
     fetchData();

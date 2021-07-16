@@ -11,7 +11,7 @@ function AdBanner({ handleClick }) {
         <Clear />
       </IconButton>
       <Box className={classes.infoContainer}>
-        <Typography variant="h3">🔥 Use CFC75 Coupon Code for 75% off 🔥</Typography>
+        <Typography variant="h4">🔥 Use CFC75 Coupon Code for 75% off 🔥</Typography>
       </Box>
     </Box>
   );
@@ -19,8 +19,8 @@ function AdBanner({ handleClick }) {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    background: "#3C424E",
-    height: 70,
+    background: "#4E25C6",
+    height: 50,
     width: "100%",
   },
   iconButton: {
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     color: "#fff",
     justifyContent: "center",
-    paddingTop: theme.spacing(2.5),
+    paddingTop: theme.spacing(1.2),
   },
 }));
 
