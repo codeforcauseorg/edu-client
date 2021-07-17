@@ -1,4 +1,6 @@
 import { Container, makeStyles } from "@material-ui/core";
+import LeaderboardSection from "../../../components/GamificationComponent/LeaderboardSection";
+import StatsCardSection from "../../../components/GamificationComponent/StatsCardSection";
 import HeroSection from "../../../components/HeroSection";
 
 function GamificationBoard(props) {
@@ -17,6 +19,8 @@ function GamificationBoard(props) {
         description={heroElements.description}
         banner="assets/img/gamificationBanner.svg"
       />
+      <StatsCardSection />
+      <LeaderboardSection />
     </Container>
   );
 }
