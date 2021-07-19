@@ -128,6 +128,9 @@ const useStyles = makeStyles((theme) => ({
   },
   topTitle: {
     color: theme.palette.primary.main,
+    [theme.breakpoints.down("md")]: {
+      marginBottom: theme.spacing(4),
+    },
   },
   playIcon: {
     marginRight: theme.spacing(1),

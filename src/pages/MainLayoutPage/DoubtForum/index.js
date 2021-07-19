@@ -1,4 +1,4 @@
-import { Container, makeStyles, Box } from "@material-ui/core";
+import { Container, makeStyles, Box, Hidden } from "@material-ui/core";
 import FilterSection from "../../../components/DoubtForumComponent/FilterSection";
 import QuestionSection from "../../../components/DoubtForumComponent/QuestionSection";
 import HeroSection from "../../../components/HeroSection/index";
@@ -17,7 +17,9 @@ function DoubtForum(props) {
       <HeroSection title={heroElements.title} description={heroElements.description} />
       <Box className={classes.container}>
         <QuestionSection />
-        <FilterSection />
+        <Hidden mdDown>
+          <FilterSection />
+        </Hidden>
       </Box>
     </Container>
   );

@@ -1,11 +1,13 @@
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import ReactPlayer from "react-player/lazy";
+import { useHistory } from "react-router";
 
 function VideoCard(props) {
   const classes = useStyles();
   const { videoInfo } = props;
   const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail } = videoInfo;
+  const history = useHistory();
 
   return (
     <Box className={classes.videoContainer}>
@@ -26,7 +28,9 @@ function VideoCard(props) {
             {crossPrice}
           </Typography>
         </Box>
-        <Button className={classes.button}>Buy Now</Button>
+        <Button className={classes.button} onClick={() => history.push("/checkout")}>
+          Buy Now
+        </Button>
       </Box>
     </Box>
   );

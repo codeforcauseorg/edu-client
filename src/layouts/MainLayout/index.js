@@ -3,6 +3,7 @@ import { Hidden, makeStyles } from "@material-ui/core";
 import NavBar from "../../components/NavBar/index";
 import BottomNav from "./BottomNav";
 import FooterSection from "../../components/HomeViewComponents/FooterSection";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: theme.palette.background.default,

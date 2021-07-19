@@ -18,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
     flex: 8,
     borderRadius: "5px",
     marginRight: theme.spacing(2),
+    [theme.breakpoints.down("md")]: {
+      marginRight: theme.spacing(0),
+    },
   },
 }));
 export default QuestionSection;

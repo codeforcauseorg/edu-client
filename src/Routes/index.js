@@ -12,6 +12,7 @@ import PageNotFound from "../pages/PageNotFound";
 import * as ROUTES from "../constants/routes";
 import LessonsPlayer from "../pages/LessonsPlayer/index";
 import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
+import Checkout from "../pages/Checkout";
 
 const Routes = () => (
   <Switch>
@@ -20,6 +21,7 @@ const Routes = () => (
     </Route>
     <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
+    <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
     <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
       <LandingPage />
     </AuthRoute>

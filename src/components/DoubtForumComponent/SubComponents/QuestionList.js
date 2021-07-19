@@ -1,6 +1,5 @@
-import { Box, makeStyles, Paper, Avatar, Typography, Chip } from "@material-ui/core";
+import { Box, makeStyles, Paper, Avatar, Typography, Chip, Hidden } from "@material-ui/core";
 import React from "react";
-import AvatarGroup from "@material-ui/lab/AvatarGroup";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 
 function QuestionList() {
@@ -8,13 +7,14 @@ function QuestionList() {
 
   return (
     <Paper className={classes.paper}>
-      <Box className={classes.avatarContainer}>
-        <Avatar
-          className={classes.avatar}
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU"
-        />
-      </Box>
-
+      <Hidden mdDown>
+        <Box className={classes.avatarContainer}>
+          <Avatar
+            className={classes.avatar}
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBwgu1A5zgPSvfE83nurkuzNEoXs9DMNr8Ww&usqp=CAU"
+          />
+        </Box>
+      </Hidden>
       <Box className={classes.infoContainer}>
         <Box className={classes.innerContainer}>
           <Typography variant="h5" className={classes.title} gutterBottom>
@@ -30,15 +30,6 @@ function QuestionList() {
           ))}
         </Box>
         <Box className={classes.actionContainer}>
-          <AvatarGroup max={4}>
-            {[1, 2, 3, 4, 5, 6].map((items, index) => (
-              <Avatar
-                key={index}
-                alt="Remy Sharp"
-                src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb2ZpbGV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              />
-            ))}
-          </AvatarGroup>
           <Box className={classes.flex}>
             <ChatBubbleOutlineIcon className={classes.icons} />
             <Typography>6 Answers</Typography>
@@ -54,12 +45,19 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "5px",
     display: "flex",
     margin: theme.spacing(2),
-    boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.25)",
+    boxShadow: "0px 4px 20px rgba(55, 64, 161, 0.1)",
     cursor: "pointer",
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(0),
+      marginBottom: theme.spacing(2),
+    },
   },
   infoContainer: {
     padding: theme.spacing(2),
     display: "flex",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
   },
   avatar: {
     height: 50,
@@ -92,6 +90,9 @@ const useStyles = makeStyles((theme) => ({
     flex: 2,
     paddingTop: theme.spacing(4),
     marginLeft: theme.spacing(8),
+    [theme.breakpoints.down("md")]: {
+      marginLeft: theme.spacing(0),
+    },
   },
   innerContainer: {
     flex: 8,

@@ -1,6 +1,5 @@
 import {
   AppBar,
-  Avatar,
   Box,
   Button,
   Hidden,
@@ -15,9 +14,10 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
 import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
-import { useDispatch, useSelector } from "react-redux";
-import authService from "../../services/authService";
+import { useSelector } from "react-redux";
+// import authService from "../../services/authService";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import ShopIcon from "@material-ui/icons/Shop";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -29,7 +29,7 @@ const navItemsLists = [
 
 function NavBar() {
   const classes = useStyles();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.account.user);
   const [scrollPositions, setscrollPositions] = useState(0);
@@ -66,25 +66,20 @@ function NavBar() {
     listenToScrollEvent();
   });
 
-  const handleLogOutAction = () => {
-    try {
-      dispatch(authService.logout());
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleLogOutAction = () => {
+  //   try {
+  //     dispatch(authService.logout());
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <div className={classes.grow}>
       <AppBar position="fixed">
         <LinearProgress variant="determinate" value={scrollPositions} />
         <Toolbar className={classes.appBar}>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="open drawer"
-          >
+          <IconButton edge="start" className={classes.menuButton} color="primary">
             <MenuIcon />
           </IconButton>
           <Hidden mdDown>
@@ -117,26 +112,25 @@ function NavBar() {
               })}
             </Box>
           </Hidden>
-          <IconButton className={classes.IconButton}>
-            <Badge color="secondary" variant="standard" badgeContent={1}>
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
           {user ? (
-            <Avatar
-              className={classes.avatar}
-              src={`${user.photoURL}`}
-              onClick={() => handleLogOutAction()}
-            />
+            <>
+              <IconButton>
+                <Badge color="secondary" variant="dot">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton onClick={() => history.push("/checkout")}>
+                <Badge color="secondary" variant="standard" badgeContent={2}>
+                  <ShopIcon />
+                </Badge>
+              </IconButton>
+            </>
           ) : (
-            <div>
-              <Button className={classes.signInButton}>
-                <Typography noWrap>Sign In</Typography>
-              </Button>
+            <Box className={classes.buttonContainer}>
               <Button className={classes.signUpButton} onClick={() => history.push("/signup")}>
                 <Typography noWrap>Sign Up</Typography>
               </Button>
-            </div>
+            </Box>
           )}
         </Toolbar>
       </AppBar>
@@ -147,9 +141,9 @@ function NavBar() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "#fff",
+    boxShadow: "0 2.8px 2.2px rgba(0, 0, 0, 0.034)",
   },
   grow: {
-    flexGrow: 1,
     "& .MuiLinearProgress-colorPrimary": {
       backgroundColor: "rgb(255, 255, 255)",
     },
@@ -162,21 +156,19 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    display: "block",
-    color: "#000",
-    marginRight: "10px",
+    color: theme.palette.text.primary,
+    width: "15%",
   },
   search: {
     position: "relative",
     borderRadius: "5px",
-    boxShadow: "none",
+    boxShadow: "0 3px 10px rgb(0 0 0 / 0.1)",
     marginRight: theme.spacing(2),
-    width: "100%",
-    height: " 38px",
+    flex: 1,
+    height: "38px",
     [theme.breakpoints.up("md")]: {
-      width: theme.spacing(50),
       height: " 48px",
-      marginLeft: theme.spacing(5),
+      marginLeft: theme.spacing(0),
     },
   },
   inputInput: {
@@ -210,14 +202,14 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     padding: theme.spacing(1, 2, 1, 2),
   },
+  buttonContainer: {
+    display: "flex",
+  },
   textStyle: {
     textDecoration: "none",
   },
   avatar: {
     display: "flex",
-  },
-  IconButton: {
-    marginRight: theme.spacing(4),
   },
 }));
 

@@ -36,7 +36,6 @@ function ScoreBoard() {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    background: "#F8F9FD",
     borderRadius: "5px",
     padding: theme.spacing(4),
   },
@@ -49,9 +48,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   },
   paper: {
-    minWidth: 150,
     boxShadow: "none",
-    background: "#F8F9FD",
   },
   divider: {
     width: "20%",

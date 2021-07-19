@@ -72,7 +72,6 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(2),
   },
   cardActions: {
-    display: "flex",
     alignItems: "center",
     paddingBottom: theme.spacing(2),
   },
@@ -86,7 +85,7 @@ const useStyles = makeStyles((theme) => ({
   },
   chapter: {
     padding: ".5rem .75rem",
-    background: "#e7e7e7",
+    background: "#e8f0f8",
   },
   cardContent: {
     padding: 0,
