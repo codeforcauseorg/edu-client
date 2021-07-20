@@ -2,7 +2,6 @@ import { makeStyles, Avatar, Box, Paper, Typography } from "@material-ui/core";
 import React from "react";
 
 function LeaderBoardList({ leaderboardElement }) {
-  console.log(leaderboardElement);
   const classes = useStyles();
 
   return (
@@ -10,7 +9,7 @@ function LeaderBoardList({ leaderboardElement }) {
       {leaderboardElement.map((items, index) => (
         <Paper key={index} className={classes.paper}>
           <Avatar className={classes.avata}>
-            <Typography>{index + 1}</Typography>
+            <Typography>{items.id}</Typography>
           </Avatar>
           <Avatar className={classes.profileAvatar} src={items.profilePic} />
           <Box className={classes.infoContainer}>

@@ -5,26 +5,23 @@ import LeaderBoardList from "./LeaderBoardList";
 import Pagination from "./Pagination";
 
 function LeaderboardSection() {
-  const [currentPage, setcurrentPage] = useState(1);
-  const [listsPerPage] = useState(3);
+  const [pageNumber, setPageNumber] = useState(0);
 
-  // Get current list
-  const indexOfLastList = currentPage * listsPerPage;
-  const indexOfFirstList = indexOfLastList - listsPerPage;
-  const currentList = leaderboardElement.slice(indexOfFirstList, indexOfLastList);
+  const listPerPage = 3;
+  const pageVisited = pageNumber * listPerPage;
+  const displayList = leaderboardElement.slice(pageVisited, pageVisited + listPerPage);
 
-  // Change Page
-  const paginate = (pageNumber) => {
-    setcurrentPage(pageNumber);
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
   };
 
   return (
     <Box>
-      <LeaderBoardList leaderboardElement={currentList} />
+      <LeaderBoardList leaderboardElement={displayList} />
       <Pagination
-        listsPerPage={listsPerPage}
+        listsPerPage={listPerPage}
         totalList={leaderboardElement.length}
-        paginate={paginate}
+        changePage={changePage}
       />
     </Box>
   );
