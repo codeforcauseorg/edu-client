@@ -11,7 +11,9 @@ function AdBanner({ handleClick }) {
         <Clear />
       </IconButton>
       <Box className={classes.infoContainer}>
-        <Typography variant="h4">🔥 Use CFC75 Coupon Code for 75% off 🔥</Typography>
+        <Typography className={classes.bannerMessage} variant="h4">
+          🔥 Use CFC75 Coupon Code for 75% off 🔥
+        </Typography>
       </Box>
     </Box>
   );
@@ -33,6 +35,14 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     justifyContent: "center",
     paddingTop: theme.spacing(1.2),
+    [theme.breakpoints.down("sm")]: {
+      paddingTop: theme.spacing(2),
+    },
+  },
+  bannerMessage: {
+    [theme.breakpoints.down("sm")]: {
+      fontSize: 13,
+    },
   },
 }));
 

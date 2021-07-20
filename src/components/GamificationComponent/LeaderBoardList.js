@@ -55,6 +55,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     width: "80%",
   },
+  score: {
+    marginRight: theme.spacing(3),
+  },
 }));
 
 export default LeaderBoardList;
