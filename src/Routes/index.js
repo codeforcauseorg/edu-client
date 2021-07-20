@@ -15,6 +15,7 @@ import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
 import Checkout from "../pages/Checkout";
 import SearchSection from "../pages/SearchSection";
 
+
 const Routes = () => (
   <Switch>
     <Route path="/" exact>
@@ -24,6 +25,7 @@ const Routes = () => (
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
     <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
     <Route path={ROUTES.SEARCH_SECTION} component={SearchSection} />
+
     <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
       <LandingPage />
     </AuthRoute>

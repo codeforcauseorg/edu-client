@@ -4,6 +4,8 @@ import Auth from "./components/auth/Auth";
 import { SnackbarProvider } from "notistack";
 import { createStyles, makeStyles, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "./theme/index";
+import ScrollToTop from "./components/ScrollComponent";
+
 const useStyles = makeStyles(() =>
   createStyles({
     "@global": {
@@ -41,6 +43,7 @@ function App() {
         <SnackbarProvider maxSnack={1}>
           <Router history={history}>
             <Auth>
+              <ScrollToTop />
               <Routes />
             </Auth>
           </Router>
