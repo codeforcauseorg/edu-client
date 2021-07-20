@@ -1,4 +1,7 @@
 import { Container, makeStyles } from "@material-ui/core";
+import LeaderboardFilter from "../../../components/GamificationComponent/LeaderboardFilter";
+import LeaderboardSection from "../../../components/GamificationComponent/LeaderboardSection";
+import StatsCardSection from "../../../components/GamificationComponent/StatsCardSection";
 import HeroSection from "../../../components/HeroSection";
 
 function GamificationBoard(props) {
@@ -11,12 +14,17 @@ function GamificationBoard(props) {
   };
 
   return (
-    <Container className={classes.wrapperContainer}>
+    <Container className={classes.wrapperContainer} disableGutters>
       <HeroSection
         title={heroElements.title}
         description={heroElements.description}
         banner="assets/img/gamificationBanner.svg"
       />
+      <Container className={classes.innerContainer}>
+        <StatsCardSection />
+        <LeaderboardFilter />
+        <LeaderboardSection />
+      </Container>
     </Container>
   );
 }
@@ -24,6 +32,12 @@ function GamificationBoard(props) {
 const useStyles = makeStyles((theme) => ({
   wrapperContainer: {
     minWidth: "90%",
+  },
+  innerContainer: {
+    maxWidth: "85%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+    },
   },
 }));
 

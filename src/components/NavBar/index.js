@@ -9,10 +9,9 @@ import {
   Typography,
   Badge,
 } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
-import LinearProgress from "@material-ui/core/LinearProgress";
 import { useSelector } from "react-redux";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AsyncSelect from "react-select/async";
@@ -30,39 +29,6 @@ function NavBar() {
   const classes = useStyles();
   const history = useHistory();
   const user = useSelector((state) => state.account.user);
-  const [scrollPositions, setscrollPositions] = useState(0);
-
-  const listenToScrollEvent = () => {
-    document.addEventListener("scroll", () => {
-      requestAnimationFrame(() => {
-        calculateScrollDistance();
-      });
-    });
-  };
-
-  const calculateScrollDistance = () => {
-    const scrollTop = window.pageYOffset;
-    const windowHeight = window.innerHeight;
-    const docHeight = getDocHeight();
-    const totalDocScrollLength = docHeight - windowHeight;
-    const scrollPostion = Math.floor((scrollTop / totalDocScrollLength) * 100);
-    setscrollPositions(scrollPostion);
-  };
-
-  const getDocHeight = () => {
-    return Math.max(
-      document.body.scrollHeight,
-      document.documentElement.scrollHeight,
-      document.body.offsetHeight,
-      document.documentElement.offsetHeight,
-      document.body.clientHeight,
-      document.documentElement.clientHeight
-    );
-  };
-
-  useEffect(() => {
-    listenToScrollEvent();
-  });
 
   const searchResult = [
     { label: "web Development", value: "web" },
@@ -83,8 +49,7 @@ function NavBar() {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="fixed">
-        <LinearProgress variant="determinate" value={scrollPositions} />
+      <AppBar position="static">
         <Toolbar className={classes.appBar}>
           <IconButton edge="start" className={classes.menuButton} color="primary">
             <MenuIcon />
