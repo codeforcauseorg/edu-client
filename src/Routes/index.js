@@ -15,7 +15,6 @@ import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
 import Checkout from "../pages/Checkout";
 import SearchSection from "../pages/SearchSection";
 
-
 const Routes = () => (
   <Switch>
     <Route path="/" exact>
