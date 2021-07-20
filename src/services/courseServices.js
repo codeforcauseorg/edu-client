@@ -1,11 +1,11 @@
-import axios from "../utils/mockaxios";
+import axios from "../utils/axios";
 import { fetchCourseDetailsData, fetchCourseData } from "../store/actions/courseActions";
 import errorHandler from "./errorHandler";
 
 export const setCourseData = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("/api/courses/all"); // mock URL for testing
+      const response = await axios.get("/api/courses/all");
       if (response.status === 200) {
         const data = await response.data;
         dispatch(fetchCourseData(data));
@@ -19,7 +19,7 @@ export const setCourseData = () => {
 export const setCourseDetailsData = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("/api/courses/details"); // mock URL for testing
+      const response = await axios.get("/api/courses/details");
       if (response.status === 200) {
         const data = await response.data;
         dispatch(fetchCourseDetailsData(data));
