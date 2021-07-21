@@ -8,7 +8,7 @@ function AssignmentsSection() {
   return (
     <Box className={classes.container}>
       <Typography variant="h4" className={classes.heading}>
-        Assignments (2)
+        Active Assignments (2)
       </Typography>
       <List container className={classes.grid} spacing={4}>
         {[1, 2].map((items, index) => (
@@ -21,7 +21,6 @@ function AssignmentsSection() {
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    background: "#F8F9FD",
     borderRadius: "5px",
     padding: theme.spacing(4),
   },

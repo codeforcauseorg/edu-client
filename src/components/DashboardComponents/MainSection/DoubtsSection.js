@@ -8,13 +8,11 @@ function DoubtsSection() {
   return (
     <Box className={classes.root}>
       <Box className={classes.headerContainer}>
-        <Box className={classes.titleSection}>
-          <Typography variant="h4" className={classes.title} gutterBottom>
+        <Box>
+          <Typography variant="h2" gutterBottom>
             Forum
           </Typography>
-          <Typography variant="h5" className={classes.subtitle}>
-            Your questions on forum
-          </Typography>
+          <Typography variant="h5">Your questions on forum</Typography>
         </Box>
         <Box className={classes.askQuestion}>
           <Button className={classes.button}>
@@ -25,22 +23,26 @@ function DoubtsSection() {
           </Button>
         </Box>
       </Box>
-      <Grid container className={classes.grid}>
-        {[1, 2, 3, 4, 5].map((items, index) => (
-          <Grid items key={index} xs={12} lg={4}>
-            <AskedQuestion />
-          </Grid>
-        ))}
-      </Grid>
+      <Box className={classes.gridContainer}>
+        <Grid container className={classes.grid}>
+          {[1, 2, 3, 4, 5].map((items, index) => (
+            <Grid items key={index} xs={12} md={6} lg={4}>
+              <AskedQuestion />
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
     </Box>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "#F5F8FB",
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
+  },
+  gridContainer: {
     borderRadius: "5px",
-    padding: theme.spacing(4),
     [theme.breakpoints.down("md")]: {
       padding: theme.spacing(0),
       marginTop: theme.spacing(2),
@@ -55,12 +57,6 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
     },
   },
-  title: {
-    textTransform: "uppercase",
-  },
-  subtitle: {
-    textTransform: "uppercase",
-  },
   buttonLabel: {
     marginRight: theme.spacing(2),
   },
@@ -72,7 +68,6 @@ const useStyles = makeStyles((theme) => ({
   },
   titleSection: {
     paddingTop: theme.spacing(4),
-    paddingLeft: theme.spacing(4),
   },
   askQuestion: {
     paddingTop: theme.spacing(2),

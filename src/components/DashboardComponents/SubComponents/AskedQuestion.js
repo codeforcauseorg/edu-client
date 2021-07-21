@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(1),
     cursor: "pointer",
+    boxShadow: "0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08)",
   },
   paper: {
     boxShadow: "none",

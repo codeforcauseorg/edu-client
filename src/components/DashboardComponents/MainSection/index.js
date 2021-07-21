@@ -1,41 +1,47 @@
 import React from "react";
-
-import { Container, makeStyles, Box, Typography } from "@material-ui/core";
+import { Box, Container, makeStyles } from "@material-ui/core";
 import DashboardHero from "./DashboardHero";
 import DoubtsSection from "./DoubtsSection";
-import CardContainer from "../../cardContainer/cardContainer";
-import CourseEnrolledCard from "../SubComponents/CourseEnrolledCard";
-import ChallengesCard from "../SubComponents/ChallengesCard";
+import CardSection from "./CardSection";
 
 function MainSection() {
   const classes = useStyles();
+  const cardElements = [
+    {
+      title: "Classroom",
+      banner: "assets/img/classroomBanner.svg",
+    },
+    {
+      title: "Interview your friend",
+      banner: "assets/img/interviewBanner.svg",
+    },
+    {
+      title: "Request TA support",
+      banner: "assets/img/taSupportBanner.svg",
+    },
+  ];
+
   return (
     <Container disableGutters>
       <DashboardHero />
-      <Box className={classes.textBox}>
-        <Typography variant="h2">Enrolled Courses</Typography>
-      </Box>
-      <CardContainer>
-        {[1, 2, 3, 4, 5, 6].map((items, index) => (
-          <CourseEnrolledCard key={index} />
+      <Box className={classes.box}>
+        {cardElements.map((items, index) => (
+          <CardSection key={index} props={items} index={index} />
         ))}
-      </CardContainer>
+      </Box>
+
       <DoubtsSection />
-      <Box className={classes.textBox}>
-        <Typography variant="h2">Challenges</Typography>
-      </Box>
-      <CardContainer>
-        {[1, 2, 3, 4, 5, 6].map((items, index) => (
-          <ChallengesCard key={index} />
-        ))}
-      </CardContainer>
     </Container>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
-  textBox: {
-    marginTop: theme.spacing(6),
+  box: {
+    display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      flexWrap: "wrap",
+    },
   },
 }));
+
 export default MainSection;

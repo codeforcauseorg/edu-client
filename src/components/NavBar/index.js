@@ -12,11 +12,10 @@ import {
 import React, { useEffect, useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
-import SearchBar from "material-ui-search-bar";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import { useSelector } from "react-redux";
-// import authService from "../../services/authService";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
 
 const navItemsLists = [
@@ -29,7 +28,6 @@ const navItemsLists = [
 
 function NavBar() {
   const classes = useStyles();
-  // const dispatch = useDispatch();
   const history = useHistory();
   const user = useSelector((state) => state.account.user);
   const [scrollPositions, setscrollPositions] = useState(0);
@@ -66,13 +64,22 @@ function NavBar() {
     listenToScrollEvent();
   });
 
-  // const handleLogOutAction = () => {
-  //   try {
-  //     dispatch(authService.logout());
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const searchResult = [
+    { label: "web Development", value: "web" },
+    { label: "react", value: "web" },
+    { label: "rust", value: "web" },
+  ];
+
+  const filterQuery = (inputValue) => {
+    return searchResult.filter((i) => i.label.toLowerCase().includes(inputValue.toLowerCase()));
+  };
+
+  const promiseOptions = (inputValue) =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(filterQuery(inputValue));
+      }, 1000);
+    });
 
   return (
     <div className={classes.grow}>
@@ -87,9 +94,21 @@ function NavBar() {
               Code for Cause
             </Typography>
           </Hidden>
-          <SearchBar
+          <AsyncSelect
             className={classes.search}
-            placeholder="Search Course, Categories or mentors..."
+            placeholder={<Typography>Search Course, Categories or mentors...</Typography>}
+            cacheOptions
+            defaultOptions
+            loadOptions={promiseOptions}
+            onChange={(opt) => history.push(`/search?q=${opt.label}&`)}
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 5,
+              colors: {
+                ...theme.colors,
+                primary: "#3740A1",
+              },
+            })}
           />
           <div className={classes.grow} />
           <Hidden lgDown>
@@ -160,16 +179,10 @@ const useStyles = makeStyles((theme) => ({
     width: "15%",
   },
   search: {
-    position: "relative",
-    borderRadius: "5px",
-    boxShadow: "0 3px 10px rgb(0 0 0 / 0.1)",
     marginRight: theme.spacing(2),
     flex: 1,
-    height: "38px",
-    [theme.breakpoints.up("md")]: {
-      height: " 48px",
-      marginLeft: theme.spacing(0),
-    },
+    color: theme.palette.text.primary,
+    fontFamily: "Montserrat, sans-serif",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 2),

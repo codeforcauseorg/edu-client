@@ -7,17 +7,26 @@ function Dashboard() {
   const classes = useStyles();
 
   return (
-    <Container className={classes.root} disableGutters>
-      <MainSection />
-      <Hidden mdDown>
-        <SecondarySection />
-      </Hidden>
+    <Container className={classes.root}>
+      <Container className={classes.innerContainer} disableGutters>
+        <MainSection />
+        <Hidden lgDown>
+          <SecondarySection />
+        </Hidden>
+      </Container>
     </Container>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
-  root: { display: "flex", maxWidth: "94%", marginTop: theme.spacing(10) },
+  innerContainer: { display: "flex", maxWidth: "100%", marginTop: theme.spacing(10) },
+  root: {
+    maxWidth: "94%",
+  },
+  textBox: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(8),
+  },
 }));
 
 export default Dashboard;

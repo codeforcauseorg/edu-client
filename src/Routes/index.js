@@ -13,6 +13,7 @@ import * as ROUTES from "../constants/routes";
 import LessonsPlayer from "../pages/LessonsPlayer/index";
 import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
 import Checkout from "../pages/Checkout";
+import SearchSection from "../pages/SearchSection";
 
 const Routes = () => (
   <Switch>
@@ -22,6 +23,8 @@ const Routes = () => (
     <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
     <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
+    <Route path={ROUTES.SEARCH_SECTION} component={SearchSection} />
+
     <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
       <LandingPage />
     </AuthRoute>

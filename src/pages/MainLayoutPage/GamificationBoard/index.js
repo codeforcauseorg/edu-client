@@ -1,22 +1,22 @@
 import { Container, makeStyles } from "@material-ui/core";
-import FilterBar from "../../../components/GamificationComponents/FilterBar";
-import TagSection from "../../../components/TagSection";
-import HeroSection from "../../../components/HeroSection/index";
+import HeroSection from "../../../components/HeroSection";
 
 function GamificationBoard(props) {
   const classes = useStyles();
 
   const heroElements = {
-    title: "Gamefication Board",
+    title: "Gamification Board",
     description:
       " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the.",
   };
 
   return (
     <Container className={classes.wrapperContainer}>
-      <HeroSection title={heroElements.title} description={heroElements.description} />
-      <FilterBar />
-      <TagSection />
+      <HeroSection
+        title={heroElements.title}
+        description={heroElements.description}
+        banner="assets/img/gamificationBanner.svg"
+      />
     </Container>
   );
 }
