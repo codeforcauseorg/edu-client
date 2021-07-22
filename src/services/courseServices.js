@@ -5,7 +5,7 @@ import errorHandler from "./errorHandler";
 export const setCourseData = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("/api/courses/all");
+      const response = await axios.get("/course/cards/all");
       if (response.status === 200) {
         const data = await response.data;
         dispatch(fetchCourseData(data));
@@ -19,7 +19,7 @@ export const setCourseData = () => {
 export const setCourseDetailsData = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("/api/courses/details");
+      const response = await axios.get(`/course/${id}`);
       if (response.status === 200) {
         const data = await response.data;
         dispatch(fetchCourseDetailsData(data));
