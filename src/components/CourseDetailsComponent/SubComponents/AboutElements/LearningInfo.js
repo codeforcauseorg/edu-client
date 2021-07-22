@@ -13,7 +13,6 @@ import CheckIcon from "@material-ui/icons/Check";
 
 function LearningInfo(props) {
   const classes = useStyles();
-  const { info } = props;
 
   return (
     <Box className={classes.root}>
@@ -23,7 +22,7 @@ function LearningInfo(props) {
         </Typography>
         <Box mt={2} mb={2}>
           <Grid container item xs={12} spacing={2}>
-            {info.map((items, index) => (
+            {[1, 2, 3].map((items, index) => (
               <Box key={index} component="div">
                 <ListItem>
                   <ListItemAvatar>
@@ -32,7 +31,10 @@ function LearningInfo(props) {
                     </Avatar>
                   </ListItemAvatar>
                   <ListItemText>
-                    <Typography variant="subtitle1">{items}</Typography>
+                    <Typography variant="subtitle1">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                      incididunt ut labore et dolore magna aliqua. Ut enim{" "}
+                    </Typography>
                   </ListItemText>
                 </ListItem>
               </Box>

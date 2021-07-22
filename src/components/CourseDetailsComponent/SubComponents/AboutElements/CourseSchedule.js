@@ -5,8 +5,6 @@ import ScheduleList from "./ScheduleList";
 
 function CourseSchedule(props) {
   const classes = useStyles();
-  const { schedule } = props;
-  const { courseSections, totalNumberOfLectures, courseDuration, courseScheduleList } = schedule;
 
   return (
     <Box mt={8}>
@@ -14,11 +12,11 @@ function CourseSchedule(props) {
         Course Schedule
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        {courseSections} • {totalNumberOfLectures} lectures • {courseDuration} total length
+        24 sections • 4 lectures • 11 h 24 min total length
       </Typography>
       <Box>
         <List>
-          {courseScheduleList.map((items, index) => (
+          {[1, 2, 3].map((items, index) => (
             <ScheduleList key={index} scheduleInfo={items} />
           ))}
         </List>

@@ -4,26 +4,26 @@ import Rating from "@material-ui/lab/Rating";
 
 function StudentCourseReview(props) {
   const classes = useStyles();
-  const { reviewInfo } = props;
 
   return (
     <Box className={classes.root}>
       <Typography variant="h2">Reviews</Typography>
       <Box>
-        {reviewInfo.map((items, index) => (
+        {[1, 2, 3].map((items, index) => (
           <Paper key={index} className={classes.paper}>
             <Typography variant="subtitle1" component="p" gutterBottom>
-              {items.reviewDescription}
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
             </Typography>
             <Box className={classes.flexBox}>
               <Box>
                 <Typography variant="h3" gutterBottom>
-                  {items.reviewerName}
+                  Adarsh Kumar Singh
                 </Typography>
-                <Typography variant="h5">{items.occupation}</Typography>
+                <Typography variant="h5">Student</Typography>
               </Box>
               <Box className={classes.ratingContainer}>
-                <Rating value={items.raitedStars} precision={0.5} readOnly />
+                <Rating value={4} precision={0.5} readOnly />
                 <Typography variant="h5">{items.timeStamp}</Typography>
               </Box>
             </Box>

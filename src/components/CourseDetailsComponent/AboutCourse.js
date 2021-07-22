@@ -11,25 +11,30 @@ import StudentCourseReview from "./SubComponents/AboutElements/StudentCourseRevi
 function AboutCourse(props) {
   const classes = useStyles();
 
-  const { courseDetails } = props.about;
   const {
     whatYouWillLearn,
     skills,
-    courseLongDescription,
-    courseSections,
-    totalNumberOfLectures,
-    courseDuration,
-    courseScheduleList,
     prerequisites,
-    popularReviews,
-  } = courseDetails;
-
-  const schedualInfo = {
-    courseScheduleList,
-    totalNumberOfLectures,
-    courseSections,
-    courseDuration,
-  };
+    reviews,
+    // courseLevel,
+    // tags,
+    schedule,
+    // assignments,
+    // mentor,
+    // active,
+    // name,
+    // price,
+    // coupons,
+    // video_num,
+    // duration,
+    // start_date,
+    // end_date,
+    // sharable_link,
+    // courseDetails,
+    // courseThumbnail,
+    // courseTrailerUrl,
+    // id,
+  } = props.about;
 
   return (
     <Box className={classes.root}>
@@ -37,10 +42,10 @@ function AboutCourse(props) {
         <Container className={classes.innerContainer} disableGutters>
           <LearningInfo info={whatYouWillLearn} />
           <SkillsSection skillsInfo={skills} />
-          <DescriptionContainer description={courseLongDescription} />
-          <CourseSchedule schedule={schedualInfo} />
+          <DescriptionContainer description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+          <CourseSchedule schedule={schedule} />
           <Prerequisites prerequisitesInfo={prerequisites} />
-          <StudentCourseReview reviewInfo={popularReviews} />
+          <StudentCourseReview reviewInfo={reviews} />
         </Container>
         <Box className={classes.container}>
           <CourseIncludes />

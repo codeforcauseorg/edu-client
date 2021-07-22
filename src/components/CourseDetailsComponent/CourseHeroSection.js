@@ -8,24 +8,36 @@ import Instructors from "./SubComponents/HeroElements/Instructors";
 
 function CourseHeroSection(props) {
   const classes = useStyles();
-  const { courseDetails } = props.details;
+
   const {
-    courseTitle,
-    courseShortDescription,
-    raiting,
-    numberOfStudentsEnrolled,
-    numberOfStudentsRaited,
-    mentorList,
-    courseTrailerUrl,
-    crossPrice,
-    originalPrice,
+    // whatYouWillLearn,
+    // skills,
+    // prerequisites,
+    // reviews,
+    // courseLevel,
+    // tags,
+    // schedule,
+    // assignments,
+    mentor,
+    // active,
+    name,
+    price,
+    // coupons,
+    // video_num,
+    // duration,
+    // start_date,
+    // end_date,
+    // sharable_link,
+    courseDetails,
     courseThumbnail,
-  } = courseDetails;
+    courseTrailerUrl,
+    // id,
+  } = props.details;
 
   const videoContent = {
     courseTrailerUrl,
-    crossPrice,
-    originalPrice,
+    crossPrice: 1500,
+    price,
     courseThumbnail,
   };
 
@@ -38,24 +50,20 @@ function CourseHeroSection(props) {
           </Hidden>
           <Box mt={4}>
             <Typography gutterBottom className={classes.title}>
-              {courseTitle}
+              {name}
             </Typography>
             <Typography variant="h5" component="p">
-              {courseShortDescription}
+              {courseDetails}
             </Typography>
             <Box className={classes.ratingContainer}>
-              <Rating value={raiting} precision={0.5} readOnly className={classes.ratingStar} />
+              <Rating value={4.0} precision={0.5} readOnly className={classes.ratingStar} />
               <Hidden smDown>
-                <Typography className={classes.numberOfRatings}>
-                  ({numberOfStudentsRaited} ratings)
-                </Typography>
-                <Typography className={classes.numberOfStudents}>
-                  {numberOfStudentsEnrolled} students{" "}
-                </Typography>
+                <Typography className={classes.numberOfRatings}>(2000 ratings)</Typography>
+                <Typography className={classes.numberOfStudents}>(1800 students) </Typography>
               </Hidden>
             </Box>
           </Box>
-          <Instructors mentors={mentorList} />
+          <Instructors mentors={mentor} />
           <ShareAndWishlistButton /> {/* Share and add wishlist button component */}
         </Container>
         <VideoCard videoInfo={videoContent} /> {/* video card component */}
@@ -71,8 +79,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
-    paddingTop: theme.spacing(14),
-    paddingBottom: theme.spacing(5),
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
     background: "#e8f0f8",
     [theme.breakpoints.down("md")]: {
       display: "block",
@@ -81,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2),
-      paddingTop: theme.spacing(8),
+      paddingTop: theme.spacing(2),
     },
   },
   ratingContainer: {
