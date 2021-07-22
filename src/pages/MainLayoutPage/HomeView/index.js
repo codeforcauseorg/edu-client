@@ -69,9 +69,7 @@ function HomeView({ courseData, fetchData }) {
         <CardContainer>
           {courseData.course === null
             ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-            : courseData.course.popular.map((items, index) => (
-                <MediaCard key={index} props={items} />
-              ))}
+            : courseData.course.map((items, index) => <MediaCard key={index} props={items} />)}
         </CardContainer>
         <Box className={classes.popularContainer}>
           <Typography variant="h2">Upcoming Course</Typography>
@@ -80,9 +78,7 @@ function HomeView({ courseData, fetchData }) {
         <CardContainer>
           {courseData.course === null
             ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-            : courseData.course.upcoming.map((items, index) => (
-                <MediaCard key={index} props={items} />
-              ))}
+            : courseData.course.map((items, index) => <MediaCard key={index} props={items} />)}
         </CardContainer>
       </Container>
       <ExploreCourseSection />

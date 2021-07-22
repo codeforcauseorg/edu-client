@@ -18,16 +18,7 @@ import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
 function MediaCard({ props, isDeleteButton, onClick }) {
-  const { courseID, tag, courseDetails } = props;
-  const {
-    courseTitle,
-    courseThumbnail,
-    courseShortDescription,
-    originalPrice,
-    raiting,
-    totalNumberOfLectures,
-    mentorList,
-  } = courseDetails;
+  const { _id, tags, name, courseThumbnail } = props;
 
   const classes = useStyles();
   const history = useHistory();
@@ -66,35 +57,35 @@ function MediaCard({ props, isDeleteButton, onClick }) {
         }
       />
       <CardActionArea>
-        <CardContent
-          className={classes.cardContent}
-          onClick={() => history.push(`/course/${courseID}`)}
-        >
+        <CardContent className={classes.cardContent} onClick={() => history.push(`/course/${_id}`)}>
           <Box className={classes.tagSection}>
-            <Chip variant="outlined" size="small" className={classes.tag} label={tag.tagName} />
-            <Chip size="small" className={classes.price} label={originalPrice} />
+            <Chip variant="outlined" size="small" className={classes.tag} label={tags} />
+            <Chip size="small" className={classes.price} label={"₹1200"} />
           </Box>
           <Box className={classes.cardActions}>
             <Typography variant="h6" className={classes.title}>
-              {courseTitle}
+              {name}
             </Typography>
             <Box className={classes.description}>
-              <Typography variant="subtitle2">{courseShortDescription} </Typography>
+              <Typography variant="subtitle2">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua.
+              </Typography>
             </Box>
           </Box>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardFooter}>
         <StarIcon className={classes.starIcon} />
-        <Typography>{raiting}</Typography>
+        <Typography>4.5</Typography>
         <PlayCircleOutlineIcon />
-        <Typography> {totalNumberOfLectures} lectures</Typography>
+        <Typography> 11 lectures</Typography>
         <Box style={{ flexGrow: 1 }} />
         <Box className={classes.lessons}>
-          {mentorList.map((items, index) => (
+          {[1, 2].map((items, index) => (
             <Avatar
               key={index}
-              src={items.mentorPicture}
+              src="assets/members/anuj.png"
               className={classes.avatar}
               onClick={() => console.log("mentors")}
             />
