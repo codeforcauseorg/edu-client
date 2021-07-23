@@ -19,7 +19,7 @@ function Dashboard() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  innerContainer: { display: "flex", maxWidth: "100%", marginTop: theme.spacing(10) },
+  innerContainer: { display: "flex", maxWidth: "100%", marginTop: theme.spacing(5) },
   root: {
     maxWidth: "94%",
   },
