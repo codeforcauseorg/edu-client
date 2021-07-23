@@ -23,14 +23,6 @@ import React from "react";
 function ScheduleList(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const { scheduleInfo } = props;
-  const {
-    noOfLectures,
-    sectionName,
-    totalLectureDuration,
-    shortDescription,
-    lectureList,
-  } = scheduleInfo;
 
   const handleClick = () => {
     setOpen(!open);
@@ -44,12 +36,10 @@ function ScheduleList(props) {
             <DateRangeIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={sectionName} secondary={shortDescription} />
+        <ListItemText primary="Chapter 1" secondary="Lorem ipsum dolor sit amet, consectetur" />
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
           <Hidden smDown>
-            <Typography>
-              {noOfLectures} • {totalLectureDuration}
-            </Typography>
+            <Typography>2 lecture • 11 min</Typography>
           </Hidden>
           <IconButton edge="end" onClick={() => handleClick()}>
             {open ? <ExpandMoreIcon /> : <NavigateNextIcon />}
@@ -57,7 +47,7 @@ function ScheduleList(props) {
         </ListItemSecondaryAction>
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        {lectureList.map((items, index) => (
+        {[1, 2].map((items, index) => (
           <CollapseList key={index} lectureList={items} />
         ))}
       </Collapse>
@@ -67,8 +57,6 @@ function ScheduleList(props) {
 
 function CollapseList(props) {
   const classes = useStyles();
-  const { lectureList } = props;
-  const { lectureTitle, lectureDuration } = lectureList;
 
   return (
     <List component="div">
@@ -76,9 +64,9 @@ function CollapseList(props) {
         <ListItemIcon>
           <PlayCircleOutlineIcon />
         </ListItemIcon>
-        <ListItemText primary={lectureTitle} />
+        <ListItemText primary="Lorem ipsum dolor sit amet, consectetur" />
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
-          <Typography className={classes.lectureInfo}>{lectureDuration}</Typography>
+          <Typography className={classes.lectureInfo}>2 min</Typography>
         </ListItemSecondaryAction>
       </ListItem>
     </List>

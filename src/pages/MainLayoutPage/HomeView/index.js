@@ -9,10 +9,8 @@ import MentorSection from "../../../components/HomeViewComponents/MentorSection"
 import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
-import { useEffect } from "react";
-import { setCourseData } from "../../../services/courseServices";
-import { connect } from "react-redux";
 import SkeletonMediaCard from "../../../components/skeleton/SkeletonMediaCard";
+import useSWR from "swr";
 
 const ContinueLearningList = [
   {
@@ -35,12 +33,9 @@ const ContinueLearningList = [
   },
 ];
 
-function HomeView({ courseData, fetchData }) {
+function HomeView() {
   const classes = useStyles();
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data: courseCardData } = useSWR("/course/cards/all");
 
   return (
     <div>
@@ -67,22 +62,18 @@ function HomeView({ courseData, fetchData }) {
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseData.course === null
+          {courseCardData === undefined
             ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-            : courseData.course.popular.map((items, index) => (
-                <MediaCard key={index} props={items} />
-              ))}
+            : courseCardData.map((items, index) => <MediaCard key={index} props={items} />)}
         </CardContainer>
         <Box className={classes.popularContainer}>
           <Typography variant="h2">Upcoming Course</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseData.course === null
+          {courseCardData === undefined
             ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-            : courseData.course.upcoming.map((items, index) => (
-                <MediaCard key={index} props={items} />
-              ))}
+            : courseCardData.map((items, index) => <MediaCard key={index} props={items} />)}
         </CardContainer>
       </Container>
       <ExploreCourseSection />
@@ -108,15 +99,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mapStateToProps = (state) => {
-  return {
-    courseData: state.course,
-  };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchData: () => dispatch(setCourseData()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomeView);
+export default HomeView;

@@ -5,7 +5,6 @@ import { configureStore } from "./store";
 import { restoreSettings } from "./utils/settings";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import "./MockServer";
 
 const store = configureStore();
 const settings = restoreSettings();

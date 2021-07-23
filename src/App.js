@@ -5,6 +5,8 @@ import { SnackbarProvider } from "notistack";
 import { createStyles, makeStyles, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "./theme/index";
 import ScrollToTop from "./components/ScrollComponent";
+import axios from "./utils/axios";
+import { SWRConfig } from "swr";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -36,18 +38,21 @@ const useStyles = makeStyles(() =>
 function App() {
   useStyles();
   const history = useHistory();
+  const loadData = (url) => axios.get(url).then((res) => res.data);
 
   return (
     <div className="App">
       <ThemeProvider theme={createTheme()}>
-        <SnackbarProvider maxSnack={1}>
-          <Router history={history}>
-            <Auth>
-              <ScrollToTop />
-              <Routes />
-            </Auth>
-          </Router>
-        </SnackbarProvider>
+        <SWRConfig value={{ fetcher: loadData, dedupingInterval: 10000 }}>
+          <SnackbarProvider maxSnack={1}>
+            <Router history={history}>
+              <Auth>
+                <ScrollToTop />
+                <Routes />
+              </Auth>
+            </Router>
+          </SnackbarProvider>
+        </SWRConfig>
       </ThemeProvider>
     </div>
   );

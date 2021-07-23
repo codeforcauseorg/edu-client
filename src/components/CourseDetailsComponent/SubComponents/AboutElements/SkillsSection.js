@@ -3,7 +3,6 @@ import React from "react";
 
 function SkillsSection(props) {
   const classes = useStyles();
-  const { skillsInfo } = props;
 
   return (
     <Box>
@@ -11,8 +10,8 @@ function SkillsSection(props) {
         Skills you will gain
       </Typography>
       <Box>
-        {skillsInfo.map((items, index) => (
-          <Chip key={index} className={classes.chip} label={items} />
+        {[1, 2, 3].map((items, index) => (
+          <Chip key={index} className={classes.chip} label="Ptyhon" />
         ))}
       </Box>
     </Box>

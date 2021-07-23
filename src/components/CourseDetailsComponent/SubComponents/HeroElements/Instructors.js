@@ -10,19 +10,19 @@ import {
 } from "@material-ui/core";
 
 function Instructors(props) {
-  const { mentors } = props;
+  // const { mentors } = props;
 
   return (
     <Box mt={4}>
       <Grid container item xs={12} spacing={2}>
-        {mentors.map((items, index) => (
+        {[1, 2].map((items, index) => (
           <Box key={index}>
             <ListItem>
               <ListItemAvatar>
-                <Avatar src={items.mentorPicture} alt={items.mentorName} />
+                <Avatar src="assets/members/anuj.png" alt="Anuj Garg" />
               </ListItemAvatar>
               <ListItemText>
-                <Typography>{items.mentorName}</Typography>
+                <Typography>Anuj Garg</Typography>
                 <Typography>Instructor</Typography>
               </ListItemText>
             </ListItem>

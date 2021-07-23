@@ -5,37 +5,34 @@ import AboutCourse from "../../components/CourseDetailsComponent/AboutCourse";
 import CardContainer from "../../components/cardContainer/cardContainer";
 import BrowseAllButton from "../../components/BrowseAllButton/index";
 import MediaCard from "../../components/CourseMediaCard/MediaCard";
-import { setCourseData, setCourseDetailsData } from "../../services/courseServices";
-import { connect } from "react-redux";
 import { useEffect } from "react";
 import HeroSkeleton from "../../components/skeleton/SkeletonCourseDetails/HeroSkeleton";
 import NavBar from "../../components/NavBar/index";
 import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
 import { useParams } from "react-router";
+import useSWR from "swr";
 
-function CourseDetail({ courseData, fetchCourseDetails, fetchCourse }) {
+function CourseDetail() {
   const classes = useStyles();
   const { id } = useParams();
+
+  const { data: courseDetails } = useSWR("/course/" + id);
+  const { data: courseData } = useSWR("/course/cards/all");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
 
-  useEffect(() => {
-    fetchCourseDetails();
-    fetchCourse();
-  }, []);
-
   return (
     <>
       <NavBar />
       <Box>
-        {courseData.courseDetails === null ? (
+        {courseDetails === undefined ? (
           <HeroSkeleton />
         ) : (
           <Box>
-            <CourseHeroSection details={courseData.courseDetails} />
-            <AboutCourse about={courseData.courseDetails} />
+            <CourseHeroSection details={courseDetails} />
+            <AboutCourse about={courseDetails} />
           </Box>
         )}
 
@@ -45,22 +42,18 @@ function CourseDetail({ courseData, fetchCourseDetails, fetchCourse }) {
             <BrowseAllButton onClick={() => console.log("Popular Course")} />
           </Box>
           <CardContainer>
-            {courseData.course === null
+            {courseData === undefined
               ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-              : courseData.course.popular.map((items, index) => (
-                  <MediaCard key={index} props={items} />
-                ))}
+              : courseData.map((items, index) => <MediaCard key={index} props={items} />)}
           </CardContainer>
           <Box className={classes.popularContainer}>
             <Typography variant="h2">Upcoming Course</Typography>
             <BrowseAllButton onClick={() => console.log("Popular Course")} />
           </Box>
           <CardContainer>
-            {courseData.course === null
+            {courseData === undefined
               ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-              : courseData.course.upcoming.map((items, index) => (
-                  <MediaCard key={index} props={items} />
-                ))}
+              : courseData.map((items, index) => <MediaCard key={index} props={items} />)}
           </CardContainer>
         </Box>
       </Box>
@@ -85,18 +78,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mapStateToProps = (state) => {
-  return {
-    courseData: state.course,
-  };
-};
-const mapDispatchToProps = (dispatch, props) => {
-  const id = props.match.params.id;
-
-  return {
-    fetchCourseDetails: () => dispatch(setCourseDetailsData(id)),
-    fetchCourse: () => dispatch(setCourseData()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(CourseDetail);
+export default CourseDetail;
