@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
   innerContainer: { display: "flex", maxWidth: "100%", marginTop: theme.spacing(5) },
   root: {
     maxWidth: "94%",
+    marginTop: theme.spacing(16),
   },
   textBox: {
     marginTop: theme.spacing(8),

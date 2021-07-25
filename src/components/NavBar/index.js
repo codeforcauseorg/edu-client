@@ -9,13 +9,14 @@ import {
   Typography,
   Badge,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
+import AdBanner from "../../components/AdBannerComponent/AdBanner";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -47,9 +48,16 @@ function NavBar() {
       }, 1000);
     });
 
+  const [show, setshow] = useState(true);
+
+  const handleClick = () => {
+    setshow(false);
+  };
+
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="fixed">
+        {show ? <AdBanner handleClick={() => handleClick()} /> : ""}
         <Toolbar className={classes.appBar}>
           <IconButton edge="start" className={classes.menuButton} color="primary">
             <MenuIcon />
