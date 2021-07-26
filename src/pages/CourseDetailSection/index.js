@@ -5,7 +5,6 @@ import AboutCourse from "../../components/CourseDetailsComponent/AboutCourse";
 import CardContainer from "../../components/cardContainer/cardContainer";
 import BrowseAllButton from "../../components/BrowseAllButton/index";
 import MediaCard from "../../components/CourseMediaCard/MediaCard";
-import { useEffect } from "react";
 import HeroSkeleton from "../../components/skeleton/SkeletonCourseDetails/HeroSkeleton";
 import NavBar from "../../components/NavBar/index";
 import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
@@ -18,10 +17,6 @@ function CourseDetail() {
 
   const { data: courseDetails } = useSWR("/course/" + id);
   const { data: courseData } = useSWR("/course/cards/all");
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [id]);
 
   return (
     <>
