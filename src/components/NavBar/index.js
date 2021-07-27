@@ -69,9 +69,8 @@ function NavBar() {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event) => {
+  const handleLogout = () => {
     dispatch(authService.logout());
-    setOpen(false);
   };
 
   return (
@@ -172,9 +171,9 @@ function NavBar() {
                 style={{ transformOrigin: placement === "bottom" ? "center top" : "center bottom" }}
               >
                 <Paper>
-                  <ClickAwayListener onClickAway={handleClose}>
+                  <ClickAwayListener onClickAway={handleToggle}>
                     <MenuList autoFocusItem={open} id="menu-list-grow">
-                      <MenuItem onClick={handleClose}>Logout</MenuItem>
+                      <MenuItem onClick={handleLogout}>Logout</MenuItem>
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>
