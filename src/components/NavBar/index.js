@@ -8,14 +8,22 @@ import {
   Toolbar,
   Typography,
   Badge,
+  Avatar,
+  Grow,
+  Paper,
+  ClickAwayListener,
+  MenuList,
+  Popper,
+  MenuItem,
 } from "@material-ui/core";
 import React from "react";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link, useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
+import authService from "../../services/authService";
 // import AdBanner from "../../components/AdBannerComponent/AdBanner";
 
 const navItemsLists = [
@@ -30,6 +38,7 @@ function NavBar() {
   const classes = useStyles();
   const history = useHistory();
   const user = useSelector((state) => state.account.user);
+  const dispatch = useDispatch();
 
   const searchResult = [
     { label: "web Development", value: "web" },
@@ -53,9 +62,20 @@ function NavBar() {
   // const handleClick = () => {
   //   setshow(false);
   // };
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event) => {
+    dispatch(authService.logout());
+    setOpen(false);
+  };
 
   return (
-    <div className={classes.grow}>
+    <div>
       <AppBar position="fixed">
         {/* {show ? <AdBanner handleClick={() => handleClick()} /> : ""} */}
         <Toolbar className={classes.appBar}>
@@ -63,7 +83,12 @@ function NavBar() {
             <MenuIcon />
           </IconButton>
           <Hidden mdDown>
-            <Typography className={classes.title} variant="h3" noWrap>
+            <Typography
+              className={classes.title}
+              variant="h3"
+              noWrap
+              onClick={() => history.push("/home")}
+            >
               Code for Cause
             </Typography>
           </Hidden>
@@ -116,6 +141,15 @@ function NavBar() {
                   <ShopIcon />
                 </Badge>
               </IconButton>
+              <Hidden smDown>
+                <Avatar
+                  className={classes.avatar}
+                  src={user.photoURL}
+                  ref={anchorRef}
+                  aria-haspopup="true"
+                  onClick={handleToggle}
+                />
+              </Hidden>
             </>
           ) : (
             <Box className={classes.buttonContainer}>
@@ -124,6 +158,29 @@ function NavBar() {
               </Button>
             </Box>
           )}
+
+          <Popper
+            open={open}
+            anchorEl={anchorRef.current}
+            role={undefined}
+            transition
+            disablePortal
+          >
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                style={{ transformOrigin: placement === "bottom" ? "center top" : "center bottom" }}
+              >
+                <Paper>
+                  <ClickAwayListener onClickAway={handleClose}>
+                    <MenuList autoFocusItem={open} id="menu-list-grow">
+                      <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            )}
+          </Popper>
         </Toolbar>
       </AppBar>
     </div>
@@ -135,11 +192,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#fff",
     boxShadow: "0 2.8px 2.2px rgba(0, 0, 0, 0.034)",
   },
-  grow: {
-    "& .MuiLinearProgress-colorPrimary": {
-      backgroundColor: "rgb(255, 255, 255)",
-    },
-  },
   menuButton: {
     display: "none",
     [theme.breakpoints.down("md")]: {
@@ -150,6 +202,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
     color: theme.palette.text.primary,
     width: "15%",
+    cursor: "pointer",
   },
   search: {
     marginRight: theme.spacing(2),
@@ -195,7 +248,7 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: "none",
   },
   avatar: {
-    display: "flex",
+    marginLeft: theme.spacing(2),
   },
 }));
 
