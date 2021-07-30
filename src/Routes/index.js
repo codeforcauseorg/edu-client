@@ -15,6 +15,7 @@ import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
 import Checkout from "../pages/Checkout";
 import SearchSection from "../pages/SearchSection";
 import DoubtDetailSection from "../pages/DoubtDetailSection";
+import AboutMentorSection from "../pages/AboutMentorSection";
 
 const Routes = () => (
   <Switch>
@@ -24,6 +25,7 @@ const Routes = () => (
     <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
     <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
+    <Route path={ROUTES.MENTOR_SECTION} exact component={AboutMentorSection} />
 
     <AuthRoute exact path={ROUTES.DOUBT_QUESTIONS_DETAILS}>
       <MainLayout>
