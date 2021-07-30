@@ -87,7 +87,7 @@ function MediaCard({ props, isDeleteButton, onClick }) {
               key={index}
               src="assets/members/anuj.png"
               className={classes.avatar}
-              onClick={() => console.log("mentors")}
+              onClick={() => history.push("/mentor/:id")}
             />
           ))}
         </Box>

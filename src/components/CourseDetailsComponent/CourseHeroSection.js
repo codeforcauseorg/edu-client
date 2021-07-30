@@ -1,4 +1,4 @@
-import { makeStyles, Box, Typography, Container, Hidden } from "@material-ui/core";
+import { makeStyles, Box, Typography, Container, Hidden, Button } from "@material-ui/core";
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
 import VideoCard from "./SubComponents/HeroElements/VideoCard";
@@ -63,6 +63,9 @@ function CourseHeroSection(props) {
               </Hidden>
             </Box>
           </Box>
+          <Button className={classes.couponCode}>
+            <Typography variant="h6">Use Code : CFC490</Typography>
+          </Button>
           <Instructors mentors={mentor} />
           <ShareAndWishlistButton /> {/* Share and add wishlist button component */}
         </Container>
@@ -75,13 +78,13 @@ function CourseHeroSection(props) {
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100%",
-    color: theme.palette.text.main,
+    color: "#ffffff",
     display: "flex",
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
     paddingTop: theme.spacing(16),
     paddingBottom: theme.spacing(8),
-    background: "#e8f0f8",
+    background: "linear-gradient(97.46deg, #3499FF -62.66%, #3A3985 157.91%)",
     [theme.breakpoints.down("md")]: {
       display: "block",
     },
@@ -91,6 +94,16 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: theme.spacing(2),
       paddingTop: theme.spacing(2),
     },
+  },
+  ratingStar: {
+    color: "#FFCF1B",
+  },
+  couponCode: {
+    background: "linear-gradient(97.46deg, #FF9897 -62.66%, #EE4D5F 157.91%)",
+    color: "#fff",
+    padding: theme.spacing(1, 1),
+    marginTop: theme.spacing(3),
+    borderRadius: "5px",
   },
   ratingContainer: {
     display: "flex",
@@ -111,4 +124,5 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
   },
 }));
+
 export default CourseHeroSection;
