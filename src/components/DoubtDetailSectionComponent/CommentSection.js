@@ -6,6 +6,7 @@ import {
   ListItemText,
   makeStyles,
   Typography,
+  Paper,
 } from "@material-ui/core";
 import React from "react";
 
@@ -23,7 +24,7 @@ function CommentSection() {
 function AnswerList() {
   const classes = useStyles();
   return (
-    <Box className={classes.answers}>
+    <Paper className={classes.answers}>
       <ListItem>
         <ListItemAvatar>
           <Avatar></Avatar>
@@ -33,8 +34,8 @@ function AnswerList() {
           <Typography>2 min ago</Typography>
         </ListItemText>
       </ListItem>
-      <Typography>Answer Body</Typography>
-    </Box>
+      {/* Answer Body */}
+    </Paper>
   );
 }
 
@@ -44,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
   },
   answers: {
     margin: theme.spacing(4, 0),
+    boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.25)",
+    borderRadius: theme.spacing(1),
   },
 }));
 
