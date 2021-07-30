@@ -24,7 +24,6 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
 import authService from "../../services/authService";
-// import AdBanner from "../../components/AdBannerComponent/AdBanner";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -57,11 +56,6 @@ function NavBar() {
       }, 1000);
     });
 
-  // const [show, setshow] = useState(true);
-
-  // const handleClick = () => {
-  //   setshow(false);
-  // };
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
 
@@ -76,7 +70,6 @@ function NavBar() {
   return (
     <div>
       <AppBar position="fixed">
-        {/* {show ? <AdBanner handleClick={() => handleClick()} /> : ""} */}
         <Toolbar className={classes.appBar}>
           <IconButton edge="start" className={classes.menuButton} color="primary">
             <MenuIcon />
