@@ -5,18 +5,38 @@ import CourseCategoryCard from "../CourseCategoryCard";
 const courseLabel = [
   {
     title: "Web Development",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Html", "Css", "React", "JavaScript", "Python"],
   },
   {
     title: "Machine Learning",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Python", "Tensor Flow", "Jupyter"],
   },
   {
     title: "DevOps",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Amazon Web Services", "Kubernetes", "Docker"],
   },
   {
-    title: "Android",
+    title: "Android Development",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Flutter", "React Native", "Native Android", "Dart", "Kotlin", "Java"],
   },
   {
     title: "DSA",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Mathematics", "Bit Magic", "Recursion", "Arrays", "Hashing"],
   },
 ];
 
@@ -27,7 +47,7 @@ function ExploreCourseSection({ exploreCourse }) {
     <Box className={classes.root}>
       <Container className={classes.container}>
         <Typography variant="h1" className={classes.title}>
-          Explore Course
+          Course categories
         </Typography>
         <Box className={classes.innerContainer}>
           {courseLabel.map((items, index) => (
@@ -44,7 +64,6 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 600,
     paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(10),
-    background: "linear-gradient(97.46deg, #6EE2F5 -62.66%, #6454F0 157.91%)",
     [theme.breakpoints.down("md")]: {
       paddingTop: theme.spacing(2),
     },
@@ -65,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     textAlign: "center",
-    color: "#fff",
+    color: theme.palette.primary.main,
   },
 
   card: {

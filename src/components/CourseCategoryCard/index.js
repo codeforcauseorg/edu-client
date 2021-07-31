@@ -12,23 +12,24 @@ import {
 import Rating from "@material-ui/lab/Rating";
 import React from "react";
 
-function CourseCategoryCard() {
+function CourseCategoryCard({ props }) {
   const classes = useStyles();
+  const { title, bannerImage, rating, tags } = props;
   return (
     <Card className={classes.root}>
-      <CardMedia className={classes.media} image="assets/img/webDevelopmentBanner.svg" />
+      <CardMedia className={classes.media} image={bannerImage} />
       <CardContent>
         <Typography variant="h4" gutterBottom>
-          Web Development
+          {title}
         </Typography>
         <Box className={classes.actionContainer}>
-          <Rating value={4.0} precision={0.5} readOnly className={classes.ratingStar} />
+          <Rating value={rating} precision={0.5} readOnly className={classes.ratingStar} />
           <Button className={classes.exploreButton}>Explore</Button>
         </Box>
         <Divider />
         <Box className={classes.chipcontainer}>
-          {[1, 2, 3, 4, 5, 6].map((items, index) => (
-            <Chip className={classes.chip} key={index} label={<Typography>React</Typography>} />
+          {tags.map((items, index) => (
+            <Chip className={classes.chip} key={index} label={<Typography>{items}</Typography>} />
           ))}
         </Box>
       </CardContent>

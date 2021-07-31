@@ -36,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
   wrapper: {
     maxWidth: "85%",
-    height: "70vh",
+    height: "100%",
+    padding: theme.spacing(4, 0),
     display: "flex",
     alignItems: "center",
   },
