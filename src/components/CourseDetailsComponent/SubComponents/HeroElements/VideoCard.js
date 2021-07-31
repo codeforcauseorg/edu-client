@@ -38,7 +38,7 @@ function VideoCard(props) {
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    background: "#6454F0",
+    background: theme.palette.primary.main,
     padding: theme.spacing(2),
     color: "#fff",
     "&:hover": {
