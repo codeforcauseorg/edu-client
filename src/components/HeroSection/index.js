@@ -18,7 +18,7 @@ function HeroSection({ title, description, banner }) {
 const useStyles = makeStyles((theme) => ({
   heroSection: {
     minHeight: 200,
-    marginTop: theme.spacing(10),
+    marginTop: theme.spacing(2),
     display: "flex",
     flexDirection: "row",
     alignItems: "center",

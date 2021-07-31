@@ -51,7 +51,7 @@ function DoubtDetailSection() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(14),
+    paddingTop: theme.spacing(8),
   },
   questionTitle: {
     fontWeight: 500,

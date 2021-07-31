@@ -41,7 +41,7 @@ function AboutMentorSection() {
         ))}
         <Box className={classes.popularContainer}>
           <Typography variant="h2" gutterBottom>
-            Upcoming Course
+            Popular Course
           </Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
@@ -71,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
   },
   chip: {
     marginRight: theme.spacing(2),
-    marginTop: theme.spacing(6),
+    marginTop: theme.spacing(2),
     marginBottom: theme.spacing(6),
     background: theme.palette.primary.main,
     color: "#fff",

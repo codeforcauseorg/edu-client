@@ -17,6 +17,7 @@ function Auth({ children }) {
           dispatch(setUserData(user));
           const accessToken = await user.getIdToken();
           authService.setSession(accessToken);
+          console.log(accessToken);
         }
       });
     };

@@ -10,9 +10,15 @@ class AuthService{
   user = {};
 
   config = {
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY || "AIzaSyAbqqXtHNIuNrsamkCxRk9sOuMO-ZWDiEk",
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN || "codeforcauseorg.firebaseapp.com",
-  };
+    apiKey: "AIzaSyCtj9qDUcjl8M6H4usKBoJerbCxn3Of-pA",
+    authDomain: "keenwpractice.firebaseapp.com",
+    projectId: "keenwpractice",
+    storageBucket: "keenwpractice.appspot.com",
+    messagingSenderId: "981171596013",
+    appId: "1:981171596013:web:822e67c6a1b3b1d8f13ae4",
+    measurementId: "G-MNRB0XL6QD"    // ...
+};
+
 
   setAxiosInterceptors = ({ onLogout }) => {
     axios.interceptors.response.use(
