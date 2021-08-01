@@ -21,6 +21,7 @@ const useStyles = makeStyles({
     margin: "auto",
   },
   navItem: {
+    minWidth: "60px",
     "& .MuiBottomNavigationAction-label": {
       whiteSpace: "nowrap",
     },
