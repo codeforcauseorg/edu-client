@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     background: "#F5F8F9",
-    height: "100%",
+    height: "100vh",
+    marginTop: theme.spacing(8),
     [theme.breakpoints.down("md")]: {
       display: "block",
     },

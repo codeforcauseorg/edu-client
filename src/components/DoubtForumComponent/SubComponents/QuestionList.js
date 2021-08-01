@@ -1,12 +1,14 @@
 import { Box, makeStyles, Paper, Avatar, Typography, Chip, Hidden } from "@material-ui/core";
 import React from "react";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import { useHistory } from "react-router";
 
 function QuestionList() {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} onClick={() => history.push(`/doubt-forum/${0}`)}>
       <Hidden mdDown>
         <Box className={classes.avatarContainer}>
           <Avatar

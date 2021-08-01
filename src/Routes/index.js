@@ -14,6 +14,7 @@ import LessonsPlayer from "../pages/LessonsPlayer/index";
 import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
 import Checkout from "../pages/Checkout";
 import SearchSection from "../pages/SearchSection";
+import DoubtDetailSection from "../pages/DoubtDetailSection";
 
 const Routes = () => (
   <Switch>
@@ -23,36 +24,53 @@ const Routes = () => (
     <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
     <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
-    <Route path={ROUTES.SEARCH_SECTION} component={SearchSection} />
+
+    <AuthRoute exact path={ROUTES.DOUBT_QUESTIONS_DETAILS}>
+      <MainLayout>
+        <DoubtDetailSection />
+      </MainLayout>
+    </AuthRoute>
+
+    <AuthRoute exact path={ROUTES.SEARCH_SECTION}>
+      <MainLayout>
+        <SearchSection />
+      </MainLayout>
+    </AuthRoute>
 
     <AuthRoute path={ROUTES.SIGNUP} exact type="guest">
       <LandingPage />
     </AuthRoute>
+
     <AuthRoute exact path={ROUTES.HOME}>
       <MainLayout>
         <HomePage />
       </MainLayout>
     </AuthRoute>
+
     <AuthRoute path={ROUTES.GAMIFICATION_BOARD} exact>
       <MainLayout>
         <GamificationBoard />
       </MainLayout>
     </AuthRoute>
+
     <AuthRoute path={ROUTES.WISHLIST} exact>
       <MainLayout>
         <WishlistPage />
       </MainLayout>
     </AuthRoute>
+
     <AuthRoute path={ROUTES.DASHBOARD} exact>
       <MainLayout>
         <Dashboard />
       </MainLayout>
     </AuthRoute>
+
     <AuthRoute path={ROUTES.DOUBTFOURM} exact>
       <MainLayout>
         <DoubtForum />
       </MainLayout>
     </AuthRoute>
+
     <Route component={PageNotFound} />
   </Switch>
 );

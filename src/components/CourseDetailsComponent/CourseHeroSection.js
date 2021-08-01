@@ -79,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
-    paddingTop: theme.spacing(8),
+    paddingTop: theme.spacing(16),
     paddingBottom: theme.spacing(8),
     background: "#e8f0f8",
     [theme.breakpoints.down("md")]: {
