@@ -19,7 +19,6 @@ class AuthService{
     measurementId: "G-MNRB0XL6QD"    // ...
 };
 
-
   setAxiosInterceptors = ({ onLogout }) => {
     axios.interceptors.request.use(async(request)=>{
       const accessToken = await firebase.auth().currentUser.getIdToken();
@@ -29,8 +28,6 @@ class AuthService{
     axios.interceptors.response.use((response) => {
     return response
   },
-    
-
       (error) => {
         if (error.response && error.response.status === 401) {
           this.removeSession();
@@ -39,7 +36,6 @@ class AuthService{
             onLogout();
           }
         }
-
         return Promise.reject(error);
       }
     );
