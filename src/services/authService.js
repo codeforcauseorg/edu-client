@@ -21,8 +21,16 @@ class AuthService{
 
 
   setAxiosInterceptors = ({ onLogout }) => {
-    axios.interceptors.response.use(
-      (response) => response,
+    axios.interceptors.request.use(async(request)=>{
+      const accessToken = await firebase.auth().currentUser.getIdToken();
+      request.headers.Authorization =  accessToken;
+      return request
+    })
+    axios.interceptors.response.use((response) => {
+    return response
+  },
+    
+
       (error) => {
         if (error.response && error.response.status === 401) {
           this.removeSession();

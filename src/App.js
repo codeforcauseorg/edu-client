@@ -7,7 +7,6 @@ import { createTheme } from "./theme/index";
 import ScrollToTop from "./components/ScrollComponent";
 import axios from "./utils/axios";
 import { SWRConfig } from "swr";
-import firebase from "firebase";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -41,8 +40,7 @@ function App() {
   const history = useHistory();
 
   const loadData = async (url) => {
-    const accessToken = await firebase.auth().currentUser.getIdToken();
-    const res = await axios.get(url, { headers: { Authorization: `Bearer ${accessToken}` } });
+    const res = await axios.get(url);
     return res.data;
   };
 
