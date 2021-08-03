@@ -26,6 +26,7 @@ import ShopIcon from "@material-ui/icons/Shop";
 import authService from "../../services/authService";
 import AdBanner from "../../components/AdBannerComponent/AdBanner";
 
+
 const navItemsLists = [
   { title: "Home", link: "/" },
   { title: "Forum", link: "/doubt-forum" },
