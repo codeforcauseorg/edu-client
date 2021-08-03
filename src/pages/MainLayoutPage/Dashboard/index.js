@@ -4,10 +4,13 @@ import { useSelector } from "react-redux";
 import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
 import UserLogoutState from "../../../components/UserLogoutState";
+// import useSWR from "swr";
 
 function Dashboard() {
   const classes = useStyles();
   const user = useSelector((state) => state.account.user);
+  // const { data: currentUserData } = useSWR("/user/get");
+  // console.log(currentUserData);
 
   return (
     <Container className={classes.root}>

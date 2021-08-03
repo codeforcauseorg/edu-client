@@ -40,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4, 0),
     display: "flex",
     alignItems: "center",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
   avatar: {
     height: 250,
@@ -50,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     marginLeft: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      marginLeft: theme.spacing(0),
+      marginTop: theme.spacing(4),
+    },
   },
   rateButton: {
     background: "#fff",

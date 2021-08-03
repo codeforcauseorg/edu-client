@@ -60,6 +60,9 @@ const useStyles = makeStyles((theme) => ({
   infoContainer: {
     maxWidth: "85%",
     marginTop: theme.spacing(4),
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "95%",
+    },
   },
   aboutBody: {
     marginTop: theme.spacing(4),
@@ -87,6 +90,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: theme.spacing(4),
+    },
   },
 }));
 
