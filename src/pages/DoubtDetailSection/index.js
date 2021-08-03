@@ -1,6 +1,7 @@
 import {
   Avatar,
   Box,
+  Chip,
   Container,
   Divider,
   ListItem,
@@ -40,9 +41,7 @@ function DoubtDetailSection() {
         </Typography>
       </Box>
       <PostCommentSection />
-      <Typography className={classes.totalAnswer} variant="h6">
-        25 Answered
-      </Typography>
+      <Chip className={classes.totalAnswer} label="25 Answered" />
       <Divider className={classes.divider} />
       <CommentSection />
     </Container>
@@ -62,6 +61,8 @@ const useStyles = makeStyles((theme) => ({
 
   totalAnswer: {
     margin: theme.spacing(4, 0),
+    background: theme.palette.text.primary,
+    color: "#fff",
   },
   divider: {
     margin: theme.spacing(4, 0),
