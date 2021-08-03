@@ -2,7 +2,7 @@ import { makeStyles, Box, Typography, Chip, Avatar } from "@material-ui/core";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import React from "react";
 
-function Prerequisites(props) {
+function Prerequisites({ prerequisitesInfo }) {
   const classes = useStyles();
 
   return (
@@ -11,7 +11,7 @@ function Prerequisites(props) {
         Prerequisites
       </Typography>
       <Box>
-        {[1, 2, 3].map((items, index) => (
+        {prerequisitesInfo.map((items, index) => (
           <Chip
             className={classes.chip}
             key={index}
@@ -20,7 +20,7 @@ function Prerequisites(props) {
                 <CheckCircleIcon className={classes.icon} />
               </Avatar>
             }
-            label="Python"
+            label={items}
           />
         ))}
       </Box>

@@ -3,7 +3,7 @@ import { Box, Typography, List } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import ScheduleList from "./ScheduleList";
 
-function CourseSchedule(props) {
+function CourseSchedule({ schedule }) {
   const classes = useStyles();
 
   return (
@@ -16,7 +16,7 @@ function CourseSchedule(props) {
       </Typography>
       <Box>
         <List>
-          {[1, 2, 3].map((items, index) => (
+          {schedule.map((items, index) => (
             <ScheduleList key={index} scheduleInfo={items} />
           ))}
         </List>

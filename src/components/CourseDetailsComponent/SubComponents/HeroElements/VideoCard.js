@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 function VideoCard(props) {
   const classes = useStyles();
   const { videoInfo } = props;
-  const { courseTrailerUrl, crossPrice, price, courseThumbnail } = videoInfo;
+  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail } = videoInfo;
   const history = useHistory();
 
   return (
@@ -22,7 +22,7 @@ function VideoCard(props) {
       <Box mt={2} className={classes.container}>
         <Box mb={2} className={classes.priceContainer}>
           <Typography variant="h2" className={classes.price}>
-            ₹{price}
+            ₹{originalPrice}
           </Typography>
           <Typography variant="h4" className={classes.originalPrice}>
             ₹{crossPrice}

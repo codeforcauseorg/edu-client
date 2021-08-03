@@ -10,24 +10,17 @@ function CourseHeroSection(props) {
   const classes = useStyles();
 
   const {
-    // whatYouWillLearn,
-    // skills,
-    // prerequisites,
-    // reviews,
-    // courseLevel,
-    // tags,
-    // schedule,
-    // assignments,
+    rating,
+    reviews,
     mentor,
     // active,
     name,
-    price,
-    // coupons,
-    // video_num,
-    // duration,
+    crossPrice,
+    couponCode,
     // start_date,
     // end_date,
     // sharable_link,
+    originalPrice,
     courseDetails,
     courseThumbnail,
     courseTrailerUrl,
@@ -36,8 +29,8 @@ function CourseHeroSection(props) {
 
   const videoContent = {
     courseTrailerUrl,
-    crossPrice: 1500,
-    price,
+    crossPrice,
+    originalPrice,
     courseThumbnail,
   };
 
@@ -56,15 +49,17 @@ function CourseHeroSection(props) {
               {courseDetails}
             </Typography>
             <Box className={classes.ratingContainer}>
-              <Rating value={4.0} precision={0.5} readOnly className={classes.ratingStar} />
+              <Rating value={rating} precision={0.5} readOnly className={classes.ratingStar} />
               <Hidden smDown>
-                <Typography className={classes.numberOfRatings}>(2000 ratings)</Typography>
+                <Typography className={classes.numberOfRatings}>
+                  ({reviews.length} ratings)
+                </Typography>
                 <Typography className={classes.numberOfStudents}>(1800 students) </Typography>
               </Hidden>
             </Box>
           </Box>
           <Button className={classes.couponCode}>
-            <Typography variant="h6">Use Code : CFC490</Typography>
+            <Typography variant="h6">Use Code : {couponCode}</Typography>
           </Button>
           <Instructors mentors={mentor} />
           <ShareAndWishlistButton /> {/* Share and add wishlist button component */}

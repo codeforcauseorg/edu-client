@@ -17,6 +17,7 @@ function CourseDetail() {
 
   const { data: courseDetails } = useSWR("/course/" + id);
   const { data: courseData } = useSWR("/course/cards/all");
+  console.log(courseDetails);
 
   return (
     <>
