@@ -23,6 +23,7 @@ class AuthService{
     axios.interceptors.request.use(async(request)=>{
       const accessToken = await firebase.auth().currentUser.getIdToken();
       request.headers.Authorization =  accessToken;
+      console.log(accessToken);
       return request
     })
     axios.interceptors.response.use((response) => {
