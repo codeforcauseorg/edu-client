@@ -31,7 +31,6 @@ function CourseDetail() {
             <AboutCourse about={courseDetails} />
           </Box>
         )}
-
         <Box className={classes.courseContainer}>
           <Box className={classes.popularContainer}>
             <Typography variant="h2">Similar Courses</Typography>

@@ -1,20 +1,37 @@
+/* eslint-disable camelcase */
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ShareIcon from "@material-ui/icons/Share";
+import { useDispatch } from "react-redux";
+// import { deleteWishlist } from "../../../../services/userService";
+import { userError } from "../../../../store/actions/userActions";
 
-function ShareAndWishlistButton() {
+function ShareAndWishlistButton({ action }) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
   const [addWishlist, setaddWishlist] = useState(false);
+  // const { id, sharable_link } = action;
 
   const handleChange = () => {
     setaddWishlist(!addWishlist);
+    dispatch(userError("Error"));
+    if (addWishlist === false) {
+      // dispatch(addWishlist(id));
+    } else {
+      // dispatch(deleteWishlist(id));
+    }
+  };
+
+  const handleShareCourse = () => {
+    // console.log(sharable_link);
   };
 
   return (
     <Box mt={4} className={classes.container}>
-      <Button className={classes.button}>
+      <Button className={classes.button} onClick={() => handleShareCourse()}>
         <Typography>Share</Typography>
         <ShareIcon className={classes.icon} />
       </Button>

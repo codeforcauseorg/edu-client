@@ -1,12 +1,12 @@
-import { fetchCourseFailure } from "../store/actions/courseActions";
+import { userError } from "../store/actions/userActions";
 
 function errorHandler(erros, dispatch) {
   if (erros.response) {
-    dispatch(fetchCourseFailure(erros.response));
+    dispatch(userError(erros.response));
   } else if (erros.request) {
-    dispatch(fetchCourseFailure(erros.request));
+    dispatch(userError(erros.request));
   } else {
-    dispatch(fetchCourseFailure(erros.message));
+    dispatch(userError(erros.message));
   }
 }
 

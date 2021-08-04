@@ -1,6 +1,5 @@
 import { Box, Container, Grid, makeStyles } from "@material-ui/core";
-import { connect, useSelector } from "react-redux";
-import { wishlistDeleted } from "../../../store/actions/wishlistActions";
+import { useSelector } from "react-redux";
 import HeroSection from "../../../components/HeroSection";
 import EmptyWishlist from "../../../components/WishlistComponents/EmptyWishlist";
 import WishlistFilterBar from "../../../components/WishlistComponents/WishlistFilterBar";
@@ -72,12 +71,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const mapStateToProps = (state) => ({
-  wishlist: state.wishlist,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  wishlistDeleted: (id) => dispatch(wishlistDeleted(id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(WishListView);
+export default WishListView;

@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { makeStyles, Box, Typography, Container, Hidden, Button } from "@material-ui/core";
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
@@ -19,12 +20,12 @@ function CourseHeroSection(props) {
     couponCode,
     // start_date,
     // end_date,
-    // sharable_link,
+    sharable_link,
     originalPrice,
     courseDetails,
     courseThumbnail,
     courseTrailerUrl,
-    // id,
+    id,
   } = props.details;
 
   const videoContent = {
@@ -32,6 +33,11 @@ function CourseHeroSection(props) {
     crossPrice,
     originalPrice,
     courseThumbnail,
+  };
+
+  const courseAction = {
+    sharable_link,
+    id,
   };
 
   return (
@@ -62,7 +68,8 @@ function CourseHeroSection(props) {
             <Typography variant="h6">Use Code : {couponCode}</Typography>
           </Button>
           <Instructors mentors={mentor} />
-          <ShareAndWishlistButton /> {/* Share and add wishlist button component */}
+          <ShareAndWishlistButton action={courseAction} />
+          {/* Share and add wishlist button component */}
         </Container>
         <VideoCard videoInfo={videoContent} /> {/* video card component */}
       </Box>
