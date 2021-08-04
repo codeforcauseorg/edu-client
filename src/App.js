@@ -44,15 +44,16 @@ function App() {
     return res.data;
   };
 
-  const config = {
-    dedupingInterval: 10000,
-    registerOnFocus: false,
-  };
-
   return (
     <div className="App">
       <ThemeProvider theme={createTheme()}>
-        <SWRConfig value={{ fetcher: loadData, config }}>
+        <SWRConfig
+          value={{
+            fetcher: loadData,
+            dedupingInterval: 100000,
+            refreshInterval: 5000,
+          }}
+        >
           <SnackbarProvider maxSnack={1}>
             <Router history={history}>
               <Auth>
