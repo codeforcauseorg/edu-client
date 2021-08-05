@@ -38,12 +38,21 @@ const useStyles = makeStyles(() =>
 function App() {
   useStyles();
   const history = useHistory();
-  const loadData = (url) => axios.get(url).then((res) => res.data);
+
+  const loadData = async (url) => {
+    const res = await axios.get(url);
+    return res.data;
+  };
+
+  const config = {
+    dedupingInterval: 10000,
+    registerOnFocus: false,
+  };
 
   return (
     <div className="App">
       <ThemeProvider theme={createTheme()}>
-        <SWRConfig value={{ fetcher: loadData, dedupingInterval: 10000 }}>
+        <SWRConfig value={{ fetcher: loadData, config }}>
           <SnackbarProvider maxSnack={1}>
             <Router history={history}>
               <Auth>

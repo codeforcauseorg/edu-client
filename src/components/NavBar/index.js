@@ -24,6 +24,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
 import authService from "../../services/authService";
+import AdBanner from "../../components/AdBannerComponent/AdBanner";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -69,7 +70,8 @@ function NavBar() {
 
   return (
     <div>
-      <AppBar position="fixed">
+      <AppBar position="static">
+        <AdBanner />
         <Toolbar className={classes.appBar}>
           <IconButton edge="start" className={classes.menuButton} color="primary">
             <MenuIcon />
@@ -182,7 +184,6 @@ function NavBar() {
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "#fff",
-    boxShadow: "0 2.8px 2.2px rgba(0, 0, 0, 0.034)",
   },
   menuButton: {
     display: "none",

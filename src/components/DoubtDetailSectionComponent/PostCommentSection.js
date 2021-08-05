@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   editor: {
     border: "0.5px solid #F1F1F1",
     minHeight: 200,
+    padding: theme.spacing(2),
   },
   button: {
     margin: theme.spacing(4, 0),

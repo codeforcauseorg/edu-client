@@ -16,28 +16,20 @@ import SignalCellularAltIcon from "@material-ui/icons/SignalCellularAlt";
 import MovieCreationIcon from "@material-ui/icons/MovieCreation";
 import React from "react";
 
-function ExploreMediaCard({
-  title,
-  description,
-  ratings,
-  lessonsNumbers,
-  courseImage,
-  tag,
-  price,
-  mentors,
-}) {
+function ExploreMediaCard({ props }) {
   const classes = useStyles();
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia className={classes.media} title={title} image={courseImage} />
+        <CardMedia className={classes.media} title="title" image="courseImage" />
         <CardContent className={classes.cardContent}>
           <Box classes={classes.tagSection}>
-            <Chip variant="outlined" size="small" className={classes.tag} label={tag} />
+            <Chip variant="outlined" size="small" className={classes.tag} label="tag" />
           </Box>
           <Box className={classes.cardActions}>
             <Typography variant="h6" className={classes.title}>
-              {title}
+              title
             </Typography>
             <Box mt={1} className={classes.courseStatsContainer}>
               <Box className={classes.flexBox}>
@@ -75,7 +67,7 @@ function ExploreMediaCard({
       </CardActionArea>
       <CardActions className={classes.cardFooter}>
         <Box className={classes.avatarContainer}>
-          {mentors.map((items, index) => (
+          {[1, 2].map((items, index) => (
             <Avatar
               key={index}
               src={items.image}
@@ -85,7 +77,7 @@ function ExploreMediaCard({
           ))}
         </Box>
         <Box style={{ flexGrow: 1 }} />
-        <Chip size="small" className={classes.price} label={price} />
+        <Chip size="small" className={classes.price} label="price" />
       </CardActions>
     </Card>
   );

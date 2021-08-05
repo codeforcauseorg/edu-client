@@ -36,7 +36,7 @@ function SearchSection(props) {
 
   return (
     <>
-      <Box mt={8} className={classes.root}>
+      <Box className={classes.root}>
         <Container className={classes.container}>
           <Box pt={8}>
             <Typography variant="h2">2,536 results for &quot;{query}&quot;</Typography>

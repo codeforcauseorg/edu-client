@@ -15,8 +15,6 @@ function Auth({ children }) {
       authService.firebase.auth().onAuthStateChanged(async (user) => {
         if (user) {
           dispatch(setUserData(user));
-          const accessToken = await user.getIdToken();
-          authService.setSession(accessToken);
         }
       });
     };

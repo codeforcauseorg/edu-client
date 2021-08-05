@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import {
   Avatar,
   Box,
@@ -18,7 +19,16 @@ import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
 function MediaCard({ props, isDeleteButton, onClick }) {
-  const { _id, tags, name, courseThumbnail } = props;
+  const {
+    _id,
+    tags,
+    name,
+    courseThumbnail,
+    crossPrice,
+    courseShortDescription,
+    rating,
+    video_num,
+  } = props;
 
   const classes = useStyles();
   const history = useHistory();
@@ -36,7 +46,6 @@ function MediaCard({ props, isDeleteButton, onClick }) {
       classes={{ root: classes.root, removedItem: classes.removedItem }}
       ref={deleteButton}
       style={{
-        // maxWidth: isDeleteButton ? "none" : 350,
         marginRight: isDeleteButton ? "0px" : "25px",
       }}
     >
@@ -60,26 +69,27 @@ function MediaCard({ props, isDeleteButton, onClick }) {
         <CardContent className={classes.cardContent} onClick={() => history.push(`/course/${_id}`)}>
           <Box className={classes.tagSection}>
             <Chip variant="outlined" size="small" className={classes.tag} label={tags} />
-            <Chip size="small" className={classes.price} label={"₹1200"} />
+            <Chip
+              size="small"
+              className={classes.price}
+              label={<Typography>₹ {crossPrice}</Typography>}
+            />
           </Box>
           <Box className={classes.cardActions}>
             <Typography variant="h6" className={classes.title}>
               {name}
             </Typography>
             <Box className={classes.description}>
-              <Typography variant="subtitle2">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.
-              </Typography>
+              <Typography variant="subtitle2">{courseShortDescription}</Typography>
             </Box>
           </Box>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardFooter}>
         <StarIcon className={classes.starIcon} />
-        <Typography>4.5</Typography>
+        <Typography>{rating}</Typography>
         <PlayCircleOutlineIcon />
-        <Typography> 11 lectures</Typography>
+        <Typography> {video_num} lectures</Typography>
         <Box style={{ flexGrow: 1 }} />
         <Box className={classes.lessons}>
           {[1, 2].map((items, index) => (
@@ -87,7 +97,7 @@ function MediaCard({ props, isDeleteButton, onClick }) {
               key={index}
               src="assets/members/anuj.png"
               className={classes.avatar}
-              onClick={() => console.log("mentors")}
+              onClick={() => history.push("/mentor/:id")}
             />
           ))}
         </Box>

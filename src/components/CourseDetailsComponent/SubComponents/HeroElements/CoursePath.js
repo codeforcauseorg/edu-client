@@ -44,7 +44,7 @@ function CoursePath() {
 const useStyles = makeStyles((theme) => ({
   pathContainer: {
     display: "flex",
-    color: theme.palette.primary.main,
+    color: "#ffffff",
   },
   pathText: {
     "&:hover": {
