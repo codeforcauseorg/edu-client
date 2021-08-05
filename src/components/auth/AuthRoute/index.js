@@ -15,6 +15,7 @@ function ProtectedRoute({ children, type, ...rest }) {
     }
   }, []);
 
+  if (type === "private" && !user) return <Redirect to="/signup" />;
   if (type === "guest" && user) return <Redirect to="/home" />;
 
   return <Route {...rest} component={(props) => children} />;

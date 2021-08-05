@@ -27,6 +27,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     textAlign: "center",
     marginTop: theme.spacing(10),
+    width: "100%",
   },
   container: {
     marginTop: theme.spacing(3),

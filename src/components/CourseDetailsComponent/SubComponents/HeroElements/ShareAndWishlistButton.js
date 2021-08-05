@@ -1,32 +1,34 @@
 /* eslint-disable camelcase */
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ShareIcon from "@material-ui/icons/Share";
 import { useDispatch } from "react-redux";
-// import { deleteWishlist } from "../../../../services/userService";
-import { userError } from "../../../../store/actions/userActions";
+import { addWishlist, deleteWishlist } from "../../../../services/userService";
+import useSWR from "swr";
+import { loadData } from "../../../../services/apiService";
 
 function ShareAndWishlistButton({ action }) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { data } = useSWR("/user/wishlist", loadData);
 
-  const [addWishlist, setaddWishlist] = useState(false);
-  // const { id, sharable_link } = action;
+  // const [wishlist, setwishlist] = useState(false);
+  const { id, sharable_link } = action;
+  console.log(id);
+  console.log(data?.includes(id));
 
   const handleChange = () => {
-    setaddWishlist(!addWishlist);
-    dispatch(userError("Error"));
-    if (addWishlist === false) {
-      // dispatch(addWishlist(id));
+    if (data?.includes(id)) {
+      dispatch(deleteWishlist(id));
     } else {
-      // dispatch(deleteWishlist(id));
+      dispatch(addWishlist(id, data));
     }
   };
 
   const handleShareCourse = () => {
-    // console.log(sharable_link);
+    console.log(sharable_link);
   };
 
   return (
@@ -35,14 +37,18 @@ function ShareAndWishlistButton({ action }) {
         <Typography>Share</Typography>
         <ShareIcon className={classes.icon} />
       </Button>
-      <Button className={classes.button} onClick={() => handleChange()}>
-        <Typography>Add to wishlist</Typography>
-        {!addWishlist ? (
-          <BookmarkBorderIcon className={classes.icon} />
-        ) : (
-          <BookmarkIcon className={classes.icon} />
-        )}
-      </Button>
+      {data === undefined ? (
+        <Box />
+      ) : (
+        <Button className={classes.button} onClick={() => handleChange()}>
+          <Typography>Add to wishlist</Typography>
+          {!data?.includes(id) ? (
+            <BookmarkBorderIcon className={classes.icon} />
+          ) : (
+            <BookmarkIcon className={classes.icon} />
+          )}
+        </Button>
+      )}
     </Box>
   );
 }

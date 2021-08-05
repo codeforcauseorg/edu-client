@@ -11,6 +11,7 @@ function CourseHeroSection(props) {
   const classes = useStyles();
 
   const {
+    isUpcoming,
     rating,
     reviews,
     mentor,
@@ -33,6 +34,7 @@ function CourseHeroSection(props) {
     crossPrice,
     originalPrice,
     courseThumbnail,
+    isUpcoming,
   };
 
   const courseAction = {

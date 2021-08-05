@@ -10,14 +10,14 @@ import NavBar from "../../components/NavBar/index";
 import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
 import { useParams } from "react-router";
 import useSWR from "swr";
+import { loadData } from "../../services/apiService";
 
 function CourseDetail() {
   const classes = useStyles();
   const { id } = useParams();
 
-  const { data: courseDetails } = useSWR("/course/" + id);
-  const { data: courseData } = useSWR("/course/cards/all");
-  console.log(courseDetails);
+  const { data: courseDetails } = useSWR("/course/" + id, loadData);
+  const { data: courseData } = useSWR("/course/cards/all", loadData);
 
   return (
     <>

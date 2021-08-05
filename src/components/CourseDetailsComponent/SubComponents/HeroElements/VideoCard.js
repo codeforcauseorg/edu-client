@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 function VideoCard(props) {
   const classes = useStyles();
   const { videoInfo } = props;
-  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail } = videoInfo;
+  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail, isUpcoming } = videoInfo;
   const history = useHistory();
 
   return (
@@ -28,9 +28,13 @@ function VideoCard(props) {
             ₹{crossPrice}
           </Typography>
         </Box>
-        <Button className={classes.button} onClick={() => history.push("/checkout")}>
-          Enroll Now
-        </Button>
+        {!isUpcoming === true ? (
+          <Button className={classes.button} onClick={() => history.push("/checkout")}>
+            Enroll Now
+          </Button>
+        ) : (
+          <Button className={classes.button}>Upcoming</Button>
+        )}
       </Box>
     </Box>
   );

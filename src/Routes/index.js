@@ -60,13 +60,13 @@ const Routes = () => (
       </MainLayout>
     </AuthRoute>
 
-    <AuthRoute path={ROUTES.WISHLIST} exact>
+    <AuthRoute path={ROUTES.WISHLIST} exact type="private">
       <MainLayout>
         <WishlistPage />
       </MainLayout>
     </AuthRoute>
 
-    <AuthRoute path={ROUTES.DASHBOARD} exact>
+    <AuthRoute path={ROUTES.DASHBOARD} exact type="private">
       <MainLayout>
         <Dashboard />
       </MainLayout>

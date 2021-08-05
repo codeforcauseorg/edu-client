@@ -1,15 +1,25 @@
 import { Box, Container, Grid, makeStyles } from "@material-ui/core";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import HeroSection from "../../../components/HeroSection";
 import EmptyWishlist from "../../../components/WishlistComponents/EmptyWishlist";
 import WishlistFilterBar from "../../../components/WishlistComponents/WishlistFilterBar";
 import WishListTagSection from "../../../components/WishlistComponents/WishListTagSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 import UserLogoutState from "../../../components/UserLogoutState";
+import useSWR from "swr";
+import { deleteWishlist } from "../../../services/userService";
+import { loadData } from "../../../services/apiService";
 
-const WishListView = ({ wishlist, wishlistDeleted }) => {
+const WishListView = () => {
   const classes = useStyles();
   const user = useSelector((state) => state.account.user);
+
+  const { data: courseData } = useSWR("/course/cards/all", loadData);
+  const { data: userData } = useSWR("/user/get", loadData);
+
+  const dispatch = useDispatch();
+
+  const userWishlist = courseData?.filter((course) => userData?.wishlist.includes(course._id));
 
   const heroElements = {
     title: "Wishlist",
@@ -30,21 +40,14 @@ const WishListView = ({ wishlist, wishlistDeleted }) => {
           <WishlistFilterBar />
           <WishListTagSection />
           <Box mt={10} mb={5}>
-            {wishlist.length ? (
-              <Grid container spacing={4}>
-                {wishlist.map((items) => {
+            {userWishlist.length ? (
+              <Grid container spacing={2}>
+                {userWishlist.map((items) => {
                   return (
-                    <Grid key={items.id} item xs={12} sm={6} md={6} lg={4}>
+                    <Grid key={items._id} item xs={12} sm={6} md={6} lg={3}>
                       <MediaCard
-                        title={items.title}
-                        description={items.description}
-                        ratings={items.ratings}
-                        lessonsNumbers={items.lessonsNumbers}
-                        courseImage={items.courseImage}
-                        tag={items.tag}
-                        price={items.price}
-                        mentors={items.mentors}
-                        onClick={() => wishlistDeleted({ id: items.id })}
+                        props={items}
+                        onClick={() => dispatch(deleteWishlist(items._id))}
                         isDeleteButton={true}
                       />
                     </Grid>
@@ -68,6 +71,13 @@ const WishListView = ({ wishlist, wishlistDeleted }) => {
 const useStyles = makeStyles((theme) => ({
   wrapperContainer: {
     minWidth: "90%",
+  },
+  wishlistContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+  },
+  innerContainer: {
+    marginRight: theme.spacing(2),
   },
 }));
 

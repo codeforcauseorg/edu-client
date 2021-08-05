@@ -11,6 +11,7 @@ import ExploreCourseSection from "../../../components/HomeViewComponents/Explore
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 import SkeletonMediaCard from "../../../components/skeleton/SkeletonMediaCard";
 import useSWR from "swr";
+import { loadData } from "../../../services/apiService";
 
 const ContinueLearningList = [
   {
@@ -35,7 +36,8 @@ const ContinueLearningList = [
 
 function HomeView() {
   const classes = useStyles();
-  const { data: courseCardData } = useSWR("/course/cards/all");
+  const { data: courseCardData, error } = useSWR("/course/cards/all", loadData);
+  console.log(error);
 
   return (
     <div>
