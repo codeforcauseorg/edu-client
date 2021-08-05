@@ -76,7 +76,7 @@ function HomeView() {
             : courseCardData.map((items, index) => <MediaCard key={index} props={items} />)}
         </CardContainer>
       </Container>
-      <ExploreCourseSection />
+      <ExploreCourseSection exploreCourse={courseCardData} />
       <OurImpactSection />
       <MentorSection />
       <StudentReviewSection />

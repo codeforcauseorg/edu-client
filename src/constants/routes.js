@@ -8,9 +8,10 @@ export const GAMIFICATION_BOARD = "/gamification-board";
 export const DOUBTFOURM = "/doubt-forum";
 export const CHECKOUT = "/checkout";
 export const SEARCH_SECTION = "/search";
-
-// **************************************************************************
 export const DOUBT_QUESTIONS_DETAILS = "/doubt-forum/:id";
+export const MENTOR_SECTION = "/mentor/:id";
+// **************************************************************************
+
 export const CHALLENGES = "/challenges";
 export const CHALLENGES_DETAILS = "/challenges/:id";
 export const NOTIFICATION = "/notification";

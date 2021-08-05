@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   button: {
-    border: `2px solid ${theme.palette.primary.main}`,
-    color: theme.palette.primary.main,
+    border: "2px solid #ffffff",
+    color: "#ffffff",
     textTransform: "none",
     marginRight: theme.spacing(4),
     [theme.breakpoints.down("sm")]: {

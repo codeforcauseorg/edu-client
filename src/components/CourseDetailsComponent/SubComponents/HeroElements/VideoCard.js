@@ -29,7 +29,7 @@ function VideoCard(props) {
           </Typography>
         </Box>
         <Button className={classes.button} onClick={() => history.push("/checkout")}>
-          Buy Now
+          Enroll Now
         </Button>
       </Box>
     </Box>
@@ -67,12 +67,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   price: {
-    color: theme.palette.primary.main,
+    color: "#fff",
     marginRight: theme.spacing(2),
   },
   originalPrice: {
     textDecoration: " line-through",
-    color: theme.palette.text.secondary,
+    color: "#fff",
+    opacity: 0.6,
   },
   applyCoupon: {
     marginTop: theme.spacing(2),

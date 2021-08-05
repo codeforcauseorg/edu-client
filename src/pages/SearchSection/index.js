@@ -9,7 +9,6 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router";
-import NavBar from "../../components/NavBar";
 import CourseList from "../../components/SearchComponents/CourseList";
 import FilterListIcon from "@material-ui/icons/FilterList";
 
@@ -37,8 +36,7 @@ function SearchSection(props) {
 
   return (
     <>
-      <NavBar />
-      <Box mt={8} className={classes.root}>
+      <Box className={classes.root}>
         <Container className={classes.container}>
           <Box pt={8}>
             <Typography variant="h2">2,536 results for &quot;{query}&quot;</Typography>

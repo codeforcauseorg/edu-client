@@ -1,168 +1,58 @@
-import { AppBar, Box, Container, makeStyles, Tab, Tabs, Typography } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
-import ExploreMediaCard from "../../components/CourseMediaCard/ExploreMediaCard";
-import CardContainer from "../cardContainer/cardContainer";
+import { Box, Container, makeStyles, Typography } from "@material-ui/core";
+import React from "react";
+import CourseCategoryCard from "../CourseCategoryCard";
 
-const courseList = [
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-  {
-    title: " Full stack Web application Development Course By Code for Cause",
-    description:
-      " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    courseImage: "/assets/img/img3.PNG",
-    tag: "Web Development",
-    price: "₹1200",
-    ratings: "4.5",
-    lessonsNumbers: "35",
-    mentors: [
-      {
-        id: "1",
-        image: "assets/members/anuj.png",
-      },
-      {
-        id: "2",
-        image: "assets/members/ganga.png",
-      },
-    ],
-  },
-];
 const courseLabel = [
   {
-    title: "All Courses",
-  },
-  {
     title: "Web Development",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Html", "Css", "React", "JavaScript", "Python"],
   },
   {
     title: "Machine Learning",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Python", "Tensor Flow", "Jupyter"],
   },
   {
     title: "DevOps",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Amazon Web Services", "Kubernetes", "Docker"],
   },
   {
-    title: "Android",
+    title: "Android Development",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Flutter", "React Native", "Native Android", "Dart", "Kotlin", "Java"],
   },
   {
     title: "DSA",
+    bannerImage:
+      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+    rating: 4.5,
+    tags: ["Mathematics", "Bit Magic", "Recursion", "Arrays", "Hashing"],
   },
 ];
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`scrollable-auto-tabpanel-${index}`}
-      aria-labelledby={`scrollable-auto-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box>
-          <div>{children}</div>
-        </Box>
-      )}
-    </div>
-  );
-}
 
-function ExploreCourseSection() {
+function ExploreCourseSection({ exploreCourse }) {
   const classes = useStyles();
-  const [value, setValue] = useState(0);
-  const [listData, setlistData] = useState([]);
-
-  const handleChange = (event, newValue) => {
-    switch (value) {
-      case 0:
-        setlistData(courseList);
-        break;
-
-      default:
-        setlistData(courseList);
-        break;
-    }
-    setValue(newValue);
-  };
-
-  useEffect(() => {
-    setlistData(courseList);
-  });
 
   return (
     <Box className={classes.root}>
       <Container className={classes.container}>
-        <Box className={classes.tabContainer}>
-          <Typography variant="h2">Explore All Course</Typography>
-          <AppBar position="static" color="default" className={classes.appBar}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              indicatorColor="primary"
-              textColor="primary"
-              variant="scrollable"
-              scrollButtons="auto"
-              aria-label="scrollable auto tabs example"
-            >
-              {courseLabel.map((items, index) => (
-                <Tab key={index} label={items.title} className={classes.tab} />
-              ))}
-            </Tabs>
-          </AppBar>
-          <TabPanel value={value} index={value}>
-            <CardContainer>
-              {listData.map((items, index) => (
-                <ExploreMediaCard
-                  key={index}
-                  title={items.title}
-                  description={items.description}
-                  ratings={items.ratings}
-                  lessonsNumbers={items.lessonsNumbers}
-                  courseImage={items.courseImage}
-                  tag={items.tag}
-                  price={items.price}
-                  mentors={items.mentors}
-                />
-              ))}
-            </CardContainer>
-          </TabPanel>
+        <Typography variant="h1" className={classes.title}>
+          Course categories
+        </Typography>
+        <Box className={classes.innerContainer}>
+          {courseLabel.map((items, index) => (
+            <CourseCategoryCard key={index} props={items} />
+          ))}
         </Box>
       </Container>
     </Box>
@@ -172,7 +62,8 @@ function ExploreCourseSection() {
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: 600,
-    paddingTop: theme.spacing(15),
+    paddingTop: theme.spacing(10),
+    paddingBottom: theme.spacing(10),
     [theme.breakpoints.down("md")]: {
       paddingTop: theme.spacing(2),
     },
@@ -183,6 +74,19 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "100%",
     },
   },
+  innerContainer: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
+  },
+
+  title: {
+    textAlign: "center",
+    color: theme.palette.primary.main,
+  },
+
   card: {
     position: "relative",
     marginRight: theme.spacing(3),
@@ -193,9 +97,6 @@ const useStyles = makeStyles((theme) => ({
   },
   textContainer: {
     maxWidth: "38%",
-  },
-  title: {
-    color: theme.palette.primary.main,
   },
   learnButton: {
     marginTop: theme.spacing(8),

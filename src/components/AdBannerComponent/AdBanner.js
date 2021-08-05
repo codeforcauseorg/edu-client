@@ -1,5 +1,4 @@
-import { Box, IconButton, makeStyles, Typography } from "@material-ui/core";
-import { Clear } from "@material-ui/icons";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 
 function AdBanner({ handleClick }) {
@@ -7,9 +6,6 @@ function AdBanner({ handleClick }) {
 
   return (
     <Box className={classes.paper}>
-      <IconButton className={classes.iconButton} onClick={handleClick}>
-        <Clear />
-      </IconButton>
       <Box className={classes.infoContainer}>
         <Typography className={classes.bannerMessage} variant="h4">
           🔥 Use CFC75 Coupon Code for 75% off 🔥
@@ -21,7 +17,7 @@ function AdBanner({ handleClick }) {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    background: "#4E25C6",
+    background: "#3A3985",
     height: 50,
     width: "100%",
   },
