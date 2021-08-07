@@ -1,11 +1,13 @@
 import { AppBar, Box, Button, Hidden, Toolbar, Typography } from "@material-ui/core";
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router";
 import OnboardingSection from "../../components/AuthComponent/OnboardingSection";
 import SignupSection from "../../components/AuthComponent/SignupSection";
 
 const LandingPage = (props) => {
   const classes = useStyles(props);
+  const history = useHistory();
 
   return (
     <>
@@ -21,7 +23,9 @@ const LandingPage = (props) => {
                 <Button outline className={classes.authbutton}>
                   Sign In
                 </Button>
-                <Button className={classes.explorebutton}>Explore</Button>
+                <Button className={classes.explorebutton} onClick={() => history.push("/home")}>
+                  Explore
+                </Button>
               </Container>
             </Toolbar>
           </AppBar>

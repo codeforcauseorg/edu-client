@@ -4,7 +4,7 @@ import React from "react";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ShareIcon from "@material-ui/icons/Share";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addWishlist, deleteWishlist } from "../../../../services/userService";
 import useSWR from "swr";
 import { loadData } from "../../../../services/apiService";
@@ -13,8 +13,8 @@ function ShareAndWishlistButton({ action }) {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { data } = useSWR("/user/wishlist", loadData);
+  const user = useSelector((state) => state.account.user);
 
-  // const [wishlist, setwishlist] = useState(false);
   const { id, sharable_link } = action;
   console.log(id);
   console.log(data?.includes(id));
@@ -37,7 +37,7 @@ function ShareAndWishlistButton({ action }) {
         <Typography>Share</Typography>
         <ShareIcon className={classes.icon} />
       </Button>
-      {data === undefined ? (
+      {!user ? (
         <Box />
       ) : (
         <Button className={classes.button} onClick={() => handleChange()}>
