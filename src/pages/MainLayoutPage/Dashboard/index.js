@@ -5,11 +5,12 @@ import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
 import UserLogoutState from "../../../components/UserLogoutState";
 import useSWR from "swr";
+import { loadData } from "../../../services/apiService";
 
 function Dashboard() {
   const classes = useStyles();
   const user = useSelector((state) => state.account.user);
-  const { data: currentUserData } = useSWR("/user/get");
+  const { data: currentUserData } = useSWR("/user/get", loadData);
   console.log(currentUserData);
 
   return (
