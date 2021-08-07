@@ -13,6 +13,7 @@ import SkeletonMediaCard from "../../../components/skeleton/SkeletonMediaCard";
 import useSWR from "swr";
 import { loadData } from "../../../services/apiService";
 import { useSelector } from "react-redux";
+import Banner from "../../../components/HomeViewComponents/Banner";
 
 const ContinueLearningList = [
   {
@@ -39,7 +40,7 @@ function HomeView() {
   const classes = useStyles();
   const { data: courseCardData } = useSWR("/course/cards/all", loadData);
 
-  const upcomingCourse = courseCardData?.filter((course) => course.name === "C++ DSA");
+  const upcomingCourse = courseCardData?.filter((course) => course.name === "C++ DSA"); // course.isUpcomming === true
 
   const user = useSelector((state) => state.account.user);
 
@@ -92,6 +93,7 @@ function HomeView() {
       <ExploreCourseSection exploreCourse={courseCardData} />
       <OurImpactSection />
       <MentorSection />
+      <Banner />
       <StudentReviewSection />
     </div>
   );

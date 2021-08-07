@@ -48,10 +48,9 @@ const useStyles = makeStyles((theme) => ({
   },
   tag: {
     marginRight: "10px",
-    border: "2px solid #3740A1",
     borderRadius: "5px",
-    color: theme.palette.primary.main,
-    backgroundColor: "#fff",
+    color: "#fff",
+    background: "linear-gradient(90deg, #5848EA 0%, #5848EA 100%)",
     textTransform: "none",
     cursor: "pointer",
     [theme.breakpoints.down("md")]: {

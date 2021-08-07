@@ -30,10 +30,12 @@ function VideoCard(props) {
         </Box>
         {!isUpcoming === true ? (
           <Button className={classes.button} onClick={() => history.push("/checkout")}>
-            Enroll Now
+            <Typography variant="h6"> Enroll Now</Typography>
           </Button>
         ) : (
-          <Button className={classes.button}>Upcoming</Button>
+          <Button className={classes.button}>
+            <Typography variant="h6">Upcoming</Typography>
+          </Button>
         )}
       </Box>
     </Box>
@@ -42,11 +44,11 @@ function VideoCard(props) {
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    background: theme.palette.primary.main,
+    background: "#fff",
     padding: theme.spacing(2),
-    color: "#fff",
+    color: theme.palette.text.primary,
     "&:hover": {
-      background: theme.palette.primary.main,
+      background: "#fff",
     },
   },
   videoContainer: {
