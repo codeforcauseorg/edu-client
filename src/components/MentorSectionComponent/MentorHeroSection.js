@@ -1,8 +1,25 @@
 import { Avatar, Box, Button, Container, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import { Twitter, LinkedIn, Link } from "@material-ui/icons";
 
 function MentorHeroSection() {
   const classes = useStyles();
+
+  const iconList = [
+    {
+      icon: Twitter,
+      link: "",
+    },
+    {
+      icon: LinkedIn,
+      link: "",
+    },
+    {
+      icon: Link,
+      link: "",
+    },
+  ];
+
   return (
     <Box className={classes.root}>
       <Container className={classes.wrapper}>
@@ -13,10 +30,9 @@ function MentorHeroSection() {
         <Box className={classes.container}>
           <Typography variant="h2">Adarsh kumar Singh</Typography>
           <Box className={classes.socialIconsContainer}>
-            {[1, 2, 3].map((items, index) => (
+            {iconList.map((items, index) => (
               <Button className={classes.socialIcons} key={index}>
-                {" "}
-                <img src="assets/icon/social icons/linkedIn.svg" />
+                <items.icon className={classes.icon} />
               </Button>
             ))}
           </Box>
@@ -32,7 +48,7 @@ function MentorHeroSection() {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: "linear-gradient(97.46deg, #3499FF -62.66%, #3A3985 157.91%)",
+    background: "linear-gradient(90deg, #5848EA 0%, #9549EB 100%)",
   },
   wrapper: {
     maxWidth: "85%",
@@ -76,6 +92,9 @@ const useStyles = makeStyles((theme) => ({
   },
   socialIconsContainer: {
     margin: theme.spacing(4, 0),
+  },
+  icon: {
+    color: theme.palette.primary.main,
   },
 }));
 
