@@ -1,11 +1,15 @@
 import { Card, CardContent, CardMedia, Grid, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import { useHistory } from "react-router";
 
 function TeamCard({ image, name }) {
   const classes = useStyles();
+
+  const history = useHistory();
+
   return (
     <Grid item xs={6} sm={5} md={3} lg={2}>
-      <Card className={classes.card}>
+      <Card className={classes.card} onClick={() => history.push("/mentor/1")}>
         <CardMedia className={classes.media} image={image} />
         <CardContent className={classes.cardContent}>
           <Typography align="center">{name}</Typography>

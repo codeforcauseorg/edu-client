@@ -9,7 +9,7 @@ function StudentReviewSection() {
     <Box className={classes.root}>
       <FadeReveal>
         <Container className={classes.titleContainer}>
-          <Typography variant="h1" color="primary" component="span">
+          <Typography variant="h1" color="textprimary" component="span">
             What our student&apos;s say
           </Typography>
         </Container>

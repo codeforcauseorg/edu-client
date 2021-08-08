@@ -135,7 +135,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    color: theme.palette.primary.main,
+    color: theme.palette.text.primary,
   },
   learningButton: {
     marginTop: theme.spacing(8),

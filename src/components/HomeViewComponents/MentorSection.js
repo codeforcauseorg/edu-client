@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   subTitle: {
-    color: theme.palette.primary.main,
+    color: theme.palette.text.primary,
   },
 }));
 
