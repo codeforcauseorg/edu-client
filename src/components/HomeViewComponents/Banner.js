@@ -34,6 +34,7 @@ const cardItem = [
 
 function Banner() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <Box className={classes.container}>

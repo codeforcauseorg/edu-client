@@ -7,6 +7,7 @@ import SignupSection from "../../components/AuthComponent/SignupSection";
 
 const LandingPage = (props) => {
   const classes = useStyles(props);
+
   const history = useHistory();
 
   return (

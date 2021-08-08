@@ -15,6 +15,7 @@ const listItems = [
 
 function AskedQuestion() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <Paper className={classes.paper}>
@@ -66,4 +67,5 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
 }));
+
 export default AskedQuestion;

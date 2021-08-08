@@ -3,6 +3,7 @@ import { Box, CardMedia, makeStyles, Typography } from "@material-ui/core";
 
 function HeroSection({ title, description, banner }) {
   const classes = useStyles();
+
   return (
     <CardMedia className={classes.heroSection} image={banner}>
       <Box className={classes.infoContainer}>

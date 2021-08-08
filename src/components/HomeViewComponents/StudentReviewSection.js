@@ -5,6 +5,7 @@ import ReviewCard from "../ReviewCard/ReviewCard";
 import FadeReveal from "../Animation/index";
 function StudentReviewSection() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <FadeReveal>
@@ -76,4 +77,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default StudentReviewSection;

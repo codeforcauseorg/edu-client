@@ -38,6 +38,7 @@ const ContinueLearningList = [
 
 function HomeView() {
   const classes = useStyles();
+
   const { data: courseCardData } = useSWR("/course/cards/all", loadData);
 
   const upcomingCourse = courseCardData?.filter((course) => course.name === "C++ DSA"); // course.isUpcomming === true

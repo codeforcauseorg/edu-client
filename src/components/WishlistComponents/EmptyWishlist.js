@@ -3,6 +3,7 @@ import React from "react";
 
 function EmptyWishlist() {
   const classes = useStyle();
+
   return (
     <Fade in={true} timeout={500}>
       <Box className={classes.root}>

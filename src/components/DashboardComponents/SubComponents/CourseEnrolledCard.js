@@ -20,6 +20,7 @@ import { useHistory } from "react-router";
 
 function CourseEnrolledCard() {
   const classes = useStyles();
+
   const history = useHistory();
 
   return (

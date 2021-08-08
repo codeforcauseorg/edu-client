@@ -6,6 +6,7 @@ import ProfileSkeleton from "../../skeleton/ProfileSkeleton";
 
 function DashboardHero() {
   const classes = useStyles();
+
   const user = useSelector((state) => state.account.user);
 
   return (

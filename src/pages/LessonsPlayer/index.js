@@ -6,6 +6,7 @@ import CourseLessonList from "../../components/LessonsPlayerComponents/CourseLes
 
 function LessonsPlayer() {
   const classes = useStyles();
+
   return (
     <>
       <NavBar />

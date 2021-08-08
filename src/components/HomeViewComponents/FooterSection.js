@@ -17,6 +17,7 @@ function Copyright() {
     </Typography>
   );
 }
+
 const iconList = [
   "/assets/icon/social icons/twitter.svg",
   "/assets/icon/social icons/linkedIn.svg",
@@ -26,6 +27,7 @@ const iconList = [
 
 function FooterSection() {
   const classes = useStyles();
+
   const [state, setState] = useState(false);
 
   const handleChange = (event) => {

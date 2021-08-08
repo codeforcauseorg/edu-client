@@ -67,4 +67,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default Tags;

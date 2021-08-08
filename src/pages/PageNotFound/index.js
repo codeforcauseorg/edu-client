@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 
 function PageNotFound() {
   const classes = useStyles();
+
   const history = useHistory();
 
   return (

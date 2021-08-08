@@ -30,6 +30,7 @@ const cardElement = [
 
 function StatsCardSection() {
   const classes = useStyles();
+
   return (
     <Box className={classes.cardContainer}>
       {cardElement.map((item, index) => (

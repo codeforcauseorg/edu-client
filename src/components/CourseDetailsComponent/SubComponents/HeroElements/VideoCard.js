@@ -5,8 +5,11 @@ import { useHistory } from "react-router";
 
 function VideoCard(props) {
   const classes = useStyles();
+
   const { videoInfo } = props;
+
   const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail, isUpcoming } = videoInfo;
+
   const history = useHistory();
 
   return (
@@ -91,4 +94,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default VideoCard;

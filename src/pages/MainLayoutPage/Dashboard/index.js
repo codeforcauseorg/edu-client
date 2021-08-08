@@ -7,7 +7,9 @@ import { loadData } from "../../../services/apiService";
 
 function Dashboard() {
   const classes = useStyles();
+
   const { data: currentUserData } = useSWR("/user/get", loadData);
+
   console.log(currentUserData);
 
   return (

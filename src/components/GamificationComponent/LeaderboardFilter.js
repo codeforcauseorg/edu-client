@@ -5,6 +5,7 @@ const filterList = ["Ascending", "Descending"];
 
 function LeaderboardFilter() {
   const classes = useStyles();
+
   const [state, setState] = useState("all");
 
   const handleChange = (event) => {
@@ -53,4 +54,5 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: theme.spacing(4),
   },
 }));
+
 export default LeaderboardFilter;

@@ -4,6 +4,7 @@ import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 
 function Hero() {
   const classes = useStyles();
+
   return (
     <Box className={classes.container}>
       <Box className={classes.infoContainer}>

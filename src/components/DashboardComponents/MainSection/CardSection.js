@@ -14,11 +14,15 @@ import MenuComponent from "../SubComponents/MenuComponent";
 
 function CardSection({ props, index }) {
   const classes = useStyles();
+
   const { title, banner } = props;
+
   const theme = useTheme();
+
   const matches = useMediaQuery(theme.breakpoints.up("sm"));
 
   const [open, setOpen] = useState(false);
+
   const anchorRef = useRef(null);
 
   const handleToggle = () => {

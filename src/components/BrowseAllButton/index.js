@@ -3,6 +3,7 @@ import React from "react";
 
 function BrowseAllButton(rest) {
   const classes = useStyles();
+
   return (
     <div>
       <Button className={classes.browseAllButton} {...rest}>

@@ -45,6 +45,7 @@ const mentorList = [
 
 function MentorSection() {
   const classes = useStyles();
+
   return (
     <Box pt={10} className={classes.root}>
       <Container className={classes.titleContainer}>

@@ -16,6 +16,7 @@ function SignupSection() {
   };
 
   const classes = useStyles();
+
   return (
     <>
       <Box my={18}>

@@ -6,6 +6,7 @@ import CardSection from "./CardSection";
 
 function MainSection() {
   const classes = useStyles();
+
   const cardElements = [
     {
       title: "Classroom",
@@ -29,7 +30,6 @@ function MainSection() {
           <CardSection key={index} props={items} index={index} />
         ))}
       </Box>
-
       <DoubtsSection />
     </Container>
   );

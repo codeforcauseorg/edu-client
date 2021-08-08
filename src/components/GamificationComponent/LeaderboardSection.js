@@ -8,7 +8,9 @@ function LeaderboardSection() {
   const [pageNumber, setPageNumber] = useState(0);
 
   const listPerPage = 3;
+
   const pageVisited = pageNumber * listPerPage;
+
   const displayList = leaderboardElement.slice(pageVisited, pageVisited + listPerPage);
 
   const changePage = ({ selected }) => {

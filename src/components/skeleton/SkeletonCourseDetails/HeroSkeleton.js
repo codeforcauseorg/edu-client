@@ -79,4 +79,5 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
 }));
+
 export default HeroSkeleton;

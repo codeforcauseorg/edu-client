@@ -27,6 +27,7 @@ const pathList = [
 
 function CoursePath() {
   const classes = useStyles();
+
   return (
     <Box className={classes.pathContainer}>
       {pathList.map((items, index) => (

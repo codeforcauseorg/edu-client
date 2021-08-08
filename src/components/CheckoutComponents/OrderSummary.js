@@ -15,6 +15,7 @@ import React from "react";
 function getSteps() {
   return ["Overview", "Payment"];
 }
+
 const listItems = [
   {
     title: "Original price:",
@@ -34,6 +35,7 @@ function OrderSummary() {
   const classes = useStyles();
 
   const [activeStep, setActiveStep] = React.useState(0);
+
   const steps = getSteps();
 
   const handleNext = () => {

@@ -4,6 +4,7 @@ import QuestionList from "./SubComponents/QuestionList";
 
 function QuestionSection() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       {[1, 2, 3, 4, 5, 6].map((items, index) => (
@@ -23,4 +24,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default QuestionSection;

@@ -3,6 +3,7 @@ import React from "react";
 
 function TagSection(props) {
   const classes = useStyles();
+
   return (
     <Box p={2} className={classes.container}>
       {[1, 2, 3, 4, 5, 6, 7].map((items, index) => (

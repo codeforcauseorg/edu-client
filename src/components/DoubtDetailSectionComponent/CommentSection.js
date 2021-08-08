@@ -12,6 +12,7 @@ import React from "react";
 
 function CommentSection() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       {[1, 2, 3, 4, 5].map((items, index) => (
@@ -23,6 +24,7 @@ function CommentSection() {
 
 function AnswerList() {
   const classes = useStyles();
+
   return (
     <Paper className={classes.answers}>
       <ListItem>

@@ -14,9 +14,11 @@ import { loadData } from "../../services/apiService";
 
 function CourseDetail() {
   const classes = useStyles();
+
   const { id } = useParams();
 
   const { data: courseDetails } = useSWR("/course/" + id, loadData);
+
   const { data: courseData } = useSWR("/course/cards/all", loadData);
 
   return (

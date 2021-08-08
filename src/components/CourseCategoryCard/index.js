@@ -14,7 +14,9 @@ import React from "react";
 
 function CourseCategoryCard({ props }) {
   const classes = useStyles();
+
   const { title, bannerImage, rating, tags } = props;
+
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={bannerImage} />

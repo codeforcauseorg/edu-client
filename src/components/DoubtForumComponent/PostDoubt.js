@@ -17,6 +17,7 @@ import makeAnimated from "react-select/animated";
 
 function PostDoubt({ open, onClose }) {
   const classes = useStyles();
+
   const animatedComponents = makeAnimated();
 
   const options = [
@@ -99,4 +100,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default PostDoubt;

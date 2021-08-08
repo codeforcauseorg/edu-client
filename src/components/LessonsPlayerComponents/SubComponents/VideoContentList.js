@@ -16,7 +16,9 @@ import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 
 function VideoContentList({ props, index }) {
   const classes = useStyles();
+
   const [open, setopen] = useState(false);
+
   const handleChange = () => {
     setopen(!open);
   };
