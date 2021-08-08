@@ -6,9 +6,17 @@ import VideoCard from "./SubComponents/HeroElements/VideoCard";
 import CoursePath from "./SubComponents/HeroElements/CoursePath";
 import ShareAndWishlistButton from "./SubComponents/HeroElements/ShareAndWishlistButton";
 import Instructors from "./SubComponents/HeroElements/Instructors";
+import { loadData } from "../../services/apiService";
+import useSWR from "swr";
+import { USER_WISHLIST_ENDPOINT } from "../../constants/apiEndpoints";
 
 function CourseHeroSection(props) {
   const classes = useStyles();
+
+  const { data } = useSWR(USER_WISHLIST_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
 
   const {
     isUpcoming,
@@ -40,6 +48,7 @@ function CourseHeroSection(props) {
   const courseAction = {
     sharable_link,
     id,
+    data,
   };
 
   return (
@@ -86,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingLeft: theme.spacing(10),
     paddingRight: theme.spacing(10),
-    paddingTop: theme.spacing(10),
+    paddingTop: theme.spacing(8),
     paddingBottom: theme.spacing(8),
     background: "linear-gradient(90deg, #5848EA 0%, #9549EB 100%)",
     [theme.breakpoints.down("md")]: {

@@ -1,21 +1,19 @@
 /* eslint-disable camelcase */
-import { Box, Button, makeStyles, Typography } from "@material-ui/core";
+import { Box, Button, CircularProgress, makeStyles, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ShareIcon from "@material-ui/icons/Share";
 import { useDispatch, useSelector } from "react-redux";
 import { addWishlist, deleteWishlist } from "../../../../services/userService";
-import useSWR, { mutate } from "swr";
-import { loadData } from "../../../../services/apiService";
+import { mutate } from "swr";
 import SnackBarComponent from "../../../SnackBar/SnackBar";
+import { USER_WISHLIST_ENDPOINT } from "../../../../constants/apiEndpoints";
 
 function ShareAndWishlistButton({ action }) {
   const classes = useStyles();
 
   const dispatch = useDispatch();
-
-  const { data } = useSWR("/user/wishlist", loadData);
 
   const user = useSelector((state) => state.account.user);
 
@@ -29,19 +27,19 @@ function ShareAndWishlistButton({ action }) {
     setOpen(false);
   };
 
-  const { id, sharable_link } = action;
+  const { id, sharable_link, data } = action;
 
   const handleChange = () => {
     if (data?.includes(id)) {
       mutate(
-        "/user/wishlist",
+        USER_WISHLIST_ENDPOINT,
         data.filter((courseId) => courseId !== id),
         false
       );
       handleClick();
       dispatch(deleteWishlist(id));
     } else {
-      mutate("/user/wishlist", [...data, id], false);
+      mutate(USER_WISHLIST_ENDPOINT, [...data, id], false);
       handleClick();
       dispatch(addWishlist(id));
     }
@@ -60,9 +58,14 @@ function ShareAndWishlistButton({ action }) {
       {!user ? (
         <Box />
       ) : (
-        <Button className={classes.button} onClick={() => handleChange()}>
+        <Button
+          className={classes.button}
+          onClick={() => (data === undefined ? "" : handleChange())}
+        >
           <Typography>Add to wishlist</Typography>
-          {!data?.includes(id) ? (
+          {data === undefined ? (
+            <CircularProgress className={classes.progress} size={20} />
+          ) : !data?.includes(id) ? (
             <BookmarkBorderIcon className={classes.icon} />
           ) : (
             <BookmarkIcon className={classes.icon} />
@@ -96,6 +99,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   icon: {
+    marginLeft: theme.spacing(1),
+  },
+  progress: {
+    color: "#fff",
     marginLeft: theme.spacing(1),
   },
 }));

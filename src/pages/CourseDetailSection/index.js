@@ -11,15 +11,22 @@ import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
 import { useParams } from "react-router";
 import useSWR from "swr";
 import { loadData } from "../../services/apiService";
+import { ALL_COURSE_CARD_ENDPOINT, COURSE_DETAIL_ENDPOINT } from "../../constants/apiEndpoints";
 
 function CourseDetail() {
   const classes = useStyles();
 
   const { id } = useParams();
 
-  const { data: courseDetails } = useSWR("/course/" + id, loadData);
+  const { data: courseDetails } = useSWR(COURSE_DETAIL_ENDPOINT + id, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 100000,
+  });
 
-  const { data: courseData } = useSWR("/course/cards/all", loadData);
+  const { data: courseData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 100000,
+  });
 
   return (
     <>

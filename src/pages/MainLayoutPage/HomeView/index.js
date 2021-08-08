@@ -14,6 +14,7 @@ import useSWR from "swr";
 import { loadData } from "../../../services/apiService";
 import { useSelector } from "react-redux";
 import Banner from "../../../components/HomeViewComponents/Banner";
+import { ALL_COURSE_CARD_ENDPOINT } from "../../../constants/apiEndpoints";
 
 const ContinueLearningList = [
   {
@@ -39,7 +40,10 @@ const ContinueLearningList = [
 function HomeView() {
   const classes = useStyles();
 
-  const { data: courseCardData } = useSWR("/course/cards/all", loadData);
+  const { data: courseCardData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 100000,
+  });
 
   const upcomingCourse = courseCardData?.filter((course) => course.name === "C++ DSA"); // course.isUpcomming === true
 

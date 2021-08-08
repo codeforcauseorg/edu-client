@@ -1,5 +1,8 @@
+import { USER_WISHLIST_ENDPOINT } from "../constants/apiEndpoints";
 import axios from "../utils/axios";
 import errorHandler from "./errorHandler";
+
+// Add wishlist asyns function
 
 export const addWishlist = (courseId) => {
   return async (dispatch) => {
@@ -7,7 +10,7 @@ export const addWishlist = (courseId) => {
       const wishlistData = {
         cId: courseId,
       };
-      const response = await axios.put("/user/wishlist", wishlistData);
+      const response = await axios.put(USER_WISHLIST_ENDPOINT, wishlistData);
       if (response.status === 200) {
         await response.data;
       }
@@ -17,10 +20,12 @@ export const addWishlist = (courseId) => {
   };
 };
 
+// Delete wishlist asyns function
+
 export const deleteWishlist = (courseId) => {
   return async (dispatch) => {
     try {
-      const response = await axios.delete(`/user/wishlist/${courseId}`);
+      const response = await axios.delete(USER_WISHLIST_ENDPOINT + "/" + courseId);
       await response.data;
     } catch (error) {
       errorHandler(error, dispatch);

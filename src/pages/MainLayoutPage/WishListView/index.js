@@ -10,13 +10,20 @@ import { deleteWishlist } from "../../../services/userService";
 import { loadData } from "../../../services/apiService";
 import { useEffect, useState } from "react";
 import SnackBarComponent from "../../../components/SnackBar/SnackBar";
+import { ALL_COURSE_CARD_ENDPOINT, USER_WISHLIST_ENDPOINT } from "../../../constants/apiEndpoints";
 
 const WishListView = () => {
   const classes = useStyles();
 
-  const { data: courseData } = useSWR("/course/cards/all", loadData);
+  const { data: courseData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
 
-  const { data: wishlistCoureId } = useSWR("/user/wishlist", loadData);
+  const { data: wishlistCoureId } = useSWR(USER_WISHLIST_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 5000,
+  });
 
   const [wistlist, setwistlist] = useState([]);
 
@@ -49,7 +56,7 @@ const WishListView = () => {
   const deleteWishlistCourse = (id) => {
     handleClick();
     mutate(
-      "/user/wishlist",
+      USER_WISHLIST_ENDPOINT,
       wishlistCoureId.filter((courseId) => courseId !== id),
       false
     );
