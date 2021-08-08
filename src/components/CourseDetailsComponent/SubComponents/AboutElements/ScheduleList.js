@@ -20,7 +20,7 @@ import DateRangeIcon from "@material-ui/icons/DateRange";
 
 import React from "react";
 
-function ScheduleList(props) {
+function ScheduleList({ scheduleInfo, index }) {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(false);
@@ -28,6 +28,8 @@ function ScheduleList(props) {
   const handleClick = () => {
     setOpen(!open);
   };
+
+  const { chapterName, lectureNumber, time, lecture, description } = scheduleInfo;
 
   return (
     <Paper className={classes.listItem} component="div">
@@ -37,10 +39,20 @@ function ScheduleList(props) {
             <DateRangeIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Chapter 1" secondary="Lorem ipsum dolor sit amet, consectetur" />
+        <ListItemText>
+          <Typography>Chapter {index}</Typography>
+          <Typography variant="body1" color="textSecondary" gutterBottom className={classes.title}>
+            {chapterName}
+          </Typography>
+          <Typography variant="body2" className={classes.subtitle}>
+            {description}
+          </Typography>
+        </ListItemText>
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
           <Hidden smDown>
-            <Typography>2 lecture • 11 min</Typography>
+            <Typography>
+              {lectureNumber} lecture • {time}
+            </Typography>
           </Hidden>
           <IconButton edge="end" onClick={() => handleClick()}>
             {open ? <ExpandMoreIcon /> : <NavigateNextIcon />}
@@ -48,7 +60,7 @@ function ScheduleList(props) {
         </ListItemSecondaryAction>
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        {[1, 2].map((items, index) => (
+        {lecture.map((items, index) => (
           <CollapseList key={index} lectureList={items} />
         ))}
       </Collapse>
@@ -56,8 +68,10 @@ function ScheduleList(props) {
   );
 }
 
-function CollapseList(props) {
+function CollapseList({ lectureList }) {
   const classes = useStyles();
+
+  const { lectureName, description, time } = lectureList;
 
   return (
     <List component="div">
@@ -65,9 +79,16 @@ function CollapseList(props) {
         <ListItemIcon>
           <PlayCircleOutlineIcon />
         </ListItemIcon>
-        <ListItemText primary="Lorem ipsum dolor sit amet, consectetur" />
+        <ListItemText>
+          <Typography variant="body1" color="textSecondary" gutterBottom className={classes.title}>
+            {lectureName}
+          </Typography>
+          <Typography variant="body2" className={classes.subtitle}>
+            {description}
+          </Typography>
+        </ListItemText>
         <ListItemSecondaryAction className={classes.listItemSecondaryAction}>
-          <Typography className={classes.lectureInfo}>2 min</Typography>
+          <Typography className={classes.lectureInfo}>{time}</Typography>
         </ListItemSecondaryAction>
       </ListItem>
     </List>
@@ -88,6 +109,14 @@ const useStyles = makeStyles((theme) => ({
   listItemSecondaryAction: {
     display: "flex",
     alignItems: "center",
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: 600,
+  },
+  subtitle: {
+    fontSize: 14,
+    fontWeight: 500,
   },
 }));
 

@@ -17,7 +17,7 @@ function CourseSchedule({ schedule }) {
       <Box>
         <List>
           {schedule.map((items, index) => (
-            <ScheduleList key={index} scheduleInfo={items} />
+            <ScheduleList key={index} scheduleInfo={items} index={index + 1} />
           ))}
         </List>
       </Box>
