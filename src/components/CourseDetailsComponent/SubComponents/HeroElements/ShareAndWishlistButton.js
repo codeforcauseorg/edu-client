@@ -1,29 +1,49 @@
 /* eslint-disable camelcase */
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import BookmarkIcon from "@material-ui/icons/Bookmark";
 import ShareIcon from "@material-ui/icons/Share";
 import { useDispatch, useSelector } from "react-redux";
 import { addWishlist, deleteWishlist } from "../../../../services/userService";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import { loadData } from "../../../../services/apiService";
+import SnackBarComponent from "../../../SnackBar/SnackBar";
 
 function ShareAndWishlistButton({ action }) {
   const classes = useStyles();
+
   const dispatch = useDispatch();
+
   const { data } = useSWR("/user/wishlist", loadData);
+
   const user = useSelector((state) => state.account.user);
 
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const { id, sharable_link } = action;
-  console.log(id);
-  console.log(data?.includes(id));
 
   const handleChange = () => {
     if (data?.includes(id)) {
+      mutate(
+        "/user/wishlist",
+        data.filter((courseId) => courseId !== id),
+        false
+      );
+      handleClick();
       dispatch(deleteWishlist(id));
     } else {
-      dispatch(addWishlist(id, data));
+      mutate("/user/wishlist", [...data, id], false);
+      handleClick();
+      dispatch(addWishlist(id));
     }
   };
 
@@ -49,6 +69,15 @@ function ShareAndWishlistButton({ action }) {
           )}
         </Button>
       )}
+      <SnackBarComponent
+        vertical="bottom"
+        horizontal="center"
+        opensnack={open}
+        handleClose={handleClose}
+        severity="info"
+        message={data?.includes(id) ? "Added to Wishlist" : "Deleted from Wishlist"}
+        autoHideDuration={3000}
+      />
     </Box>
   );
 }

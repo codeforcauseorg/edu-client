@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(10),
     paddingTop: theme.spacing(10),
     paddingBottom: theme.spacing(5),
-    background: "linear-gradient(97.46deg, #3499FF -62.66%, #3A3985 157.91%)",
+    background: "linear-gradient(90deg, #5848EA 0%, #9549EB 100%)",
     [theme.breakpoints.down("md")]: {
       display: "block",
     },
