@@ -1,6 +1,7 @@
 import { makeStyles, Box, Typography, Paper } from "@material-ui/core";
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
+import moment from "moment";
 
 function StudentCourseReview({ reviewInfo }) {
   const classes = useStyles();
@@ -12,19 +13,18 @@ function StudentCourseReview({ reviewInfo }) {
         {reviewInfo.map((items, index) => (
           <Paper key={index} className={classes.paper}>
             <Typography variant="subtitle1" component="p" gutterBottom>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+              {items.reviewDescription}
             </Typography>
             <Box className={classes.flexBox}>
               <Box>
                 <Typography variant="h3" gutterBottom>
-                  Adarsh Kumar Singh
+                  {items.reviewerName}
                 </Typography>
-                <Typography variant="h5">Student</Typography>
+                <Typography variant="h5">{items.occupation}</Typography>
               </Box>
               <Box className={classes.ratingContainer}>
-                <Rating value={4} precision={0.5} readOnly />
-                <Typography variant="h5">{items.timeStamp}</Typography>
+                <Rating value={items.stars} precision={0.5} readOnly />
+                <Typography variant="h5">{moment(items.createdAt).fromNow()}</Typography>
               </Box>
             </Box>
           </Paper>
@@ -36,14 +36,14 @@ function StudentCourseReview({ reviewInfo }) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: "500px",
+    minHeight: "100%",
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
   },
   paper: {
     padding: theme.spacing(8),
     boxShadow: "0px 4px 20px 2px rgba(145, 180, 248, 0.15)",
-    minHeight: 250,
+    minHeight: "100%",
     marginTop: theme.spacing(4),
     [theme.breakpoints.down("sm")]: {
       padding: theme.spacing(3),
