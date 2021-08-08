@@ -18,7 +18,7 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
-function MediaCard({ props, isDeleteButton, onClick }) {
+function MediaCard({ props, isDeleteButton, onClick, open }) {
   const {
     _id,
     tags,
@@ -31,7 +31,9 @@ function MediaCard({ props, isDeleteButton, onClick }) {
   } = props;
 
   const classes = useStyles();
+
   const history = useHistory();
+
   const deleteButton = useRef();
 
   const handleDelete = (e) => {
