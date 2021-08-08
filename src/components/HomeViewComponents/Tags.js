@@ -20,8 +20,8 @@ function Tags() {
   const classes = useStyles();
 
   return (
-    <Container className={classes.wrapperContainer}>
-      <div className={classes.tagContainer}>
+    <Container className={classes.container}>
+      <Container className={classes.tagContainer}>
         {tagList.map((item, index) => (
           <Chip
             key={index}
@@ -29,13 +29,14 @@ function Tags() {
             label={<Typography variant="body1">{item}</Typography>}
           ></Chip>
         ))}
-      </div>
+      </Container>
     </Container>
   );
 }
 
 const useStyles = makeStyles((theme) => ({
   tagContainer: {
+    maxWidth: "95%",
     marginBottom: "1rem",
     paddingTop: "1rem",
     display: "flex",
@@ -49,17 +50,18 @@ const useStyles = makeStyles((theme) => ({
   tag: {
     marginRight: "10px",
     borderRadius: "5px",
+    background: "#5848EA",
     color: "#fff",
-    background: "linear-gradient(90deg, #5848EA 0%, #5848EA 100%)",
     textTransform: "none",
     cursor: "pointer",
     [theme.breakpoints.down("md")]: {
       marginRight: ".5rem",
     },
   },
-  wrapperContainer: {
-    maxWidth: "90%",
-    marginTop: theme.spacing(4),
+  container: {
+    maxWidth: "100%",
+    background: "#5848EA",
+    padding: theme.spacing(1),
     [theme.breakpoints.down("md")]: {
       maxWidth: "100%",
     },
