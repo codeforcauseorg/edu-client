@@ -3,6 +3,7 @@ import { makeStyles, CardMedia } from "@material-ui/core";
 
 function ProfileHeroLayout({ children }) {
   const classes = useStyles();
+
   return (
     <CardMedia image="assets/img/profileBanner.svg" className={classes.heroSection}>
       {children}

@@ -13,6 +13,7 @@ const actionItems = [
 ];
 function CheckoutCourseList() {
   const classes = useStyles();
+
   return (
     <Card className={classes.root}>
       <CardMedia
@@ -73,4 +74,5 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(4),
   },
 }));
+
 export default CheckoutCourseList;

@@ -14,7 +14,9 @@ import React from "react";
 
 function CourseCategoryCard({ props }) {
   const classes = useStyles();
+
   const { title, bannerImage, rating, tags } = props;
+
   return (
     <Card className={classes.root}>
       <CardMedia className={classes.media} image={bannerImage} />
@@ -39,8 +41,6 @@ function CourseCategoryCard({ props }) {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    position: "relative",
-    top: 0,
     boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.11)",
     transition: "0.5s",
     cursor: "pointer",
@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
     flex: "0 0 auto",
     "&:hover": {
       boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.25)",
-      top: "-10px",
     },
     [theme.breakpoints.down("md")]: {
       maxWidth: 330,
@@ -61,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 200,
     transition: "0.5s",
+    margin: theme.spacing(1),
     cursor: "pointer",
     "&:hover": {
       transform: "scale(1.02)",
@@ -73,7 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
   chip: {
     borderRadius: "5px",
-    background: theme.palette.primary.main,
+    background: theme.palette.success.main,
     color: "#fff",
     marginRight: theme.spacing(1),
     marginBottom: theme.spacing(1),
@@ -85,10 +85,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
   },
   exploreButton: {
-    background: "linear-gradient(97.46deg, #6EE2F5 -62.66%, #6454F0 157.91%)",
+    backgroundColor: theme.palette.primary.main,
     color: "#ffffff",
-    borderRadius: "15px",
     padding: theme.spacing(1.2),
+    "&:hover": {
+      backgroundColor: theme.palette.primary.main,
+    },
   },
 }));
 

@@ -1,29 +1,28 @@
 import { Container, makeStyles, Hidden } from "@material-ui/core";
 import React from "react";
-import { useSelector } from "react-redux";
 import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
-import UserLogoutState from "../../../components/UserLogoutState";
-// import useSWR from "swr";
+import useSWR from "swr";
+import { loadData } from "../../../services/apiService";
+import { GET_USER_ENDPOINT } from "../../../constants/apiEndpoints";
 
 function Dashboard() {
   const classes = useStyles();
-  const user = useSelector((state) => state.account.user);
-  // const { data: currentUserData } = useSWR("/user/get");
-  // console.log(currentUserData);
+
+  const { data: currentUserData } = useSWR(GET_USER_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+  });
+
+  console.log(currentUserData);
 
   return (
     <Container className={classes.root}>
-      {user ? (
-        <Container className={classes.innerContainer} disableGutters>
-          <MainSection />
-          <Hidden lgDown>
-            <SecondarySection />
-          </Hidden>
-        </Container>
-      ) : (
-        <UserLogoutState />
-      )}
+      <Container className={classes.innerContainer} disableGutters>
+        <MainSection />
+        <Hidden lgDown>
+          <SecondarySection />
+        </Hidden>
+      </Container>
     </Container>
   );
 }

@@ -14,11 +14,13 @@ import React, { useState } from "react";
 
 function AssignmentList() {
   const classes = useStyles();
+
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
   };
+
   return (
     <Box>
       <ListItem item button className={classes.listItem} onClick={handleClick}>
@@ -39,6 +41,7 @@ function AssignmentList() {
 
 function SubAssignmentList({ index }) {
   const classes = useStyles();
+
   return (
     <ListItem>
       <ListItemAvatar>

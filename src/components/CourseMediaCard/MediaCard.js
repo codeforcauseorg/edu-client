@@ -18,7 +18,7 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
-function MediaCard({ props, isDeleteButton, onClick }) {
+function MediaCard({ props, isDeleteButton, onClick, open }) {
   const {
     _id,
     tags,
@@ -31,7 +31,9 @@ function MediaCard({ props, isDeleteButton, onClick }) {
   } = props;
 
   const classes = useStyles();
+
   const history = useHistory();
+
   const deleteButton = useRef();
 
   const handleDelete = (e) => {
@@ -68,7 +70,6 @@ function MediaCard({ props, isDeleteButton, onClick }) {
       <CardActionArea>
         <CardContent className={classes.cardContent} onClick={() => history.push(`/course/${_id}`)}>
           <Box className={classes.tagSection}>
-            <Chip variant="outlined" size="small" className={classes.tag} label={tags} />
             <Chip
               size="small"
               className={classes.price}
@@ -81,6 +82,17 @@ function MediaCard({ props, isDeleteButton, onClick }) {
             </Typography>
             <Box className={classes.description}>
               <Typography variant="subtitle2">{courseShortDescription}</Typography>
+            </Box>
+            <Box mt={2} flexWrap="wrap">
+              {tags.map((items, index) => (
+                <Chip
+                  key={index}
+                  variant="outlined"
+                  size="small"
+                  className={classes.tag}
+                  label={items}
+                />
+              ))}
             </Box>
           </Box>
         </CardContent>
@@ -144,6 +156,7 @@ const useStyles = makeStyles((theme) => ({
   },
   tagSection: {
     display: "flex",
+    flexWrap: "wrap",
   },
   ratings: {
     display: "flex",
@@ -161,6 +174,7 @@ const useStyles = makeStyles((theme) => ({
     border: " 1px solid #3740A1",
     borderRadius: "5px",
     background: "#fff",
+    marginBottom: theme.spacing(0.5),
     marginRight: theme.spacing(2),
     color: theme.palette.primary.main,
   },

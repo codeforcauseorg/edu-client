@@ -19,7 +19,9 @@ const filterList = [
 
 function WishlistFilterBar() {
   const classes = useStyles();
+
   const [state, setState] = useState("all");
+
   const [list, setlist] = useState(0);
 
   const iconList = ["assets/icon/grid.svg", "assets/icon/list.svg"];

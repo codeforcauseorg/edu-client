@@ -3,6 +3,7 @@ import React from "react";
 
 function EmptyWishlist() {
   const classes = useStyle();
+
   return (
     <Fade in={true} timeout={500}>
       <Box className={classes.root}>
@@ -27,6 +28,7 @@ const useStyle = makeStyles((theme) => ({
   root: {
     textAlign: "center",
     marginTop: theme.spacing(10),
+    width: "100%",
   },
   container: {
     marginTop: theme.spacing(3),

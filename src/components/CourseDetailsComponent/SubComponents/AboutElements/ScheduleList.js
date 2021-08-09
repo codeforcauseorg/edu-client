@@ -22,6 +22,7 @@ import React from "react";
 
 function ScheduleList(props) {
   const classes = useStyles();
+
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {

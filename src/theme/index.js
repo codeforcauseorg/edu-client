@@ -50,7 +50,7 @@ const themeConfig = {
       paper: colors.common.white, // background
     },
     primary: {
-      main: "#4C6BDB", // for header and loader
+      main: "#5848EA", // for header and loader
       navBar: {
         mobile: {
           iconColor: "#ffffff",

@@ -6,6 +6,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 function PostDescriptionEditor() {
   const [editor, seteditor] = useState(EditorState.createEmpty());
+
   const classes = useStyles();
 
   const onEditorStateChange = (editorState) => {

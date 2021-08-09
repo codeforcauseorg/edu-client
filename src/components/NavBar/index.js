@@ -36,8 +36,11 @@ const navItemsLists = [
 
 function NavBar() {
   const classes = useStyles();
+
   const history = useHistory();
+
   const user = useSelector((state) => state.account.user);
+
   const dispatch = useDispatch();
 
   const searchResult = [
@@ -58,6 +61,7 @@ function NavBar() {
     });
 
   const [open, setOpen] = React.useState(false);
+
   const anchorRef = React.useRef(null);
 
   const handleToggle = () => {

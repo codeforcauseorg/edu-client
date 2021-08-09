@@ -17,15 +17,17 @@ function Copyright() {
     </Typography>
   );
 }
+
 const iconList = [
-  "assets/icon/social icons/twitter.svg",
-  "assets/icon/social icons/linkedIn.svg",
-  "assets/icon/social icons/github.svg",
-  "assets/icon/social icons/youtube_icon.svg",
+  "/assets/icon/social icons/twitter.svg",
+  "/assets/icon/social icons/linkedIn.svg",
+  "/assets/icon/social icons/github.svg",
+  "/assets/icon/social icons/youtube_icon.svg",
 ];
 
 function FooterSection() {
   const classes = useStyles();
+
   const [state, setState] = useState(false);
 
   const handleChange = (event) => {
@@ -37,7 +39,7 @@ function FooterSection() {
       <Container className={classes.footerContainer}>
         <Box pt={5} className={classes.darkModeSwitcher}>
           <Switch onChange={handleChange} />
-          <img className={classes.darkModeIcon} src="assets/icon/darkmodeIcon.svg" />
+          <img className={classes.darkModeIcon} src="/assets/icon/darkmodeIcon.svg" />
         </Box>
         <Grid container spacing={5}>
           <Grid item xs={12} lg={4} md={12}>
@@ -110,11 +112,11 @@ function FooterSection() {
                 <Box mt={3}>
                   <Typography variant="h5">
                     <img
-                      src="assets/icon/social icons/google_play.svg"
+                      src="/assets/icon/social icons/google_play.svg"
                       className={classes.googlePlay}
                     />
                     <img
-                      src="assets/icon/social icons/appleStore.svg"
+                      src="/assets/icon/social icons/appleStore.svg"
                       className={classes.appleStore}
                     />
                   </Typography>

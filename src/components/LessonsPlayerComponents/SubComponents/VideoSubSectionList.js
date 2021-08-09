@@ -13,6 +13,7 @@ import DescriptionIcon from "@material-ui/icons/Description";
 
 function VideoSubSectionList() {
   const classes = useStyles();
+
   return (
     <ListItem button className={classes.listItem}>
       <ListItemAvatar>

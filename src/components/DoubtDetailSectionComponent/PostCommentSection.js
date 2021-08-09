@@ -6,7 +6,9 @@ import React, { useState } from "react";
 
 function PostCommentSection() {
   const classes = useStyles();
+
   const [editor, seteditor] = useState(EditorState.createEmpty());
+
   const onEditorStateChange = (editorState) => {
     console.log(editor);
     seteditor(editorState);

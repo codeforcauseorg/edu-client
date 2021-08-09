@@ -4,6 +4,7 @@ import CheckoutCourseList from "./SubComponents/CheckoutCourseList";
 
 function CheckoutCourse() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <Typography variant="h4">Course in Cart (2)</Typography>

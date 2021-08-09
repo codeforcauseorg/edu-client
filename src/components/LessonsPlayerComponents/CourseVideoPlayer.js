@@ -29,7 +29,6 @@ function CourseVideoPlayer() {
           <Typography variant="subtitle1">12 / 35 lessons</Typography>
         </Box>
       </Box>
-
       <TabComponents />
     </Box>
   );

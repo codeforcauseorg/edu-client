@@ -21,8 +21,11 @@ class AuthService{
 
   setAxiosInterceptors = ({ onLogout }) => {
     axios.interceptors.request.use(async(request)=>{
-      const accessToken = await firebase.auth().currentUser.getIdToken();
-      request.headers.Authorization =  accessToken;
+      if(firebase.auth().currentUser){
+        const accessToken = await firebase.auth().currentUser.getIdToken();
+        request.headers.Authorization =  accessToken;
+        return request
+      }
       return request
     })
     axios.interceptors.response.use((response) => {

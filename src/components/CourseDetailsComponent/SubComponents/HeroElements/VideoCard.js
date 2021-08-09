@@ -5,8 +5,11 @@ import { useHistory } from "react-router";
 
 function VideoCard(props) {
   const classes = useStyles();
+
   const { videoInfo } = props;
-  const { courseTrailerUrl, crossPrice, price, courseThumbnail } = videoInfo;
+
+  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail, isUpcoming } = videoInfo;
+
   const history = useHistory();
 
   return (
@@ -22,15 +25,21 @@ function VideoCard(props) {
       <Box mt={2} className={classes.container}>
         <Box mb={2} className={classes.priceContainer}>
           <Typography variant="h2" className={classes.price}>
-            ₹{price}
+            ₹{originalPrice}
           </Typography>
           <Typography variant="h4" className={classes.originalPrice}>
             ₹{crossPrice}
           </Typography>
         </Box>
-        <Button className={classes.button} onClick={() => history.push("/checkout")}>
-          Enroll Now
-        </Button>
+        {!isUpcoming === true ? (
+          <Button className={classes.button} onClick={() => history.push("/checkout")}>
+            <Typography variant="h6"> Enroll Now</Typography>
+          </Button>
+        ) : (
+          <Button className={classes.button}>
+            <Typography variant="h6">Upcoming</Typography>
+          </Button>
+        )}
       </Box>
     </Box>
   );
@@ -38,11 +47,11 @@ function VideoCard(props) {
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    background: theme.palette.primary.main,
+    background: "#fff",
     padding: theme.spacing(2),
-    color: "#fff",
+    color: theme.palette.text.primary,
     "&:hover": {
-      background: theme.palette.primary.main,
+      background: "#fff",
     },
   },
   videoContainer: {
@@ -85,4 +94,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default VideoCard;

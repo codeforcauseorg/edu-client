@@ -47,6 +47,7 @@ function ContinueLearningCard({
     </Card>
   );
 }
+
 const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",

@@ -5,6 +5,7 @@ import AskedQuestion from "../SubComponents/AskedQuestion";
 
 function DoubtsSection() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <Box className={classes.headerContainer}>

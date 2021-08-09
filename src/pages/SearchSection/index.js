@@ -14,7 +14,9 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 
 function SearchSection(props) {
   const classes = useStyles();
+
   const location = useLocation();
+
   const history = useHistory();
 
   function useQuery() {
@@ -22,8 +24,11 @@ function SearchSection(props) {
   }
 
   const query = useQuery().get("q");
+
   const sort = useQuery().get("sort");
+
   console.log(sort);
+
   const [state, setState] = useState("all");
 
   const handleChange = (event) => {

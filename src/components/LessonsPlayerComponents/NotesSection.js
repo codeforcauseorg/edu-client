@@ -5,6 +5,7 @@ import NoteAddIcon from "@material-ui/icons/NoteAdd";
 
 function NotesSection() {
   const classes = useStyles();
+
   return (
     <Box className={classes.container}>
       <Box className={classes.titleContainer}>
@@ -60,4 +61,5 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
   },
 }));
+
 export default NotesSection;

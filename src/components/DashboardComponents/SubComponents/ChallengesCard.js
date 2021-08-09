@@ -10,6 +10,7 @@ import {
 
 function ChallengesCard() {
   const classes = useStyles();
+
   return (
     <Card className={classes.card}>
       <CardHeader

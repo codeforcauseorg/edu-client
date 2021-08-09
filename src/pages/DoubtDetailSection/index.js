@@ -16,6 +16,7 @@ import PostCommentSection from "../../components/DoubtDetailSectionComponent/Pos
 
 function DoubtDetailSection() {
   const classes = useStyles();
+
   return (
     <Container className={classes.root} disableGutters>
       <Box>

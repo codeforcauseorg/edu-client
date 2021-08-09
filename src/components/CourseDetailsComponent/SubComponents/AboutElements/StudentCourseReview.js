@@ -2,14 +2,14 @@ import { makeStyles, Box, Typography, Paper } from "@material-ui/core";
 import React from "react";
 import Rating from "@material-ui/lab/Rating";
 
-function StudentCourseReview(props) {
+function StudentCourseReview({ reviewInfo }) {
   const classes = useStyles();
 
   return (
     <Box className={classes.root}>
       <Typography variant="h2">Reviews</Typography>
       <Box>
-        {[1, 2, 3].map((items, index) => (
+        {reviewInfo.map((items, index) => (
           <Paper key={index} className={classes.paper}>
             <Typography variant="subtitle1" component="p" gutterBottom>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

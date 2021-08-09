@@ -17,7 +17,6 @@ export function SettingsProvider({ settings, children }) {
 
   const handleSaveSettings = (updatedSettings = {}) => {
     const mergedSettings = _.merge({}, currentSettings, updatedSettings);
-
     setCurrentSettings(mergedSettings);
     storeSettings(mergedSettings);
   };

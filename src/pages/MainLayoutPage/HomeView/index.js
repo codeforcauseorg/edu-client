@@ -11,6 +11,10 @@ import ExploreCourseSection from "../../../components/HomeViewComponents/Explore
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
 import SkeletonMediaCard from "../../../components/skeleton/SkeletonMediaCard";
 import useSWR from "swr";
+import { loadData } from "../../../services/apiService";
+import { useSelector } from "react-redux";
+import Banner from "../../../components/HomeViewComponents/Banner";
+import { ALL_COURSE_CARD_ENDPOINT } from "../../../constants/apiEndpoints";
 
 const ContinueLearningList = [
   {
@@ -35,28 +39,43 @@ const ContinueLearningList = [
 
 function HomeView() {
   const classes = useStyles();
-  const { data: courseCardData } = useSWR("/course/cards/all");
+
+  const { data: courseCardData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 100000,
+  });
+
+  const upcomingCourse = courseCardData?.filter((course) => course.name === "C++ DSA"); // course.isUpcomming === true
+
+  const user = useSelector((state) => state.account.user);
 
   return (
     <div>
       <HeaderSection />
       <Tags />
       <Container className={classes.wrapperContainer}>
-        <Typography variant="h2">Continue Learning</Typography>
-        <CardContainer>
-          {ContinueLearningList.map((items, index) => (
-            <ContinueLearningCard
-              key={index}
-              title={items.title}
-              image={items.image}
-              chapterTitle={items.chapterTitle}
-              courseTitle={items.courseTitle}
-              completedLessons={items.completedLessons}
-              totalLessons={items.totalLessons}
-              completedPercentage={items.completedPercentage}
-            />
-          ))}
-        </CardContainer>
+        {user ? (
+          <>
+            <Typography variant="h2">Continue Learning</Typography>
+            <CardContainer>
+              {ContinueLearningList.map((items, index) => (
+                <ContinueLearningCard
+                  key={index}
+                  title={items.title}
+                  image={items.image}
+                  chapterTitle={items.chapterTitle}
+                  courseTitle={items.courseTitle}
+                  completedLessons={items.completedLessons}
+                  totalLessons={items.totalLessons}
+                  completedPercentage={items.completedPercentage}
+                />
+              ))}
+            </CardContainer>
+          </>
+        ) : (
+          <Box />
+        )}
+
         <Box className={classes.popularContainer}>
           <Typography variant="h2">Popular Course</Typography>
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
@@ -71,14 +90,15 @@ function HomeView() {
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseCardData === undefined
+          {upcomingCourse === undefined
             ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-            : courseCardData.map((items, index) => <MediaCard key={index} props={items} />)}
+            : upcomingCourse.map((items, index) => <MediaCard key={index} props={items} />)}
         </CardContainer>
       </Container>
       <ExploreCourseSection exploreCourse={courseCardData} />
       <OurImpactSection />
       <MentorSection />
+      <Banner />
       <StudentReviewSection />
     </div>
   );

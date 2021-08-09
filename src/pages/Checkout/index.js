@@ -5,6 +5,7 @@ import OrderSummary from "../../components/CheckoutComponents/OrderSummary";
 import NavBar from "../../components/NavBar/index";
 function Checkout() {
   const classes = useStyles();
+
   return (
     <>
       <NavBar />
@@ -27,4 +28,5 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
 export default Checkout;

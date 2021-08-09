@@ -22,8 +22,11 @@ const Routes = () => (
     <Route path="/" exact>
       <Redirect to={ROUTES.HOME} />
     </Route>
+
     <Route path={ROUTES.COURSE_DETAILS} exact component={CourseDetails} />
+
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
+
     <Route path={ROUTES.CHECKOUT} exact component={Checkout} />
 
     <AuthRoute exact path={ROUTES.MENTOR_SECTION}>
@@ -60,13 +63,13 @@ const Routes = () => (
       </MainLayout>
     </AuthRoute>
 
-    <AuthRoute path={ROUTES.WISHLIST} exact>
+    <AuthRoute path={ROUTES.WISHLIST} exact type="private">
       <MainLayout>
         <WishlistPage />
       </MainLayout>
     </AuthRoute>
 
-    <AuthRoute path={ROUTES.DASHBOARD} exact>
+    <AuthRoute path={ROUTES.DASHBOARD} exact type="private">
       <MainLayout>
         <Dashboard />
       </MainLayout>

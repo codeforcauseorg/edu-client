@@ -4,6 +4,7 @@ import ReactPaginate from "react-paginate";
 
 function Pagination({ listsPerPage, totalList, changePage }) {
   const classes = useStyles();
+
   const pageCount = Math.ceil(totalList / listsPerPage);
 
   return (

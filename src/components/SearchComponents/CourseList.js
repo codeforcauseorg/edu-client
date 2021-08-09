@@ -14,6 +14,7 @@ import { useHistory } from "react-router";
 
 function CourseList() {
   const classes = useStyles();
+
   const history = useHistory();
 
   return (

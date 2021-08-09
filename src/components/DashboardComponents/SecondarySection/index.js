@@ -6,6 +6,7 @@ import AssignmentsSection from "./AssignmentsSection";
 
 function SecondarySection() {
   const classes = useStyles();
+
   return (
     <Box className={classes.root}>
       <ScoreBoard />
@@ -22,4 +23,5 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08)",
   },
 }));
+
 export default SecondarySection;

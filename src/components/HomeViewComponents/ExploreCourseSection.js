@@ -6,35 +6,35 @@ const courseLabel = [
   {
     title: "Web Development",
     bannerImage:
-      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+      "https://cdn4.vectorstock.com/i/1000x1000/93/18/web-design-and-development-poster-vector-22539318.jpg",
     rating: 4.5,
     tags: ["Html", "Css", "React", "JavaScript", "Python"],
   },
   {
     title: "Machine Learning",
     bannerImage:
-      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+      "https://cdn4.vectorstock.com/i/1000x1000/93/18/web-design-and-development-poster-vector-22539318.jpg",
     rating: 4.5,
     tags: ["Python", "Tensor Flow", "Jupyter"],
   },
   {
     title: "DevOps",
     bannerImage:
-      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+      "https://cdn4.vectorstock.com/i/1000x1000/93/18/web-design-and-development-poster-vector-22539318.jpg",
     rating: 4.5,
     tags: ["Amazon Web Services", "Kubernetes", "Docker"],
   },
   {
     title: "Android Development",
     bannerImage:
-      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+      "https://cdn4.vectorstock.com/i/1000x1000/93/18/web-design-and-development-poster-vector-22539318.jpg",
     rating: 4.5,
     tags: ["Flutter", "React Native", "Native Android", "Dart", "Kotlin", "Java"],
   },
   {
     title: "DSA",
     bannerImage:
-      "https://futureworktechnologies.com/wp-content/uploads/2018/08/web-design-toronto.jpg",
+      "https://cdn4.vectorstock.com/i/1000x1000/93/18/web-design-and-development-poster-vector-22539318.jpg",
     rating: 4.5,
     tags: ["Mathematics", "Bit Magic", "Recursion", "Arrays", "Hashing"],
   },
@@ -84,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
 
   title: {
     textAlign: "center",
-    color: theme.palette.primary.main,
+    color: theme.palette.text.primary,
   },
 
   card: {

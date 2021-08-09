@@ -17,7 +17,9 @@ const radioList = ["All", "Web Development", "Mobile Development", "DSA", "DevOp
 
 function FilterSection() {
   const classes = useStyles();
+
   const [value, setValue] = useState("All");
+
   const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {

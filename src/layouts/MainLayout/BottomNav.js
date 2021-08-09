@@ -29,7 +29,9 @@ const useStyles = makeStyles({
 
 export default function BottomNav(props) {
   const classes = useStyles();
+
   const history = useHistory();
+
   const location = useLocation();
 
   return (

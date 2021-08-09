@@ -10,6 +10,7 @@ import useSWR from "swr";
 
 function AboutMentorSection() {
   const classes = useStyles();
+
   const { data: courseData } = useSWR("/course/cards/all");
 
   return (

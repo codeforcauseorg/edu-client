@@ -45,6 +45,7 @@ const mentorList = [
 
 function MentorSection() {
   const classes = useStyles();
+
   return (
     <Box pt={10} className={classes.root}>
       <Container className={classes.titleContainer}>
@@ -89,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   subTitle: {
-    color: theme.palette.primary.main,
+    color: theme.palette.text.primary,
   },
 }));
 

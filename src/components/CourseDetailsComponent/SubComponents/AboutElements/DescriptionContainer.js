@@ -2,9 +2,8 @@ import React from "react";
 import { Box, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
-function DescriptionContainer(props) {
+function DescriptionContainer({ description }) {
   const classes = useStyles();
-  const { description } = props;
 
   return (
     <Box mt={8} className={classes.descriptionContainer}>
