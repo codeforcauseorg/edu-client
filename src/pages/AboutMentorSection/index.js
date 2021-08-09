@@ -7,39 +7,69 @@ import MediaCard from "../../components/CourseMediaCard/MediaCard";
 import MentorHeroSection from "../../components/MentorSectionComponent/MentorHeroSection";
 import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
 import useSWR from "swr";
+import { useParams } from "react-router";
+import { loadData } from "../../services/apiService";
+import { ALL_COURSE_CARD_ENDPOINT, MENTOR_DETAIL_ENDPOINT } from "../../constants/apiEndpoints";
+import SkeletonElement from "../../components/skeleton/SkeletonElement";
+import SkeletonMentorHero from "../../components/skeleton/SkeletonMentorHero";
 
 function AboutMentorSection() {
   const classes = useStyles();
 
-  const { data: courseData } = useSWR("/course/cards/all");
+  const { id } = useParams();
+
+  const { data: courseData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
+  const { data: mentor } = useSWR(MENTOR_DETAIL_ENDPOINT + id, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
+  const mentorCourse = courseData?.filter((course) => mentor?.courses?.includes(course._id));
 
   return (
     <Box className={classes.root}>
-      <MentorHeroSection />
+      {mentor === undefined ? <SkeletonMentorHero /> : <MentorHeroSection mentorInfo={mentor} />}
       <Container className={classes.infoContainer}>
         <Typography variant="h2" color="textPrimary" gutterBottom className={classes.title}>
           About Me
         </Typography>
-        <Typography variant="h4" component="p" color="textPrimary" className={classes.aboutBody}>
-          {" "}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Ut enim ad minim
-        </Typography>
+        {mentor === undefined ? (
+          [1, 2, 3].map((index) => <SkeletonElement key={index} variant="text" component="h1" />)
+        ) : (
+          <Typography variant="h4" component="p" color="textPrimary" className={classes.aboutBody}>
+            {mentor.aboutMe}
+          </Typography>
+        )}
+
         <Typography variant="h2" color="textPrimary" gutterBottom className={classes.title}>
           Teaching Stack
         </Typography>
-        {[1, 2, 3].map((items, index) => (
-          <Chip
+        {mentor === undefined ? (
+          <SkeletonElement
+            variant="text"
+            component="h4"
+            height={50}
+            width={100}
             className={classes.chip}
-            key={index}
-            avatar={
-              <Avatar>
-                <CheckCircle className={classes.icon} />
-              </Avatar>
-            }
-            label="Python"
           />
-        ))}
+        ) : (
+          mentor.techStack.map((items, index) => (
+            <Chip
+              className={classes.chip}
+              key={index}
+              avatar={
+                <Avatar>
+                  <CheckCircle className={classes.icon} />
+                </Avatar>
+              }
+              label={items}
+            />
+          ))
+        )}
         <Box className={classes.popularContainer}>
           <Typography variant="h2" gutterBottom>
             Popular Course
@@ -47,9 +77,9 @@ function AboutMentorSection() {
           <BrowseAllButton onClick={() => console.log("Popular Course")} />
         </Box>
         <CardContainer>
-          {courseData === undefined
+          {mentorCourse === undefined
             ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-            : courseData.map((items, index) => <MediaCard key={index} props={items} />)}
+            : mentorCourse.map((items, index) => <MediaCard key={index} props={items} />)}
         </CardContainer>
       </Container>
     </Box>
@@ -68,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
   aboutBody: {
     marginTop: theme.spacing(4),
     fontWeight: 500,
+    lineHeight: 2,
   },
   title: {
     marginTop: theme.spacing(6),
