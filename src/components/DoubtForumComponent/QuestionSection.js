@@ -2,13 +2,13 @@ import { Box, makeStyles } from "@material-ui/core";
 import React from "react";
 import QuestionList from "./SubComponents/QuestionList";
 
-function QuestionSection() {
+function QuestionSection({ doubtQuestion }) {
   const classes = useStyles();
 
   return (
     <Box className={classes.root}>
-      {[1, 2, 3, 4, 5, 6].map((items, index) => (
-        <QuestionList key={index} />
+      {doubtQuestion.map((items, index) => (
+        <QuestionList key={index} questionListItem={items} />
       ))}
     </Box>
   );

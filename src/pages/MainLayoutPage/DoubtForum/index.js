@@ -1,10 +1,18 @@
 import { Container, makeStyles, Box, Hidden } from "@material-ui/core";
+import useSWR from "swr";
 import FilterSection from "../../../components/DoubtForumComponent/FilterSection";
 import QuestionSection from "../../../components/DoubtForumComponent/QuestionSection";
 import HeroSection from "../../../components/HeroSection/index";
+import { GET_DOUBT_ENDPOINT } from "../../../constants/apiEndpoints";
+import { loadData } from "../../../services/apiService";
 
 function DoubtForum(props) {
   const classes = useStyles();
+
+  const { data } = useSWR(GET_DOUBT_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
 
   const heroElements = {
     title: "Doubt forum",
@@ -20,7 +28,8 @@ function DoubtForum(props) {
         banner="assets/img/doubtBanner.svg"
       />
       <Box className={classes.container}>
-        <QuestionSection />
+        {data === undefined ? <Box /> : <QuestionSection doubtQuestion={data} />}
+
         <Hidden mdDown>
           <FilterSection />
         </Hidden>
