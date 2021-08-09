@@ -1,11 +1,25 @@
 import { Avatar, Box, Button, Container, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import { Twitter, LinkedIn, Email } from "@material-ui/icons";
+import SnackBarComponent from "../SnackBar/SnackBar";
+import { useSelector } from "react-redux";
 
 function MentorHeroSection({ mentorInfo }) {
   const classes = useStyles();
 
   const { name, email, mentorPhoto } = mentorInfo;
+
+  const [open, setOpen] = useState(false);
+
+  const user = useSelector((state) => state.account.user);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const iconList = [
     {
@@ -35,11 +49,23 @@ function MentorHeroSection({ mentorInfo }) {
               </Button>
             ))}
           </Box>
-          <Button className={classes.rateButton}>
+          <Button
+            className={classes.rateButton}
+            onClick={() => (user ? "open rate mentor page " : handleClick())}
+          >
             <Typography variant="h6">Rate Mentor</Typography>
           </Button>
         </Box>
       </Container>
+      <SnackBarComponent
+        vertical="bottom"
+        horizontal="center"
+        opensnack={open}
+        handleClose={handleClose}
+        severity="info"
+        message="Hey please login to perform this operation"
+        autoHideDuration={2000}
+      />
     </Box>
   );
 }
