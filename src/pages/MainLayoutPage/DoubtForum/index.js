@@ -29,7 +29,6 @@ function DoubtForum(props) {
       />
       <Box className={classes.container}>
         {data === undefined ? <Box /> : <QuestionSection doubtQuestion={data} />}
-
         <Hidden mdDown>
           <FilterSection />
         </Hidden>

@@ -40,6 +40,9 @@ function VideoCard(props) {
             <Typography variant="h6">Upcoming</Typography>
           </Button>
         )}
+        <Button className={classes.cartButton}>
+          <Typography>Add to Cart</Typography>
+        </Button>
       </Box>
     </Box>
   );
@@ -48,10 +51,20 @@ function VideoCard(props) {
 const useStyles = makeStyles((theme) => ({
   button: {
     background: "#fff",
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     color: theme.palette.text.primary,
     "&:hover": {
       background: "#fff",
+    },
+  },
+  cartButton: {
+    border: "2px solid #ffffff",
+    color: "#ffffff",
+    textTransform: "none",
+    marginTop: theme.spacing(1.5),
+    padding: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      marginRight: theme.spacing(1),
     },
   },
   videoContainer: {

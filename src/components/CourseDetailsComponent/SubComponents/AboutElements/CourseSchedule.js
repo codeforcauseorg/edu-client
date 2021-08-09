@@ -12,7 +12,7 @@ function CourseSchedule({ schedule }) {
         Course Schedule
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        24 sections • 4 lectures • 11 h 24 min total length
+        {schedule.length} sections • 4 lectures • 11 h 24 min total length
       </Typography>
       <Box>
         <List>
