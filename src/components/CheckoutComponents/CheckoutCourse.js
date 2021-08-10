@@ -7,9 +7,10 @@ import {
   ALL_COURSE_CARD_ENDPOINT,
   GET_USER_ENDPOINT,
   USER_CART_ENDPOINT,
+  USER_WISHLIST_ENDPOINT,
 } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
-import { deleteCart } from "../../services/userService";
+import { addWishlist, deleteCart } from "../../services/userService";
 import SnackBarComponent from "../SnackBar/SnackBar";
 import CheckoutCourseList from "./SubComponents/CheckoutCourseList";
 
@@ -22,6 +23,11 @@ function CheckoutCourse() {
   });
 
   const { data: currentUser } = useSWR(GET_USER_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
+  const { data } = useSWR(USER_WISHLIST_ENDPOINT, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
@@ -59,6 +65,13 @@ function CheckoutCourse() {
     dispatch(deleteCart(id));
   };
 
+  const moveToWishlist = (id) => {
+    deleteCartCourse(id);
+    mutate(USER_WISHLIST_ENDPOINT, [...data, id], false);
+    handleClick();
+    dispatch(addWishlist(id));
+  };
+
   return (
     <Box className={classes.root}>
       <Typography variant="h4">Course in Cart ({currentUser?.cartList?.length})</Typography>
@@ -68,6 +81,7 @@ function CheckoutCourse() {
           key={index}
           courseInfo={items}
           removeItem={() => deleteCartCourse(items._id)}
+          moveToWishlist={() => moveToWishlist(items._id)}
         />
       ))}
       <SnackBarComponent
@@ -76,7 +90,7 @@ function CheckoutCourse() {
         opensnack={open}
         handleClose={handleClose}
         severity="info"
-        message={"Course Deleted from Cart"}
+        message={"Course deleted from cart"}
         autoHideDuration={3000}
       />
     </Box>
