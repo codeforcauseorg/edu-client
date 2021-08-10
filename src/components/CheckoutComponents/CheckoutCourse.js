@@ -10,6 +10,7 @@ import {
 } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
 import { deleteCart } from "../../services/userService";
+import SnackBarComponent from "../SnackBar/SnackBar";
 import CheckoutCourseList from "./SubComponents/CheckoutCourseList";
 
 function CheckoutCourse() {
@@ -22,12 +23,10 @@ function CheckoutCourse() {
 
   const { data: currentUser } = useSWR(GET_USER_ENDPOINT, loadData, {
     revalidateOnFocus: false,
-    dedupingInterval: 5000,
+    dedupingInterval: 10000,
   });
 
-  console.log(currentUser);
-
-  const [cart, setcart] = useState([]);
+  const [cart, setCart] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -43,7 +42,7 @@ function CheckoutCourse() {
 
   useEffect(() => {
     const userCart = courseData?.filter((course) => currentUser?.cartList?.includes(course._id));
-    setcart(userCart);
+    setCart(userCart);
   }, [currentUser]);
 
   // delete element from userCartList array
@@ -56,7 +55,7 @@ function CheckoutCourse() {
       false
     );
     const filterCartList = cart.filter((course) => course._id !== id);
-    setcart(filterCartList);
+    setCart(filterCartList);
     dispatch(deleteCart(id));
   };
 
@@ -64,9 +63,22 @@ function CheckoutCourse() {
     <Box className={classes.root}>
       <Typography variant="h4">Course in Cart ({currentUser?.cartList?.length})</Typography>
       <Divider className={classes.divider} />
-      {cart?.map((items, index) => (
-        <CheckoutCourseList key={index} />
+      {cart.map((items, index) => (
+        <CheckoutCourseList
+          key={index}
+          courseInfo={items}
+          removeItem={() => deleteCartCourse(items._id)}
+        />
       ))}
+      <SnackBarComponent
+        vertical="bottom"
+        horizontal="center"
+        opensnack={open}
+        handleClose={handleClose}
+        severity="info"
+        message={"Course Deleted from Cart"}
+        autoHideDuration={3000}
+      />
     </Box>
   );
 }

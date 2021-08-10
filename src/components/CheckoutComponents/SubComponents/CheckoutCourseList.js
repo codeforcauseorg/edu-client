@@ -1,34 +1,36 @@
 import { CardMedia, Card, makeStyles, CardContent, Typography, Box } from "@material-ui/core";
 import React from "react";
 
-const actionItems = [
-  {
-    title: "Remove",
-    onClick: () => console.log("removed"),
-  },
-  {
-    title: "Move to wishlist",
-    onClick: () => console.log("Move to wishlist"),
-  },
-];
-function CheckoutCourseList() {
+function CheckoutCourseList({ courseInfo, removeItem, moveToWishlist }) {
   const classes = useStyles();
+
+  const { name, courseThumbnail, mentor } = courseInfo;
+
+  const mentorName = mentor?.map(
+    (items, index) => `${items.name} ${index < mentor.length - 1 ? ", " : ""} `
+  );
+
+  const actionItems = [
+    {
+      title: "Remove",
+      onClick: () => removeItem(),
+    },
+    {
+      title: "Move to wishlist",
+      onClick: () => moveToWishlist(),
+    },
+  ];
 
   return (
     <Card className={classes.root}>
-      <CardMedia
-        className={classes.cover}
-        component="img"
-        image="https://codeforcause.org/static/swipes/python.png"
-        title="Live from space album cover"
-      />
+      <CardMedia className={classes.cover} component="img" image={courseThumbnail} title={name} />
       <Box>
         <CardContent>
           <Typography component="h1" variant="h4" gutterBottom>
-            Data Structures and Algorithms with Python
+            {name}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            By Anuj Garg
+            By {mentorName}
           </Typography>
           <Box className={classes.actions}>
             {actionItems.map((items, index) => (
@@ -56,6 +58,8 @@ const useStyles = makeStyles((theme) => ({
   cover: {
     width: 160,
     height: 120,
+    margin: theme.spacing(2),
+    borderRadius: "5px",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
       height: 120,
