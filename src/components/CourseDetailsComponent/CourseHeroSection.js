@@ -8,7 +8,7 @@ import ShareAndWishlistButton from "./SubComponents/HeroElements/ShareAndWishlis
 import Instructors from "./SubComponents/HeroElements/Instructors";
 import { loadData } from "../../services/apiService";
 import useSWR from "swr";
-import { GET_USER_ENDPOINT, USER_WISHLIST_ENDPOINT } from "../../constants/apiEndpoints";
+import { USER_CART_ENDPOINT, USER_WISHLIST_ENDPOINT } from "../../constants/apiEndpoints";
 
 function CourseHeroSection(props) {
   const classes = useStyles();
@@ -18,7 +18,7 @@ function CourseHeroSection(props) {
     dedupingInterval: 10000,
   });
 
-  const { data: user } = useSWR(GET_USER_ENDPOINT, loadData, {
+  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
@@ -49,7 +49,7 @@ function CourseHeroSection(props) {
     courseThumbnail,
     isUpcoming,
     id,
-    user,
+    cartList,
   };
 
   const courseAction = {

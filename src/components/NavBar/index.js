@@ -26,7 +26,7 @@ import ShopIcon from "@material-ui/icons/Shop";
 import authService from "../../services/authService";
 import AdBanner from "../../components/AdBannerComponent/AdBanner";
 import useSWR from "swr";
-import { GET_USER_ENDPOINT } from "../../constants/apiEndpoints";
+import { USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
 
 const navItemsLists = [
@@ -75,7 +75,7 @@ function NavBar() {
     dispatch(authService.logout());
   };
 
-  const { data: currentUser } = useSWR(GET_USER_ENDPOINT, loadData, {
+  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 5000,
   });
@@ -143,11 +143,7 @@ function NavBar() {
                 </Badge>
               </IconButton>
               <IconButton onClick={() => history.push("/checkout")}>
-                <Badge
-                  color="secondary"
-                  variant="standard"
-                  badgeContent={currentUser?.cartList?.length}
-                >
+                <Badge color="secondary" variant="standard" badgeContent={cartList?.length}>
                   <ShopIcon />
                 </Badge>
               </IconButton>

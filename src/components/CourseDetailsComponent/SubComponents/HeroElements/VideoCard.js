@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ReactPlayer from "react-player/lazy";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { GET_USER_ENDPOINT } from "../../../../constants/apiEndpoints";
+import { USER_CART_ENDPOINT } from "../../../../constants/apiEndpoints";
 import { addCart } from "../../../../services/userService";
 import SnackBarComponent from "../../../SnackBar/SnackBar";
 import { mutate } from "swr";
@@ -13,7 +13,7 @@ function VideoCard(props) {
 
   const { videoInfo } = props;
 
-  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail, id, user } = videoInfo;
+  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail, id, cartList } = videoInfo;
 
   const isUpcoming = false; // testing purpose
 
@@ -32,12 +32,13 @@ function VideoCard(props) {
   };
 
   const handleCart = (id) => {
-    if (user?.cartList.includes(id)) {
+    if (cartList.includes(id)) {
       history.replace("/checkout");
+    } else {
+      mutate(USER_CART_ENDPOINT, [...cartList, id], false);
+      handleClick();
+      dispatch(addCart(id));
     }
-    mutate(GET_USER_ENDPOINT, [...user.cartList, id], false);
-    handleClick();
-    dispatch(addCart(id));
   };
 
   const currentUser = useSelector((state) => state.account.user);

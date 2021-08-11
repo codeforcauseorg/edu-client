@@ -1,11 +1,9 @@
-/* eslint-disable no-unused-vars */
 import { Box, Divider, makeStyles, Typography } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import useSWR, { mutate } from "swr";
 import {
   ALL_COURSE_CARD_ENDPOINT,
-  GET_USER_ENDPOINT,
   USER_CART_ENDPOINT,
   USER_WISHLIST_ENDPOINT,
 } from "../../constants/apiEndpoints";
@@ -22,7 +20,7 @@ function CheckoutCourse() {
     dedupingInterval: 10000,
   });
 
-  const { data: currentUser } = useSWR(GET_USER_ENDPOINT, loadData, {
+  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
@@ -47,9 +45,9 @@ function CheckoutCourse() {
   };
 
   useEffect(() => {
-    const userCart = courseData?.filter((course) => currentUser?.cartList?.includes(course._id));
+    const userCart = courseData?.filter((course) => cartList?.includes(course._id));
     setCart(userCart);
-  }, [currentUser]);
+  }, [cartList]);
 
   // delete element from userCartList array
 
@@ -57,7 +55,7 @@ function CheckoutCourse() {
     handleClick();
     mutate(
       USER_CART_ENDPOINT,
-      currentUser.cartList.filter((courseId) => courseId !== id),
+      cartList.filter((courseId) => courseId !== id),
       false
     );
     const filterCartList = cart.filter((course) => course._id !== id);
@@ -74,7 +72,7 @@ function CheckoutCourse() {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h4">Course in Cart ({currentUser?.cartList?.length})</Typography>
+      <Typography variant="h4">Course in Cart ({cartList?.length})</Typography>
       <Divider className={classes.divider} />
       {cart.map((items, index) => (
         <CheckoutCourseList
