@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { Avatar, Box, makeStyles, Typography, Button, CircularProgress } from "@material-ui/core";
 import { useSelector } from "react-redux";
 import ProfileHeroLayout from "../ProfileHeroLayout";
 import ProfileSkeleton from "../../skeleton/ProfileSkeleton";
+import EditProfile from "./EditProfile";
 
 function DashboardHero() {
   const classes = useStyles();
 
   const user = useSelector((state) => state.account.user);
+
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -33,13 +44,16 @@ function DashboardHero() {
               <Typography variant="body1">{user.email}</Typography>
             </Box>
             <Box mt={5}>
-              <Button className={classes.editButton}>Edit profile</Button>
+              <Button className={classes.editButton} onClick={() => handleOpen()}>
+                Edit profile
+              </Button>
             </Box>
           </Box>
         </ProfileHeroLayout>
       ) : (
         <ProfileSkeleton />
       )}
+      <EditProfile open={open} onClose={handleClose} />
     </>
   );
 }
