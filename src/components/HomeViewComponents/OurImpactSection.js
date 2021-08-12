@@ -69,7 +69,7 @@ function OurImpactSection() {
                     <CardContent>
                       <Box className={classes.cardItems}>
                         <Typography variant="h5">{items.title}</Typography>
-                        <Box mt={2}>
+                        <Box mt="2px">
                           <Typography variant="h1" component="span">
                             {items.value}
                             <Typography variant="h1" component="span" className={classes.spanText}>
@@ -77,7 +77,9 @@ function OurImpactSection() {
                             </Typography>
                           </Typography>
                         </Box>
-                        <img className={classes.image} src={items.image} />
+                        <Box>
+                          <img className={classes.image} src={items.image} />
+                        </Box>
                       </Box>
                     </CardContent>
                   </Card>
