@@ -1,6 +1,7 @@
 import axios from "../utils/axios";
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/storage";
 import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
 import {login,logout} from "../store/actions/accountActions"
 
@@ -47,6 +48,8 @@ class AuthService{
   handleAuthentication() {
     this.firebase.initializeApp(this.config);
   }
+
+  storage = firebase.storage()
 
   login = () => {
     return  (dispatch)=>{
