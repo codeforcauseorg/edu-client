@@ -8,10 +8,11 @@ import {
   Paper,
   TextField,
   Typography,
+  CircularProgress,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { editUser } from "../../../services/userService";
 import useSWR from "swr";
 import { GET_USER_ENDPOINT } from "../../../constants/apiEndpoints";
@@ -23,8 +24,6 @@ function EditProfile({ open, onClose }) {
   const { data: currentUserData } = useSWR(GET_USER_ENDPOINT, loadData, {
     revalidateOnFocus: false,
   });
-
-  console.log(currentUserData);
 
   const [image, setImage] = useState(currentUserData?.coverPhotoUrl);
 
@@ -39,6 +38,8 @@ function EditProfile({ open, onClose }) {
   const [address, setAddress] = React.useState(currentUserData?.address);
 
   const dispatch = useDispatch();
+
+  const loading = useSelector((state) => state.user.loading);
 
   const handleChange = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -138,9 +139,17 @@ function EditProfile({ open, onClose }) {
           <Button className={classes.cancleButton} onClick={onClose}>
             Cancle
           </Button>
-          <Button className={classes.postButton} onClick={() => handleSubmit()}>
-            Submit
-          </Button>
+          {loading ? (
+            <CircularProgress size={30} />
+          ) : (
+            <Button
+              disabled={loading}
+              className={classes.postButton}
+              onClick={() => handleSubmit()}
+            >
+              Submit
+            </Button>
+          )}
         </Box>
       </Paper>
     </Modal>
@@ -154,6 +163,10 @@ const useStyles = makeStyles((theme) => ({
     height: "80%",
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
+    [theme.breakpoints.down("lg")]: {
+      width: "90%",
+      height: "85%",
+    },
   },
   modal: {
     display: "flex",
@@ -167,6 +180,10 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     objectFit: "cover",
     backgroundRepeat: "no-repeat",
+    [theme.breakpoints.down("md")]: {
+      height: "25%",
+      width: "100%",
+    },
   },
   postButton: {
     background: theme.palette.primary.main,

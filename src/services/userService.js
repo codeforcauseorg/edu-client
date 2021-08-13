@@ -6,6 +6,7 @@ import {
 import axios from "../utils/axios";
 import errorHandler from "./errorHandler";
 import { storage } from "../firebase";
+import { userLoading } from "../store/actions/userActions";
 
 // Add wishlist asyns function
 
@@ -81,6 +82,7 @@ export const editUser = (
 ) => {
   return async (dispatch) => {
     try {
+      dispatch(userLoading(true));
       if (coverPhotoFile.name) {
         const ref = storage.ref(`/userCoverImages/${coverPhotoFile.name}`);
         const uploadTask = ref.put(coverPhotoFile);
@@ -97,7 +99,8 @@ export const editUser = (
         );
       }
     } catch (error) {
-      console.log(error);
+      dispatch(userLoading(false));
+      errorHandler(error, dispatch);
     }
   };
 };
@@ -116,11 +119,12 @@ export const updateUserDetails = (firstName, lastName, phoneNumber, description,
       };
       const response = await axios.put(UPDATE_USER_ENDPOINT, addUserDetails);
       if (response.status === 200) {
-        const result = await response.data;
-        console.log(result);
+        await response.data;
+        dispatch(userLoading(false));
       }
     } catch (error) {
-      console.log(error);
+      dispatch(userLoading(false));
+      errorHandler(error, dispatch);
     }
   };
 };
