@@ -23,8 +23,11 @@ import { useDispatch, useSelector } from "react-redux";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
-import authService from "../../services/authService";
+import { logoutAction } from "../../services/authService";
 import AdBanner from "../../components/AdBannerComponent/AdBanner";
+import useSWR from "swr";
+import { USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
+import { loadData } from "../../services/apiService";
 
 const navItemsLists = [
   { title: "Home", link: "/" },
@@ -69,8 +72,13 @@ function NavBar() {
   };
 
   const handleLogout = () => {
-    dispatch(authService.logout());
+    dispatch(logoutAction());
   };
+
+  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 5000,
+  });
 
   return (
     <div>
@@ -135,7 +143,7 @@ function NavBar() {
                 </Badge>
               </IconButton>
               <IconButton onClick={() => history.push("/checkout")}>
-                <Badge color="secondary" variant="standard" badgeContent={2}>
+                <Badge color="secondary" variant="standard" badgeContent={cartList?.length}>
                   <ShopIcon />
                 </Badge>
               </IconButton>

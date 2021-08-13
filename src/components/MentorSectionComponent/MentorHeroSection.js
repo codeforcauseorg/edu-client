@@ -1,34 +1,47 @@
 import { Avatar, Box, Button, Container, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
-import { Twitter, LinkedIn, Link } from "@material-ui/icons";
+import React, { useState } from "react";
+import { Twitter, LinkedIn, Email } from "@material-ui/icons";
+import SnackBarComponent from "../SnackBar/SnackBar";
+import { useSelector } from "react-redux";
 
-function MentorHeroSection() {
+function MentorHeroSection({ mentorInfo }) {
   const classes = useStyles();
+
+  const { name, email, mentorPhoto } = mentorInfo;
+
+  const [open, setOpen] = useState(false);
+
+  const user = useSelector((state) => state.account.user);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const iconList = [
     {
       icon: Twitter,
-      link: "",
+      link: "Twitter link",
     },
     {
       icon: LinkedIn,
-      link: "",
+      link: "LinkedIn link",
     },
     {
-      icon: Link,
-      link: "",
+      icon: Email,
+      link: { email },
     },
   ];
 
   return (
     <Box className={classes.root}>
       <Container className={classes.wrapper}>
-        <Avatar
-          src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fG1lbnRvcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-          className={classes.avatar}
-        />
+        <Avatar src={mentorPhoto} className={classes.avatar} />
         <Box className={classes.container}>
-          <Typography variant="h2">Adarsh kumar Singh</Typography>
+          <Typography variant="h2">{name}</Typography>
           <Box className={classes.socialIconsContainer}>
             {iconList.map((items, index) => (
               <Button className={classes.socialIcons} key={index}>
@@ -36,12 +49,23 @@ function MentorHeroSection() {
               </Button>
             ))}
           </Box>
-
-          <Button className={classes.rateButton}>
+          <Button
+            className={classes.rateButton}
+            onClick={() => (user ? "open rate mentor page " : handleClick())}
+          >
             <Typography variant="h6">Rate Mentor</Typography>
           </Button>
         </Box>
       </Container>
+      <SnackBarComponent
+        vertical="bottom"
+        horizontal="center"
+        opensnack={open}
+        handleClose={handleClose}
+        severity="info"
+        message="Hey please login to perform this operation"
+        autoHideDuration={2000}
+      />
     </Box>
   );
 }
@@ -72,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       marginLeft: theme.spacing(0),
       marginTop: theme.spacing(4),
+      textAlign: "center",
     },
   },
   rateButton: {

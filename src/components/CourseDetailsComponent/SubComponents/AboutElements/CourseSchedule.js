@@ -12,12 +12,12 @@ function CourseSchedule({ schedule }) {
         Course Schedule
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        24 sections • 4 lectures • 11 h 24 min total length
+        {schedule.length} sections • 4 lectures • 11 h 24 min total length
       </Typography>
       <Box>
         <List>
           {schedule.map((items, index) => (
-            <ScheduleList key={index} scheduleInfo={items} />
+            <ScheduleList key={index} scheduleInfo={items} index={index + 1} />
           ))}
         </List>
       </Box>

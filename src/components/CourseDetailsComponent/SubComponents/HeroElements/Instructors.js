@@ -7,22 +7,30 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  makeStyles,
 } from "@material-ui/core";
+import { useHistory } from "react-router";
 
-function Instructors(props) {
-  // const { mentors } = props;
+function Instructors({ mentors }) {
+  const history = useHistory();
+
+  const classes = useStyles();
 
   return (
     <Box mt={4}>
       <Grid container item xs={12} spacing={2}>
-        {[1, 2].map((items, index) => (
-          <Box key={index}>
+        {mentors.map((items, index) => (
+          <Box
+            key={index}
+            onClick={() => history.push(`/mentor/${items._id}`)}
+            className={classes.root}
+          >
             <ListItem>
               <ListItemAvatar>
-                <Avatar src="assets/members/anuj.png" alt="Anuj Garg" />
+                <Avatar src={items.mentorPhoto} alt={items.name} />
               </ListItemAvatar>
               <ListItemText>
-                <Typography>Anuj Garg</Typography>
+                <Typography>{items.name}</Typography>
                 <Typography>Instructor</Typography>
               </ListItemText>
             </ListItem>
@@ -32,5 +40,11 @@ function Instructors(props) {
     </Box>
   );
 }
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    cursor: "pointer",
+  },
+}));
 
 export default Instructors;

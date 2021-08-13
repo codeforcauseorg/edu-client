@@ -18,7 +18,7 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
-function MediaCard({ props, isDeleteButton, onClick, open }) {
+function MediaCard({ props, isDeleteButton, onClick }) {
   const {
     _id,
     tags,
@@ -28,6 +28,7 @@ function MediaCard({ props, isDeleteButton, onClick, open }) {
     courseShortDescription,
     rating,
     video_num,
+    mentor,
   } = props;
 
   const classes = useStyles();
@@ -104,12 +105,12 @@ function MediaCard({ props, isDeleteButton, onClick, open }) {
         <Typography> {video_num} lectures</Typography>
         <Box style={{ flexGrow: 1 }} />
         <Box className={classes.lessons}>
-          {[1, 2].map((items, index) => (
+          {mentor.map((items, index) => (
             <Avatar
               key={index}
-              src="assets/members/anuj.png"
+              src={items.mentorPhoto}
               className={classes.avatar}
-              onClick={() => history.push("/mentor/:id")}
+              onClick={() => history.push(`/mentor/${items._id}`)}
             />
           ))}
         </Box>

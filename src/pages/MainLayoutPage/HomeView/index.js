@@ -45,7 +45,7 @@ function HomeView() {
     dedupingInterval: 100000,
   });
 
-  const upcomingCourse = courseCardData?.filter((course) => course.name === "C++ DSA"); // course.isUpcomming === true
+  const upcomingCourse = courseCardData?.filter((course) => course.isUpcoming === true);
 
   const user = useSelector((state) => state.account.user);
 

@@ -1,16 +1,47 @@
 import { Box, Button, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import ReactPlayer from "react-player/lazy";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { USER_CART_ENDPOINT } from "../../../../constants/apiEndpoints";
+import { addCart } from "../../../../services/userService";
+import SnackBarComponent from "../../../SnackBar/SnackBar";
+import { mutate } from "swr";
 
 function VideoCard(props) {
   const classes = useStyles();
 
   const { videoInfo } = props;
 
-  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail, isUpcoming } = videoInfo;
+  const { courseTrailerUrl, crossPrice, originalPrice, courseThumbnail, id, cartList } = videoInfo;
+
+  const isUpcoming = false; // testing purpose
+
+  const dispatch = useDispatch();
 
   const history = useHistory();
+
+  const [open, setOpen] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleCart = (id) => {
+    if (cartList.includes(id)) {
+      history.replace("/checkout");
+    } else {
+      mutate(USER_CART_ENDPOINT, [...cartList, id], false);
+      handleClick();
+      dispatch(addCart(id));
+    }
+  };
+
+  const currentUser = useSelector((state) => state.account.user);
 
   return (
     <Box className={classes.videoContainer}>
@@ -40,7 +71,28 @@ function VideoCard(props) {
             <Typography variant="h6">Upcoming</Typography>
           </Button>
         )}
+        <Button
+          className={classes.cartButton}
+          onClick={() => (currentUser && isUpcoming !== true ? handleCart(id) : handleClick())}
+        >
+          <Typography>Add to Cart</Typography>
+        </Button>
       </Box>
+      <SnackBarComponent
+        vertical="bottom"
+        horizontal="center"
+        opensnack={open}
+        handleClose={handleClose}
+        severity="info"
+        message={
+          currentUser
+            ? isUpcoming !== true
+              ? "Added to Cart"
+              : "Hey this course is yet to come !!"
+            : "Hey please login to perform this operation !"
+        }
+        autoHideDuration={3000}
+      />
     </Box>
   );
 }
@@ -48,10 +100,20 @@ function VideoCard(props) {
 const useStyles = makeStyles((theme) => ({
   button: {
     background: "#fff",
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     color: theme.palette.text.primary,
     "&:hover": {
       background: "#fff",
+    },
+  },
+  cartButton: {
+    border: "2px solid #ffffff",
+    color: "#ffffff",
+    textTransform: "none",
+    marginTop: theme.spacing(1.5),
+    padding: theme.spacing(1),
+    [theme.breakpoints.down("sm")]: {
+      marginRight: theme.spacing(1),
     },
   },
   videoContainer: {

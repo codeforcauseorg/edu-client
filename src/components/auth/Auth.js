@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { setAxiosInterceptors } from "../../services/authService";
 import { logout, setUserData } from "../../store/actions/accountActions";
-import authService from "../../services/authService";
+import { firebaseAuth } from "../../firebase";
 
 function Auth({ children }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
     const initAuth = async () => {
-      authService.setAxiosInterceptors({
+      setAxiosInterceptors({
         onLogout: () => dispatch(logout()),
       });
-      authService.handleAuthentication();
-      authService.firebase.auth().onAuthStateChanged(async (user) => {
+      firebaseAuth.onAuthStateChanged(async (user) => {
         if (user) {
           dispatch(setUserData(user));
         }

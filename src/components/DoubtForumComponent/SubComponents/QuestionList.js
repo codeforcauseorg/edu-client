@@ -1,12 +1,16 @@
+/* eslint-disable camelcase */
 import { Box, makeStyles, Paper, Avatar, Typography, Chip, Hidden } from "@material-ui/core";
 import React from "react";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import { useHistory } from "react-router";
+import moment from "moment";
 
-function QuestionList() {
+function QuestionList({ questionListItem }) {
   const classes = useStyles();
 
   const history = useHistory();
+
+  const { answers, question, tags, createdAt, is_resolved } = questionListItem;
 
   return (
     <Paper className={classes.paper} onClick={() => history.push(`/doubt-forum/${0}`)}>
@@ -21,21 +25,31 @@ function QuestionList() {
       <Box className={classes.infoContainer}>
         <Box className={classes.innerContainer}>
           <Typography variant="h5" className={classes.title} gutterBottom>
-            Android Emulator in VS Code for React Projects
+            {question}
           </Typography>
+          <Box className={classes.statusContainer}>
+            <Typography variant="subtitle2" gutterBottom className={classes.moment}>
+              {moment(createdAt).fromNow()}
+            </Typography>
+            {is_resolved === true ? (
+              <Chip label="Resolved" size="small" className={classes.resolvedChip} />
+            ) : (
+              <Chip label="Active" size="small" className={classes.activeChip} />
+            )}
+          </Box>
           <Typography variant="body1" gutterBottom className={classes.questionDescription}>
             I have seen many react native devs using android/ios emulators with vs code. Can I also
             use the android/ios emulator with my react project (not react-native)? If Yes, then can
             someone pls advise me on ...
           </Typography>
-          {[1, 2, 3, 4].map((items, index) => (
-            <Chip key={index} label="react" className={classes.chip} />
+          {tags.map((items, index) => (
+            <Chip key={index} label={items} className={classes.chip} />
           ))}
         </Box>
         <Box className={classes.actionContainer}>
           <Box className={classes.flex}>
             <ChatBubbleOutlineIcon className={classes.icons} />
-            <Typography>6 Answers</Typography>
+            <Typography>{answers.length} Answers</Typography>
           </Box>
         </Box>
       </Box>
@@ -61,6 +75,23 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       display: "block",
     },
+  },
+  resolvedChip: {
+    background: theme.palette.success.main,
+    color: "#fff",
+    borderRadius: "5px",
+  },
+  activeChip: {
+    background: theme.palette.secondary.main,
+    color: "#fff",
+    borderRadius: "5px",
+  },
+  moment: {
+    marginRight: theme.spacing(2),
+  },
+  statusContainer: {
+    display: "flex",
+    alignItems: "center",
   },
   avatar: {
     height: 50,
