@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import AsyncSelect from "react-select/async";
 import ShopIcon from "@material-ui/icons/Shop";
-import authService from "../../services/authService";
+import { logoutAction } from "../../services/authService";
 import AdBanner from "../../components/AdBannerComponent/AdBanner";
 import useSWR from "swr";
 import { USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
@@ -72,7 +72,7 @@ function NavBar() {
   };
 
   const handleLogout = () => {
-    dispatch(authService.logout());
+    dispatch(logoutAction());
   };
 
   const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {

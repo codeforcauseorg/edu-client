@@ -4,7 +4,7 @@ import DashboardHero from "./DashboardHero";
 import DoubtsSection from "./DoubtsSection";
 import CardSection from "./CardSection";
 
-function MainSection() {
+function MainSection({ userInfo }) {
   const classes = useStyles();
 
   const cardElements = [

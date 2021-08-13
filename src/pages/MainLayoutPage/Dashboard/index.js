@@ -2,18 +2,9 @@ import { Container, makeStyles, Hidden } from "@material-ui/core";
 import React from "react";
 import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
-import useSWR from "swr";
-import { loadData } from "../../../services/apiService";
-import { GET_USER_ENDPOINT } from "../../../constants/apiEndpoints";
 
 function Dashboard() {
   const classes = useStyles();
-
-  const { data: currentUserData } = useSWR(GET_USER_ENDPOINT, loadData, {
-    revalidateOnFocus: false,
-  });
-
-  console.log(currentUserData);
 
   return (
     <Container className={classes.root}>

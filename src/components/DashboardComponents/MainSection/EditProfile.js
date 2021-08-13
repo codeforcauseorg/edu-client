@@ -13,21 +13,30 @@ import React, { useState } from "react";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { useDispatch } from "react-redux";
 import { editUser } from "../../../services/userService";
+import useSWR from "swr";
+import { GET_USER_ENDPOINT } from "../../../constants/apiEndpoints";
+import { loadData } from "../../../services/apiService";
 
 function EditProfile({ open, onClose }) {
   const classes = useStyles();
 
-  const [image, setImage] = useState(null);
+  const { data: currentUserData } = useSWR(GET_USER_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+  });
 
-  const [firstName, setFirstName] = React.useState(null);
+  console.log(currentUserData);
 
-  const [lastName, setLastName] = React.useState(null);
+  const [image, setImage] = useState(currentUserData?.coverPhotoUrl);
 
-  const [number, setNumber] = React.useState(null);
+  const [firstName, setFirstName] = React.useState(currentUserData?.first_name);
 
-  const [description, setDescription] = React.useState(null);
+  const [lastName, setLastName] = React.useState(currentUserData?.last_name);
 
-  const [address, setAddress] = React.useState(null);
+  const [number, setNumber] = React.useState(currentUserData?.phone);
+
+  const [description, setDescription] = React.useState(currentUserData?.description);
+
+  const [address, setAddress] = React.useState(currentUserData?.address);
 
   const dispatch = useDispatch();
 
@@ -41,13 +50,20 @@ function EditProfile({ open, onClose }) {
     dispatch(editUser(firstName, lastName, number, description, address, image));
   };
 
+  const coverPictureImage = () => {
+    if (image?.name) {
+      return URL.createObjectURL(image);
+    } else if (image === undefined || image === "") {
+      return "assets/img/profileBanner.svg";
+    } else {
+      return image;
+    }
+  };
+
   return (
     <Modal open={open} onClose={onClose} className={classes.modal}>
       <Paper className={classes.paper}>
-        <CardMedia
-          image={image === null ? "assets/img/profileBanner.svg" : URL.createObjectURL(image)}
-          className={classes.cardMedia}
-        >
+        <CardMedia image={coverPictureImage()} className={classes.cardMedia}>
           <Box className={classes.shadder} />
           <input
             accept="image/*"
@@ -73,6 +89,7 @@ function EditProfile({ open, onClose }) {
               label="First Name"
               variant="outlined"
               className={classes.textFieldMargin}
+              value={firstName}
               onChange={(event) => setFirstName(event.target.value)}
             />
             <TextField
@@ -80,6 +97,7 @@ function EditProfile({ open, onClose }) {
               size="small"
               label="Last Name"
               variant="outlined"
+              value={lastName}
               className={classes.textFieldMargin}
               onChange={(event) => setLastName(event.target.value)}
             />
@@ -89,6 +107,7 @@ function EditProfile({ open, onClose }) {
               label="Phone Name"
               variant="outlined"
               type="number"
+              value={number}
               onChange={(event) => setNumber(event.target.value)}
             />
             <TextField
@@ -98,6 +117,7 @@ function EditProfile({ open, onClose }) {
               label="Description"
               variant="outlined"
               multiline
+              value={description}
               rows={4}
               onChange={(event) => setDescription(event.target.value)}
             />
@@ -107,6 +127,7 @@ function EditProfile({ open, onClose }) {
               size="small"
               label="Address"
               variant="outlined"
+              value={address}
               multiline
               rows={4}
               onChange={(event) => setAddress(event.target.value)}

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import { setUserData } from "../../../store/actions/accountActions";
-import authService from "../../../services/authService";
+import { getUserData } from "../../../services/authService";
 
 function ProtectedRoute({ children, type, ...rest }) {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ function ProtectedRoute({ children, type, ...rest }) {
   const user = useSelector((state) => state.account.user);
 
   useEffect(() => {
-    const localData = authService.getUserData();
+    const localData = getUserData();
     if (localData) {
       dispatch(setUserData(localData));
     }

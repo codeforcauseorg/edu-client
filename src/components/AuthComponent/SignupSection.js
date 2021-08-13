@@ -2,14 +2,14 @@ import React from "react";
 import { Box, Button, Grid, TextField, Typography, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
-import authService from "../../services/authService";
+import { loginAction } from "../../services/authService";
 
 function SignupSection() {
   const dispatch = useDispatch();
 
   const handleLoginAction = () => {
     try {
-      dispatch(authService.login());
+      dispatch(loginAction());
     } catch (err) {
       console.log(err);
     }

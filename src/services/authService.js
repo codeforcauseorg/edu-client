@@ -1,29 +1,13 @@
 import axios from "../utils/axios";
-import firebase from "firebase/app";
-import "firebase/auth";
-import "firebase/storage";
 import { cfaSignIn, cfaSignOut } from "capacitor-firebase-auth";
 import {login,logout} from "../store/actions/accountActions"
+import {firebaseAuth} from "../firebase"
 
-class AuthService{
-  
-  firebase = firebase;
-  user = {};
 
-  config = {
-    apiKey: "AIzaSyCtj9qDUcjl8M6H4usKBoJerbCxn3Of-pA",
-    authDomain: "keenwpractice.firebaseapp.com",
-    projectId: "keenwpractice",
-    storageBucket: "keenwpractice.appspot.com",
-    messagingSenderId: "981171596013",
-    appId: "1:981171596013:web:822e67c6a1b3b1d8f13ae4",
-    measurementId: "G-MNRB0XL6QD"    // ...
-};
-
-  setAxiosInterceptors = ({ onLogout }) => {
+ export const  setAxiosInterceptors = ({ onLogout }) => {
     axios.interceptors.request.use(async(request)=>{
-      if(firebase.auth().currentUser){
-        const accessToken = await firebase.auth().currentUser.getIdToken();
+      if(firebaseAuth.currentUser){
+        const accessToken = await firebaseAuth.currentUser.getIdToken();
         request.headers.Authorization =  accessToken;
         return request
       }
@@ -34,7 +18,7 @@ class AuthService{
   },
       (error) => {
         if (error.response && error.response.status === 401) {
-          this.removeSession();
+          removeSession();
 
           if (onLogout) {
             onLogout();
@@ -45,28 +29,24 @@ class AuthService{
     );
   };
 
-  handleAuthentication() {
-    this.firebase.initializeApp(this.config);
-  }
 
-  storage = firebase.storage()
 
-  login = () => {
+  export const  loginAction = () => {
     return  (dispatch)=>{
       dispatch(login())
       cfaSignIn("google.com").subscribe((user)=>{
-       this.setuserData(user.displayName,user.email,user.photoURL);
+       setuserData(user.displayName,user.email,user.photoURL);
        
       });
     }
    
   };
 
-  logout = () => {
+  export const  logoutAction = () => {
     return (dispatch)=>{
       dispatch(logout())
       cfaSignOut().subscribe(()=>{
-       this.removeSession();
+       removeSession();
       });
     }
    
@@ -74,23 +54,18 @@ class AuthService{
   };
   
   
-  removeSession(){
+  export const  removeSession=()=>{
       localStorage.removeItem("userDataKey");
   }
 
-  setuserData(displayName,email,photoURL){
+  export const  setuserData=(displayName,email,photoURL)=>{
       localStorage.setItem("userDataKey", JSON.stringify({displayName,email,photoURL}));
   }
 
 
-  getUserData (){
+  export const  getUserData =()=>{
      const data =  localStorage.getItem("userDataKey");
     return JSON.parse(data);
   } 
-}
-
-const authService = new AuthService();
-
-export default authService;
 
 

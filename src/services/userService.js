@@ -5,7 +5,7 @@ import {
 } from "../constants/apiEndpoints";
 import axios from "../utils/axios";
 import errorHandler from "./errorHandler";
-import authService from "./authService";
+import { storage } from "../firebase";
 
 // Add wishlist asyns function
 
@@ -69,7 +69,7 @@ export const deleteCart = (courseId) => {
   };
 };
 
-// edit user details asyns function
+// edit user details asyns function + upload user coverPic
 
 export const editUser = (
   firstName,
@@ -81,13 +81,21 @@ export const editUser = (
 ) => {
   return async (dispatch) => {
     try {
-      const ref = authService.storage.ref(`/userCoverImages/${coverPhotoFile.name}`);
-      const uploadTask = ref.put(coverPhotoFile);
-      uploadTask.on("state_changed", console.log, console.error, () => {
-        ref.getDownloadURL().then((url) => {
-          dispatch(updateUserDetails(firstName, lastName, phoneNumber, description, address, url));
+      if (coverPhotoFile.name) {
+        const ref = storage.ref(`/userCoverImages/${coverPhotoFile.name}`);
+        const uploadTask = ref.put(coverPhotoFile);
+        uploadTask.on("state_changed", console.log, console.error, () => {
+          ref.getDownloadURL().then((url) => {
+            dispatch(
+              updateUserDetails(firstName, lastName, phoneNumber, description, address, url)
+            );
+          });
         });
-      });
+      } else {
+        dispatch(
+          updateUserDetails(firstName, lastName, phoneNumber, description, address, coverPhotoFile)
+        );
+      }
     } catch (error) {
       console.log(error);
     }
