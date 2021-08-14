@@ -1,60 +1,34 @@
 /* eslint-disable camelcase */
-import { Box, makeStyles, Paper, Avatar, Typography, Chip, Hidden } from "@material-ui/core";
+import { Box, makeStyles, Paper, Hidden } from "@material-ui/core";
 import React from "react";
-import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
-import { useHistory } from "react-router";
-import moment from "moment";
+import SkeletonElement from "./SkeletonElement";
 
-function QuestionList({ questionListItem }) {
+function DoubtQuestionListSkeleton() {
   const classes = useStyles();
 
-  const history = useHistory();
-
-  const {
-    answers,
-    question,
-    tags,
-    createdAt,
-    is_resolved,
-    doubtBody,
-    photoUrl,
-    _id,
-  } = questionListItem;
-
   return (
-    <Paper className={classes.paper} onClick={() => history.push(`/doubt-forum/${_id}`)}>
+    <Paper className={classes.paper}>
       <Hidden mdDown>
         <Box className={classes.avatarContainer}>
-          <Avatar className={classes.avatar} src={photoUrl} />
+          <SkeletonElement variant="circle" height={50} width={50} />
         </Box>
       </Hidden>
       <Box className={classes.infoContainer}>
         <Box className={classes.innerContainer}>
-          <Typography variant="h5" className={classes.title} gutterBottom>
-            {question}
-          </Typography>
+          <SkeletonElement variant="text" component="h1" />
           <Box className={classes.statusContainer}>
-            <Typography variant="subtitle2" gutterBottom className={classes.moment}>
-              {moment(createdAt).fromNow()}
-            </Typography>
-            {is_resolved === true ? (
-              <Chip label="Resolved" size="small" className={classes.resolvedChip} />
-            ) : (
-              <Chip label="Active" size="small" className={classes.activeChip} />
-            )}
+            <SkeletonElement
+              variant="text"
+              component="h1"
+              className={classes.moment}
+              height={30}
+              width={50}
+            />
+            <SkeletonElement variant="text" component="h1" height={30} width={50} />
           </Box>
-          <Typography variant="body1" gutterBottom className={classes.questionDescription}>
-            {doubtBody}
-          </Typography>
-          {tags.map((items, index) => (
-            <Chip key={index} label={items} className={classes.chip} />
+          {[1, 2, 3].map((index) => (
+            <SkeletonElement key={index} variant="text" component="h6" width={800} />
           ))}
-        </Box>
-        <Box className={classes.actionContainer}>
-          <Box className={classes.flex}>
-            <ChatBubbleOutlineIcon className={classes.icons} />
-            <Typography>{answers.length} Answers</Typography>
-          </Box>
         </Box>
       </Box>
     </Paper>
@@ -97,13 +71,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  avatar: {
-    height: 50,
-    width: 50,
-  },
-  title: {
-    fontWeight: 600,
-  },
   chip: {
     borderRadius: "5px",
     marginTop: theme.spacing(0.5),
@@ -140,4 +107,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default QuestionList;
+export default DoubtQuestionListSkeleton;

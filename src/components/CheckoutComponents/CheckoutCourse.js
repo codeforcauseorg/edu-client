@@ -74,7 +74,7 @@ function CheckoutCourse() {
     <Box className={classes.root}>
       <Typography variant="h4">Course in Cart ({cartList?.length})</Typography>
       <Divider className={classes.divider} />
-      {cart.map((items, index) => (
+      {cart?.map((items, index) => (
         <CheckoutCourseList
           key={index}
           courseInfo={items}

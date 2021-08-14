@@ -21,6 +21,8 @@ export const SEARCH_SECTION = "/search";
 export const DOUBT_QUESTIONS_DETAILS = "/doubt-forum/:id";
 
 export const MENTOR_SECTION = "/mentor/:id";
+
+export const ASK_QUESTION = "/question/aks";
 // **************************************************************************
 
 export const CHALLENGES = "/challenges";

@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
-import PostDoubt from "./PostDoubt";
+import { useHistory } from "react-router";
 
 const radioList = ["All", "Web Development", "Mobile Development", "DSA", "DevOps", "AI/ML"];
 
@@ -20,23 +20,15 @@ function FilterSection() {
 
   const [value, setValue] = useState("All");
 
-  const [open, setOpen] = useState(false);
-
   const handleChange = (event) => {
     setValue(event.target.value);
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const history = useHistory();
 
   return (
     <Box className={classes.root}>
-      <Button className={classes.button} onClick={() => handleOpen()}>
+      <Button className={classes.button} onClick={() => history.push("/question/aks")}>
         Start new Discussion
       </Button>
       <Divider className={classes.divider} />
@@ -52,7 +44,6 @@ function FilterSection() {
           ))}
         </RadioGroup>
       </FormControl>
-      <PostDoubt open={open} onClose={handleClose} />
     </Box>
   );
 }

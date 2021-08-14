@@ -3,6 +3,7 @@ import useSWR from "swr";
 import FilterSection from "../../../components/DoubtForumComponent/FilterSection";
 import QuestionSection from "../../../components/DoubtForumComponent/QuestionSection";
 import HeroSection from "../../../components/HeroSection/index";
+import DoubtQuestionListSkeleton from "../../../components/skeleton/DoubtQuestionListSkeleton";
 import { GET_DOUBT_ENDPOINT } from "../../../constants/apiEndpoints";
 import { loadData } from "../../../services/apiService";
 
@@ -28,7 +29,15 @@ function DoubtForum(props) {
         banner="assets/img/doubtBanner.svg"
       />
       <Box className={classes.container}>
-        {data === undefined ? <Box /> : <QuestionSection doubtQuestion={data} />}
+        {data === undefined ? (
+          <Box className={classes.skeletonContainer}>
+            {[1, 2, 3].map((index) => (
+              <DoubtQuestionListSkeleton key={index} />
+            ))}
+          </Box>
+        ) : (
+          <QuestionSection doubtQuestion={data} />
+        )}
         <Hidden mdDown>
           <FilterSection />
         </Hidden>
@@ -45,6 +54,14 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
+  },
+  skeletonContainer: {
+    flex: 8,
+    borderRadius: "5px",
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("md")]: {
+      marginRight: theme.spacing(0),
+    },
   },
 }));
 

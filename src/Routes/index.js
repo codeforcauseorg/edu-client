@@ -16,6 +16,7 @@ import Checkout from "../pages/Checkout";
 import SearchSection from "../pages/SearchSection";
 import DoubtDetailSection from "../pages/DoubtDetailSection";
 import AboutMentorSection from "../pages/AboutMentorSection";
+import AskQuestion from "../pages/AskQuestion/AskQuestion";
 
 const Routes = () => (
   <Switch>
@@ -29,6 +30,12 @@ const Routes = () => (
 
     <AuthRoute exact path={ROUTES.CHECKOUT} type="private">
       <Checkout />
+    </AuthRoute>
+
+    <AuthRoute exact path={ROUTES.ASK_QUESTION} type="private">
+      <MainLayout>
+        <AskQuestion />
+      </MainLayout>
     </AuthRoute>
 
     <AuthRoute exact path={ROUTES.MENTOR_SECTION}>

@@ -9,8 +9,16 @@ import {
   List,
   ListItem,
   ListItemText,
+  CircularProgress,
 } from "@material-ui/core";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import useSWR from "swr";
+import { GET_USER_ENDPOINT, USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
+import { loadData } from "../../services/apiService";
+import { userEnrolledCourse } from "../../services/userService";
+import { paymentSuccess } from "../../store/actions/paymentAction";
+import PaymentSuccessPopup from "./PaymentSuccessPopup";
 
 function getSteps() {
   return ["Overview", "Payment"];
@@ -38,12 +46,33 @@ function OrderSummary() {
 
   const steps = getSteps();
 
+  const dispatch = useDispatch();
+
   const handleNext = () => {
     setActiveStep((activeStep) => activeStep + 1);
   };
 
+  const { loading, success } = useSelector((state) => state.payment);
+
+  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
+  const { data: currentUser } = useSWR(GET_USER_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
   const handlePayment = () => {
-    setActiveStep(2);
+    if (currentUser) {
+      setActiveStep(2);
+      cartList.map((courseID) => dispatch(userEnrolledCourse(courseID, currentUser.id)));
+    }
+  };
+
+  const handleClose = () => {
+    dispatch(paymentSuccess(false));
   };
 
   return (
@@ -91,10 +120,16 @@ function OrderSummary() {
           Checkout
         </Button>
       ) : (
-        <Button onClick={() => handlePayment()} className={classes.paymentButton}>
-          Make Payment
+        <Button onClick={() => (loading ? "" : handlePayment())} className={classes.paymentButton}>
+          {loading ? (
+            <CircularProgress size={20} className={classes.progressIndicator} />
+          ) : (
+            `Make Payment`
+          )}
         </Button>
       )}
+
+      <PaymentSuccessPopup open={success} onClose={handleClose} />
     </Box>
   );
 }
@@ -124,7 +159,7 @@ const useStyles = makeStyles((theme) => ({
     color: "#fff",
     background: theme.palette.primary.main,
     textTransform: "none",
-    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(8),
     "&:hover": {
       background: theme.palette.primary.main,
     },
@@ -136,21 +171,8 @@ const useStyles = makeStyles((theme) => ({
   priceValue: {
     marginTop: theme.spacing(1),
   },
+  progressIndicator: {
+    color: "#fff",
+  },
 }));
 export default OrderSummary;
-
-/* <Box>
-        <Box>
-          <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-            Back
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleNext}
-            className={classes.button}
-          >
-            {activeStep === steps.length - 1 ? "Finish" : "Next"}
-          </Button>
-        </Box>
-      </Box> */

@@ -19,6 +19,7 @@ function PostDescriptionEditor() {
       <Editor
         editorState={editor}
         onEditorStateChange={onEditorStateChange}
+        editorClassName={classes.editor}
         toolbar={{
           inline: { inDropdown: true },
           list: { inDropdown: true },
@@ -32,6 +33,13 @@ function PostDescriptionEditor() {
   );
 }
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+  editor: {
+    border: "0.5px solid #F1F1F1",
+    minHeight: 200,
+    padding: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+  },
+}));
 
 export default PostDescriptionEditor;

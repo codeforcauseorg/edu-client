@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   Chip,
+  CircularProgress,
   Container,
   Divider,
   ListItem,
@@ -10,41 +11,59 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import moment from "moment";
 import React from "react";
+import { useParams } from "react-router";
+import useSWR from "swr";
 import CommentSection from "../../components/DoubtDetailSectionComponent/CommentSection";
 import PostCommentSection from "../../components/DoubtDetailSectionComponent/PostCommentSection";
+import { GET_DOUBT_DETAILS_ENDPOINT } from "../../constants/apiEndpoints";
+import { loadData } from "../../services/apiService";
 
 function DoubtDetailSection() {
   const classes = useStyles();
 
+  const { id } = useParams();
+
+  const { data: doubtDetails } = useSWR(GET_DOUBT_DETAILS_ENDPOINT + "/" + id, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 100000,
+  });
+
   return (
     <Container className={classes.root} disableGutters>
-      <Box>
-        <Box className={classes.headderContainer}>
-          <Typography variant="h3" className={classes.questionTitle} gutterBottom>
-            Laravel and Ajax Like system is saving multiple record of like to likes table ?
-          </Typography>
-          <ListItem>
-            <ListItemAvatar>
-              <Avatar />
-            </ListItemAvatar>
-            <ListItemText>
-              <Typography variant="body2">Adarsh Kumar Singh</Typography>
-              <Typography>4 days ago</Typography>
-            </ListItemText>
-          </ListItem>
+      {doubtDetails === undefined ? (
+        <Box className={classes.loadingContainer}>
+          <CircularProgress size={50} />
         </Box>
-        <Typography variant="h6" component="p" className={classes.questionDescription}>
-          Trying to send create a like system in my laravel app with ajax , it works but when
-          sending data to the likes table , it sends duplicates of the same like , about 5 of them ,
-          i dont know why , when i do the same like function without the ajax , it works just fine
-          without no problems , here&apos;s my code BLADE
-        </Typography>
-      </Box>
-      <PostCommentSection />
-      <Chip className={classes.totalAnswer} label="25 Answered" />
-      <Divider className={classes.divider} />
-      <CommentSection />
+      ) : (
+        <>
+          <Box className={classes.headderContainer}>
+            <Typography variant="h3" className={classes.questionTitle} gutterBottom>
+              {doubtDetails.question}
+            </Typography>
+            <ListItem>
+              <ListItemAvatar>
+                <Avatar src={doubtDetails.photoUrl} />
+              </ListItemAvatar>
+              <ListItemText>
+                <Typography variant="body2">Adarsh Kumar Singh</Typography>
+                <Typography>{moment(doubtDetails.createdAt).fromNow()}</Typography>
+              </ListItemText>
+            </ListItem>
+          </Box>
+          <Typography variant="h6" component="p" className={classes.questionDescription}>
+            {doubtDetails.doubtBody}
+          </Typography>
+          <PostCommentSection />
+          <Chip
+            className={classes.totalAnswer}
+            label={doubtDetails.answers.length + ` Answered `}
+          />
+          <Divider className={classes.divider} />
+          <CommentSection answers={doubtDetails.answers} />
+        </>
+      )}
     </Container>
   );
 }
@@ -67,6 +86,11 @@ const useStyles = makeStyles((theme) => ({
   },
   divider: {
     margin: theme.spacing(4, 0),
+  },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    padding: theme.spacing(8),
   },
 }));
 
