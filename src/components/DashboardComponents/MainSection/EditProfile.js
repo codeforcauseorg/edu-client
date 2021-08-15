@@ -15,6 +15,8 @@ import React, { useState } from "react";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { useDispatch, useSelector } from "react-redux";
 import { editUser } from "../../../services/userService";
+import { mutate } from "swr";
+import { GET_USER_ENDPOINT } from "../../../constants/apiEndpoints";
 
 function EditProfile({ open, onClose, props }) {
   const classes = useStyles();
@@ -43,7 +45,10 @@ function EditProfile({ open, onClose, props }) {
     }
   };
 
+  console.log(props);
+
   const handleSubmit = () => {
+    mutate(GET_USER_ENDPOINT, { ...props, image }, false);
     dispatch(editUser(firstName, lastName, number, descriptionValue, addressValue, image));
   };
 

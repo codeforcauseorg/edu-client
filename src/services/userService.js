@@ -51,7 +51,8 @@ export const addCart = (courseId) => {
       };
       const response = await axios.put(USER_CART_ENDPOINT, cartData);
       if (response.status === 200) {
-        await response.data;
+        const result = await response.data;
+        console.log(result);
       }
     } catch (error) {
       errorHandler(error, dispatch);

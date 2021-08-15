@@ -14,6 +14,13 @@ function Dashboard() {
     dedupingInterval: 10000,
   });
 
+  // const { data: userEnrolledCourses } = useSWR(USER_ENROLLED_COURSE_ENDPOINT, loadData, {
+  //   revalidateOnFocus: false,
+  //   dedupingInterval: 10000,
+  // });
+
+  // console.log(userEnrolledCourses);
+
   return (
     <Container className={classes.root}>
       {currentUserData === undefined ? (

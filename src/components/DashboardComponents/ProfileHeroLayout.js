@@ -4,10 +4,12 @@ import { makeStyles, CardMedia, Box } from "@material-ui/core";
 function ProfileHeroLayout({ children, props }) {
   const classes = useStyles();
 
-  const { coverPhotoUrl } = props;
+  const { coverPhotoUrl, image } = props;
 
   const coverPicture = () => {
-    if (coverPhotoUrl === "") {
+    if (image) {
+      return URL.createObjectURL(image);
+    } else if (coverPhotoUrl === "") {
       return "assets/img/profileBanner.svg";
     }
     return coverPhotoUrl;
