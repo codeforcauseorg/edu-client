@@ -38,7 +38,7 @@ function DoubtForum(props) {
         ) : (
           <QuestionSection doubtQuestion={data} />
         )}
-        <Hidden mdDown>
+        <Hidden lgDown>
           <FilterSection />
         </Hidden>
       </Box>

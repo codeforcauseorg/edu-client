@@ -3,7 +3,7 @@ import React from "react";
 import useSWR from "swr";
 import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
-import { GET_USER_ENDPOINT } from "../../../constants/apiEndpoints";
+import { GET_USER_ENDPOINT, USER_ENROLLED_COURSE_ENDPOINT } from "../../../constants/apiEndpoints";
 import { loadData } from "../../../services/apiService";
 
 function Dashboard() {
@@ -14,12 +14,12 @@ function Dashboard() {
     dedupingInterval: 10000,
   });
 
-  // const { data: userEnrolledCourses } = useSWR(USER_ENROLLED_COURSE_ENDPOINT, loadData, {
-  //   revalidateOnFocus: false,
-  //   dedupingInterval: 10000,
-  // });
+  const { data: userEnrolledCourses } = useSWR(USER_ENROLLED_COURSE_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
 
-  // console.log(userEnrolledCourses);
+  console.log(userEnrolledCourses);
 
   return (
     <Container className={classes.root}>

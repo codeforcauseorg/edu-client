@@ -11,8 +11,10 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
+import { EditorState, convertFromRaw } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
 import moment from "moment";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import useSWR from "swr";
 import CommentSection from "../../components/DoubtDetailSectionComponent/CommentSection";
@@ -29,6 +31,14 @@ function DoubtDetailSection() {
     revalidateOnFocus: false,
     dedupingInterval: 100000,
   });
+
+  const [editor, seteditor] = useState(EditorState.createEmpty());
+
+  const obj = JSON.parse(doubtDetails.doubtBody);
+
+  useEffect(() => {
+    seteditor(EditorState.createWithContent(convertFromRaw(obj)));
+  }, [doubtDetails]);
 
   return (
     <Container className={classes.root} disableGutters>
@@ -52,10 +62,13 @@ function DoubtDetailSection() {
               </ListItemText>
             </ListItem>
           </Box>
-          <Typography variant="h6" component="p" className={classes.questionDescription}>
-            {doubtDetails.doubtBody}
-          </Typography>
-          <PostCommentSection />
+          <Editor
+            editorState={editor}
+            editorClassName={classes.questionDescription}
+            readOnly
+            toolbarClassName={classes.toolbar}
+          />
+          <PostCommentSection doubtInfo={doubtDetails} />
           <Chip
             className={classes.totalAnswer}
             label={doubtDetails.answers.length + ` Answered `}
@@ -91,6 +104,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     padding: theme.spacing(8),
+  },
+  toolbar: {
+    display: "none",
   },
 }));
 
