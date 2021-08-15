@@ -1,10 +1,14 @@
 import { Box, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
-import useSWR from "swr";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import useSWR, { mutate } from "swr";
 import CheckoutCourse from "../../components/CheckoutComponents/CheckoutCourse";
 import OrderSummary from "../../components/CheckoutComponents/OrderSummary";
+import PaymentSuccessPopup from "../../components/CheckoutComponents/PaymentSuccessPopup";
 import { USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
+import { deleteCart } from "../../services/userService";
+import { paymentSuccess } from "../../store/actions/paymentAction";
 function Checkout() {
   const classes = useStyles();
 
@@ -12,6 +16,27 @@ function Checkout() {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
+
+  const dispatch = useDispatch();
+
+  const { success } = useSelector((state) => state.payment);
+
+  const handleClose = () => {
+    dispatch(paymentSuccess(false));
+  };
+
+  useEffect(() => {
+    if (success) {
+      cartList.map((id) =>
+        mutate(
+          USER_CART_ENDPOINT,
+          cartList.filter((courseId) => courseId !== id),
+          false
+        )
+      );
+      cartList.map((id) => dispatch(deleteCart(id)));
+    }
+  }, [success]);
 
   return (
     <Box mt={8} className={classes.root}>
@@ -26,6 +51,7 @@ function Checkout() {
           <Typography variant="h3" className={classes.title}>
             Your cart is Empty
           </Typography>
+          <PaymentSuccessPopup open={success} onClose={handleClose} />
         </Box>
       )}
     </Box>

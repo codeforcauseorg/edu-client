@@ -11,14 +11,12 @@ import {
   ListItemText,
   CircularProgress,
 } from "@material-ui/core";
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useSWR, { mutate } from "swr";
-import { GET_USER_ENDPOINT, USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
+import useSWR from "swr";
+import { GET_USER_ENDPOINT } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
-import { deleteCart, userEnrolledCourse } from "../../services/userService";
-import { paymentSuccess } from "../../store/actions/paymentAction";
-import PaymentSuccessPopup from "./PaymentSuccessPopup";
+import { userEnrolledCourse } from "../../services/userService";
 
 function getSteps() {
   return ["Overview", "Payment"];
@@ -52,7 +50,7 @@ function OrderSummary({ cartList }) {
     setActiveStep((activeStep) => activeStep + 1);
   };
 
-  const { loading, success } = useSelector((state) => state.payment);
+  const { loading } = useSelector((state) => state.payment);
 
   const { data: currentUser } = useSWR(GET_USER_ENDPOINT, loadData, {
     revalidateOnFocus: false,
@@ -65,23 +63,6 @@ function OrderSummary({ cartList }) {
       cartList.map((courseID) => dispatch(userEnrolledCourse(courseID, currentUser.id)));
     }
   };
-
-  const handleClose = () => {
-    dispatch(paymentSuccess(false));
-  };
-
-  useEffect(() => {
-    if (success) {
-      cartList.map((id) =>
-        mutate(
-          USER_CART_ENDPOINT,
-          cartList.filter((courseId) => courseId !== id),
-          false
-        )
-      );
-      cartList.map((id) => dispatch(deleteCart(id)));
-    }
-  }, [success]);
 
   return (
     <Box pt={8} className={classes.root}>
@@ -136,8 +117,6 @@ function OrderSummary({ cartList }) {
           )}
         </Button>
       )}
-
-      <PaymentSuccessPopup open={success} onClose={handleClose} />
     </Box>
   );
 }
