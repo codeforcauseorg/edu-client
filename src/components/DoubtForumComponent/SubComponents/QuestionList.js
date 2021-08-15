@@ -1,14 +1,18 @@
 /* eslint-disable camelcase */
 import { Box, makeStyles, Paper, Avatar, Typography, Chip, Hidden } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import { useHistory } from "react-router";
 import moment from "moment";
+import { EditorState, convertFromRaw } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
 
 function QuestionList({ questionListItem }) {
   const classes = useStyles();
 
   const history = useHistory();
+
+  const [editor, seteditor] = useState(EditorState.createEmpty());
 
   const {
     answers,
@@ -20,6 +24,12 @@ function QuestionList({ questionListItem }) {
     photoUrl,
     _id,
   } = questionListItem;
+
+  const obj = JSON.parse(doubtBody);
+
+  useEffect(() => {
+    seteditor(EditorState.createWithContent(convertFromRaw(obj)));
+  }, [questionListItem]);
 
   return (
     <Paper className={classes.paper} onClick={() => history.push(`/doubt-forum/${_id}`)}>
@@ -43,9 +53,12 @@ function QuestionList({ questionListItem }) {
               <Chip label="Active" size="small" className={classes.activeChip} />
             )}
           </Box>
-          <Typography variant="body1" gutterBottom className={classes.questionDescription}>
-            {doubtBody}
-          </Typography>
+          <Editor
+            editorState={editor}
+            editorClassName={classes.questionDescription}
+            readOnly
+            toolbarClassName={classes.toolbar}
+          />
           {tags.map((items, index) => (
             <Chip key={index} label={items} className={classes.chip} />
           ))}
@@ -74,8 +87,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   infoContainer: {
+    width: "100%",
     padding: theme.spacing(2),
     display: "flex",
+    justifyContent: "space-between",
     [theme.breakpoints.down("md")]: {
       display: "block",
     },
@@ -116,8 +131,18 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(2),
   },
   questionDescription: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    maxWidth: "825px",
+    [theme.breakpoints.down("sm")]: {
+      maxWidth: "330px",
+    },
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "700px",
+    },
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: "720px",
+    },
   },
   flex: {
     display: "flex",
@@ -125,9 +150,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   actionContainer: {
-    flex: 2,
     paddingTop: theme.spacing(4),
-    marginLeft: theme.spacing(8),
+    marginRight: theme.spacing(5),
     [theme.breakpoints.down("md")]: {
       marginLeft: theme.spacing(0),
     },
@@ -137,6 +161,9 @@ const useStyles = makeStyles((theme) => ({
   },
   icons: {
     marginRight: theme.spacing(2),
+  },
+  toolbar: {
+    display: "none",
   },
 }));
 
