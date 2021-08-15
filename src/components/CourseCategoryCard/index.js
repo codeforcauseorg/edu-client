@@ -11,11 +11,14 @@ import {
 } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import React from "react";
+import { useHistory } from "react-router";
 
 function CourseCategoryCard({ props }) {
   const classes = useStyles();
 
   const { title, bannerImage, rating, tags } = props;
+
+  const history = useHistory();
 
   return (
     <Card className={classes.root}>
@@ -26,7 +29,12 @@ function CourseCategoryCard({ props }) {
         </Typography>
         <Box className={classes.actionContainer}>
           <Rating value={rating} precision={0.5} readOnly className={classes.ratingStar} />
-          <Button className={classes.exploreButton}>Explore</Button>
+          <Button
+            className={classes.exploreButton}
+            onClick={() => history.push(`/categories/${title}`)}
+          >
+            Explore
+          </Button>
         </Box>
         <Divider />
         <Box className={classes.chipcontainer}>

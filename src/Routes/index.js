@@ -17,6 +17,8 @@ import SearchSection from "../pages/SearchSection";
 import DoubtDetailSection from "../pages/DoubtDetailSection";
 import AboutMentorSection from "../pages/AboutMentorSection";
 import AskQuestion from "../pages/AskQuestion/AskQuestion";
+import Classroom from "../pages/Classroom";
+import CategoriesSection from "../pages/CategoriesSection";
 
 const Routes = () => (
   <Switch>
@@ -30,6 +32,18 @@ const Routes = () => (
 
     <AuthRoute exact path={ROUTES.CHECKOUT} type="private">
       <Checkout />
+    </AuthRoute>
+
+    <AuthRoute exact path={ROUTES.CATEGORIES}>
+      <MainLayout>
+        <CategoriesSection />
+      </MainLayout>
+    </AuthRoute>
+
+    <AuthRoute exact path={ROUTES.CLASSROOM} type="private">
+      <MainLayout>
+        <Classroom />
+      </MainLayout>
     </AuthRoute>
 
     <AuthRoute exact path={ROUTES.ASK_QUESTION} type="private">

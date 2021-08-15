@@ -3,14 +3,18 @@ import { Box, Container, makeStyles } from "@material-ui/core";
 import DashboardHero from "./DashboardHero";
 import DoubtsSection from "./DoubtsSection";
 import CardSection from "./CardSection";
+import { useHistory } from "react-router";
 
 function MainSection({ userInfo }) {
   const classes = useStyles();
+
+  const history = useHistory();
 
   const cardElements = [
     {
       title: "Classroom",
       banner: "assets/img/classroomBanner.svg",
+      onClick: () => history.push("/classroom"),
     },
     {
       title: "Interview your friend",
