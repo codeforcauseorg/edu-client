@@ -11,12 +11,12 @@ import {
   ListItemText,
   CircularProgress,
 } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import useSWR from "swr";
+import useSWR, { mutate } from "swr";
 import { GET_USER_ENDPOINT, USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
-import { userEnrolledCourse } from "../../services/userService";
+import { deleteCart, userEnrolledCourse } from "../../services/userService";
 import { paymentSuccess } from "../../store/actions/paymentAction";
 import PaymentSuccessPopup from "./PaymentSuccessPopup";
 
@@ -74,6 +74,19 @@ function OrderSummary() {
   const handleClose = () => {
     dispatch(paymentSuccess(false));
   };
+
+  useEffect(() => {
+    if (success) {
+      cartList.map((id) =>
+        mutate(
+          USER_CART_ENDPOINT,
+          cartList.filter((courseId) => courseId !== id),
+          false
+        )
+      );
+      cartList.map((id) => dispatch(deleteCart(id)));
+    }
+  }, [success]);
 
   return (
     <Box pt={8} className={classes.root}>
