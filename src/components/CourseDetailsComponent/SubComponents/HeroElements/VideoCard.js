@@ -23,6 +23,8 @@ function VideoCard(props) {
 
   const [open, setOpen] = useState(false);
 
+  const [cartLimit, setCartLimit] = useState(false);
+
   const handleClick = () => {
     setOpen(true);
   };
@@ -31,14 +33,34 @@ function VideoCard(props) {
     setOpen(false);
   };
 
+  const handleCartLimit = () => {
+    setCartLimit(true);
+  };
+
+  const close = () => {
+    setCartLimit(false);
+  };
+
   const handleCart = (id) => {
     if (cartList.includes(id)) {
       history.replace("/checkout");
+    } else if (cartList.length === 1) {
+      handleCartLimit();
     } else {
       mutate(USER_CART_ENDPOINT, [...cartList, id], false);
       handleClick();
       dispatch(addCart(id));
     }
+  };
+
+  const snackBarMessageHandeler = () => {
+    if (currentUser) {
+      if (isUpcoming !== true) {
+        return "Added to Cart";
+      }
+      return "Hey this course is yet to come !!";
+    }
+    return "Hey please login to perform this operation !";
   };
 
   const currentUser = useSelector((state) => state.account.user);
@@ -84,13 +106,16 @@ function VideoCard(props) {
         opensnack={open}
         handleClose={handleClose}
         severity="info"
-        message={
-          currentUser
-            ? isUpcoming !== true
-              ? "Added to Cart"
-              : "Hey this course is yet to come !!"
-            : "Hey please login to perform this operation !"
-        }
+        message={snackBarMessageHandeler()}
+        autoHideDuration={3000}
+      />
+      <SnackBarComponent
+        vertical="bottom"
+        horizontal="center"
+        opensnack={cartLimit}
+        handleClose={close}
+        severity="info"
+        message=" Hey you can only add one item to cart !!"
         autoHideDuration={3000}
       />
     </Box>
