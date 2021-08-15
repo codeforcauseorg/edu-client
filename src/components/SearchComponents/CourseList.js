@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import {
   CardMedia,
   ListItemText,
@@ -12,38 +13,58 @@ import React from "react";
 import Rating from "@material-ui/lab/Rating";
 import { useHistory } from "react-router";
 
-function CourseList() {
+function CourseList({ props }) {
   const classes = useStyles();
 
   const history = useHistory();
 
+  const {
+    courseThumbnail,
+    name,
+    courseShortDescription,
+    mentor,
+    rating,
+    reviews,
+    duration,
+    video_num,
+    courseLevel,
+    crossPrice,
+    _id,
+  } = props;
+
+  const mentorName = mentor?.map(
+    (items, index) => `${items.name} ${index < mentor.length - 1 ? ", " : ""} `
+  );
+
   return (
     <>
-      <Card className={classes.container} onClick={() => history.push("/course/2")}>
-        <CardMedia component="img" className={classes.media} image="assets/img/img3.PNG" />
+      <Card className={classes.container} onClick={() => history.push(`/course/${_id}`)}>
+        <CardMedia component="img" className={classes.media} image={courseThumbnail} />
         <Box className={classes.innerContainer}>
           <ListItemText className={classes.listItemText}>
             <Typography variant="h6" gutterBottom>
-              React - The Complete Guide (incl Hooks, React Router, Redux)
+              {name}
             </Typography>
             <Typography variant="subtitle1" gutterBottom className={classes.shortDescription}>
-              Dive in and learn React.js from scratch! Learn Reactjs, Hooks, Redux, React Routing,
-              Animations, Next.js and way more!
+              {courseShortDescription}
             </Typography>
             <Typography variant="body2" gutterBottom className={classes.shortDescription}>
-              By Anuj Garg
+              By {mentorName}
             </Typography>
             <Box className={classes.ratingContainer}>
               <Typography variant="h6" color="primary">
-                4.7
+                {rating}
               </Typography>
-              <Rating value={4.5} precision={0.5} readOnly className={classes.ratingStar} />
-              <Typography variant="h6">(1,000)</Typography>
+              <Rating value={rating} precision={0.5} readOnly className={classes.ratingStar} />
+              <Typography variant="h6">({reviews.length})</Typography>
             </Box>
             <Box pt={1}>
-              <Typography> 48 total hours . 570 lectures . Beginner</Typography>
+              <Typography>
+                {" "}
+                {duration} . {video_num} lectures . {courseLevel}
+              </Typography>
             </Box>
-            <Chip size="small" className={classes.chip} label="₹1800" />
+            <Chip size="small" className={classes.chip} label={" ₹ " + crossPrice} />
           </ListItemText>
         </Box>
       </Card>

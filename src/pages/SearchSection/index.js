@@ -11,6 +11,9 @@ import React, { useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import CourseList from "../../components/SearchComponents/CourseList";
 import FilterListIcon from "@material-ui/icons/FilterList";
+import { ALL_COURSE_CARD_ENDPOINT } from "../../constants/apiEndpoints";
+import { loadData } from "../../services/apiService";
+import useSWR from "swr";
 
 function SearchSection(props) {
   const classes = useStyles();
@@ -26,6 +29,13 @@ function SearchSection(props) {
   const query = useQuery().get("q");
 
   const sort = useQuery().get("sort");
+
+  const { data: courseCardData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 100000,
+  });
+
+  const filterCourse = courseCardData?.filter((course) => course?.name === query);
 
   console.log(sort);
 
@@ -44,7 +54,9 @@ function SearchSection(props) {
       <Box className={classes.root}>
         <Container className={classes.container}>
           <Box pt={8}>
-            <Typography variant="h2">2,536 results for &quot;{query}&quot;</Typography>
+            <Typography variant="h2">
+              {filterCourse?.length} results for &quot;{query}&quot;
+            </Typography>
           </Box>
         </Container>
         <Paper className={classes.filterSection}>
@@ -65,8 +77,8 @@ function SearchSection(props) {
           </Container>
         </Paper>
         <Container className={classes.courseListContainer}>
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((items, index) => (
-            <CourseList key={index} />
+          {filterCourse?.map((items, index) => (
+            <CourseList key={index} props={items} />
           ))}
         </Container>
       </Box>
