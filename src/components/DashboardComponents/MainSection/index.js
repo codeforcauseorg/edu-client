@@ -5,7 +5,7 @@ import DoubtsSection from "./DoubtsSection";
 import CardSection from "./CardSection";
 import { useHistory } from "react-router";
 
-function MainSection({ userInfo }) {
+function MainSection({ userInfo, userDoubtList }) {
   const classes = useStyles();
 
   const history = useHistory();
@@ -34,7 +34,7 @@ function MainSection({ userInfo }) {
           <CardSection key={index} props={items} index={index} />
         ))}
       </Box>
-      <DoubtsSection />
+      <DoubtsSection userDoubtList={userDoubtList} />
     </Container>
   );
 }

@@ -3,7 +3,11 @@ import React from "react";
 import useSWR from "swr";
 import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
-import { GET_USER_ENDPOINT, USER_ENROLLED_COURSE_ENDPOINT } from "../../../constants/apiEndpoints";
+import {
+  GET_DOUBT_ENDPOINT,
+  GET_USER_ENDPOINT,
+  USER_ENROLLED_COURSE_ENDPOINT,
+} from "../../../constants/apiEndpoints";
 import { loadData } from "../../../services/apiService";
 
 function Dashboard() {
@@ -19,6 +23,13 @@ function Dashboard() {
     dedupingInterval: 10000,
   });
 
+  const { data: doubtsList } = useSWR(GET_DOUBT_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
+  const currentUserDoubt = doubtsList?.filter((doubt) => doubt?.asked_by === currentUserData?.id);
+
   console.log(userEnrolledCourses);
 
   return (
@@ -29,7 +40,7 @@ function Dashboard() {
         </Box>
       ) : (
         <Container className={classes.innerContainer} disableGutters>
-          <MainSection userInfo={currentUserData} />
+          <MainSection userInfo={currentUserData} userDoubtList={currentUserDoubt} />
           <Hidden lgDown>
             <SecondarySection userInfo={currentUserData} />
           </Hidden>
