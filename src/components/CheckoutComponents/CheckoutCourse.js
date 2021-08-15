@@ -12,15 +12,10 @@ import { addWishlist, deleteCart } from "../../services/userService";
 import SnackBarComponent from "../SnackBar/SnackBar";
 import CheckoutCourseList from "./SubComponents/CheckoutCourseList";
 
-function CheckoutCourse() {
+function CheckoutCourse({ cartList }) {
   const classes = useStyles();
 
   const { data: courseData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
-    revalidateOnFocus: false,
-    dedupingInterval: 10000,
-  });
-
-  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });

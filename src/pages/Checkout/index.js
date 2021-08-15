@@ -1,19 +1,34 @@
-import { Box, makeStyles } from "@material-ui/core";
+import { Box, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
+import useSWR from "swr";
 import CheckoutCourse from "../../components/CheckoutComponents/CheckoutCourse";
 import OrderSummary from "../../components/CheckoutComponents/OrderSummary";
-import NavBar from "../../components/NavBar/index";
+import { USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
+import { loadData } from "../../services/apiService";
 function Checkout() {
   const classes = useStyles();
 
+  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
   return (
-    <>
-      <NavBar />
-      <Box mt={8} className={classes.root}>
-        <CheckoutCourse />
-        <OrderSummary />
-      </Box>
-    </>
+    <Box mt={8} className={classes.root}>
+      {cartList?.length ? (
+        <>
+          <CheckoutCourse cartList={cartList} />
+          <OrderSummary cartList={cartList} />
+        </>
+      ) : (
+        <Box className={classes.emptyCart}>
+          <img src="/assets/img/empty_cart.svg" />
+          <Typography variant="h3" className={classes.title}>
+            Your cart is Empty
+          </Typography>
+        </Box>
+      )}
+    </Box>
   );
 }
 
@@ -26,6 +41,22 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       display: "block",
     },
+  },
+  emptyCart: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    margin: theme.spacing(6),
+    [theme.breakpoints.down("md")]: {
+      margin: theme.spacing(0),
+      paddingTop: theme.spacing(4),
+    },
+  },
+  title: {
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
   },
 }));
 

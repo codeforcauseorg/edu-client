@@ -31,7 +31,9 @@ const Routes = () => (
     <Route path={ROUTES.LESSONS_PLAYER} exact component={LessonsPlayer} />
 
     <AuthRoute exact path={ROUTES.CHECKOUT} type="private">
-      <Checkout />
+      <MainLayout>
+        <Checkout />
+      </MainLayout>
     </AuthRoute>
 
     <AuthRoute exact path={ROUTES.CATEGORIES}>

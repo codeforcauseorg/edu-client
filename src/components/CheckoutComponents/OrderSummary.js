@@ -39,7 +39,7 @@ const listItems = [
   },
 ];
 
-function OrderSummary() {
+function OrderSummary({ cartList }) {
   const classes = useStyles();
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -53,11 +53,6 @@ function OrderSummary() {
   };
 
   const { loading, success } = useSelector((state) => state.payment);
-
-  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
-    revalidateOnFocus: false,
-    dedupingInterval: 10000,
-  });
 
   const { data: currentUser } = useSWR(GET_USER_ENDPOINT, loadData, {
     revalidateOnFocus: false,
