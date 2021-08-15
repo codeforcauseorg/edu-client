@@ -28,7 +28,7 @@ function MainSection({ userInfo }) {
 
   return (
     <Container disableGutters>
-      <DashboardHero />
+      <DashboardHero currentUser={userInfo} />
       <Box className={classes.box}>
         {cardElements.map((items, index) => (
           <CardSection key={index} props={items} index={index} />

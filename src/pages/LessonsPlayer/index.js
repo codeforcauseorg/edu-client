@@ -17,12 +17,12 @@ function LessonsPlayer() {
     dedupingInterval: 100000,
   });
 
-  console.log(courseDetails);
-
   return (
     <>
       {courseDetails === undefined ? (
-        <CircularProgress />
+        <Box className={classes.loadingContainer}>
+          <CircularProgress size={50} />
+        </Box>
       ) : (
         <Box className={classes.root}>
           <Container className={classes.heroContainer} disableGutters>
@@ -48,6 +48,11 @@ const useStyles = makeStyles((theme) => ({
       maxWidth: "100%",
       marginTop: theme.spacing(7.5),
     },
+  },
+  loadingContainer: {
+    display: "flex",
+    justifyContent: "center",
+    padding: theme.spacing(20),
   },
 }));
 
