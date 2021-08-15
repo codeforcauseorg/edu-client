@@ -12,7 +12,7 @@ import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import React, { useState } from "react";
 
-function AssignmentList() {
+function AssignmentList({ props }) {
   const classes = useStyles();
 
   const [open, setOpen] = useState(false);
@@ -21,26 +21,32 @@ function AssignmentList() {
     setOpen(!open);
   };
 
+  console.log(props);
+
+  const { assignments, name } = props;
+
   return (
     <Box>
       <ListItem item button className={classes.listItem} onClick={handleClick}>
         <ListItemAvatar>
           <Avatar className={classes.avatar} src="assets/icon/assignment.png" />
         </ListItemAvatar>
-        <ListItemText primary="Web Development" secondary="Assignment (4)" />
+        <ListItemText primary={name} secondary={`Assignment (${assignments?.length})`} />
         {open ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
-        {[1, 2, 3].map((items, index) => (
-          <SubAssignmentList key={index} index={index + 1} />
+        {assignments?.map((items, index) => (
+          <SubAssignmentList key={index} index={index + 1} props={items} />
         ))}
       </Collapse>
     </Box>
   );
 }
 
-function SubAssignmentList({ index }) {
+function SubAssignmentList({ index, props }) {
   const classes = useStyles();
+
+  const { assignmenDescription, createdBy } = props;
 
   return (
     <ListItem>
@@ -50,8 +56,8 @@ function SubAssignmentList({ index }) {
         </Avatar>
       </ListItemAvatar>
       <ListItemText>
-        <Typography>Assignment (1)</Typography>
-        <Typography>Due Date: 31st August</Typography>
+        <Typography>{assignmenDescription}</Typography>
+        <Typography>{` By ` + createdBy}</Typography>
       </ListItemText>
     </ListItem>
   );

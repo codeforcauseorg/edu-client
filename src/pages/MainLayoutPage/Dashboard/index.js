@@ -4,6 +4,7 @@ import useSWR from "swr";
 import MainSection from "../../../components/DashboardComponents/MainSection";
 import SecondarySection from "../../../components/DashboardComponents/SecondarySection";
 import {
+  COURSE_DETAIL_ENDPOINT,
   GET_DOUBT_ENDPOINT,
   GET_USER_ENDPOINT,
   USER_ENROLLED_COURSE_ENDPOINT,
@@ -14,6 +15,11 @@ function Dashboard() {
   const classes = useStyles();
 
   const { data: currentUserData } = useSWR(GET_USER_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
+  const { data: courseDetailData } = useSWR(COURSE_DETAIL_ENDPOINT + "all", loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
@@ -30,7 +36,9 @@ function Dashboard() {
 
   const currentUserDoubt = doubtsList?.filter((doubt) => doubt?.asked_by === currentUserData?.id);
 
-  console.log(userEnrolledCourses);
+  const userCourses = courseDetailData?.filter(
+    (course) => course?.id === userEnrolledCourses?.courseId
+  );
 
   return (
     <Container className={classes.root}>
@@ -42,7 +50,7 @@ function Dashboard() {
         <Container className={classes.innerContainer} disableGutters>
           <MainSection userInfo={currentUserData} userDoubtList={currentUserDoubt} />
           <Hidden lgDown>
-            <SecondarySection userInfo={currentUserData} />
+            <SecondarySection userInfo={currentUserData} userCourse={userCourses} />
           </Hidden>
         </Container>
       )}
