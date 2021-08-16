@@ -6,7 +6,7 @@ import Announcements from "./Announcements";
 import Overview from "./Overview";
 import QuestionAndAnswer from "./QuestionAndAnswer";
 
-function TabComponents({ courseInfo }) {
+function TabComponents({ courseInfo, courseDoubt }) {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(0);
@@ -48,7 +48,7 @@ function TabComponents({ courseInfo }) {
         <NotesSection />
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <QuestionAndAnswer courseInfo={courseInfo} />
+        <QuestionAndAnswer courseInfo={courseInfo} courseDoubt={courseDoubt} />
       </TabPanel>
       <TabPanel value={value} index={4}>
         <Announcements courseInfo={courseInfo} />

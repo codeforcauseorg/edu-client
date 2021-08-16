@@ -5,7 +5,7 @@ import { Player } from "video-react";
 import TabComponents from "./TabComponents";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 
-function CourseVideoPlayer({ courseInfo }) {
+function CourseVideoPlayer({ courseInfo, courseDoubt }) {
   const classes = useStyles();
 
   const { name, mentor, video_num } = courseInfo;
@@ -13,8 +13,6 @@ function CourseVideoPlayer({ courseInfo }) {
   const mentorName = mentor?.map(
     (items, index) => `${items.name} ${index < mentor.length - 1 ? "& " : ""} `
   );
-
-  console.log(courseInfo);
 
   return (
     <Box className={classes.videoContainer}>
@@ -39,7 +37,7 @@ function CourseVideoPlayer({ courseInfo }) {
           <Typography variant="subtitle1">{`1 / ${video_num}  lessons`}</Typography>
         </Box>
       </Box>
-      <TabComponents courseInfo={courseInfo} />
+      <TabComponents courseInfo={courseInfo} courseDoubt={courseDoubt} />
     </Box>
   );
 }

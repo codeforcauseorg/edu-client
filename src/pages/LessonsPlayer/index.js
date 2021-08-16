@@ -5,7 +5,7 @@ import CourseLessonList from "../../components/LessonsPlayerComponents/CourseLes
 import { useParams } from "react-router";
 import useSWR from "swr";
 import { loadData } from "../../services/apiService";
-import { COURSE_DETAIL_ENDPOINT } from "../../constants/apiEndpoints";
+import { COURSE_DETAIL_ENDPOINT, GET_DOUBT_ENDPOINT } from "../../constants/apiEndpoints";
 
 function LessonsPlayer() {
   const classes = useStyles();
@@ -17,16 +17,25 @@ function LessonsPlayer() {
     dedupingInterval: 100000,
   });
 
+  const { data } = useSWR(GET_DOUBT_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 10000,
+  });
+
+  const courseDoubtID = courseDetails?.doubts.map((items) => items._id);
+
+  const courseDoubt = data?.filter((doubt) => courseDoubtID.includes(doubt._id));
+
   return (
     <>
-      {courseDetails === undefined ? (
+      {courseDetails === undefined && courseDetails === undefined && data === undefined ? (
         <Box className={classes.loadingContainer}>
           <CircularProgress size={50} />
         </Box>
       ) : (
         <Box className={classes.root}>
           <Container className={classes.heroContainer} disableGutters>
-            <CourseVideoPlayer courseInfo={courseDetails} />
+            <CourseVideoPlayer courseInfo={courseDetails} courseDoubt={courseDoubt} />
             <Hidden lgDown>
               <CourseLessonList courseInfo={courseDetails} />
             </Hidden>
