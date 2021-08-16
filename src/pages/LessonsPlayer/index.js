@@ -22,13 +22,13 @@ function LessonsPlayer() {
     dedupingInterval: 10000,
   });
 
-  const courseDoubtID = courseDetails?.doubts.map((items) => items._id);
+  const courseDoubtID = courseDetails?.doubts?.map((items) => items._id);
 
-  const courseDoubt = data?.filter((doubt) => courseDoubtID.includes(doubt._id));
+  const courseDoubt = data?.filter((doubt) => courseDoubtID?.includes(doubt._id));
 
   return (
     <>
-      {courseDetails === undefined && courseDetails === undefined && data === undefined ? (
+      {[courseDetails, data].includes(undefined) ? (
         <Box className={classes.loadingContainer}>
           <CircularProgress size={50} />
         </Box>

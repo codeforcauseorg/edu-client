@@ -1,26 +1,12 @@
-import {
-  Avatar,
-  Box,
-  Chip,
-  CircularProgress,
-  Container,
-  Divider,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
-import { EditorState, convertFromRaw } from "draft-js";
-import { Editor } from "react-draft-wysiwyg";
-import moment from "moment";
-import React, { useEffect, useState } from "react";
+import { Box, Chip, CircularProgress, Container, Divider, makeStyles } from "@material-ui/core";
+import React from "react";
 import { useParams } from "react-router";
 import useSWR from "swr";
 import CommentSection from "../../components/DoubtDetailSectionComponent/CommentSection";
 import PostCommentSection from "../../components/DoubtDetailSectionComponent/PostCommentSection";
 import { GET_DOUBT_DETAILS_ENDPOINT } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
+import DoubtHeaderSection from "../../components/DoubtDetailSectionComponent/DoubtHeaderSection";
 
 function DoubtDetailSection() {
   const classes = useStyles();
@@ -32,14 +18,6 @@ function DoubtDetailSection() {
     dedupingInterval: 100000,
   });
 
-  const [editor, seteditor] = useState(EditorState.createEmpty());
-
-  const obj = JSON.parse(doubtDetails.doubtBody);
-
-  useEffect(() => {
-    seteditor(EditorState.createWithContent(convertFromRaw(obj)));
-  }, [doubtDetails]);
-
   return (
     <Container className={classes.root} disableGutters>
       {doubtDetails === undefined ? (
@@ -48,26 +26,7 @@ function DoubtDetailSection() {
         </Box>
       ) : (
         <>
-          <Box className={classes.headderContainer}>
-            <Typography variant="h3" className={classes.questionTitle} gutterBottom>
-              {doubtDetails.question}
-            </Typography>
-            <ListItem>
-              <ListItemAvatar>
-                <Avatar src={doubtDetails.photoUrl} />
-              </ListItemAvatar>
-              <ListItemText>
-                <Typography variant="body2">Adarsh Kumar Singh</Typography>
-                <Typography>{moment(doubtDetails.createdAt).fromNow()}</Typography>
-              </ListItemText>
-            </ListItem>
-          </Box>
-          <Editor
-            editorState={editor}
-            editorClassName={classes.questionDescription}
-            readOnly
-            toolbarClassName={classes.toolbar}
-          />
+          <DoubtHeaderSection doubtInfo={doubtDetails} />
           <PostCommentSection doubtInfo={doubtDetails} />
           <Chip
             className={classes.totalAnswer}
@@ -104,9 +63,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     padding: theme.spacing(8),
-  },
-  toolbar: {
-    display: "none",
   },
 }));
 

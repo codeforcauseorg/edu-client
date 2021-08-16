@@ -22,7 +22,7 @@ function CourseDoubtQuestionList({ props }) {
 
   const history = useHistory();
 
-  const { createdAt, doubtBody, photoUrl, _id, answers } = props;
+  const { createdAt, doubtBody, photoUrl, _id, answers, question } = props;
 
   const obj = JSON.parse(doubtBody);
 
@@ -52,7 +52,7 @@ function CourseDoubtQuestionList({ props }) {
         <Typography color="textSecondary" variant="subtitle2" className={classes.askedDate}>
           Asked: {moment(createdAt).fromNow()}
         </Typography>
-        <Typography variant="h6">Data doesnt display.</Typography>
+        <Typography variant="h6">{question}</Typography>
         <Editor
           editorState={editor}
           editorClassName={classes.questionDescription}
