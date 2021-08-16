@@ -2,8 +2,10 @@ import { makeStyles, Box, Typography, Tooltip } from "@material-ui/core";
 import React from "react";
 import DescriptionIcon from "@material-ui/icons/Description";
 
-function Overview() {
+function Overview({ courseInfo }) {
   const classes = useStyles();
+
+  const { courseLongDescription } = courseInfo;
 
   return (
     <Box className={classes.container}>
@@ -11,8 +13,7 @@ function Overview() {
         About this class
       </Typography>
       <Typography variant="subtitle1" gutterBottom>
-        Learn how to build full-stack mobile apps using React Native, Redux, React Navigation with
-        Node.js on the backend.
+        {courseLongDescription}
       </Typography>
       <Typography variant="h4" className={classes.attachementsTitle}>
         Important Attachements

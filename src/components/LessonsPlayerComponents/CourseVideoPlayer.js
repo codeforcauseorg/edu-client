@@ -1,11 +1,20 @@
+/* eslint-disable camelcase */
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
 import { Player } from "video-react";
 import TabComponents from "./TabComponents";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 
-function CourseVideoPlayer() {
+function CourseVideoPlayer({ courseInfo }) {
   const classes = useStyles();
+
+  const { name, mentor, video_num } = courseInfo;
+
+  const mentorName = mentor?.map(
+    (items, index) => `${items.name} ${index < mentor.length - 1 ? "& " : ""} `
+  );
+
+  console.log(courseInfo);
 
   return (
     <Box className={classes.videoContainer}>
@@ -14,22 +23,23 @@ function CourseVideoPlayer() {
       </Player>
       <Box className={classes.videoInfoContainer}>
         <Typography variant="h3" color="textPrimary" gutterBottom>
-          Flull Stack Development Course by code for Cause
+          {name}
         </Typography>
+
         <Typography
           variant="subtitle1"
           color="textSecondary"
           gutterBottom
           className={classes.mentorNames}
         >
-          Anuj Garg & Ganga Chaturvedi{" "}
+          {mentorName}
         </Typography>
         <Box className={classes.lessons}>
           <PlayCircleOutlineIcon className={classes.playIcon} />
-          <Typography variant="subtitle1">12 / 35 lessons</Typography>
+          <Typography variant="subtitle1">{`1 / ${video_num}  lessons`}</Typography>
         </Box>
       </Box>
-      <TabComponents />
+      <TabComponents courseInfo={courseInfo} />
     </Box>
   );
 }

@@ -28,8 +28,6 @@ function Classroom() {
     (course) => course?.id === userEnrolledCourses?.courseId
   );
 
-  console.log(userCourses);
-
   return (
     <Container className={classes.root}>
       <Box className={classes.container}>
