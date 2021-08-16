@@ -21,7 +21,6 @@ function PostCommentSection({ doubtInfo }) {
 
   const user = useSelector((state) => state.account.user);
 
-  console.log(doubtInfo);
   const { _id } = doubtInfo;
 
   const onEditorStateChange = (editorState) => {

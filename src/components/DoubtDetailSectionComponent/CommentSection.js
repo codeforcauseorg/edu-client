@@ -9,7 +9,9 @@ import {
   Paper,
 } from "@material-ui/core";
 import moment from "moment";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { EditorState, convertFromRaw } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
 
 function CommentSection({ answers }) {
   const classes = useStyles();
@@ -25,8 +27,16 @@ function CommentSection({ answers }) {
 
 function AnswerList({ props }) {
   const classes = useStyles();
-  console.log(props);
+
   const { createdAt, photoUrl, answer } = props;
+
+  const [editor, seteditor] = useState(EditorState.createEmpty());
+
+  const obj = JSON.parse(answer);
+
+  useEffect(() => {
+    seteditor(EditorState.createWithContent(convertFromRaw(obj)));
+  }, [props]);
 
   return (
     <Paper className={classes.answers}>
@@ -40,7 +50,7 @@ function AnswerList({ props }) {
         </ListItemText>
       </ListItem>
       <Box className={classes.answerBody}>
-        <Typography variant="subtitle1">{answer}</Typography>
+        <Editor editorState={editor} readOnly toolbarClassName={classes.toolbar} />
       </Box>
     </Paper>
   );
@@ -57,6 +67,9 @@ const useStyles = makeStyles((theme) => ({
   },
   answerBody: {
     padding: theme.spacing(4),
+  },
+  toolbar: {
+    display: "none",
   },
 }));
 
