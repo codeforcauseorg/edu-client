@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { Box, Chip, CircularProgress, Container, Divider, makeStyles } from "@material-ui/core";
 import React from "react";
 import { useParams } from "react-router";
@@ -13,7 +14,7 @@ function DoubtDetailSection() {
 
   const { id } = useParams();
 
-  const { data: doubtDetails } = useSWR(GET_DOUBT_DETAILS_ENDPOINT + "/" + id, loadData, {
+  const { data: doubtDetails } = useSWR(GET_DOUBT_DETAILS_ENDPOINT + id, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 100000,
   });

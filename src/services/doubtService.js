@@ -27,14 +27,13 @@ export const postDoubt = (courseID, tags, userID, question, doubtBody, userName)
   };
 };
 
-export const postDoubtAnswer = (doubtID, userID, answerBody, userName) => {
+export const postDoubtAnswer = (doubtID, userID, answerBody) => {
   return (dispatch) => {
     try {
       dispatch(doubtLoading(true));
       const postDoubtAnswer = {
         answered_by: userID,
         answer: answerBody,
-        answered_by_name: userName,
       };
       axios.post(GET_DOUBT_ENDPOINT + `/newAnswer/${doubtID}`, postDoubtAnswer).then((res) => {
         const result = res.data;
