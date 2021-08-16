@@ -1,11 +1,12 @@
-import { Box, Container, makeStyles, Typography } from "@material-ui/core";
+import { Box, Container, List, makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 import useSWR from "swr";
 import CardContainer from "../../components/cardContainer/cardContainer";
+import AssignmentList from "../../components/ClassroomComponent/AssignmentList";
 import MediaCard from "../../components/CourseMediaCard/MediaCard";
 import SkeletonMediaCard from "../../components/skeleton/SkeletonMediaCard";
 import {
-  ALL_COURSE_CARD_ENDPOINT,
+  COURSE_DETAIL_ENDPOINT,
   USER_ENROLLED_COURSE_ENDPOINT,
 } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
@@ -13,17 +14,21 @@ import { loadData } from "../../services/apiService";
 function Classroom() {
   const classes = useStyles();
 
-  const { data: enrolledCourses } = useSWR(USER_ENROLLED_COURSE_ENDPOINT, loadData, {
+  const { data: courseDetailData } = useSWR(COURSE_DETAIL_ENDPOINT + "all", loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
 
-  const { data: course } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+  const { data: userEnrolledCourses } = useSWR(USER_ENROLLED_COURSE_ENDPOINT, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
 
-  console.log(enrolledCourses);
+  const userCourses = courseDetailData?.filter(
+    (course) => course?.id === userEnrolledCourses?.courseId
+  );
+
+  console.log(userCourses);
 
   return (
     <Container className={classes.root}>
@@ -33,14 +38,20 @@ function Classroom() {
         </Typography>
       </Box>
       <Box mt={4}>
-        <Typography variant="h3">Enrolled Courses (2)</Typography>
+        <Typography variant="h3">{`Enrolled Courses (${userCourses?.length})`}</Typography>
         <CardContainer>
-          {course === undefined
+          {userCourses === undefined
             ? [1, 2, 3, 4].map((index) => <SkeletonMediaCard key={index} />)
-            : course.map((items, index) => (
+            : userCourses.map((items, index) => (
                 <MediaCard key={index} props={items} enrolledCourse={true} />
               ))}
         </CardContainer>
+        <Typography variant="h3">Assignments</Typography>
+        <List container spacing={4}>
+          {userCourses === undefined
+            ? [1, 2, 3, 4].map((index) => <Box key={index} />)
+            : userCourses.map((items, index) => <AssignmentList key={index} props={items} />)}
+        </List>
       </Box>
     </Container>
   );
@@ -51,9 +62,22 @@ const useStyles = makeStyles((theme) => ({
     background: "linear-gradient(90deg, #5848EA 0%, #9549EB 100%)",
     height: "35vh",
     borderRadius: "15px",
+    marginTop: theme.spacing(2),
+    [theme.breakpoints.down("md")]: {
+      height: "25vh",
+    },
+    [theme.breakpoints.down("lg")]: {
+      height: "20vh",
+    },
   },
   root: {
     maxWidth: "75%",
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "100%",
+    },
+    [theme.breakpoints.down("lg")]: {
+      maxWidth: "95%",
+    },
   },
   title: {
     color: "#fff",

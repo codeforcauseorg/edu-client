@@ -10,7 +10,7 @@ function AssignmentsSection({ userCourse }) {
       <Typography variant="h4" className={classes.heading}>
         {`Active Assignments (${userCourse?.length})`}
       </Typography>
-      <List container className={classes.grid} spacing={4}>
+      <List container spacing={4}>
         {userCourse?.map((items, index) => (
           <AssignmentList key={index} props={items} />
         ))}
