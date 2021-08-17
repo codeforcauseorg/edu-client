@@ -2,19 +2,21 @@ import { makeStyles, Box, Paper, Avatar, Typography, Button } from "@material-ui
 import React from "react";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 
-const listItems = [
-  {
-    title: "Answres",
-    value: "25",
-  },
-  {
-    title: "Upvotes",
-    value: "14",
-  },
-];
-
-function AskedQuestion() {
+function AskedQuestion({ props }) {
   const classes = useStyles();
+
+  const { question, answers } = props;
+
+  const listItems = [
+    {
+      title: "Answres",
+      value: answers.length,
+    },
+    {
+      title: "Upvotes",
+      value: "0",
+    },
+  ];
 
   return (
     <Box className={classes.root}>
@@ -25,7 +27,7 @@ function AskedQuestion() {
           </Avatar>
           <Box className={classes.infoContainer}>
             <Typography variant="subtitle1" className={classes.questionTitle}>
-              How to display dynamic WooCommerce bookings checkout fields data in admin/order page ?
+              {question}
             </Typography>
             <Box className={classes.buttonContainer}>
               {listItems.map((items, index) => (

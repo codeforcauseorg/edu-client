@@ -1,19 +1,20 @@
 import {
-  makeStyles,
+  Avatar,
   Box,
+  Collapse,
   ListItem,
   ListItemAvatar,
-  Avatar,
   ListItemText,
-  Collapse,
+  makeStyles,
   Typography,
 } from "@material-ui/core";
 import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 import React, { useState } from "react";
 
 function AssignmentList({ props }) {
   const classes = useStyles();
+
+  const { assignments } = props;
 
   const [open, setOpen] = useState(false);
 
@@ -21,16 +22,14 @@ function AssignmentList({ props }) {
     setOpen(!open);
   };
 
-  const { assignments, name } = props;
-
   return (
-    <Box>
+    <Box className={classes.container}>
       <ListItem item button className={classes.listItem} onClick={handleClick}>
         <ListItemAvatar>
           <Avatar className={classes.avatar} src="assets/icon/assignment.png" />
         </ListItemAvatar>
         <ListItemText primary={name} secondary={`Assignment (${assignments?.length})`} />
-        {open ? <ExpandLess /> : <ExpandMore />}
+        {open ? <ExpandLess /> : <ExpandLess />}
       </ListItem>
       <Collapse in={open} timeout="auto" unmountOnExit>
         {assignments?.map((items, index) => (
@@ -66,17 +65,8 @@ const useStyles = makeStyles((theme) => ({
     background: "#F8F9FD",
     borderRadius: "5px",
     padding: theme.spacing(4),
-  },
-  heading: {
-    textTransform: "uppercase",
-    color: theme.palette.text.primary,
-    padding: theme.spacing(2),
-  },
-  divider: {
-    width: "20%",
-    height: "5px",
-    marginTop: theme.spacing(1),
-    borderRadius: "5px",
+    marginTop: theme.spacing(4),
+    marginBottom: theme.spacing(4),
   },
   avatar: {
     borderRadius: "0px",

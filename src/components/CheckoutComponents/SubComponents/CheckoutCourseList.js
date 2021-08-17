@@ -1,10 +1,10 @@
-import { CardMedia, Card, makeStyles, CardContent, Typography, Box } from "@material-ui/core";
+import { CardMedia, Card, makeStyles, CardContent, Typography, Box, Chip } from "@material-ui/core";
 import React from "react";
 
 function CheckoutCourseList({ courseInfo, removeItem, moveToWishlist }) {
   const classes = useStyles();
 
-  const { name, courseThumbnail, mentor } = courseInfo;
+  const { name, courseThumbnail, mentor, crossPrice } = courseInfo;
 
   const mentorName = mentor?.map(
     (items, index) => `${items.name} ${index < mentor.length - 1 ? ", " : ""} `
@@ -32,6 +32,7 @@ function CheckoutCourseList({ courseInfo, removeItem, moveToWishlist }) {
           <Typography variant="subtitle1" color="textSecondary">
             By {mentorName}
           </Typography>
+          <Chip size="small" label={" ₹ " + crossPrice} className={classes.price} />
           <Box className={classes.actions}>
             {actionItems.map((items, index) => (
               <Typography key={index} className={classes.actionTitle} onClick={items.onClick}>
@@ -57,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cover: {
     width: 160,
-    height: 120,
+    height: 150,
     margin: theme.spacing(2),
     borderRadius: "5px",
     [theme.breakpoints.down("sm")]: {
@@ -76,6 +77,11 @@ const useStyles = makeStyles((theme) => ({
   actions: {
     display: "flex",
     marginTop: theme.spacing(4),
+  },
+  price: {
+    background: theme.palette.primary.main,
+    color: "#fff",
+    marginTop: theme.spacing(1),
   },
 }));
 

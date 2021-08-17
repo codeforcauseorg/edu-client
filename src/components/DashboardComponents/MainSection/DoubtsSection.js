@@ -3,7 +3,7 @@ import React from "react";
 import EditIcon from "@material-ui/icons/Edit";
 import AskedQuestion from "../SubComponents/AskedQuestion";
 
-function DoubtsSection() {
+function DoubtsSection({ userDoubtList }) {
   const classes = useStyles();
 
   return (
@@ -26,9 +26,9 @@ function DoubtsSection() {
       </Box>
       <Box className={classes.gridContainer}>
         <Grid container className={classes.grid}>
-          {[1, 2, 3, 4, 5].map((items, index) => (
+          {userDoubtList?.map((items, index) => (
             <Grid items key={index} xs={12} md={6} lg={4}>
-              <AskedQuestion />
+              <AskedQuestion props={items} />
             </Grid>
           ))}
         </Grid>

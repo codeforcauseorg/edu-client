@@ -1,12 +1,14 @@
 import {
   UPDATE_USER_ENDPOINT,
   USER_CART_ENDPOINT,
+  USER_ENROLLED_COURSE_ENDPOINT,
   USER_WISHLIST_ENDPOINT,
 } from "../constants/apiEndpoints";
 import axios from "../utils/axios";
 import errorHandler from "./errorHandler";
 import { storage } from "../firebase";
 import { userLoading } from "../store/actions/userActions";
+import { paymentLoading, paymentSuccess } from "../store/actions/paymentAction";
 
 // Add wishlist asyns function
 
@@ -49,7 +51,8 @@ export const addCart = (courseId) => {
       };
       const response = await axios.put(USER_CART_ENDPOINT, cartData);
       if (response.status === 200) {
-        await response.data;
+        const result = await response.data;
+        console.log(result);
       }
     } catch (error) {
       errorHandler(error, dispatch);
@@ -125,6 +128,31 @@ export const updateUserDetails = (firstName, lastName, phoneNumber, description,
     } catch (error) {
       dispatch(userLoading(false));
       errorHandler(error, dispatch);
+    }
+  };
+};
+
+// enroll course  async function
+
+export const userEnrolledCourse = (courseId, userID) => {
+  return async (dispatch) => {
+    dispatch(paymentLoading(true));
+    try {
+      const enrolledData = {
+        studentId: userID,
+        courseId: courseId,
+      };
+      const response = await axios.put(USER_ENROLLED_COURSE_ENDPOINT, enrolledData);
+      if (response.status === 200) {
+        const result = await response.data;
+        console.log(result);
+        dispatch(paymentLoading(false));
+        dispatch(paymentSuccess(true));
+      }
+    } catch (error) {
+      // errorHandler(error, dispatch);
+      console.log(error);
+      dispatch(userLoading(false));
     }
   };
 };

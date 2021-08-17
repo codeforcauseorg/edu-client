@@ -1,22 +1,18 @@
 import React from "react";
 import { makeStyles, CardMedia, Box } from "@material-ui/core";
-import useSWR from "swr";
-import { GET_USER_ENDPOINT } from "../../constants/apiEndpoints";
-import { loadData } from "../../services/apiService";
 
-function ProfileHeroLayout({ children }) {
+function ProfileHeroLayout({ children, props }) {
   const classes = useStyles();
 
-  const { data: currentUserData } = useSWR(GET_USER_ENDPOINT, loadData, {
-    revalidateOnFocus: false,
-    dedupingInterval: 10000,
-  });
+  const { coverPhotoUrl, image } = props;
 
   const coverPicture = () => {
-    if (currentUserData === undefined || currentUserData.coverPhotoUrl === "") {
+    if (image) {
+      return URL.createObjectURL(image);
+    } else if (coverPhotoUrl === "") {
       return "assets/img/profileBanner.svg";
     }
-    return currentUserData?.coverPhotoUrl;
+    return coverPhotoUrl;
   };
 
   return (

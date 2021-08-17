@@ -1,15 +1,16 @@
 import { makeStyles, Box, Typography, Grid, Paper, Divider } from "@material-ui/core";
 import React from "react";
 
-const scoreBoardList = [
-  { title: "Score", value: "500", color: "#F0B1B6" },
-  { title: "Challenges", value: "4", color: "#6FE1E4" },
-  { title: "Recent rank", value: "1st", color: "#E6BFC4" },
-  { title: "Question Answred", value: "20", color: "#C379E6" },
-];
-
-function ScoreBoard() {
+function ScoreBoard({ scorBoard }) {
   const classes = useStyles();
+
+  const scoreBoardList = [
+    { title: "Score", value: scorBoard, color: "#F0B1B6" },
+    { title: "Challenges", value: "4", color: "#6FE1E4" },
+    { title: "Recent rank", value: "1st", color: "#E6BFC4" },
+    { title: "Question Answred", value: "20", color: "#C379E6" },
+  ];
+
   return (
     <Box className={classes.container}>
       <Typography variant="h4" className={classes.heading}>

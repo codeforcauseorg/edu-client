@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import {
   Box,
   Button,
@@ -14,28 +15,25 @@ import React, { useState } from "react";
 import AddAPhotoIcon from "@material-ui/icons/AddAPhoto";
 import { useDispatch, useSelector } from "react-redux";
 import { editUser } from "../../../services/userService";
-import useSWR from "swr";
+import { mutate } from "swr";
 import { GET_USER_ENDPOINT } from "../../../constants/apiEndpoints";
-import { loadData } from "../../../services/apiService";
 
-function EditProfile({ open, onClose }) {
+function EditProfile({ open, onClose, props }) {
   const classes = useStyles();
 
-  const { data: currentUserData } = useSWR(GET_USER_ENDPOINT, loadData, {
-    revalidateOnFocus: false,
-  });
+  const { coverPhotoUrl, first_name, last_name, phone, description, address } = props;
 
-  const [image, setImage] = useState(currentUserData?.coverPhotoUrl);
+  const [image, setImage] = useState(coverPhotoUrl);
 
-  const [firstName, setFirstName] = React.useState(currentUserData?.first_name);
+  const [firstName, setFirstName] = React.useState(first_name);
 
-  const [lastName, setLastName] = React.useState(currentUserData?.last_name);
+  const [lastName, setLastName] = React.useState(last_name);
 
-  const [number, setNumber] = React.useState(currentUserData?.phone);
+  const [number, setNumber] = React.useState(phone);
 
-  const [description, setDescription] = React.useState(currentUserData?.description);
+  const [descriptionValue, setDescription] = React.useState(description);
 
-  const [address, setAddress] = React.useState(currentUserData?.address);
+  const [addressValue, setAddress] = React.useState(address);
 
   const dispatch = useDispatch();
 
@@ -47,14 +45,17 @@ function EditProfile({ open, onClose }) {
     }
   };
 
+  console.log(props);
+
   const handleSubmit = () => {
-    dispatch(editUser(firstName, lastName, number, description, address, image));
+    mutate(GET_USER_ENDPOINT, { ...props, image }, false);
+    dispatch(editUser(firstName, lastName, number, descriptionValue, addressValue, image));
   };
 
   const coverPictureImage = () => {
     if (image?.name) {
       return URL.createObjectURL(image);
-    } else if (image === undefined || image === "") {
+    } else if (image === "") {
       return "assets/img/profileBanner.svg";
     } else {
       return image;
@@ -118,7 +119,7 @@ function EditProfile({ open, onClose }) {
               label="Description"
               variant="outlined"
               multiline
-              value={description}
+              value={descriptionValue}
               rows={4}
               onChange={(event) => setDescription(event.target.value)}
             />
@@ -128,7 +129,7 @@ function EditProfile({ open, onClose }) {
               size="small"
               label="Address"
               variant="outlined"
-              value={address}
+              value={addressValue}
               multiline
               rows={4}
               onChange={(event) => setAddress(event.target.value)}

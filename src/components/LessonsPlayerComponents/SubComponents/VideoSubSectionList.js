@@ -11,8 +11,10 @@ import {
 import VideocamIcon from "@material-ui/icons/Videocam";
 import DescriptionIcon from "@material-ui/icons/Description";
 
-function VideoSubSectionList() {
+function VideoSubSectionList({ props }) {
   const classes = useStyles();
+
+  const { lectureName, time } = props;
 
   return (
     <ListItem button className={classes.listItem}>
@@ -23,11 +25,11 @@ function VideoSubSectionList() {
       </ListItemAvatar>
       <ListItemText>
         <Typography variant="subtitle1" className={classes.courseTitle}>
-          Setting Up the Backend and DB.
+          {lectureName}
         </Typography>
         <Box className={classes.subsection}>
           <Typography variant="subtitle1" className={classes.courseTitle}>
-            25 min
+            {time} min
           </Typography>
           <DescriptionIcon className={classes.docIcon} />
         </Box>

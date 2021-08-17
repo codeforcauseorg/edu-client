@@ -3,14 +3,18 @@ import { Box, Container, makeStyles } from "@material-ui/core";
 import DashboardHero from "./DashboardHero";
 import DoubtsSection from "./DoubtsSection";
 import CardSection from "./CardSection";
+import { useHistory } from "react-router";
 
-function MainSection({ userInfo }) {
+function MainSection({ userInfo, userDoubtList }) {
   const classes = useStyles();
+
+  const history = useHistory();
 
   const cardElements = [
     {
       title: "Classroom",
       banner: "assets/img/classroomBanner.svg",
+      onClick: () => history.push("/classroom"),
     },
     {
       title: "Interview your friend",
@@ -24,13 +28,13 @@ function MainSection({ userInfo }) {
 
   return (
     <Container disableGutters>
-      <DashboardHero />
+      <DashboardHero currentUser={userInfo} />
       <Box className={classes.box}>
         {cardElements.map((items, index) => (
           <CardSection key={index} props={items} index={index} />
         ))}
       </Box>
-      <DoubtsSection />
+      <DoubtsSection userDoubtList={userDoubtList} />
     </Container>
   );
 }

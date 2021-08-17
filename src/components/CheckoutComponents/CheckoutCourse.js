@@ -12,15 +12,10 @@ import { addWishlist, deleteCart } from "../../services/userService";
 import SnackBarComponent from "../SnackBar/SnackBar";
 import CheckoutCourseList from "./SubComponents/CheckoutCourseList";
 
-function CheckoutCourse() {
+function CheckoutCourse({ cartList }) {
   const classes = useStyles();
 
   const { data: courseData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
-    revalidateOnFocus: false,
-    dedupingInterval: 10000,
-  });
-
-  const { data: cartList } = useSWR(USER_CART_ENDPOINT, loadData, {
     revalidateOnFocus: false,
     dedupingInterval: 10000,
   });
@@ -74,7 +69,7 @@ function CheckoutCourse() {
     <Box className={classes.root}>
       <Typography variant="h4">Course in Cart ({cartList?.length})</Typography>
       <Divider className={classes.divider} />
-      {cart.map((items, index) => (
+      {cart?.map((items, index) => (
         <CheckoutCourseList
           key={index}
           courseInfo={items}

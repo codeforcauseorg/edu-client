@@ -23,6 +23,9 @@ function VideoContentList({ props, index }) {
     setopen(!open);
   };
 
+  const { chapterName, time, lecture } = props;
+  console.log(props);
+
   return (
     <Box>
       <ListItem button className={classes.listItem} onClick={() => handleChange()}>
@@ -33,11 +36,11 @@ function VideoContentList({ props, index }) {
         </ListItemAvatar>
         <ListItemText>
           <Typography variant="h5" className={classes.courseTitle}>
-            Course Introduction
+            {chapterName}
           </Typography>
           <Box className={classes.subsection}>
             <Typography component="span" className={classes.duration}>
-              69 min
+              {time}
             </Typography>
             <Typography variant="subtitle2" className={classes.resources}>
               Resources (1)
@@ -49,8 +52,8 @@ function VideoContentList({ props, index }) {
         </IconButton>
       </ListItem>
       <Collapse in={open}>
-        {[1, 2, 3].map((items, index) => (
-          <VideoSubSectionList key={index} />
+        {lecture.map((items, index) => (
+          <VideoSubSectionList key={index} props={items} />
         ))}
       </Collapse>
     </Box>

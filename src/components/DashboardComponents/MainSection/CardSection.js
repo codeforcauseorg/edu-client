@@ -15,7 +15,7 @@ import MenuComponent from "../SubComponents/MenuComponent";
 function CardSection({ props, index }) {
   const classes = useStyles();
 
-  const { title, banner } = props;
+  const { title, banner, onClick } = props;
 
   const theme = useTheme();
 
@@ -35,6 +35,7 @@ function CardSection({ props, index }) {
 
   return (
     <Card
+      onClick={() => onClick()}
       className={classes.card}
       style={{
         marginLeft: index === 2 && matches ? 20 : 0,

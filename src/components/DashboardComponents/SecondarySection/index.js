@@ -4,13 +4,14 @@ import { Box, makeStyles } from "@material-ui/core";
 import ScoreBoard from "./ScoreBoard";
 import AssignmentsSection from "./AssignmentsSection";
 
-function SecondarySection() {
+function SecondarySection({ userInfo, userCourse }) {
   const classes = useStyles();
+  const { score } = userInfo;
 
   return (
     <Box className={classes.root}>
-      <ScoreBoard />
-      <AssignmentsSection />
+      <ScoreBoard scorBoard={score} />
+      <AssignmentsSection userCourse={userCourse} />
     </Box>
   );
 }

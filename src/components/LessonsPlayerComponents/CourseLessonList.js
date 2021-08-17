@@ -2,8 +2,10 @@ import React from "react";
 import { makeStyles, Box, AppBar, Toolbar, Typography, List, Hidden } from "@material-ui/core";
 import VideoContentList from "./SubComponents/VideoContentList";
 
-function CourseLessonList() {
+function CourseLessonList({ courseInfo }) {
   const classes = useStyles();
+
+  const { schedule } = courseInfo;
 
   return (
     <Box className={classes.wrapperContainer}>
@@ -16,7 +18,7 @@ function CourseLessonList() {
           </AppBar>
         </Hidden>
         <List>
-          {[1, 2, 3, 4].map((items, index) => (
+          {schedule?.map((items, index) => (
             <VideoContentList key={index} props={items} index={index + 1} />
           ))}
         </List>

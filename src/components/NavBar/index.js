@@ -26,7 +26,7 @@ import ShopIcon from "@material-ui/icons/Shop";
 import { logoutAction } from "../../services/authService";
 import AdBanner from "../../components/AdBannerComponent/AdBanner";
 import useSWR from "swr";
-import { USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
+import { ALL_COURSE_CARD_ENDPOINT, USER_CART_ENDPOINT } from "../../constants/apiEndpoints";
 import { loadData } from "../../services/apiService";
 
 const navItemsLists = [
@@ -46,14 +46,13 @@ function NavBar() {
 
   const dispatch = useDispatch();
 
-  const searchResult = [
-    { label: "web Development", value: "web" },
-    { label: "react", value: "web" },
-    { label: "rust", value: "web" },
-  ];
+  const { data: courseCardData } = useSWR(ALL_COURSE_CARD_ENDPOINT, loadData, {
+    revalidateOnFocus: false,
+    dedupingInterval: 100000,
+  });
 
   const filterQuery = (inputValue) => {
-    return searchResult.filter((i) => i.label.toLowerCase().includes(inputValue.toLowerCase()));
+    return courseCardData?.filter((i) => i.name.toLowerCase().includes(inputValue.toLowerCase()));
   };
 
   const promiseOptions = (inputValue) =>
@@ -100,11 +99,13 @@ function NavBar() {
           </Hidden>
           <AsyncSelect
             className={classes.search}
+            getOptionLabel={(options) => options.name}
+            getOptionValue={(options) => options._id}
             placeholder={<Typography>Search Course, Categories or mentors...</Typography>}
             cacheOptions
             defaultOptions
             loadOptions={promiseOptions}
-            onChange={(opt) => history.push(`/search?q=${opt.label}&`)}
+            onChange={(opt) => history.push(`/search?q=${opt.name}&`)}
             theme={(theme) => ({
               ...theme,
               borderRadius: 5,

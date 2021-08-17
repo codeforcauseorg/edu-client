@@ -8,7 +8,7 @@ export const SIGNUP = "/signup";
 
 export const COURSE_DETAILS = "/course/:id";
 
-export const LESSONS_PLAYER = "/course/:courseName/lecture/:videoSectionId:videoSectionName";
+export const LESSONS_PLAYER = "/enrolled-course/:id";
 
 export const GAMIFICATION_BOARD = "/gamification-board";
 
@@ -21,6 +21,13 @@ export const SEARCH_SECTION = "/search";
 export const DOUBT_QUESTIONS_DETAILS = "/doubt-forum/:id";
 
 export const MENTOR_SECTION = "/mentor/:id";
+
+export const ASK_QUESTION = "/question/aks";
+
+export const CLASSROOM = "/classroom";
+
+export const CATEGORIES = "/categories/:name";
+
 // **************************************************************************
 
 export const CHALLENGES = "/challenges";

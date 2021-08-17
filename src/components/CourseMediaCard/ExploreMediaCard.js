@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import {
   Avatar,
   Box,
@@ -15,35 +16,61 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import SignalCellularAltIcon from "@material-ui/icons/SignalCellularAlt";
 import MovieCreationIcon from "@material-ui/icons/MovieCreation";
 import React from "react";
+import { useHistory } from "react-router";
 
 function ExploreMediaCard({ props }) {
   const classes = useStyles();
 
+  const history = useHistory();
+
+  const {
+    courseLevel,
+    courseThumbnail,
+    tags,
+    name,
+    rating,
+    reviews,
+    mentor,
+    no_of_enrollments,
+    crossPrice,
+    duration,
+    video_num,
+    _id,
+  } = props;
+
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia className={classes.media} title="title" image="courseImage" />
-        <CardContent className={classes.cardContent}>
+        <CardMedia className={classes.media} title="title" image={courseThumbnail} />
+        <CardContent className={classes.cardContent} onClick={() => history.push(`/course/${_id}`)}>
           <Box classes={classes.tagSection}>
-            <Chip variant="outlined" size="small" className={classes.tag} label="tag" />
+            {tags.map((items, index) => (
+              <Chip
+                key={index}
+                variant="outlined"
+                size="small"
+                className={classes.tag}
+                label={items}
+              />
+            ))}
           </Box>
           <Box className={classes.cardActions}>
             <Typography variant="h6" className={classes.title}>
-              title
+              {name}
             </Typography>
             <Box mt={1} className={classes.courseStatsContainer}>
               <Box className={classes.flexBox}>
                 <Typography noWrap className={classes.ratingNumber}>
-                  4.4
+                  {rating}
                 </Typography>
                 <StarIcon className={classes.starIcon} />
                 <Typography variant="body2" noWrap className={classes.totalRating}>
-                  (8,200)
+                  ({reviews.length})
                 </Typography>
               </Box>
               <Box className={classes.studentsContainer}>
                 <Typography variant="body2" noWrap className={classes.totalStudent}>
-                  8,547
+                  ({no_of_enrollments})
                 </Typography>
                 <Typography noWrap>Students</Typography>
               </Box>
@@ -51,15 +78,15 @@ function ExploreMediaCard({ props }) {
             <Box mt={2} className={classes.detailSection}>
               <Box className={classes.flexBox}>
                 <AccessTimeIcon className={classes.accessTimeIcon} />
-                <Typography noWrap>05 hr 02 min</Typography>
+                <Typography noWrap>{duration}</Typography>
               </Box>
               <Box className={classes.flexBox}>
                 <MovieCreationIcon className={classes.movieCreationIcon} />
-                <Typography noWrap>16 lectures</Typography>
+                <Typography noWrap>{video_num} lectures</Typography>
               </Box>
               <Box className={classes.flexBox}>
                 <SignalCellularAltIcon className={classes.signalCellularIcon} />
-                <Typography noWrap>Training</Typography>
+                <Typography noWrap>{courseLevel}</Typography>
               </Box>
             </Box>
           </Box>
@@ -67,17 +94,17 @@ function ExploreMediaCard({ props }) {
       </CardActionArea>
       <CardActions className={classes.cardFooter}>
         <Box className={classes.avatarContainer}>
-          {[1, 2].map((items, index) => (
+          {mentor.map((items, index) => (
             <Avatar
               key={index}
-              src={items.image}
+              src={items.mentorPhoto}
               className={classes.avatar}
-              onClick={() => console.log("mentors")}
+              onClick={() => history.push(`/mentor/${items._id}`)}
             />
           ))}
         </Box>
         <Box style={{ flexGrow: 1 }} />
-        <Chip size="small" className={classes.price} label="price" />
+        <Chip size="small" className={classes.price} label={" ₹ " + crossPrice} />
       </CardActions>
     </Card>
   );
@@ -108,7 +135,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 150,
-    margin: theme.spacing(2),
+    margin: theme.spacing(1),
     transition: "0.5s",
     cursor: "pointer",
     "&:hover": {

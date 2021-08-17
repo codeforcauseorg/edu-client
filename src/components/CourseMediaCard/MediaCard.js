@@ -18,8 +18,9 @@ import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
 import React, { useRef } from "react";
 import { useHistory } from "react-router";
 
-function MediaCard({ props, isDeleteButton, onClick }) {
+function MediaCard({ props, isDeleteButton, onClick, enrolledCourse }) {
   const {
+    id,
     _id,
     tags,
     name,
@@ -69,7 +70,12 @@ function MediaCard({ props, isDeleteButton, onClick }) {
         }
       />
       <CardActionArea>
-        <CardContent className={classes.cardContent} onClick={() => history.push(`/course/${_id}`)}>
+        <CardContent
+          className={classes.cardContent}
+          onClick={() =>
+            enrolledCourse ? history.push(`/enrolled-course/${id}`) : history.push(`/course/${_id}`)
+          }
+        >
           <Box className={classes.tagSection}>
             <Chip
               size="small"

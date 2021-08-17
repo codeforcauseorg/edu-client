@@ -5,7 +5,7 @@ import ProfileHeroLayout from "../ProfileHeroLayout";
 import ProfileSkeleton from "../../skeleton/ProfileSkeleton";
 import EditProfile from "./EditProfile";
 
-function DashboardHero() {
+function DashboardHero({ currentUser }) {
   const classes = useStyles();
 
   const user = useSelector((state) => state.account.user);
@@ -23,7 +23,7 @@ function DashboardHero() {
   return (
     <>
       {user ? (
-        <ProfileHeroLayout>
+        <ProfileHeroLayout props={currentUser}>
           <Box className={classes.wrapper}>
             <Avatar className={classes.avatar} src={user.photoURL} />
             <CircularProgress
@@ -53,7 +53,7 @@ function DashboardHero() {
       ) : (
         <ProfileSkeleton />
       )}
-      <EditProfile open={open} onClose={handleClose} />
+      <EditProfile open={open} onClose={handleClose} props={currentUser} />
     </>
   );
 }

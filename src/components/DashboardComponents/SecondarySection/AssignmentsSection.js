@@ -2,17 +2,17 @@ import { makeStyles, Box, Typography, List } from "@material-ui/core";
 import React from "react";
 import AssignmentList from "../SubComponents/AssignmentList";
 
-function AssignmentsSection() {
+function AssignmentsSection({ userCourse }) {
   const classes = useStyles();
 
   return (
     <Box className={classes.container}>
       <Typography variant="h4" className={classes.heading}>
-        Active Assignments (2)
+        {`Active Assignments (${userCourse?.length})`}
       </Typography>
-      <List container className={classes.grid} spacing={4}>
-        {[1, 2].map((items, index) => (
-          <AssignmentList key={index} />
+      <List container spacing={4}>
+        {userCourse?.map((items, index) => (
+          <AssignmentList key={index} props={items} />
         ))}
       </List>
     </Box>
