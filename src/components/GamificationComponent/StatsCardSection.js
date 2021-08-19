@@ -58,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     marginTop: theme.spacing(4),
     marginBottom: theme.spacing(4),
-    [theme.breakpoints.down("755")]: {
+    justifyContent: "space-around",
+    [theme.breakpoints.down("md")]: {
       flexWrap: "wrap",
     },
   },
@@ -67,10 +68,10 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 165,
     boxShadow: "0px 6px 12px -6px rgba(24, 39, 75, 0.12), 0px 8px 24px -4px rgba(24, 39, 75, 0.08)",
     marginRight: theme.spacing(4),
-    [theme.breakpoints.down("755")]: {
+    marginBottom: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
       marginRight: theme.spacing(0),
       width: "100%",
-      marginBottom: theme.spacing(2),
     },
     [theme.breakpoints.down("md")]: {
       marginRight: theme.spacing(2),
