@@ -36,7 +36,7 @@ import {firebaseAuth} from "../firebase"
       dispatch(login())
       cfaSignIn("google.com").subscribe((user)=>{
        setuserData(user.displayName,user.email,user.photoURL);
-       
+       user.sendEmailVerification();
       });
     }
    
