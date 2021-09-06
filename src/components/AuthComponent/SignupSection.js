@@ -1,15 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Button, Grid, TextField, Typography, Link } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../../services/authService";
+import { loginAction, loginActionWithEmailPassword } from "../../services/authService";
 
 function SignupSection() {
   const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [displayName, setDisplayName] = useState("");
+
+  const handleChangepassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleChangeemail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handleChangedisplayName = (e) => {
+    setDisplayName(e.target.value);
+  };
 
   const handleLoginAction = () => {
     try {
       dispatch(loginAction());
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const handleLoginActionWithEmailPassword = () => {
+    try {
+      dispatch(loginActionWithEmailPassword(email, password, displayName));
     } catch (err) {
       console.log(err);
     }
@@ -26,10 +46,36 @@ function SignupSection() {
         <Typography color="textPrimary" className={classes.title}>
           Create an account
         </Typography>
-        <TextField fullWidth margin="normal" label="First & Last name" variant="outlined" />
-        <TextField fullWidth margin="normal" label="Email" variant="outlined" />
-        <TextField fullWidth margin="normal" label="Password" variant="outlined" />
-        <Button fullWidth className={classes.signupButton}>
+        <TextField
+          fullWidth
+          margin="normal"
+          value={displayName}
+          label="First & Last name"
+          variant="outlined"
+          onChange={handleChangedisplayName}
+        />
+        <TextField
+          fullWidth
+          margin="normal"
+          value={email}
+          label="Email"
+          variant="outlined"
+          onChange={handleChangeemail}
+        />
+        <TextField
+          fullWidth
+          margin="normal"
+          value={password}
+          label="Password"
+          variant="outlined"
+          onChange={handleChangepassword}
+        />
+
+        <Button
+          fullWidth
+          className={classes.signupButton}
+          onClick={() => handleLoginActionWithEmailPassword()}
+        >
           <Typography variant="body2">Sign up</Typography>
         </Button>
         <Button fullWidth className={classes.googleSignup} onClick={() => handleLoginAction()}>
