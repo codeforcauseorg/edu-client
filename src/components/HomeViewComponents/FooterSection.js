@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
+import {FaInstagram,FaYoutube,FaTwitter,FaGithub} from "react-icons/fa";
 
 function Copyright() {
   return (
@@ -17,13 +18,6 @@ function Copyright() {
     </Typography>
   );
 }
-
-const iconList = [
-  "/assets/icon/social icons/twitter.svg",
-  "/assets/icon/social icons/linkedIn.svg",
-  "/assets/icon/social icons/github.svg",
-  "/assets/icon/social icons/youtube_icon.svg",
-];
 
 function FooterSection() {
   const classes = useStyles();
@@ -52,11 +46,18 @@ function FooterSection() {
                 learning pattern.
               </Typography>
               <Box className={classes.buttonContainer}>
-                {iconList.map((items, index) => (
-                  <IconButton key={index} className={classes.socialButtons}>
-                    <img src={items} />
-                  </IconButton>
-                ))}
+                <IconButton href="https://www.instagram.com/codeforcause/" target="_blank" aria-label="FaceBook">
+                <FaInstagram />
+                </IconButton>
+                <IconButton href="https://www.youtube.com/c/CodeforCause" target="_blank" aria-label="YouTube">
+                <FaYoutube />
+                </IconButton>
+                <IconButton href="https://twitter.com/codeforcauseIn?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" aria-label="Twitter">
+                <FaTwitter />
+                </IconButton>
+                <IconButton href="https://github.com/codeforcauseorg/edu-client" target="_blank" aria-label="Github">
+                <FaGithub/>
+                </IconButton>
               </Box>
             </Box>
           </Grid>
@@ -64,7 +65,7 @@ function FooterSection() {
             <Box>
               <Typography variant="h4">Explore</Typography>
               <Box mt={3} className={classes.exploreLinks}>
-                <Typography gutterBottom variant="h5">
+                <Typography gutterBottom variant="h5" href="/home">
                   Home
                 </Typography>
                 <Typography gutterBottom variant="h5">
