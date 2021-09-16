@@ -65,7 +65,7 @@ function FooterSection() {
             <Box>
               <Typography variant="h4">Explore</Typography>
               <Box mt={3} className={classes.exploreLinks}>
-                <Typography gutterBottom variant="h5" href="/home">
+                <Typography gutterBottom variant="h5" >
                   Home
                 </Typography>
                 <Typography gutterBottom variant="h5">
