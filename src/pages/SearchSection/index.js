@@ -49,22 +49,24 @@ function SearchSection(props) {
   };
 
   const filterList = ["Most Relevant", "Most Reviewed", "Highest Rated", "Newest"];
-  const tagListSet = new Set()
+  const tagListSet = new Set();
   let tagList = ["Search by Tags"];
   courseCardData?.map((course, index) => {
-    tagList = [...tagList, ...course?.tags.filter((items) => {
-      if (!tagListSet.has(items)) {
-        tagListSet.add(items);
-        return true;
-      }
-      return false;
-    })]
+    tagList = [
+      ...tagList,
+      ...course?.tags.filter((items) => {
+        if (!tagListSet.has(items)) {
+          tagListSet.add(items);
+          return true;
+        }
+        return false;
+      }),
+    ];
     return true;
   });
   useEffect(() => {
-    if (tagState !== "Select Tag")
-      history.push(`/tags?q=${tagState}`);
-  }, [tagState])
+    if (tagState !== "Select Tag") history.push(`/tags?q=${tagState}`);
+  }, [tagState]);
 
   return (
     <>
@@ -90,12 +92,16 @@ function SearchSection(props) {
                   </option>
                 ))}
               </NativeSelect>
-              <NativeSelect className={classes.dropdown} value={tagState} onChange={(event) => setTagState(event.target.value)}>
-                {tagList.map((items, index) =>
+              <NativeSelect
+                className={classes.dropdown}
+                value={tagState}
+                onChange={(event) => setTagState(event.target.value)}
+              >
+                {tagList.map((items, index) => (
                   <option key={index} value={items}>
                     {items}
                   </option>
-                )}
+                ))}
               </NativeSelect>
             </FormControl>
           </Container>
