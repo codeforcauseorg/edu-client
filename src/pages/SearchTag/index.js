@@ -7,7 +7,7 @@ import {
 	FormControl,
 	NativeSelect,
 } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory, useLocation } from "react-router";
 import CourseList from "../../components/SearchComponents/CourseList";
 import FilterListIcon from "@material-ui/icons/FilterList";
@@ -46,15 +46,30 @@ function SearchTag(props) {
 	console.log(sort);
 
 	const [state, setState] = useState("all");
-
+	const [tagState, setTagState] = useState("Select Tag");
 	const handleChange = (event) => {
 		setState(event.target.value);
-		history.push(`/search?q=${query}&sort=${state}`);
+		history.push(`/tags?q=${query}&sort=${state}`);
 		console.log(event.target.value);
 	};
 
 	const filterList = ["Most Relevant", "Most Reviewed", "Highest Rated", "Newest"];
-
+	const tagListSet = new Set()
+	let tagList = ["Select Tag"];
+	courseCardData?.map((course, index) => {
+		tagList = [...tagList, ...course?.tags.filter((items) => {
+			if (!tagListSet.has(items)) {
+				tagListSet.add(items);
+				return true;
+			}
+			return false;
+		})]
+		return true;
+	});
+	useEffect(() => {
+		if (tagState !== "Select Tag")
+			history.push(`/tags?q=${tagState}`);
+	}, [tagState])
 	return (
 		<>
 			<Box className={classes.root}>
@@ -78,6 +93,13 @@ function SearchTag(props) {
 										{items}
 									</option>
 								))}
+							</NativeSelect>
+							<NativeSelect className={classes.dropdown} value={tagState} onChange={(event) => setTagState(event.target.value)}>
+								{tagList.map((items, index) =>
+									<option key={index} value={items}>
+										{items}
+									</option>
+								)}
 							</NativeSelect>
 						</FormControl>
 					</Container>
