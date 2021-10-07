@@ -59,6 +59,7 @@ const useStyles = makeStyles((theme) => ({
     textTransform: "none",
     "&:hover": {
       background: theme.palette.primary.main,
+      boxShadow: `0px 4px 10px 1px ${theme.palette.primary.main}`,
     },
   },
   divider: {

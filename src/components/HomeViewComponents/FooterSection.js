@@ -165,6 +165,7 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 4px 15px rgba(55, 64, 161, 0.25)",
     "&:hover": {
       background: theme.palette.primary.main,
+      boxShadow: `0px 4px 10px 1px ${theme.palette.primary.main}`,
     },
   },
   googlePlay: {

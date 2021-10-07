@@ -28,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
       border: "none",
       borderRadius: "0px",
     },
+    "&:hover": {
+      background: theme.palette.primary.main,
+      color: "#fff",
+    },
   },
 }));
 

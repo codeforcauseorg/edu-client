@@ -241,6 +241,7 @@ const useStyles = makeStyles((theme) => ({
     background: theme.palette.primary.main,
     "&:hover": {
       background: theme.palette.primary.main,
+      boxShadow: `0px 4px 10px 1px ${theme.palette.primary.main}`,
     },
     borderRadius: "5px",
     color: "#fff",
