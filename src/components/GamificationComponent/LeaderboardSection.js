@@ -1,10 +1,10 @@
 import { Box } from "@material-ui/core";
 import React, { useState } from "react";
-import leaderboardElement from "../../data/leaderboardRowElements.json";
+
 import LeaderBoardList from "./LeaderBoardList";
 import Pagination from "./Pagination";
 
-function LeaderboardSection() {
+function LeaderboardSection({leaderboardElement}) {
   const [pageNumber, setPageNumber] = useState(0);
 
   const listPerPage = 3;
