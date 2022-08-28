@@ -6,9 +6,10 @@ import {
   IconButton,
   makeStyles,
   Switch,
-  Typography,
+  Typography
 } from "@material-ui/core";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -64,16 +65,18 @@ function FooterSection() {
             <Box>
               <Typography variant="h4">Explore</Typography>
               <Box mt={3} className={classes.exploreLinks}>
-                <Typography gutterBottom variant="h5">
-                  Home
-                </Typography>
-                <Typography gutterBottom variant="h5">
+                <Link className={classes.linkDecoration} to="/">
+                  <Typography className={classes.footerLinks} gutterBottom variant="h5">
+                    Home
+                  </Typography>
+                </Link>
+                <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Courses
                 </Typography>
-                <Typography gutterBottom variant="h5">
+                <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Special Offers
                 </Typography>
-                <Typography variant="h5">Events & Hackathons</Typography>
+                <Typography className={classes.footerLinks} variant="h5">Events & Hackathons</Typography>
               </Box>
             </Box>
           </Grid>
@@ -81,16 +84,16 @@ function FooterSection() {
             <Box>
               <Typography variant="h4">About</Typography>
               <Box mt={3} className={classes.AboutLinks}>
-                <Typography gutterBottom variant="h5">
+                <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Privacy & Policy
                 </Typography>
-                <Typography gutterBottom variant="h5">
+                <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Terms & Conditions
                 </Typography>
-                <Typography gutterBottom variant="h5">
+                <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Support
                 </Typography>
-                <Typography variant="h5">Career</Typography>
+                <Typography className={classes.footerLinks} variant="h5">Career</Typography>
               </Box>
             </Box>
           </Grid>
@@ -98,10 +101,10 @@ function FooterSection() {
             <Box>
               <Typography variant="h4">Community</Typography>
               <Box mt={3} className={classes.communityLinks}>
-                <Typography gutterBottom variant="h5">
+                <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Refer a Friend{" "}
                 </Typography>
-                <Typography variant="h5">Scholarship</Typography>
+                <Typography className={classes.footerLinks} variant="h5">Scholarship</Typography>
               </Box>
             </Box>
           </Grid>
@@ -172,6 +175,15 @@ const useStyles = makeStyles((theme) => ({
   },
   appleStore: {
     cursor: "pointer",
+  },
+  footerLinks: {
+    cursor: "pointer",
+    "&:hover": {
+      color: theme.palette.primary.main,
+    }
+  },
+  linkDecoration: {
+    textDecoration: "none",
   },
   darkModeSwitcher: {
     display: "flex",
