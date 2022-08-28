@@ -6,7 +6,7 @@ import {
   IconButton,
   makeStyles,
   Switch,
-  Typography
+  Typography,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -76,7 +76,9 @@ function FooterSection() {
                 <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Special Offers
                 </Typography>
-                <Typography className={classes.footerLinks} variant="h5">Events & Hackathons</Typography>
+                <Typography className={classes.footerLinks} variant="h5">
+                  Events & Hackathons
+                </Typography>
               </Box>
             </Box>
           </Grid>
@@ -93,7 +95,9 @@ function FooterSection() {
                 <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Support
                 </Typography>
-                <Typography className={classes.footerLinks} variant="h5">Career</Typography>
+                <Typography className={classes.footerLinks} variant="h5">
+                  Career
+                </Typography>
               </Box>
             </Box>
           </Grid>
@@ -104,7 +108,9 @@ function FooterSection() {
                 <Typography className={classes.footerLinks} gutterBottom variant="h5">
                   Refer a Friend{" "}
                 </Typography>
-                <Typography className={classes.footerLinks} variant="h5">Scholarship</Typography>
+                <Typography className={classes.footerLinks} variant="h5">
+                  Scholarship
+                </Typography>
               </Box>
             </Box>
           </Grid>
@@ -180,7 +186,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     "&:hover": {
       color: theme.palette.primary.main,
-    }
+    },
   },
   linkDecoration: {
     textDecoration: "none",
