@@ -5,7 +5,7 @@ import CardContainer from "../../../components/cardContainer/cardContainer";
 import { Box, Container, makeStyles, Typography } from "@material-ui/core";
 import BrowseAllButton from "../../../components/BrowseAllButton";
 import StudentReviewSection from "../../../components/HomeViewComponents/StudentReviewSection";
-import MentorSection from "../../../components/HomeViewComponents/MentorSection";
+// import MentorSection from "../../../components/HomeViewComponents/MentorSection";
 import OurImpactSection from "../../../components/HomeViewComponents/OurImpactSection";
 import ExploreCourseSection from "../../../components/HomeViewComponents/ExploreCourseSection";
 import MediaCard from "../../../components/CourseMediaCard/MediaCard";
@@ -97,7 +97,7 @@ function HomeView() {
       </Container>
       <ExploreCourseSection exploreCourse={courseCardData} />
       <OurImpactSection />
-      <MentorSection />
+      {/* <MentorSection /> */}
       <Banner />
       <StudentReviewSection />
     </div>
