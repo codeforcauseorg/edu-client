@@ -46,9 +46,8 @@ Thank you for considering and taking the time to contribute! Before contributing
 
 ## 📌 Potential Maintainers :
 
-[Anuj Garg](https://github.com/KeenWarrior)\
-[Kunal Kushwaha](https://github.com/kunal-kushwaha)\
-[Abhishek Kumar](https://github.com/Abhishek-kumar09)
+[Anuj Garg](https://github.com/KeenWarrior)
+[Ganga Chaturvedi](https://github.com/GangaChatrvedi)
 
 ## 📌 Credits :
 
