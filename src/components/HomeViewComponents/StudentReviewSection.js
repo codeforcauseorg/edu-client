@@ -3,6 +3,7 @@ import React from "react";
 import CardContainer from "../cardContainer/cardContainer";
 import ReviewCard from "../ReviewCard/ReviewCard";
 import FadeReveal from "../Animation/index";
+import { recommendations } from "../../data/recommendations";
 function StudentReviewSection() {
   const classes = useStyles();
 
@@ -18,8 +19,8 @@ function StudentReviewSection() {
       <Grid className={classes.gridScroll}>
         <div className={classes.reviewSlide}>
           <CardContainer>
-            {[1, 2, 3, 4, 5, 6].map((items, index) => (
-              <ReviewCard key={index} />
+            {recommendations.map((review, index) => (
+              <ReviewCard key={index} review={review} />
             ))}
           </CardContainer>
         </div>
