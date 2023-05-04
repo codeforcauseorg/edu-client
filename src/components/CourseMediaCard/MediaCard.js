@@ -31,6 +31,7 @@ function MediaCard({ props, isDeleteButton, onClick, enrolledCourse }) {
     video_num,
     mentor,
   } = props;
+  let flag = false;
 
   const classes = useStyles();
 
@@ -44,7 +45,6 @@ function MediaCard({ props, isDeleteButton, onClick, enrolledCourse }) {
       onClick();
     }, 700);
   };
-
   return (
     <Card
       classes={{ root: classes.root, removedItem: classes.removedItem }}
@@ -73,7 +73,11 @@ function MediaCard({ props, isDeleteButton, onClick, enrolledCourse }) {
         <CardContent
           className={classes.cardContent}
           onClick={() =>
-            enrolledCourse ? history.push(`/enrolled-course/${id}`) : history.push(`/course/${_id}`)
+            !flag
+              ? enrolledCourse
+                ? history.push(`/enrolled-course/${id}`)
+                : history.push(`/course/${_id}`)
+              : console.log("")
           }
         >
           <Box className={classes.tagSection}>
@@ -98,6 +102,10 @@ function MediaCard({ props, isDeleteButton, onClick, enrolledCourse }) {
                   size="small"
                   className={classes.tag}
                   label={items}
+                  onClick={() => {
+                    flag = 1;
+                    history.push(`/tags?q=${items}`);
+                  }}
                 />
               ))}
             </Box>

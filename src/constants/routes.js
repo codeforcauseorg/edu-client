@@ -18,6 +18,8 @@ export const CHECKOUT = "/checkout";
 
 export const SEARCH_SECTION = "/search";
 
+export const SEARCH_TAG = "/tags";
+
 export const DOUBT_QUESTIONS_DETAILS = "/doubt-forum/:id";
 
 export const MENTOR_SECTION = "/mentor/:id";

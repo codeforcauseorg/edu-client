@@ -14,6 +14,7 @@ import LessonsPlayer from "../pages/LessonsPlayer/index";
 import DoubtForum from "../pages/MainLayoutPage/DoubtForum";
 import Checkout from "../pages/Checkout";
 import SearchSection from "../pages/SearchSection";
+import SearchTag from "../pages/SearchTag";
 import DoubtDetailSection from "../pages/DoubtDetailSection";
 import AboutMentorSection from "../pages/AboutMentorSection";
 import AskQuestion from "../pages/AskQuestion/AskQuestion";
@@ -69,6 +70,12 @@ const Routes = () => (
     <AuthRoute exact path={ROUTES.SEARCH_SECTION}>
       <MainLayout>
         <SearchSection />
+      </MainLayout>
+    </AuthRoute>
+
+    <AuthRoute exact path={ROUTES.SEARCH_TAG}>
+      <MainLayout>
+        <SearchTag />
       </MainLayout>
     </AuthRoute>
 
