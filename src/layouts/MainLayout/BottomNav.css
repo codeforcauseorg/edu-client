@@ -1,11 +1,14 @@
+/* Add a border-bottom when the item is selected */
 .MuiBottomNavigationAction-root.Mui-selected {
   border-bottom: 2px solid #3949ab;
 }
 
+/* Customize the font size for selected items */
 .Mui-selected {
   font-size: 0.8rem !important;
 }
 
+/* Adjust font size for smaller screens */
 @media screen and (max-width: 361px) and (min-width: 360px) {
   .Mui-selected {
     font-size: 0.77rem !important;
@@ -29,8 +32,3 @@
     font-size: 0.6rem !important;
   }
 }
-
-
-/* .MuiPaper-root .MuiAppBar-root .MuiAppBar-positionFixed .MuiAppBar-colorPrimary .mui-fixed{
-  transition: cubic-bezier(0, 0, 0.2, 1)  ;
-} */
