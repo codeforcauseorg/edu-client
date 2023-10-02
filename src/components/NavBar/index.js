@@ -82,7 +82,6 @@ function NavBar() {
   return (
     <div>
       <AppBar position="static">
-        <AdBanner />
         <Toolbar className={classes.appBar}>
           <IconButton edge="start" className={classes.menuButton} color="primary">
             <MenuIcon />
@@ -189,6 +188,7 @@ function NavBar() {
             )}
           </Popper>
         </Toolbar>
+        <AdBanner />
       </AppBar>
     </div>
   );
