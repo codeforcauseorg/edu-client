@@ -3,15 +3,32 @@ import LeaderboardFilter from "../../../components/GamificationComponent/Leaderb
 import LeaderboardSection from "../../../components/GamificationComponent/LeaderboardSection";
 import StatsCardSection from "../../../components/GamificationComponent/StatsCardSection";
 import HeroSection from "../../../components/HeroSection";
+import * as React from "react"; // Use lowercase 'react' here
+import leaderboardElement from "../../../data/leaderboardRowElements.json";
 
-function GamificationBoard(props) {
+function GamificationBoard() {
   const classes = useStyles();
 
+  const [leaderBoard, setLeaderBoard] = React.useState(leaderboardElement);
   const heroElements = {
     title: "Gamification Board",
     description:
       " Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard dummy text ever since the.",
   };
+
+  function filter(temp) {
+    if (temp === "Descending") {
+      leaderboardElement.sort((score1, score2) => {
+        return score1.score - score2.score;
+      });
+    } else if (temp === "Ascending") {
+      leaderboardElement.sort((score1, score2) => {
+        return score2.score - score1.score;
+      });
+    }
+
+    setLeaderBoard(leaderboardElement);
+  }
 
   return (
     <Container className={classes.wrapperContainer} disableGutters>
@@ -24,6 +41,7 @@ function GamificationBoard(props) {
         <StatsCardSection />
         <LeaderboardFilter />
         <LeaderboardSection />
+        <LeaderboardFilter filter={filter} leaderBoard={leaderBoard} />
       </Container>
     </Container>
   );
