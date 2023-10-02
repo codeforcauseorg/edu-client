@@ -1,33 +1,38 @@
 import { makeStyles, NativeSelect, Paper, Typography } from "@material-ui/core";
 import React, { useState } from "react";
+import LeaderboardSection from "../../components/GamificationComponent/LeaderboardSection";
 
-const filterList = ["Ascending", "Descending"];
+const filterList = ["Descending", "Ascending"];
 
-function LeaderboardFilter() {
+function LeaderboardFilter([filter, leaderBoard]) {
   const classes = useStyles();
 
   const [state, setState] = useState("all");
 
   const handleChange = (event) => {
     setState(event.target.value);
+    filter(state);
   };
 
   return (
-    <Paper className={classes.root}>
-      <Typography className={classes.title} variant="h6">
-        Sort List
-      </Typography>
-      <NativeSelect className={classes.dropdown} value={state} onChange={handleChange}>
-        <option value="" disabled>
-          Filter
-        </option>
-        {filterList.map((items, index) => (
-          <option key={index} value={items}>
-            {items}
+    <>
+      <Paper className={classes.root}>
+        <Typography className={classes.title} variant="h6">
+          Sort List
+        </Typography>
+        <NativeSelect className={classes.dropdown} value={state} onChange={handleChange}>
+          <option value="" disabled>
+            Filter
           </option>
-        ))}
-      </NativeSelect>
-    </Paper>
+          {filterList.map((items, index) => (
+            <option key={index} value={items}>
+              {items}
+            </option>
+          ))}
+        </NativeSelect>
+      </Paper>
+      <LeaderboardSection leaderboardElement={leaderBoard} />
+    </>
   );
 }
 
