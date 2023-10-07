@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(5),
     background: theme.palette.primary.main,
     color: "#fff",
+    width: "50vw",
     [theme.breakpoints.down("sm")]: {
       marginLeft: theme.spacing(1),
       marginBottom: theme.spacing(1),
